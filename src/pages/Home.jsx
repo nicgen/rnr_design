@@ -4,13 +4,13 @@ export default function Home() {
   return (
     <>
       <section className="max-w-7xl mx-auto px-4 py-8 w-full flex-shrink-0">
-        <div className="relative h-[650px] wireframe-border bg-slate-50 overflow-hidden">
+        <div className="relative min-h-[750px] sm:min-h-0 sm:h-[650px] wireframe-border bg-slate-50 overflow-hidden flex flex-col">
           <div className="absolute inset-0 placeholder-x opacity-10"></div>
-          <div className="relative h-[calc(100%-128px)] flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-6xl font-black uppercase mb-4">Tous Normands, Tous RNR!</h1>
+          <div className="relative flex-1 flex flex-col items-center justify-center text-center px-4 py-12 lg:py-0">
+            <h1 className="text-4xl sm:text-6xl font-black uppercase mb-4">Tous Normands, Tous RNR!</h1>
             <p className="text-xl font-medium max-w-2xl">Persévérance, et force brute, le RNR avance !</p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 bg-white border-t-2 border-black flex flex-col lg:flex-row h-auto lg:h-32">
+          <div className="relative mt-auto bg-white border-t-2 border-black flex flex-col lg:flex-row h-auto lg:h-32">
             <div className="w-full lg:w-[60%] flex flex-col md:flex-row py-6 lg:py-0 items-center px-4 md:px-6 border-b-2 lg:border-b-0 lg:border-r-2 border-black relative">
               <span className="absolute top-2 left-6 text-[10px] font-black uppercase bg-accent px-2 py-0.5">PROCHAIN MATCH</span>
               <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 mt-4 md:mt-0 w-full justify-center md:justify-start">
@@ -156,39 +156,63 @@ export default function Home() {
           <h2 className="text-3xl font-black uppercase mb-8">Résultats</h2>
           <div className="flex flex-col gap-4">
             <div className="wireframe-border p-4 flex items-center justify-between text-xs font-bold w-full">
-              <div className="w-12">J 19</div>
-              <div className="w-24 text-center">13/02/2026</div>
-              <div className="flex-1 flex justify-center items-center gap-4 text-xl font-black italic">
-                <span className="uppercase text-right flex-1 truncate">Rouen</span>
-                <span className="bg-black text-white px-3 py-1 flex-shrink-0">21 - 25</span>
-                <span className="uppercase text-left flex-1 truncate">Rennes EC</span>
+              <div className="w-12 hidden md:block">J 19</div>
+              <div className="w-24 text-center hidden md:block">13/02/2026</div>
+              <div className="flex-1 flex justify-center items-center gap-2 md:gap-4 text-sm md:text-xl font-black italic">
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg text-primary">Rouen</span>
+                </div>
+                <span className="bg-black text-white px-2 py-1 md:px-3 md:py-1 flex-shrink-0 min-w-[60px] md:min-w-[80px] text-center text-sm md:text-xl">21 - 25</span>
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg">Rennes EC</span>
+                </div>
               </div>
             </div>
             <div className="wireframe-border p-4 flex items-center justify-between text-xs font-bold w-full">
-              <div className="w-12">J 20</div>
-              <div className="w-24 text-center">21/02/2026</div>
-              <div className="flex-1 flex justify-center items-center gap-4 text-xl font-black italic">
-                <span className="uppercase text-right flex-1 truncate">Stade Niçois</span>
-                <span className="bg-black text-white px-3 py-1 flex-shrink-0">40 - 19</span>
-                <span className="uppercase text-left flex-1 truncate">Rouen</span>
+              <div className="w-12 hidden md:block">J 20</div>
+              <div className="w-24 text-center hidden md:block">21/02/2026</div>
+              <div className="flex-1 flex justify-center items-center gap-2 md:gap-4 text-sm md:text-xl font-black italic">
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg">Stade Niçois</span>
+                </div>
+                <span className="bg-black text-white px-2 py-1 md:px-3 md:py-1 flex-shrink-0 min-w-[60px] md:min-w-[80px] text-center text-sm md:text-xl">40 - 19</span>
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg text-primary">Rouen</span>
+                </div>
               </div>
             </div>
             <div className="wireframe-border p-4 flex items-center justify-between text-xs font-bold w-full">
-              <div className="w-12">J 21</div>
-              <div className="w-24 text-center">27/02/2026</div>
-              <div className="flex-1 flex justify-center items-center gap-4 text-xl font-black italic">
-                <span className="uppercase text-right flex-1 truncate">Rouen</span>
-                <span className="bg-black text-white px-3 py-1 flex-shrink-0">20 - 19</span>
-                <span className="uppercase text-left flex-1 truncate">Périgourdin</span>
+              <div className="w-12 hidden md:block">J 21</div>
+              <div className="w-24 text-center hidden md:block">27/02/2026</div>
+              <div className="flex-1 flex justify-center items-center gap-2 md:gap-4 text-sm md:text-xl font-black italic">
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg text-primary">Rouen</span>
+                </div>
+                <span className="bg-black text-white px-2 py-1 md:px-3 md:py-1 flex-shrink-0 min-w-[60px] md:min-w-[80px] text-center text-sm md:text-xl">20 - 19</span>
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg">Périgourdin</span>
+                </div>
               </div>
             </div>
             <div className="wireframe-border p-4 flex items-center justify-between text-xs font-bold w-full">
-              <div className="w-12">J 22</div>
-              <div className="w-24 text-center">07/03/2026</div>
-              <div className="flex-1 flex justify-center items-center gap-4 text-xl font-black italic">
-                <span className="uppercase text-right flex-1 truncate">CS Bourgoin</span>
-                <span className="bg-black text-white px-3 py-1 flex-shrink-0">11 - 33</span>
-                <span className="uppercase text-left flex-1 truncate">Rouen</span>
+              <div className="w-12 hidden md:block">J 22</div>
+              <div className="w-24 text-center hidden md:block">07/03/2026</div>
+              <div className="flex-1 flex justify-center items-center gap-2 md:gap-4 text-sm md:text-xl font-black italic">
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg">CS Bourgoin</span>
+                </div>
+                <span className="bg-black text-white px-2 py-1 md:px-3 md:py-1 flex-shrink-0 min-w-[60px] md:min-w-[80px] text-center text-sm md:text-xl">11 - 33</span>
+                <div className="flex flex-col items-center flex-1 w-0">
+                  <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                  <span className="uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg text-primary">Rouen</span>
+                </div>
               </div>
             </div>
           </div>
@@ -282,12 +306,12 @@ export default function Home() {
             <p className="font-black uppercase mt-4 relative z-10">Dernière vidéo YouTube</p>
           </div>
           <div className="w-full lg:w-1/2 grid grid-cols-2 sm:grid-cols-3 grid-rows-none sm:grid-rows-2 gap-4">
-            <PlaceholderImage />
-            <PlaceholderImage />
-            <PlaceholderImage />
-            <PlaceholderImage />
-            <PlaceholderImage />
-            <PlaceholderImage />
+            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
+            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
+            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
+            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
+            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
+            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-4">

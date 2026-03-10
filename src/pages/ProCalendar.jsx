@@ -41,22 +41,24 @@ export default function ProCalendar() {
               <div className="w-32 text-center text-xs text-slate-500">{match.date}</div>
             </div>
             
-            <div className="flex-1 flex justify-center items-center gap-2 md:gap-6 text-xl md:text-2xl font-black italic w-full">
-              <span className={`uppercase text-right flex-1 truncate ${match.home === "Rouen" ? 'text-primary' : ''}`}>{match.home}</span>
+            <div className="flex-1 flex justify-center items-center gap-2 md:gap-4 text-sm md:text-xl font-black italic w-full">
+              <div className="flex flex-col items-center flex-1 w-0">
+                <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                <span className={`uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg ${match.home === "Rouen" ? 'text-primary' : ''}`}>{match.home}</span>
+              </div>
               
-              <div className="flex items-center gap-2">
-                <PlaceholderImage className="w-8 h-8 rounded-full border border-slate-200" />
-                
+              <div className="flex items-center justify-center">
                 {match.score ? (
-                  <span className="bg-black text-white px-4 py-1 text-xl flex-shrink-0 min-w-[100px] text-center">{match.score}</span>
+                  <span className="bg-black text-white px-2 py-1 md:px-4 md:py-1 text-sm md:text-xl flex-shrink-0 min-w-[60px] md:min-w-[100px] text-center">{match.score}</span>
                 ) : (
-                  <span className="bg-slate-200 text-slate-600 px-4 py-1 text-lg flex-shrink-0 min-w-[100px] text-center">{match.time}</span>
+                  <span className="bg-slate-200 text-slate-600 px-2 py-1 md:px-4 md:py-1 text-sm md:text-lg flex-shrink-0 min-w-[60px] md:min-w-[100px] text-center">{match.time}</span>
                 )}
-                
-                <PlaceholderImage className="w-8 h-8 rounded-full border border-slate-200" />
               </div>
 
-              <span className={`uppercase text-left flex-1 truncate ${match.away === "Rouen" ? 'text-primary' : ''}`}>{match.away}</span>
+              <div className="flex flex-col items-center flex-1 w-0">
+                <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
+                <span className={`uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg ${match.away === "Rouen" ? 'text-primary' : ''}`}>{match.away}</span>
+              </div>
             </div>
 
             <div className="w-full md:w-32 text-center md:text-right">
