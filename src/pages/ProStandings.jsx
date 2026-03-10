@@ -33,7 +33,7 @@ export default function ProStandings() {
 
       <SectionNav links={navLinks} />
 
-      <div className="wireframe-border overflow-hidden mt-8 max-w-5xl mx-auto">
+      <div className="wireframe-border overflow-x-auto mt-8 max-w-5xl mx-auto">
         <table className="w-full text-left text-sm">
           <thead className="bg-black text-white uppercase text-xs font-bold">
             <tr>
@@ -80,7 +80,7 @@ export default function ProStandings() {
       </div>
       
       {/* Legend */}
-      <div className="flex justify-center gap-8 mt-8 text-xs font-bold uppercase py-4 border-t-2 border-slate-200 max-w-5xl mx-auto">
+      <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-4 sm:gap-8 mt-8 text-xs font-bold uppercase py-4 border-t-2 border-slate-200 max-w-5xl mx-auto">
         <div className="flex items-center gap-2"><span className="w-3 h-3 bg-primary rounded-full"></span> Qualifiés Demi-finales</div>
         <div className="flex items-center gap-2"><span className="w-3 h-3 bg-black rounded-full"></span> Qualifiés Barrages</div>
         <div className="flex items-center gap-2"><span className="w-3 h-3 bg-red-600 rounded-full"></span> Relégables</div>

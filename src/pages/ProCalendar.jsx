@@ -27,7 +27,7 @@ export default function ProCalendar() {
 
       <SectionNav links={navLinks} />
 
-      <div className="flex gap-4 mb-8">
+      <div className="flex gap-4 mb-8 flex-wrap">
         <button className="bg-black text-white px-6 py-2 font-black uppercase text-xs">Tous les matchs</button>
         <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300">Phase Aller</button>
         <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300">Phase Retour</button>
@@ -35,11 +35,13 @@ export default function ProCalendar() {
 
       <div className="flex flex-col gap-4 max-w-4xl mx-auto">
         {matches.map((match, i) => (
-          <div key={i} className={`wireframe-border p-4 flex items-center justify-between font-bold w-full transition-colors ${match.isNext ? 'bg-primary/5 border-l-4 border-l-primary' : 'bg-white hover:bg-slate-50'}`}>
-            <div className="w-16 text-center text-sm">{match.day}</div>
-            <div className="w-32 text-center text-xs text-slate-500">{match.date}</div>
+          <div key={i} className={`wireframe-border p-4 flex flex-col md:flex-row items-center justify-between font-bold w-full gap-4 md:gap-0 transition-colors ${match.isNext ? 'bg-primary/5 border-l-4 border-l-primary' : 'bg-white hover:bg-slate-50'}`}>
+            <div className="flex justify-between w-full md:w-auto px-4 md:px-0">
+              <div className="w-16 text-center text-sm">{match.day}</div>
+              <div className="w-32 text-center text-xs text-slate-500">{match.date}</div>
+            </div>
             
-            <div className="flex-1 flex justify-center items-center gap-6 text-2xl font-black italic">
+            <div className="flex-1 flex justify-center items-center gap-2 md:gap-6 text-xl md:text-2xl font-black italic w-full">
               <span className={`uppercase text-right flex-1 truncate ${match.home === "Rouen" ? 'text-primary' : ''}`}>{match.home}</span>
               
               <div className="flex items-center gap-2">
@@ -57,7 +59,7 @@ export default function ProCalendar() {
               <span className={`uppercase text-left flex-1 truncate ${match.away === "Rouen" ? 'text-primary' : ''}`}>{match.away}</span>
             </div>
 
-            <div className="w-32 text-right">
+            <div className="w-full md:w-32 text-center md:text-right">
               {match.score ? (
                 <span className="text-xs font-black uppercase text-slate-400">Terminé</span>
               ) : match.home === "Rouen" ? (

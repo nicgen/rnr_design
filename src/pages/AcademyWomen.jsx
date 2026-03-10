@@ -20,7 +20,7 @@ export default function AcademyWomen() {
       <SectionNav links={navLinks} />
 
       {/* Intro Féminines */}
-      <div className="mb-16 grid grid-cols-2 gap-12 items-center">
+      <div className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="wireframe-border p-4 bg-slate-50">
            <PlaceholderImage className="aspect-[4/3] w-full" />
         </div>
@@ -40,7 +40,7 @@ export default function AcademyWomen() {
       {/* Cadettes / Formation */}
       <div className="mb-20">
          <h3 className="text-3xl font-black uppercase border-b-4 border-black pb-2 mb-8 inline-block">La Formation Féminine (M18, M15)</h3>
-         <div className="grid grid-cols-2 gap-8">
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="wireframe-border p-8 bg-white hover:-translate-y-1 transition-transform relative overflow-hidden group">
                  <h4 className="text-2xl font-black uppercase mb-4">Cadettes (M18)</h4>
                  <p className="text-sm leading-relaxed mb-6">L'équipe Cadettes évolue en championnat Elite ou Régional, préparant les jeunes joueuses aux exigences du niveau sénior. C'est l'antichambre de notre équipe première féminine.</p>
@@ -56,7 +56,7 @@ export default function AcademyWomen() {
 
       {/* Photo Grid / Social */}
       <h3 className="text-2xl font-black uppercase mb-6">Dans l'arène</h3>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <PlaceholderImage className="aspect-square" />
           <PlaceholderImage className="aspect-square" />
           <PlaceholderImage className="aspect-square" />

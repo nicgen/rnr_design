@@ -36,7 +36,7 @@ export default function Academy() {
 
       <SectionNav links={navLinks} />
 
-      <div className="mb-16 grid grid-cols-2 gap-12 items-center">
+      <div className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div>
           <h2 className="text-3xl font-black uppercase mb-6 leading-tight">L'Excellence Normande</h2>
           <p className="text-lg leading-relaxed mb-6">Le Centre de Formation du Rouen Normandie Rugby est au cœur de notre projet sportif. Agréé par la FFR, il vise la double excellence : sportive et scolaire/professionnelle. Notre mission est d'accompagner chaque joueur dans son développement pour atteindre le haut niveau tout en préparant son avenir personnel.</p>
@@ -55,7 +55,7 @@ export default function Academy() {
       </div>
 
       {/* NEW: Modalités & Détections */}
-      <div className="mb-20 grid grid-cols-[1fr_2fr] gap-12 items-stretch">
+      <div className="mb-20 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 items-stretch">
         
         {/* Détections & CTA */}
         <div className="bg-primary text-white p-10 wireframe-border flex flex-col justify-center">
@@ -73,7 +73,7 @@ export default function Academy() {
         <div className="wireframe-border p-10 bg-white">
           <h3 className="text-2xl font-black uppercase mb-8 border-b-2 border-slate-100 pb-4">Modalités d'inscription</h3>
           
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center group">
               <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center font-black text-xl mb-4 group-hover:bg-primary transition-colors">1</div>
               <h4 className="font-black uppercase mb-2">Évaluation</h4>
@@ -101,7 +101,7 @@ export default function Academy() {
           <h3 className="text-3xl font-black uppercase border-b-4 border-black pb-2 inline-block">Actualités Espoirs</h3>
           <a className="text-xs font-black uppercase hover:text-primary transition-colors cursor-pointer flex items-center gap-1">Voir tout <span className="material-symbols-outlined text-sm">arrow_forward</span></a>
         </div>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="wireframe-border p-4 bg-white hover:-translate-y-1 transition-transform cursor-pointer">
             <PlaceholderImage className="aspect-video mb-4" />
             <h4 className="font-black uppercase text-lg leading-tight mb-2">Victoire bonifiée face à Vannes pour nos Espoirs !</h4>
@@ -122,7 +122,7 @@ export default function Academy() {
 
       <div>
         <h3 className="text-3xl font-black uppercase border-b-4 border-black pb-2 mb-8 inline-block">Effectif Espoirs (U21)</h3>
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {espoirs.map((player, i) => (
             <div key={i} className="wireframe-border p-3 flex flex-col items-center bg-white text-center hover:-translate-y-1 transition-transform cursor-pointer">
               <PlaceholderImage className="w-24 h-24 rounded-full border-4 border-slate-100 mb-3" />

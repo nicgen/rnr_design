@@ -19,7 +19,7 @@ export default function Club() {
       <SectionNav links={navLinks} />
 
       {/* Palmarès / Trophées */}
-      <div className="bg-black text-white p-12 mb-16 wireframe-border flex justify-around">
+      <div className="bg-black text-white p-12 mb-16 wireframe-border flex flex-col sm:flex-row justify-around gap-8 sm:gap-0">
         <div className="text-center">
           <span className="material-symbols-outlined text-6xl text-primary mb-4">emoji_events</span>
           <p className="text-4xl font-black mb-2">2</p>
@@ -38,37 +38,37 @@ export default function Club() {
       
       <div className="flex flex-col gap-12">
         {/* 2009 */}
-        <div className="flex items-center gap-12">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="w-full md:w-1/2">
             <h4 className="text-6xl font-black text-slate-200 mb-2">2009</h4>
             <h5 className="text-2xl font-black uppercase mb-4">Création du Stade Rouennais</h5>
             <p className="text-slate-600 leading-relaxed text-lg">Le club naît sous sa forme moderne, marquant le début d'une nouvelle ère pour le rugby normand avec des ambitions renouvelées et une volonté de s'imposer sur la scène nationale amateur.</p>
           </div>
-          <div className="w-1/2 p-4 wireframe-border bg-slate-50">
+          <div className="w-full md:w-1/2 p-4 wireframe-border bg-slate-50">
             <PlaceholderImage className="aspect-video w-full" />
           </div>
         </div>
 
         {/* 2016-2017 */}
-        <div className="flex items-center gap-12 flex-row-reverse">
-          <div className="w-1/2 text-right">
+        <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
+          <div className="w-full md:w-1/2 text-left md:text-right">
             <h4 className="text-6xl font-black text-slate-200 mb-2">2017</h4>
             <h5 className="text-2xl font-black uppercase mb-4">Premier Titre de Champion de France</h5>
             <p className="text-slate-600 leading-relaxed text-lg">L'équipe s'impose comme le champion du plus haut niveau amateur, posant les jalons du professionnalisme et fédérant tout un territoire autour de ses succès sportifs.</p>
           </div>
-          <div className="w-1/2 p-4 wireframe-border bg-slate-50">
+          <div className="w-full md:w-1/2 p-4 wireframe-border bg-slate-50">
             <PlaceholderImage className="aspect-video w-full" />
           </div>
         </div>
 
         {/* 2018-2019 */}
-        <div className="flex items-center gap-12">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="w-full md:w-1/2">
             <h4 className="text-6xl font-black text-slate-200 mb-2">2019</h4>
             <h5 className="text-2xl font-black uppercase mb-4">Le Sacre et la Pro D2</h5>
             <p className="text-slate-600 leading-relaxed text-lg">Une saison exceptionnelle couronnée par un deuxième titre de Fédérale 1 et l'accession historique en Pro D2. C'est le début d'une aventure professionnelle remarquable pour les Lions.</p>
           </div>
-          <div className="w-1/2 p-4 wireframe-border bg-slate-50">
+          <div className="w-full md:w-1/2 p-4 wireframe-border bg-slate-50">
             <PlaceholderImage className="aspect-video w-full" />
           </div>
         </div>

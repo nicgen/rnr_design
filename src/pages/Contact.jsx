@@ -15,7 +15,7 @@ export default function Contact() {
         <p className="text-lg">Une question, une demande de partenariat ou d'information ? Utilisez le formulaire ci-dessous pour nous écrire.</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-16 mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
         {/* Formulaire Intelligent */}
         <div>
           <h2 className="text-2xl font-black uppercase mb-8">Envoyer un message</h2>
@@ -66,7 +66,7 @@ export default function Contact() {
               <textarea id="message" rows="6" className="wireframe-border p-3 focus:ring-primary focus:border-primary outline-none resize-none" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
             </div>
 
-            <button type="button" className="bg-primary text-white font-black uppercase px-8 py-4 wireframe-border hover:bg-black transition-colors self-start mt-2">
+            <button type="button" className="bg-primary text-white font-black uppercase px-8 py-4 wireframe-border hover:bg-black transition-colors w-full sm:w-auto self-start mt-2">
               Envoyer le message
             </button>
             <p className="text-xs text-slate-500 italic mt-2">* Champs obligatoires. Vos données ne seront utilisées que pour répondre à votre demande.</p>

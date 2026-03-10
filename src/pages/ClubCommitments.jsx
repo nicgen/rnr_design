@@ -18,7 +18,7 @@ export default function ClubCommitments() {
 
       <SectionNav links={navLinks} />
 
-      <div className="grid grid-cols-2 gap-12 mb-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 items-center">
         <div>
           <h3 className="text-4xl font-black uppercase leading-tight mb-6">Le Rugby Comme Moteur de Lien Social</h3>
           <p className="text-lg leading-relaxed text-slate-600 mb-6">
@@ -46,7 +46,7 @@ export default function ClubCommitments() {
 
       <h3 className="text-2xl font-black uppercase mb-8 border-t-2 border-black pt-8">Focus sur nos actions</h3>
       
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div className="wireframe-border p-6 bg-white flex flex-col gap-4">
           <span className="material-symbols-outlined text-4xl text-slate-400">volunteer_activism</span>
           <h4 className="font-black uppercase text-xl">Visites à l'hôpital</h4>

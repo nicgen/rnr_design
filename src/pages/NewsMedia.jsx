@@ -44,7 +44,7 @@ export default function NewsMedia() {
         <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300 whitespace-nowrap">Revue de Presse</button>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {articles.map((article, i) => (
           <ArticleCard key={i} {...article} />
         ))}

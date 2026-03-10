@@ -28,7 +28,7 @@ export default function PartnersVisibility() {
       {/* Tenues */}
       <div className="mb-20 mt-8">
         <h3 className="text-3xl font-black uppercase mb-8 border-b-4 border-black inline-block pb-2">Tenues Officielles</h3>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
            <div className="wireframe-border p-6 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer">
               <span className="material-symbols-outlined text-4xl text-primary mb-4">sports_rugby</span>
               <h4 className="font-black uppercase mb-2">Arrière / Manche</h4>
@@ -60,7 +60,7 @@ export default function PartnersVisibility() {
       </div>
 
       {/* Visibilité Terrain & Namings */}
-      <div className="grid grid-cols-2 gap-16 mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
         
         {/* Terrain */}
         <div>
@@ -124,20 +124,20 @@ export default function PartnersVisibility() {
       </div>
 
       {/* Sponsoring Digital */}
-      <div className="bg-black text-white p-12 wireframe-border flex items-center justify-between relative overflow-hidden mb-16">
-        <div className="w-2/3 relative z-10">
+      <div className="bg-black text-white p-8 lg:p-12 wireframe-border flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden mb-16">
+        <div className="w-full lg:w-2/3 relative z-10 text-center lg:text-left">
           <h3 className="text-4xl font-black uppercase mb-6 leading-tight">Le Package <span className="text-primary">Digital</span></h3>
           <p className="text-lg text-slate-300 mb-8 max-w-xl">
             Sponsorisez nos contenus réseaux sociaux pour toucher une communauté engagée bien au-delà des tribunes du stade !
           </p>
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-left">
              <div className="flex items-center gap-3"><span className="material-symbols-outlined text-primary text-3xl">bar_chart</span> Parrain des Stats Match</div>
              <div className="flex items-center gap-3"><span className="material-symbols-outlined text-primary text-3xl">scoreboard</span> Sponsor Score Final</div>
              <div className="flex items-center gap-3"><span className="material-symbols-outlined text-primary text-3xl">list_alt</span> Sponsor Composition d'Équipe</div>
              <div className="flex items-center gap-3"><span className="material-symbols-outlined text-primary text-3xl">cake</span> Anniversaire des Joueurs</div>
           </div>
         </div>
-        <div className="w-1/3 flex justify-end">
+        <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
            <Link to="/partenaires#contact-privilege" className="bg-primary text-white font-black uppercase px-8 py-5 wireframe-border hover:bg-white text-black hover:text-black transition-colors inline-block text-lg shadow-2xl">
               Faire une demande
            </Link>

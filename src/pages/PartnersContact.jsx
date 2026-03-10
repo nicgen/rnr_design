@@ -25,14 +25,14 @@ export default function PartnersContact() {
 
       <SectionNav links={navLinks} />
 
-      <div className="grid grid-cols-[2fr_1fr] gap-16 mt-16 mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 lg:gap-16 mt-16 mb-20">
          {/* VIP Contact Form */}
          <div className="wireframe-border p-12 bg-slate-50 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             <h3 className="text-3xl font-black uppercase mb-8">Formulaire Privilège B2B</h3>
 
             <form className="flex flex-col gap-6 relative z-10">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-bold uppercase" htmlFor="vip-nom">Nom Complet *</label>
                   <input type="text" id="vip-nom" className="wireframe-border p-4 focus:ring-primary outline-none" placeholder="Jean Dupont" required />
@@ -43,7 +43,7 @@ export default function PartnersContact() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-bold uppercase" htmlFor="vip-email">Adresse Email *</label>
                   <input type="email" id="vip-email" className="wireframe-border p-4 focus:ring-primary outline-none" placeholder="jean@societe.com" required />

@@ -27,7 +27,7 @@ export default function Partners() {
       <SectionNav links={navLinks} />
 
       {/* Chiffres Clés */}
-      <div className="grid grid-cols-3 gap-8 mb-20 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 mt-8">
         <div className="bg-black text-white p-8 wireframe-border flex flex-col items-center justify-center text-center">
           <span className="text-6xl font-black text-primary mb-2">900</span>
           <span className="font-bold uppercase tracking-wider text-sm">Membres VIP</span>
@@ -46,9 +46,9 @@ export default function Partners() {
       <div className="mb-20">
         <h3 className="text-3xl font-black uppercase mb-8 border-b-4 border-black inline-block pb-2">Les Rendez-vous du Réseau</h3>
         
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Matchs */}
-          <div className="wireframe-border p-6 bg-slate-50 flex gap-6 hover:-translate-y-1 transition-transform group">
+          <div className="wireframe-border p-6 bg-slate-50 flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left hover:-translate-y-1 transition-transform group">
              <div className="w-24 h-24 bg-primary text-white flex flex-col items-center justify-center flex-shrink-0 group-hover:bg-black transition-colors">
                  <span className="material-symbols-outlined text-4xl">stadium</span>
              </div>
@@ -60,7 +60,7 @@ export default function Partners() {
           </div>
 
           {/* Loges & P'tits Dej */}
-          <div className="wireframe-border p-6 bg-slate-50 flex gap-6 hover:-translate-y-1 transition-transform group">
+          <div className="wireframe-border p-6 bg-slate-50 flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left hover:-translate-y-1 transition-transform group">
              <div className="w-24 h-24 bg-primary text-white flex flex-col items-center justify-center flex-shrink-0 group-hover:bg-black transition-colors">
                  <span className="material-symbols-outlined text-4xl">local_cafe</span>
              </div>
@@ -72,7 +72,7 @@ export default function Partners() {
           </div>
 
           {/* Afterwork */}
-          <div className="wireframe-border p-6 bg-slate-50 flex gap-6 hover:-translate-y-1 transition-transform group">
+          <div className="wireframe-border p-6 bg-slate-50 flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left hover:-translate-y-1 transition-transform group">
              <div className="w-24 h-24 bg-primary text-white flex flex-col items-center justify-center flex-shrink-0 group-hover:bg-black transition-colors">
                  <span className="material-symbols-outlined text-4xl">celebration</span>
              </div>
@@ -84,7 +84,7 @@ export default function Partners() {
           </div>
 
           {/* Speed Meeting / Tournois */}
-          <div className="wireframe-border p-6 bg-slate-50 flex gap-6 hover:-translate-y-1 transition-transform group">
+          <div className="wireframe-border p-6 bg-slate-50 flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left hover:-translate-y-1 transition-transform group">
              <div className="w-24 h-24 bg-primary text-white flex flex-col items-center justify-center flex-shrink-0 group-hover:bg-black transition-colors">
                  <span className="material-symbols-outlined text-4xl">handshake</span>
              </div>
@@ -98,9 +98,9 @@ export default function Partners() {
       </div>
 
       {/* L'Application */}
-      <div className="mb-24 bg-black text-white p-12 wireframe-border flex items-center justify-between relative overflow-hidden">
+      <div className="mb-24 bg-black text-white p-12 wireframe-border flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden">
         <div className="absolute right-0 top-0 w-1/2 h-full bg-primary/20 rounded-l-full blur-3xl -z-0"></div>
-        <div className="w-1/2 relative z-10">
+        <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left">
           <h3 className="text-4xl font-black uppercase mb-6 leading-tight">L'Application<br/><span className="text-primary">Business RNR</span></h3>
           <p className="text-lg text-slate-300 mb-8 max-w-lg">
             Une plateforme conçue pour renforcer les liens, faciliter les échanges et dynamiser votre réseau, 100% réservée aux membres.
@@ -111,7 +111,7 @@ export default function Partners() {
              <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Accès aux offres privilégiées exclusives</li>
           </ul>
         </div>
-        <div className="w-1/3 relative z-10">
+        <div className="w-full sm:w-2/3 lg:w-1/3 relative z-10">
            <PlaceholderImage className="w-full aspect-[9/16] rounded-[2rem] border-8 border-slate-800 bg-slate-900 shadow-2xl" />
         </div>
       </div>

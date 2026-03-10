@@ -37,8 +37,8 @@ export default function AcademyYouth() {
       <SectionNav links={navLinks} />
 
       {/* Intro École de Rugby */}
-      <div className="mb-16 grid grid-cols-5 gap-8 bg-slate-50 p-8 wireframe-border">
-          <div className="col-span-3">
+      <div className="mb-16 grid grid-cols-1 lg:grid-cols-5 gap-8 bg-slate-50 p-6 sm:p-8 wireframe-border">
+          <div className="col-span-1 lg:col-span-3">
               <h2 className="text-3xl font-black uppercase mb-6">L'École de Rugby (EDR)</h2>
               <p className="text-lg leading-relaxed mb-6">L'École de Rugby est le socle de notre association. Elle accueille les enfants dès 3 ans pour leur faire découvrir les joies du ballon ovale. L'apprentissage se fait par le jeu, dans un cadre sécurisant et convivial, avec pour mots d'ordre : Plaisir, Respect et Solidarité.</p>
               <div className="flex gap-4">
@@ -52,14 +52,14 @@ export default function AcademyYouth() {
                   </div>
               </div>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-1 lg:col-span-2">
               <PlaceholderImage className="w-full h-full object-cover" />
           </div>
       </div>
 
       {/* Categories EDR */}
       <h3 className="text-2xl font-black uppercase border-b-4 border-black pb-2 mb-8 inline-block">Catégories École de Rugby</h3>
-      <div className="grid grid-cols-3 gap-6 mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         <CategoryCard title="Baby Rugby" ages="M6 (3 à 5 ans)" />
         <CategoryCard title="Premiers Pas" ages="M8 (6 à 7 ans)" />
         <CategoryCard title="Poussins" ages="M10 (8 à 9 ans)" />
@@ -69,7 +69,7 @@ export default function AcademyYouth() {
 
       {/* Pôle Jeunes Compétition */}
       <h3 className="text-2xl font-black uppercase border-b-4 border-black pb-2 mb-8 inline-block">Pôle Compétition Jeunes</h3>
-      <div className="grid grid-cols-2 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
         <CategoryCard title="Cadets (Alamercery / Gaudermen)" ages="M16 (14 à 15 ans)" />
         <CategoryCard title="Juniors (Crabos)" ages="M18 (16 à 17 ans)" />
       </div>

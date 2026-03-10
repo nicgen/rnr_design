@@ -20,7 +20,7 @@ export default function ClubStadium() {
 
       {/* Stade Robert-Diochon */}
       <h3 className="text-3xl font-black uppercase mb-8">Stade Robert-Diochon</h3>
-      <div className="grid grid-cols-2 gap-12 mb-20 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-20 items-center">
         <div className="wireframe-border p-2 bg-slate-50">
           <PlaceholderImage className="aspect-video w-full" />
         </div>
@@ -28,7 +28,7 @@ export default function ClubStadium() {
           <p className="text-lg leading-relaxed">
             Le Stade Robert-Diochon est l'antre historique des grands rendez-vous du Rouen Normandie Rugby. Partagé avec les autres clubs professionnels de la métropole, il offre une capacité et des infrastructures adaptées au plus haut niveau.
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="wireframe-border border-l-4 border-l-primary p-4 bg-white">
               <span className="material-symbols-outlined text-slate-400 mb-2">groups</span>
               <p className="font-bold uppercase text-xs">Capacité</p>
@@ -46,12 +46,12 @@ export default function ClubStadium() {
 
       {/* Stade Jean-Mermoz */}
       <h3 className="text-3xl font-black uppercase mb-8">Stade Jean-Mermoz</h3>
-      <div className="grid grid-cols-2 gap-12 items-center flex-row-reverse">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="flex flex-col gap-6 order-2 lg:order-1">
           <p className="text-lg leading-relaxed">
             Véritable cœur battant du club, le Stade Jean-Mermoz accueille les entraînements de l'équipe professionnelle, les matchs de l'association, des Espoirs à l'École de Rugby, et regroupe les locaux administratifs du Rouen Normandie Rugby.
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="wireframe-border p-4 bg-white">
               <span className="material-symbols-outlined text-slate-400 mb-2">location_on</span>
               <p className="font-bold uppercase text-xs">Adresse</p>

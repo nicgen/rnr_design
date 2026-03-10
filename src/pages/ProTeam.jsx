@@ -26,7 +26,7 @@ const PlayerCard = ({ name, position, nationality }) => (
 const PositionSection = ({ title, players }) => (
   <div className="mb-16 border-t-2 border-slate-200 pt-8">
     <h3 className="text-3xl font-black uppercase mb-8">{title}</h3>
-    <div className="grid grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {players.map((player, i) => (
         <PlayerCard key={`${title}-${i}`} {...player} />
       ))}
@@ -112,7 +112,7 @@ export default function ProTeam() {
       <SectionNav links={navLinks} />
 
       {/* Filters */}
-      <div className="flex gap-4 mb-12">
+      <div className="flex gap-4 mb-12 flex-wrap">
         <button 
           onClick={() => setFilter("Tous")}
           className={`px-6 py-2 font-black uppercase text-xs transition-colors ${filter === "Tous" ? "bg-black text-white" : "bg-slate-200 text-black hover:bg-slate-300"}`}
@@ -137,7 +137,7 @@ export default function ProTeam() {
       {(filter === "Tous" || filter === "Staff") && (
         <div className="mb-16">
           <h3 className="text-3xl font-black uppercase mb-8">Le Staff Sportif</h3>
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <PlayerCard name="Nom Prénom" position="Manager Sportif" nationality="FRA" />
             <PlayerCard name="Nom Prénom" position="Entraîneur des Avants" nationality="FRA" />
             <PlayerCard name="Nom Prénom" position="Entraîneur des Arrières" nationality="FRA" />

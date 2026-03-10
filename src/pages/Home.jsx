@@ -10,10 +10,10 @@ export default function Home() {
             <h1 className="text-6xl font-black uppercase mb-4">Tous Normands, Tous RNR!</h1>
             <p className="text-xl font-medium max-w-2xl">Persévérance, et force brute, le RNR avance !</p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 bg-white border-t-2 border-black flex h-32">
-            <div className="w-[60%] flex items-center px-6 border-r-2 border-black relative">
+          <div className="absolute bottom-0 left-0 right-0 bg-white border-t-2 border-black flex flex-col lg:flex-row h-auto lg:h-32">
+            <div className="w-full lg:w-[60%] flex flex-col md:flex-row py-6 lg:py-0 items-center px-4 md:px-6 border-b-2 lg:border-b-0 lg:border-r-2 border-black relative">
               <span className="absolute top-2 left-6 text-[10px] font-black uppercase bg-accent px-2 py-0.5">PROCHAIN MATCH</span>
-              <div className="flex items-center gap-6 mt-4 w-full">
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 mt-4 md:mt-0 w-full justify-center md:justify-start">
                 <div className="flex flex-col flex-shrink-0">
                   <span className="text-[10px] font-black uppercase mb-2">20 Mars 2026 - 20:00</span>
                   <div className="flex gap-3 text-center">
@@ -29,12 +29,12 @@ export default function Home() {
                   <span className="font-black text-xl italic uppercase">Massy</span>
                   <PlaceholderImage className="w-10 h-10" />
                 </div>
-                <button className="bg-accent text-black font-black uppercase px-4 py-3 wireframe-border ml-auto text-xs hover:bg-yellow-300 transition-colors flex-shrink-0 whitespace-nowrap">
+                <button className="bg-accent text-black font-black uppercase px-6 py-4 md:px-4 md:py-3 wireframe-border md:ml-auto text-sm md:text-xs hover:bg-yellow-300 transition-colors flex-shrink-0 whitespace-nowrap w-full md:w-auto mt-4 md:mt-0">
                   Billets
                 </button>
               </div>
             </div>
-            <div className="w-[40%] flex">
+            <div className="w-full lg:w-[40%] flex min-h-[128px]">
               {/* 28 Mars - Niort vs Rouen */}
               <div className="flex-1 border-r-2 border-black p-4 flex flex-col justify-between">
                 <div className="flex justify-between items-start">
@@ -65,8 +65,8 @@ export default function Home() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 py-16 w-full flex-shrink-0">
-        <h2 className="text-3xl font-black uppercase mb-8">Mise en avant</h2>
-        <div className="grid grid-cols-4 gap-6">
+        <h2 className="text-3xl font-black uppercase mb-8 text-center md:text-left">Mise en avant</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="wireframe-border p-4 flex flex-col gap-4 relative">
             <span className="absolute top-6 left-6 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 z-10">#ACTUALITÉ</span>
             <PlaceholderImage className="aspect-video" />
@@ -109,11 +109,11 @@ export default function Home() {
       {/* Actualités Section */}
       <section className="bg-slate-50 py-16 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-end mb-8">
-            <h2 className="text-3xl font-black uppercase">Actualités</h2>
-            <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer">Voir toutes les actualités</a>
+          <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-2 mb-8">
+            <h2 className="text-3xl font-black uppercase text-center sm:text-left">Actualités</h2>
+            <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer self-center sm:self-auto text-center">Voir toutes les actualités</a>
           </div>
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="wireframe-border p-4 flex flex-col gap-4 bg-white relative hover:-translate-y-1 transition-transform cursor-pointer">
               <PlaceholderImage className="aspect-video" />
               <div>
@@ -151,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* Résultats et Classement */}
-      <section className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-2 gap-12 w-full flex-shrink-0">
+      <section className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 w-full flex-shrink-0">
         <div>
           <h2 className="text-3xl font-black uppercase mb-8">Résultats</h2>
           <div className="flex flex-col gap-4">
@@ -195,7 +195,7 @@ export default function Home() {
         </div>
         <div>
           <h2 className="text-3xl font-black uppercase mb-8">Classement</h2>
-          <div className="wireframe-border overflow-hidden">
+          <div className="wireframe-border overflow-x-auto">
             <table className="w-full text-left text-xs font-bold">
               <thead className="bg-black text-white uppercase">
                 <tr>
@@ -223,11 +223,11 @@ export default function Home() {
       {/* Partenaires */}
       <section className="bg-white py-16 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-end mb-8">
-            <h2 className="text-3xl font-black uppercase">Partenaires</h2>
-            <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer">Page des partenaires</a>
+          <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-2 mb-8">
+            <h2 className="text-3xl font-black uppercase text-center sm:text-left">Partenaires</h2>
+            <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer self-center sm:self-auto text-center">Page des partenaires</a>
           </div>
-          <div className="flex gap-4 mb-16">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mb-16">
             <PlaceholderImage className="flex-1 aspect-square" />
             <PlaceholderImage className="flex-1 aspect-square" />
             <PlaceholderImage className="flex-1 aspect-square" />
@@ -235,9 +235,9 @@ export default function Home() {
             <PlaceholderImage className="flex-1 aspect-square" />
             <PlaceholderImage className="flex-1 aspect-square" />
           </div>
-          <div className="wireframe-border flex items-stretch min-h-[400px]">
-            <PlaceholderImage className="w-1/2" />
-            <div className="w-1/2 p-12 flex flex-col justify-center items-start gap-6">
+          <div className="wireframe-border flex flex-col lg:flex-row items-stretch">
+            <PlaceholderImage className="w-full lg:w-1/2 aspect-video lg:aspect-auto" />
+            <div className="w-full lg:w-1/2 p-6 lg:p-12 flex flex-col justify-center items-start gap-6">
               <h3 className="text-4xl font-black uppercase leading-tight">PLUS QU’UN MATCH, UNE EXPERIENCE PARTENAIRE.</h3>
               <p className="text-lg leading-relaxed">Le Club Affaires du Rouen Normandie Rugby est un réseau dynamique regroupant plus de 260 entreprises partenaires. Véritable plateforme de networking, il permet aux acteurs économiques de la région de se rencontrer et d'échanger dans un cadre convivial et prestigieux lors de chaque rencontre à domicile. Rejoignez une communauté passionnée pour développer votre visibilité et vos opportunités d'affaires tout en soutenant l'excellence du rugby normand.</p>
               <button className="bg-primary text-white font-black uppercase px-8 py-4 wireframe-border hover:bg-black transition-colors">
@@ -252,7 +252,7 @@ export default function Home() {
       <section className="bg-black text-white py-20 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-black uppercase mb-12 text-center">Chiffres importants</h2>
-          <div className="grid grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <p className="text-5xl font-black mb-2">2</p>
               <p className="text-xs uppercase font-bold tracking-widest text-slate-400">titres de champions de France</p>
@@ -274,14 +274,14 @@ export default function Home() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 py-16 w-full flex-shrink-0">
-        <h2 className="text-3xl font-black uppercase mb-8">Nous suivre</h2>
-        <div className="flex gap-8 mb-8 items-stretch h-[450px]">
-          <div className="w-1/2 wireframe-border flex flex-col items-center justify-center bg-slate-50 relative">
+        <h2 className="text-3xl font-black uppercase mb-8 text-center md:text-left">Nous suivre</h2>
+        <div className="flex flex-col lg:flex-row gap-8 mb-8 items-stretch lg:h-[450px]">
+          <div className="w-full lg:w-1/2 h-[300px] lg:h-auto wireframe-border flex flex-col items-center justify-center bg-slate-50 relative">
             <div className="absolute inset-0 placeholder-x opacity-10"></div>
             <span className="material-symbols-outlined text-6xl relative z-10">play_circle</span>
             <p className="font-black uppercase mt-4 relative z-10">Dernière vidéo YouTube</p>
           </div>
-          <div className="w-1/2 grid grid-cols-3 grid-rows-2 gap-4">
+          <div className="w-full lg:w-1/2 grid grid-cols-2 sm:grid-cols-3 grid-rows-none sm:grid-rows-2 gap-4">
             <PlaceholderImage />
             <PlaceholderImage />
             <PlaceholderImage />
@@ -290,7 +290,7 @@ export default function Home() {
             <PlaceholderImage />
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <input className="flex-1 wireframe-border p-4 font-bold uppercase text-sm border-black border-2 focus:ring-primary focus:border-primary outline-none" placeholder="VOTRE ADRESSE EMAIL" type="email" />
           <button className="bg-primary text-white font-black uppercase px-8 py-4 wireframe-border hover:bg-black transition-colors whitespace-nowrap">
             Inscription à la newsletter

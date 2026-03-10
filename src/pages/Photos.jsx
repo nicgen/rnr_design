@@ -45,13 +45,13 @@ export default function Photos() {
         </select>
       </div>
 
-      <div className="grid grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         {albums.map((album, i) => (
           <AlbumCard key={i} title={`Album RNR ${i + 1}`} count={album.count} />
         ))}
       </div>
 
-      <div className="flex justify-center items-center gap-2">
+      <div className="flex justify-center items-center gap-2 flex-wrap">
         <button className="w-10 h-10 flex border-2 border-black items-center justify-center font-bold hover:bg-slate-100 disabled:opacity-50 material-symbols-outlined rounded-none">chevron_left</button>
         <button className="w-10 h-10 flex bg-black text-white items-center justify-center font-bold">1</button>
         <button className="w-10 h-10 flex border-2 border-black items-center justify-center font-bold hover:bg-slate-100">2</button>

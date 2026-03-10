@@ -40,13 +40,13 @@ export default function ClubStaff() {
       <SectionNav links={navLinks} />
 
       <h3 className="text-3xl font-black uppercase mb-8">Présidence & Direction</h3>
-      <div className="grid grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         <ProfileCard name="Éric Visse" role="Président" />
         <ProfileCard name="Charles-Henri Ollivier" role="Directeur Général Délégué" />
       </div>
 
       <h3 className="text-3xl font-black uppercase mb-8">Équipe Administrative</h3>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {staffAdministratif.map((staff, i) => (
           <ProfileCard key={i} name={staff.name} role={staff.role} />
         ))}

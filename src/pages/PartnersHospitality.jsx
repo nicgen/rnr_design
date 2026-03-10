@@ -27,7 +27,7 @@ export default function PartnersHospitality() {
       <SectionNav links={navLinks} />
 
       {/* Epicuriens & Salon 1920 */}
-      <div className="grid grid-cols-2 gap-12 mb-16 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 mt-8">
         
         {/* Espace Epicuriens */}
         <div className="wireframe-border p-8 flex flex-col h-full relative group hover:border-black transition-colors">
@@ -78,7 +78,7 @@ export default function PartnersHospitality() {
       </div>
 
       {/* Bodega & Loges */}
-      <div className="grid grid-cols-2 gap-12 mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
         
         {/* La Bodega */}
         <div className="wireframe-border p-8 flex flex-col h-full relative group hover:border-black transition-colors">
@@ -118,7 +118,7 @@ export default function PartnersHospitality() {
           </ul>
           <div className="border-t-2 border-slate-800 pt-6 mt-auto">
             <p className="text-xs text-slate-500 uppercase tracking-wider mb-2">Tarifs par match</p>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                <div>
                   <span className="block text-sm font-bold text-slate-300">10 pers.</span>
                   <span className="text-lg font-black text-white">2 850 € <span className="text-xs">HT</span></span>
@@ -138,19 +138,19 @@ export default function PartnersHospitality() {
       </div>
 
       {/* L'Offre Privilège */}
-      <div className="mb-24 flex gap-12 items-center wireframe-border p-12 bg-slate-50">
-         <div className="w-1/3">
-            <h3 className="text-4xl font-black uppercase mb-4 leading-tight">L'Offre<br/>Privilège</h3>
+      <div className="mb-24 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center wireframe-border p-8 lg:p-12 bg-slate-50">
+         <div className="w-full lg:w-1/3 text-center lg:text-left">
+            <h3 className="text-4xl font-black uppercase mb-4 leading-tight">L'Offre<br className="hidden lg:block"/>Privilège</h3>
             <p className="text-lg mb-6">Votre Porte d'Entrée dans le Réseau.</p>
             <p className="text-sm text-slate-600 mb-8">
               Découvrez l'ambiance du stade et intégrez le réseau avec une formule souple. Invitez vos clients
               et profitez d'un accès dédié (2 places par match, mange-debout dédié, accès buvette prioritaire).
             </p>
-            <Link to="/partenaires#contact-privilege" className="bg-primary text-white font-black uppercase px-6 py-3 wireframe-border hover:bg-black transition-colors inline-block text-sm">
+            <Link to="/partenaires#contact-privilege" className="bg-primary text-white font-black uppercase px-6 py-3 wireframe-border hover:bg-black transition-colors inline-block text-sm mx-auto lg:mx-0">
                 Être recontacté
             </Link>
          </div>
-         <div className="w-2/3 grid grid-cols-2 gap-4">
+         <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
              <div className="bg-white p-6 wireframe-border">
                 <p className="text-2xl font-black text-primary mb-2">500 € <span className="text-sm text-slate-400">HT</span></p>
                 <p className="text-sm font-bold">Places sèches</p>
