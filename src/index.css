@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #e31c1c;
+  --color-accent: #f0e25e;
+  --color-background-light: #ffffff;
+  --color-background-dark: #121212;
+  --font-display: "Lexend", sans-serif;
+  --radius-DEFAULT: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 9999px;
+  
+  /* Additional wireframe specific utilities */
+  --border-width-wireframe: 2px;
+}
+
+@utility wireframe-border {
+  border: 2px solid black;
+}
+
+@utility placeholder-x {
+  background-image: linear-gradient(to top right, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), transparent calc(50% + 1px)),
+                    linear-gradient(to top left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), transparent calc(50% + 1px));
+}
+
+@layer base {
+  body {
+    @apply bg-background-light font-display text-slate-900;
+  }
+}
