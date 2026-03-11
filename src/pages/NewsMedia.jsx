@@ -1,11 +1,4 @@
 import PlaceholderImage from "../components/PlaceholderImage";
-import SectionNav from "../components/SectionNav";
-
-const navLinks = [
-  { label: "Dernières Actus", path: "/actualites-medias", exact: true },
-  { label: "Galeries Photos", path: "/actualites-medias/photos", exact: true },
-  { label: "Vidéos / Web TV", path: "/actualites-medias/videos", exact: true },
-];
 
 const ArticleCard = ({ category, title, date, excerpt }) => (
   <div className="wireframe-border p-4 flex flex-col gap-4 bg-white relative hover:-translate-y-1 transition-transform cursor-pointer">
@@ -34,14 +27,13 @@ export default function NewsMedia() {
         <p className="text-lg">Retrouvez toutes les dernières informations sur le Rouen Normandie Rugby.</p>
       </div>
 
-      <SectionNav links={navLinks} />
-
       <div className="flex gap-4 mb-8 overflow-x-auto pb-2">
         <button className="bg-black text-white px-6 py-2 font-black uppercase text-xs hover:bg-black/80 whitespace-nowrap">Toutes</button>
         <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300 whitespace-nowrap">L'Équipe Pro</button>
+        <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300 whitespace-nowrap">L'Équipe Féminine</button>
         <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300 whitespace-nowrap">Formation</button>
+        <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300 whitespace-nowrap">Business</button>
         <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300 whitespace-nowrap">Club</button>
-        <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300 whitespace-nowrap">Revue de Presse</button>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">

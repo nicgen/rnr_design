@@ -43,15 +43,9 @@ export default function PartnersContact() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold uppercase" htmlFor="vip-email">Adresse Email *</label>
-                  <input type="email" id="vip-email" className="wireframe-border p-4 focus:ring-primary outline-none" placeholder="jean@societe.com" required />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold uppercase" htmlFor="vip-tel">Téléphone Direct *</label>
-                  <input type="tel" id="vip-tel" className="wireframe-border p-4 focus:ring-primary outline-none" placeholder="06 12 34 56 78" required />
-                </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-bold uppercase" htmlFor="vip-email">Adresse Email *</label>
+                <input type="email" id="vip-email" className="wireframe-border p-4 focus:ring-primary outline-none" placeholder="jean@societe.com" required />
               </div>
 
               <div className="flex flex-col gap-2">
@@ -95,7 +89,6 @@ export default function PartnersContact() {
                    <h4 className="font-black text-lg">Prénom Nom</h4>
                    <p className="text-xs font-bold text-primary uppercase mb-4">Directeur Commercial</p>
                    <div className="flex flex-col gap-2 text-sm text-slate-600 mb-4">
-                      <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">call</span> 06 00 00 00 01</span>
                       <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">mail</span> email@rouen-rugby.fr</span>
                    </div>
                    <a href="#" className="inline-flex items-center gap-2 text-xs font-bold text-[#0077b5] hover:underline">
@@ -112,7 +105,6 @@ export default function PartnersContact() {
                    <h4 className="font-black text-lg">Prénom Nom</h4>
                    <p className="text-xs font-bold text-primary uppercase mb-4">Responsable Partenariats</p>
                    <div className="flex flex-col gap-2 text-sm text-slate-600 mb-4">
-                      <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">call</span> 06 00 00 00 02</span>
                       <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">mail</span> email2@rouen-rugby.fr</span>
                    </div>
                    <a href="#" className="inline-flex items-center gap-2 text-xs font-bold text-[#0077b5] hover:underline">

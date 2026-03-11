@@ -42,7 +42,7 @@ export default function App() {
           <Route path="equipe-pro/classement" element={<ProStandings />} />
           <Route path="formation" element={<Academy />} />
           <Route path="formation/jeunes" element={<AcademyYouth />} />
-          <Route path="formation/feminines" element={<AcademyWomen />} />
+          <Route path="equipe-pro/feminines" element={<AcademyWomen />} />
           <Route path="formation/specialisees" element={<AcademySpecial />} />
           <Route path="partenaires" element={<Partners />} />
           <Route path="partenaires/actualites" element={<PartnersNews />} />

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import SectionNav from "../components/SectionNav";
 
@@ -25,7 +26,14 @@ export default function ProCalendar() {
         <p className="text-lg">Suivez les performances du RNR tout au long du championnat de Nationale.</p>
       </div>
 
-      <SectionNav links={navLinks} />
+      <SectionNav 
+        links={navLinks} 
+        rightElement={
+          <Link to="/equipe-pro/feminines" className="bg-primary text-white font-black uppercase text-xs px-6 py-3 wireframe-border hover:bg-black transition-colors block text-center">
+            Les Équipes Féminines
+          </Link>
+        }
+      />
 
       <div className="flex gap-4 mb-8 flex-wrap">
         <button className="bg-black text-white px-6 py-2 font-black uppercase text-xs">Tous les matchs</button>
