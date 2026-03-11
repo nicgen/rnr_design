@@ -9,8 +9,6 @@ export default function Footer() {
             <h4 className="font-black uppercase mb-6 text-sm">Actualités & Médias</h4>
             <ul className="flex flex-col gap-2 text-xs font-bold uppercase">
               <li><Link to="/actualites-medias" className="hover:text-primary">Dernières Actus</Link></li>
-              <li><Link to="/actualites-medias/videos" className="hover:text-primary">Vidéos RNR TV</Link></li>
-              <li><Link to="/actualites-medias/photos" className="hover:text-primary">Galeries Photos</Link></li>
             </ul>
           </div>
           <div>
@@ -28,15 +26,16 @@ export default function Footer() {
               <li><Link to="/equipe-pro" className="hover:text-primary">Effectif (Joueurs, Staff)</Link></li>
               <li><Link to="/equipe-pro/calendrier" className="hover:text-primary">Calendrier & Résultats</Link></li>
               <li><Link to="/equipe-pro/classement" className="hover:text-primary">Classement</Link></li>
+              <li><Link to="/equipe-pro/feminines" className="hover:text-primary">Les Équipes Féminines</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-black uppercase mb-6 text-sm">Formation</h4>
             <ul className="flex flex-col gap-2 text-xs font-bold uppercase">
-              <li><Link to="/formation" className="hover:text-primary">Centre de Formation / Espoirs</Link></li>
-              <li><Link to="/formation/jeunes" className="hover:text-primary">Pôle Jeunes / EDR</Link></li>
-              <li><Link to="/formation/feminines" className="hover:text-primary">Section Féminine</Link></li>
-              <li><Link to="/formation/specialisees" className="hover:text-primary">Sections Spécialisées</Link></li>
+              <li><a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="hover:text-primary flex items-center gap-1">Détection <span className="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
+              <li><Link to="/formation" className="hover:text-primary">Centre de formation - Académie</Link></li>
+              <li><Link to="/formation/jeunes" className="hover:text-primary">Pôle jeune espoir et pré-formation</Link></li>
+              <li><Link to="/formation/ecole-rugby" className="hover:text-primary">École de rugby</Link></li>
             </ul>
           </div>
           <div>

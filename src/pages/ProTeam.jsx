@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import SectionNav from "../components/SectionNav";
 
@@ -39,29 +40,22 @@ export default function ProTeam() {
 
   const positions = [
     {
-      title: "Piliers",
+      title: "Première Ligne",
       players: [
         { name: "Nom Prénom", position: "Pilier gauche (1)", nationality: "FRA" },
+        { name: "Nom Prénom", position: "Talonneur (2)", nationality: "FRA" },
         { name: "Nom Prénom", position: "Pilier droit (3)", nationality: "FRA" },
-        { name: "Nom Prénom", position: "Pilier gauche (1)", nationality: "FRA" },
       ]
     },
     {
-      title: "Talonneurs",
-      players: [
-        { name: "Nom Prénom", position: "Talonneur (2)", nationality: "FRA" },
-        { name: "Nom Prénom", position: "Talonneur (2)", nationality: "FRA" },
-      ]
-    },
-    {
-      title: "2èmes Lignes",
+      title: "Deuxième Ligne",
       players: [
         { name: "Nom Prénom", position: "Deuxième ligne (4)", nationality: "FRA" },
         { name: "Nom Prénom", position: "Deuxième ligne (5)", nationality: "FRA" },
       ]
     },
     {
-      title: "3èmes Lignes",
+      title: "Troisième Ligne",
       players: [
         { name: "Nom Prénom", position: "Troisième ligne aile (6)", nationality: "FRA" },
         { name: "Nom Prénom", position: "Troisième ligne aile (7)", nationality: "FRA" },
@@ -69,14 +63,9 @@ export default function ProTeam() {
       ]
     },
     {
-      title: "Demis de Mêlée",
+      title: "Charnière",
       players: [
         { name: "Nom Prénom", position: "Demi de mêlée (9)", nationality: "FRA" },
-      ]
-    },
-    {
-      title: "Demis d'Ouverture",
-      players: [
         { name: "Nom Prénom", position: "Demi d'ouverture (10)", nationality: "FRA" },
       ]
     },
@@ -95,7 +84,7 @@ export default function ProTeam() {
       ]
     },
     {
-      title: "Arrières",
+      title: "Arrière",
       players: [
         { name: "Nom Prénom", position: "Arrière (15)", nationality: "FRA" }
       ]
@@ -109,7 +98,14 @@ export default function ProTeam() {
         <p className="text-lg">Découvrez l'effectif professionnel du Rouen Normandie Rugby pour la saison 2025-2026.</p>
       </div>
 
-      <SectionNav links={navLinks} />
+      <SectionNav 
+        links={navLinks} 
+        rightElement={
+          <Link to="/equipe-pro/feminines" className="bg-primary text-white font-black uppercase text-xs px-6 py-3 wireframe-border hover:bg-black transition-colors block text-center">
+            Les Équipes Féminines
+          </Link>
+        }
+      />
 
       {/* Filters */}
       <div className="flex gap-4 mb-12 flex-wrap">

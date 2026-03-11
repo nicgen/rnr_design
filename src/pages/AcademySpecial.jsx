@@ -2,10 +2,10 @@ import SectionNav from "../components/SectionNav";
 import PlaceholderImage from "../components/PlaceholderImage";
 
 const navLinks = [
-  { label: "Centre de Formation / Espoirs", path: "/formation", exact: true },
-  { label: "Pôle Jeunes & École de Rugby", path: "/formation/jeunes", exact: true },
-  { label: "Section Féminine", path: "/formation/feminines", exact: true },
-  { label: "Sections Spécialisées", path: "/formation/specialisees", exact: true },
+  { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },
+  { label: "Centre de formation - Académie", path: "/formation", exact: true },
+  { label: "Pôle jeune espoir et pré-formation", path: "/formation/jeunes", exact: true },
+  { label: "École de rugby", path: "/formation/ecole-rugby", exact: true },
 ];
 
 export default function AcademySpecial() {

@@ -1,6 +1,23 @@
 import PlaceholderImage from "../components/PlaceholderImage";
 
 export default function Home() {
+  const standings = [
+    { pos: 1, team: "SC ALBI", played: 20, won: 16, draw: 1, lost: 3, diff: 181, pts: 85 },
+    { pos: 2, team: "STADE NIÇOIS", played: 20, won: 16, draw: 1, lost: 3, diff: 288, pts: 81 },
+    { pos: 3, team: "RC NARBONNAIS", played: 21, won: 15, draw: 0, lost: 6, diff: 243, pts: 76 },
+    { pos: 4, team: "CA PÉRIGOURDIN", played: 20, won: 14, draw: 0, lost: 6, diff: 160, pts: 73 },
+    { pos: 4, team: "RC MASSY ESSONNE", played: 20, won: 14, draw: 0, lost: 6, diff: 130, pts: 73 },
+    { pos: 6, team: "SO CHAMBÉRIEN", played: 20, won: 14, draw: 0, lost: 6, diff: 236, pts: 72 },
+    { pos: 7, team: "NIORT RC", played: 20, won: 11, draw: 0, lost: 9, diff: -51, pts: 56 },
+    { pos: 7, team: "ROUEN NORMANDIE RUGBY", played: 20, won: 11, draw: 0, lost: 9, diff: 69, pts: 56 },
+    { pos: 9, team: "US BRESSANE", played: 21, won: 10, draw: 0, lost: 11, diff: -65, pts: 51 },
+    { pos: 10, team: "RC SURESNES", played: 20, won: 8, draw: 1, lost: 11, diff: 6, pts: 46 },
+    { pos: 11, team: "CS BOURGOIN JALLIEU", played: 20, won: 7, draw: 1, lost: 12, diff: -44, pts: 39 },
+    { pos: 12, team: "RENNES ETUDIANTS CLUB", played: 20, won: 3, draw: 2, lost: 15, diff: -247, pts: 21 },
+    { pos: 13, team: "OL MARCQUOIS RUGBY", played: 20, won: 2, draw: 0, lost: 18, diff: -334, pts: 14 },
+    { pos: 14, team: "STADO TARBES", played: 20, won: 2, draw: 0, lost: 18, diff: -572, pts: 8 },
+  ];
+
   return (
     <>
       <section className="max-w-7xl mx-auto px-4 py-8 w-full flex-shrink-0">
@@ -220,45 +237,46 @@ export default function Home() {
         <div>
           <h2 className="text-3xl font-black uppercase mb-8">Classement</h2>
           <div className="wireframe-border overflow-x-auto">
-            <table className="w-full text-left text-xs font-bold">
-              <thead className="bg-black text-white uppercase">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-black text-white uppercase font-bold">
                 <tr>
-                  <th className="p-3">Pos</th>
+                  <th className="p-3 text-center">Pos</th>
                   <th className="p-3">Club</th>
                   <th className="p-3 text-center">J</th>
                   <th className="p-3 text-center">PTS</th>
                 </tr>
               </thead>
               <tbody className="divide-y-2 divide-black">
-                <tr><td className="p-3">1</td><td className="p-3">SC ALBI</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">85</td></tr>
-                <tr><td className="p-3">2</td><td className="p-3">STADE NIÇOIS</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">81</td></tr>
-                <tr><td className="p-3">3</td><td className="p-3">RC NARBONNAIS</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">76</td></tr>
-                <tr><td className="p-3">4</td><td className="p-3">CA PÉRIGOURDIN</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">73</td></tr>
-                <tr><td className="p-3">4</td><td className="p-3">RC MASSY ESSONNE</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">73</td></tr>
-                <tr><td className="p-3">6</td><td className="p-3">SO CHAMBÉRIEN</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">72</td></tr>
-                <tr><td className="p-3">7</td><td className="p-3">NIORT RC</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">56</td></tr>
-                <tr className="bg-primary/10 border-l-4 border-l-primary"><td className="p-3">7</td><td className="p-3">ROUEN NORMANDIE RUGBY</td><td className="p-3 text-center">-</td><td className="p-3 text-center font-black">56</td></tr>
+                {standings.slice(0, 8).map((team, index) => (
+                  <tr 
+                    key={index} 
+                    className={`transition-colors hover:bg-slate-50 ${
+                      team.team === "ROUEN NORMANDIE RUGBY" ? "bg-primary/10 border-l-4 border-l-primary font-bold" : ""
+                    }`}
+                  >
+                    <td className="p-3 text-center font-bold">
+                      {index < 2 ? (
+                        <span className="bg-primary text-white w-5 h-5 inline-flex items-center justify-center rounded-full text-[10px]">{team.pos}</span>
+                      ) : index < 6 ? (
+                        <span className="bg-black text-white w-5 h-5 inline-flex items-center justify-center rounded-full text-[10px]">{team.pos}</span>
+                      ) : (
+                        team.pos
+                      )}
+                    </td>
+                    <td className={`p-3 font-bold ${team.team === "ROUEN NORMANDIE RUGBY" ? "text-primary uppercase" : ""}`}>{team.team}</td>
+                    <td className="p-3 text-center">{team.played}</td>
+                    <td className="p-3 text-center font-black">{team.pts}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </section>
 
-      {/* Partenaires */}
+      {/* PLUS QU’UN MATCH */}
       <section className="bg-white py-16 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-2 mb-8">
-            <h2 className="text-3xl font-black uppercase text-center sm:text-left">Partenaires</h2>
-            <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer self-center sm:self-auto text-center">Page des partenaires</a>
-          </div>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mb-16">
-            <PlaceholderImage className="flex-1 aspect-square" />
-            <PlaceholderImage className="flex-1 aspect-square" />
-            <PlaceholderImage className="flex-1 aspect-square" />
-            <PlaceholderImage className="flex-1 aspect-square" />
-            <PlaceholderImage className="flex-1 aspect-square" />
-            <PlaceholderImage className="flex-1 aspect-square" />
-          </div>
           <div className="wireframe-border flex flex-col lg:flex-row items-stretch">
             <PlaceholderImage className="w-full lg:w-1/2 aspect-video lg:aspect-auto" />
             <div className="w-full lg:w-1/2 p-6 lg:p-12 flex flex-col justify-center items-start gap-6">
@@ -272,7 +290,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chiffres & Newsletter */}
+      {/* Chiffres */}
       <section className="bg-black text-white py-20 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-black uppercase mb-12 text-center">Chiffres importants</h2>
@@ -297,28 +315,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Nous suivre (Instagram only) */}
       <section className="max-w-7xl mx-auto px-4 py-16 w-full flex-shrink-0">
-        <h2 className="text-3xl font-black uppercase mb-8 text-center md:text-left">Nous suivre</h2>
-        <div className="flex flex-col lg:flex-row gap-8 mb-8 items-stretch lg:h-[450px]">
-          <div className="w-full lg:w-1/2 h-[300px] lg:h-auto wireframe-border flex flex-col items-center justify-center bg-slate-50 relative">
-            <div className="absolute inset-0 placeholder-x opacity-10"></div>
-            <span className="material-symbols-outlined text-6xl relative z-10">play_circle</span>
-            <p className="font-black uppercase mt-4 relative z-10">Dernière vidéo YouTube</p>
+        <h2 className="text-3xl font-black uppercase mb-8 text-center md:text-left">Nous suivre (Instagram)</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="relative group cursor-pointer aspect-square overflow-hidden bg-slate-100 wireframe-border">
+            <PlaceholderImage className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white font-bold">
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">favorite</span> 1.2k</span>
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">chat_bubble</span> 42</span>
+            </div>
           </div>
-          <div className="w-full lg:w-1/2 grid grid-cols-2 sm:grid-cols-3 grid-rows-none sm:grid-rows-2 gap-4">
-            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
-            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
-            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
-            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
-            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
-            <PlaceholderImage className="h-48 sm:h-auto object-cover" />
+          <div className="relative group cursor-pointer aspect-square overflow-hidden bg-slate-100 wireframe-border">
+            <PlaceholderImage className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white font-bold">
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">favorite</span> 940</span>
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">chat_bubble</span> 18</span>
+            </div>
+          </div>
+          <div className="relative group cursor-pointer aspect-square overflow-hidden bg-slate-100 wireframe-border">
+            <PlaceholderImage className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white font-bold">
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">favorite</span> 2.1k</span>
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">chat_bubble</span> 85</span>
+            </div>
+          </div>
+          <div className="relative group cursor-pointer aspect-square overflow-hidden bg-slate-100 wireframe-border">
+            <PlaceholderImage className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white font-bold">
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">favorite</span> 850</span>
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">chat_bubble</span> 21</span>
+            </div>
+          </div>
+          <div className="relative group cursor-pointer aspect-square overflow-hidden bg-slate-100 wireframe-border">
+            <PlaceholderImage className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white font-bold">
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">favorite</span> 1.5k</span>
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">chat_bubble</span> 34</span>
+            </div>
+          </div>
+          <div className="relative group cursor-pointer aspect-square overflow-hidden bg-slate-100 wireframe-border">
+            <PlaceholderImage className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white font-bold">
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">favorite</span> 3.4k</span>
+               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">chat_bubble</span> 112</span>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <input className="flex-1 wireframe-border p-4 font-bold uppercase text-sm border-black border-2 focus:ring-primary focus:border-primary outline-none" placeholder="VOTRE ADRESSE EMAIL" type="email" />
-          <button className="bg-primary text-white font-black uppercase px-8 py-4 wireframe-border hover:bg-black transition-colors whitespace-nowrap">
-            Inscription à la newsletter
-          </button>
+      </section>
+
+      {/* Partenaires (Moved above Footer) */}
+      <section className="bg-white py-16 w-full flex-shrink-0">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-2 mb-8">
+            <h2 className="text-3xl font-black uppercase text-center sm:text-left">Partenaires</h2>
+            <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer self-center sm:self-auto text-center">Page des partenaires</a>
+          </div>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mb-8">
+            <PlaceholderImage className="flex-1 aspect-square" />
+            <PlaceholderImage className="flex-1 aspect-square" />
+            <PlaceholderImage className="flex-1 aspect-square" />
+            <PlaceholderImage className="flex-1 aspect-square" />
+            <PlaceholderImage className="flex-1 aspect-square" />
+            <PlaceholderImage className="flex-1 aspect-square" />
+          </div>
         </div>
       </section>
     </>

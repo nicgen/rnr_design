@@ -2,10 +2,10 @@ import PlaceholderImage from "../components/PlaceholderImage";
 import SectionNav from "../components/SectionNav";
 
 const navLinks = [
-  { label: "Centre de Formation / Espoirs", path: "/formation", exact: true },
-  { label: "Pôle Jeunes & École de Rugby", path: "/formation/jeunes", exact: true },
-  { label: "Section Féminine", path: "/formation/feminines", exact: true },
-  { label: "Sections Spécialisées", path: "/formation/specialisees", exact: true },
+  { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },
+  { label: "Centre de formation - Académie", path: "/formation", exact: true },
+  { label: "Pôle jeune espoir et pré-formation", path: "/formation/jeunes", exact: true },
+  { label: "École de rugby", path: "/formation/ecole-rugby", exact: true },
 ];
 
 export default function Academy() {
@@ -96,42 +96,6 @@ export default function Academy() {
 
       </div>
 
-      <div className="mb-16">
-        <div className="flex justify-between items-end mb-8">
-          <h3 className="text-3xl font-black uppercase border-b-4 border-black pb-2 inline-block">Actualités Espoirs</h3>
-          <a className="text-xs font-black uppercase hover:text-primary transition-colors cursor-pointer flex items-center gap-1">Voir tout <span className="material-symbols-outlined text-sm">arrow_forward</span></a>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="wireframe-border p-4 bg-white hover:-translate-y-1 transition-transform cursor-pointer">
-            <PlaceholderImage className="aspect-video mb-4" />
-            <h4 className="font-black uppercase text-lg leading-tight mb-2">Victoire bonifiée face à Vannes pour nos Espoirs !</h4>
-            <p className="text-sm font-bold text-slate-500">Il y a 2 jours</p>
-          </div>
-          <div className="wireframe-border p-4 bg-white hover:-translate-y-1 transition-transform cursor-pointer">
-            <PlaceholderImage className="aspect-video mb-4" />
-            <h4 className="font-black uppercase text-lg leading-tight mb-2">Trois joueurs du CDF appelés en préparation Équipe de France U20</h4>
-            <p className="text-sm font-bold text-slate-500">La semaine dernière</p>
-          </div>
-          <div className="wireframe-border p-4 bg-white hover:-translate-y-1 transition-transform cursor-pointer">
-            <PlaceholderImage className="aspect-video mb-4" />
-            <h4 className="font-black uppercase text-lg leading-tight mb-2">Le programme d'entraînement conjoint avec le groupe Pro</h4>
-            <p className="text-sm font-bold text-slate-500">Le 15 Février</p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-3xl font-black uppercase border-b-4 border-black pb-2 mb-8 inline-block">Effectif Espoirs (U21)</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {espoirs.map((player, i) => (
-            <div key={i} className="wireframe-border p-3 flex flex-col items-center bg-white text-center hover:-translate-y-1 transition-transform cursor-pointer">
-              <PlaceholderImage className="w-24 h-24 rounded-full border-4 border-slate-100 mb-3" />
-              <h4 className="font-black uppercase text-sm leading-tight line-clamp-1">{player.name}</h4>
-              <p className="text-[10px] font-bold text-primary uppercase mt-1 line-clamp-1">{player.position}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

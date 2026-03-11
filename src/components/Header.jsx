@@ -66,9 +66,6 @@ export default function Header() {
             </Link>
           </div>
           <NavItem title="Actualités" to="/actualites-medias">
-            <Link to="/actualites-medias" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Dernières Actus</Link>
-            <Link to="/actualites-medias/photos" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Galerie Photos</Link>
-            <Link to="/actualites-medias/videos" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Vidéos / Web TV</Link>
           </NavItem>
           
           <NavItem title="Le Club" to="/le-club">
@@ -82,13 +79,17 @@ export default function Header() {
             <Link to="/equipe-pro" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Effectif (Joueurs & Staff)</Link>
             <Link to="/equipe-pro/calendrier" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Calendrier & Résultats</Link>
             <Link to="/equipe-pro/classement" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Classement</Link>
+            <hr className="my-2 border-slate-200" />
+            <Link to="/equipe-pro/feminines" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Les Équipes Féminines</Link>
           </NavItem>
 
           <NavItem title="Formation" to="/formation">
-            <Link to="/formation" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Centre de Formation / Espoirs</Link>
-            <Link to="/formation/jeunes" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Pôle Jeunes & École de Rugby</Link>
-            <Link to="/formation/feminines" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Section Féminine</Link>
-            <Link to="/formation/specialisees" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Sections Spécialisées</Link>
+            <a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">
+              Détection <span className="material-symbols-outlined text-[10px]">open_in_new</span>
+            </a>
+            <Link to="/formation" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Centre de formation - Académie</Link>
+            <Link to="/formation/jeunes" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Pôle jeune espoir et pré-formation</Link>
+            <Link to="/formation/ecole-rugby" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">École de rugby</Link>
           </NavItem>
         </div>
 
@@ -183,8 +184,6 @@ export default function Header() {
                     {activeSubMenu === 'actualites' && (
                       <>
                         <Link to="/actualites-medias" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Dernières Actus</Link>
-                        <Link to="/actualites-medias/photos" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Galerie Photos</Link>
-                        <Link to="/actualites-medias/videos" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Vidéos / Web TV</Link>
                       </>
                     )}
                     {activeSubMenu === 'club' && (
@@ -199,15 +198,19 @@ export default function Header() {
                       <>
                         <Link to="/equipe-pro" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Effectif (Joueurs & Staff)</Link>
                         <Link to="/equipe-pro/calendrier" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Calendrier & Résultats</Link>
-                        <Link to="/equipe-pro/classement" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Classement</Link>
+                        <Link to="/equipe-pro/classement" onClick={handleCloseMenu} className="hover:text-primary py-4">Classement</Link>
+                        <div className="border-t-2 border-slate-100 w-full my-2"></div>
+                        <Link to="/equipe-pro/feminines" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100 text-primary">Les Équipes Féminines</Link>
                       </>
                     )}
                     {activeSubMenu === 'formation' && (
                       <>
-                        <Link to="/formation" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Centre de Formation / Espoirs</Link>
-                        <Link to="/formation/jeunes" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Pôle Jeunes & École de Rugby</Link>
-                        <Link to="/formation/feminines" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Section Féminine</Link>
-                        <Link to="/formation/specialisees" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Sections Spécialisées</Link>
+                        <a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary py-4 border-b-2 border-slate-100 uppercase">
+                          Détection <span className="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+                        <Link to="/formation" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Centre de formation - Académie</Link>
+                        <Link to="/formation/jeunes" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Pôle jeune espoir et pré-formation</Link>
+                        <Link to="/formation/ecole-rugby" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">École de rugby</Link>
                       </>
                     )}
                     {activeSubMenu === 'partenaires' && (

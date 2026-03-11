@@ -1,4 +1,5 @@
 import SectionNav from "../components/SectionNav";
+import PlaceholderImage from "../components/PlaceholderImage";
 import { Link } from "react-router-dom";
 
 const navLinks = [
@@ -29,32 +30,28 @@ export default function PartnersVisibility() {
       <div className="mb-20 mt-8">
         <h3 className="text-3xl font-black uppercase mb-8 border-b-4 border-black inline-block pb-2">Tenues Officielles</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-           <div className="wireframe-border p-6 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer">
-              <span className="material-symbols-outlined text-4xl text-primary mb-4">sports_rugby</span>
+           <div className="wireframe-border p-4 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer flex flex-col items-center">
+              <PlaceholderImage className="w-full aspect-square mb-4 mix-blend-multiply" />
               <h4 className="font-black uppercase mb-2">Arrière / Manche</h4>
-              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300 mb-4">Short ou Maillot</p>
-              <p className="text-2xl font-black text-primary">15 000 € <span className="text-xs text-slate-400">HT</span></p>
+              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300">Short ou Maillot</p>
            </div>
            
-           <div className="wireframe-border p-6 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer">
-              <span className="material-symbols-outlined text-4xl text-primary mb-4">apparel</span>
+           <div className="wireframe-border p-4 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer flex flex-col items-center">
+              <PlaceholderImage className="w-full aspect-square mb-4 mix-blend-multiply" />
               <h4 className="font-black uppercase mb-2">Échauffement</h4>
-              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300 mb-4">Tee-Shirt Joueurs</p>
-              <p className="text-2xl font-black text-primary">10 000 € <span className="text-xs text-slate-400">HT</span></p>
+              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300">Tee-Shirt Joueurs</p>
            </div>
 
-           <div className="wireframe-border p-6 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer">
-              <span className="material-symbols-outlined text-4xl text-primary mb-4">work_history</span>
+           <div className="wireframe-border p-4 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer flex flex-col items-center">
+              <PlaceholderImage className="w-full aspect-square mb-4 mix-blend-multiply" />
               <h4 className="font-black uppercase mb-2">Staff & Médical</h4>
-              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300 mb-4">Tenues du personnel</p>
-              <p className="text-2xl font-black text-primary">5 000 € <span className="text-xs text-slate-400">HT</span></p>
+              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300">Tenues du personnel</p>
            </div>
 
-           <div className="wireframe-border p-6 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer">
-              <span className="material-symbols-outlined text-4xl text-primary mb-4">groups</span>
+           <div className="wireframe-border p-4 text-center hover:bg-black hover:text-white transition-colors group cursor-pointer flex flex-col items-center">
+              <PlaceholderImage className="w-full aspect-square mb-4 mix-blend-multiply" />
               <h4 className="font-black uppercase mb-2">Remplaçants</h4>
-              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300 mb-4">Chasubles Banc</p>
-              <p className="text-2xl font-black text-primary">5 000 € <span className="text-xs text-slate-400">HT</span></p>
+              <p className="text-sm font-bold text-slate-500 group-hover:text-slate-300">Chasubles Banc</p>
            </div>
         </div>
       </div>
@@ -65,29 +62,23 @@ export default function PartnersVisibility() {
         {/* Terrain */}
         <div>
            <h3 className="text-3xl font-black uppercase mb-8 border-b-4 border-black inline-block pb-2">Visibilité Terrain</h3>
-           <div className="flex flex-col gap-4">
-              <div className="wireframe-border bg-slate-50 p-6 flex justify-between items-center">
-                 <div>
-                    <h4 className="font-black uppercase text-lg">Piquets de Touche</h4>
-                    <p className="text-sm text-slate-500 font-bold">Autour du terrain</p>
-                 </div>
-                 <span className="text-2xl font-black text-primary">5 000 € <span className="text-sm text-slate-400">HT</span></span>
+           <div className="grid grid-cols-2 gap-4">
+              <div className="wireframe-border bg-slate-50 p-4 flex flex-col items-center text-center">
+                 <PlaceholderImage className="w-full aspect-video mb-4" />
+                 <h4 className="font-black uppercase text-base">Piquets de Touche</h4>
+                 <p className="text-xs text-slate-500 font-bold">Autour du terrain</p>
               </div>
               
-              <div className="wireframe-border bg-slate-50 p-6 flex justify-between items-center">
-                 <div>
-                    <h4 className="font-black uppercase text-lg">Panneaux LED</h4>
-                    <p className="text-sm text-slate-500 font-bold">Affichage dynamique</p>
-                 </div>
-                 <span className="text-2xl font-black text-primary">3 000 € <span className="text-sm text-slate-400">HT</span></span>
+              <div className="wireframe-border bg-slate-50 p-4 flex flex-col items-center text-center">
+                 <PlaceholderImage className="w-full aspect-video mb-4" />
+                 <h4 className="font-black uppercase text-base">Panneaux LED</h4>
+                 <p className="text-xs text-slate-500 font-bold">Affichage dynamique</p>
               </div>
 
-              <div className="wireframe-border bg-slate-50 p-6 flex justify-between items-center">
-                 <div>
-                    <h4 className="font-black uppercase text-lg">Panneaux Fixes</h4>
-                    <p className="text-sm text-slate-500 font-bold">Affichage statique permanent</p>
-                 </div>
-                 <span className="text-2xl font-black text-primary">2 200 € <span className="text-sm text-slate-400">HT</span></span>
+              <div className="wireframe-border bg-slate-50 p-4 flex flex-col items-center text-center col-span-2">
+                 <PlaceholderImage className="w-full aspect-[21/9] mb-4" />
+                 <h4 className="font-black uppercase text-base">Panneaux Fixes</h4>
+                 <p className="text-xs text-slate-500 font-bold">Affichage statique permanent</p>
               </div>
            </div>
         </div>
@@ -95,29 +86,23 @@ export default function PartnersVisibility() {
         {/* Namings & Animations */}
         <div>
            <h3 className="text-3xl font-black uppercase mb-8 border-b-4 border-black inline-block pb-2">Namings & Événementiel</h3>
-           <div className="flex flex-col gap-4">
-              <div className="wireframe-border bg-slate-50 p-6 flex justify-between items-center">
-                 <div>
-                    <h4 className="font-black uppercase text-lg">Naming Espaces</h4>
-                    <p className="text-sm text-slate-500 font-bold">Espace Epicuriens, Banquet...</p>
-                 </div>
-                 <span className="text-2xl font-black text-primary">Dès 2 000 € <span className="text-sm text-slate-400">HT</span></span>
+           <div className="grid grid-cols-2 gap-4">
+              <div className="wireframe-border bg-slate-50 p-4 flex flex-col items-center text-center">
+                 <PlaceholderImage className="w-full aspect-video mb-4" />
+                 <h4 className="font-black uppercase text-base">Naming Espaces</h4>
+                 <p className="text-xs text-slate-500 font-bold">Espace Epicuriens, Banquet...</p>
               </div>
               
-              <div className="wireframe-border bg-slate-50 p-6 flex justify-between items-center">
-                 <div>
-                    <h4 className="font-black uppercase text-lg">La Mascotte</h4>
-                    <p className="text-sm text-slate-500 font-bold">Peluche ou Mascotte Officielle</p>
-                 </div>
-                 <span className="text-2xl font-black text-primary">Dès 3 000 € <span className="text-sm text-slate-400">HT</span></span>
+              <div className="wireframe-border bg-slate-50 p-4 flex flex-col items-center text-center">
+                 <PlaceholderImage className="w-full aspect-video mb-4" />
+                 <h4 className="font-black uppercase text-base">La Mascotte</h4>
+                 <p className="text-xs text-slate-500 font-bold">Peluche ou Mascotte Officielle</p>
               </div>
 
-              <div className="wireframe-border bg-slate-50 p-6 flex justify-between items-center">
-                 <div>
-                    <h4 className="font-black uppercase text-lg">Ramasseurs de Balle</h4>
-                    <p className="text-sm text-slate-500 font-bold">Tenues des ramasseurs</p>
-                 </div>
-                 <span className="text-2xl font-black text-primary">2 000 € <span className="text-sm text-slate-400">HT</span></span>
+              <div className="wireframe-border bg-slate-50 p-4 flex flex-col items-center text-center col-span-2">
+                 <PlaceholderImage className="w-full aspect-[21/9] mb-4" />
+                 <h4 className="font-black uppercase text-base">Ramasseurs de Balle</h4>
+                 <p className="text-xs text-slate-500 font-bold">Tenues des ramasseurs</p>
               </div>
            </div>
         </div>

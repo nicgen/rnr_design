@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SectionNav from "../components/SectionNav";
 
 const navLinks = [
@@ -31,7 +32,14 @@ export default function ProStandings() {
         <p className="text-lg">Suivez le classement officiel du championnat de Nationale pour la saison 2025-2026.</p>
       </div>
 
-      <SectionNav links={navLinks} />
+      <SectionNav 
+        links={navLinks} 
+        rightElement={
+          <Link to="/equipe-pro/feminines" className="bg-primary text-white font-black uppercase text-xs px-6 py-3 wireframe-border hover:bg-black transition-colors block text-center">
+            Les Équipes Féminines
+          </Link>
+        }
+      />
 
       <div className="wireframe-border overflow-x-auto mt-8 max-w-5xl mx-auto">
         <table className="w-full text-left text-sm">
