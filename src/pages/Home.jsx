@@ -277,6 +277,7 @@ export default function Home() {
       {/* PLUS QU’UN MATCH */}
       <section className="bg-white py-16 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-black uppercase mb-8 text-center md:text-left">Le Club Affaires</h2>
           <div className="wireframe-border flex flex-col lg:flex-row items-stretch">
             <PlaceholderImage className="w-full lg:w-1/2 aspect-video lg:aspect-auto" />
             <div className="w-full lg:w-1/2 p-6 lg:p-12 flex flex-col justify-center items-start gap-6">
