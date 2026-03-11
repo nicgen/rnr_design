@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <h4 className="font-black uppercase mb-6 text-sm">Formation</h4>
             <ul className="flex flex-col gap-2 text-xs font-bold uppercase">
-              <li><a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="hover:text-primary flex items-center gap-1">Détection <span className="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
+              <li><a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Détection</a></li>
               <li><Link to="/formation" className="hover:text-primary">Centre de formation - Académie</Link></li>
               <li><Link to="/formation/jeunes" className="hover:text-primary">Pôle jeune espoir et pré-formation</Link></li>
               <li><Link to="/formation/ecole-rugby" className="hover:text-primary">École de rugby</Link></li>

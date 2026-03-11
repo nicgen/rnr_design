@@ -13,6 +13,7 @@ import ProCalendar from "./pages/ProCalendar";
 import ProStandings from "./pages/ProStandings";
 import Academy from "./pages/Academy";
 import AcademyYouth from "./pages/AcademyYouth";
+import AcademyEdr from "./pages/AcademyEdr";
 import AcademyWomen from "./pages/AcademyWomen";
 import AcademySpecial from "./pages/AcademySpecial";
 import Partners from "./pages/Partners";
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="equipe-pro/classement" element={<ProStandings />} />
           <Route path="formation" element={<Academy />} />
           <Route path="formation/jeunes" element={<AcademyYouth />} />
+          <Route path="formation/ecole-rugby" element={<AcademyEdr />} />
           <Route path="equipe-pro/feminines" element={<AcademyWomen />} />
           <Route path="formation/specialisees" element={<AcademySpecial />} />
           <Route path="partenaires" element={<Partners />} />
