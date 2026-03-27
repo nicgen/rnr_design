@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #e31c1c;
-  --color-accent: #f0e25e;
-  --color-background-light: #ffffff;
-  --color-background-dark: #121212;
-  --font-display: "Lexend", sans-serif;
-  --radius-DEFAULT: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
+  --color-primary: #e21e26; /* RNR Red */
+  --color-accent: #ffd700; /* Gold */
+  --color-background-light: #f8f9fa; /* Elite White */
+  --color-background-dark: #1a1a1a;
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --radius-DEFAULT: 8px; /* Stitch Roundness */
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
   
   /* Additional wireframe specific utilities */
-  --border-width-wireframe: 2px;
+  --border-width-wireframe: 1px; /* Réduit pour aspect premium */
 }
 
 @utility wireframe-border {

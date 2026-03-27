@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const NavItem = ({ title, to, href, align = "left", disabled = false, children }) => (
   <div className="relative group py-6">
@@ -26,17 +27,24 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Allow small buffer at top (e.g., 50px) where we always show
-      if (window.scrollY > lastScrollY && window.scrollY > 84) {
+      const currentScrollY = window.scrollY;
+      
+      // Handle visibility (show/hide on scroll direction)
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setIsVisible(false); // scrolling down
       } else {
         setIsVisible(true); // scrolling up
       }
-      setLastScrollY(window.scrollY);
+      
+      // Handle scrolled state for styling
+      setIsScrolled(currentScrollY > 50);
+      
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -51,15 +59,15 @@ export default function Header() {
 
   return (
     <>
-      <nav className={`border-b-2 border-black sticky top-0 bg-white z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center relative h-[84px] lg:h-auto">
+      <nav className={`fixed w-full top-0 z-50 text-white transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/90 backdrop-blur-md py-1' : 'bg-transparent py-4'}`}>
+        <div className="w-full px-6 lg:px-12 flex justify-between items-center relative h-[60px] lg:h-[80px]">
           {/* Mobile Menu Toggle */}
-          <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 z-10 text-black hover:text-primary transition-colors">
+          <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 z-10 text-white hover:text-primary transition-colors">
             <span className="material-symbols-outlined text-3xl">menu</span>
           </button>
 
           {/* Desktop Left Nav */}
-          <div className="hidden lg:flex gap-4 lg:gap-6 text-[11px] xl:text-xs font-bold uppercase tracking-tight whitespace-nowrap z-10 items-center">
+          <div className="hidden lg:flex gap-4 lg:gap-8 text-[11px] xl:text-xs font-bold uppercase tracking-widest z-10 items-center">
             <div className="relative group py-6 flex items-center">
               <Link to="/" className="flex items-center hover:text-primary transition-colors hover:scale-110" title="Accueil">
                 <span className="material-symbols-outlined text-xl">home</span>
@@ -93,14 +101,14 @@ export default function Header() {
             </NavItem>
           </div>
 
-          <div className="absolute left-1/2 -translate-x-1/2 z-20">
-            <Link to="/" className="w-16 h-16 wireframe-border flex items-center justify-center font-black italic hover:bg-slate-50 transition-colors bg-white">
-              RNR
+          <div className="absolute left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+            <Link to="/" className="hover:opacity-80 transition-opacity">
+              <Logo />
             </Link>
           </div>
 
           {/* Desktop Right Nav */}
-          <div className="hidden lg:flex gap-4 lg:gap-6 text-[11px] xl:text-xs font-bold uppercase tracking-tight justify-end whitespace-nowrap z-10 items-center">
+          <div className="hidden lg:flex gap-4 lg:gap-8 text-[11px] xl:text-xs font-bold uppercase tracking-widest justify-end z-10 items-center">
             <NavItem title="Partenaires" to="/partenaires" align="left">
               <Link to="/partenaires" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Le Business Club</Link>
               <Link to="/partenaires/actualites" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Actualités B2B</Link>
