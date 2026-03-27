@@ -52,57 +52,73 @@ export default function Home() {
         </div>
         
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-7xl md:text-9xl font-black text-white uppercase leading-none mb-4 tracking-tighter">
+          <h1 className="text-7xl md:text-[120px] font-black text-white uppercase mt-12 leading-[0.9] mb-6 tracking-tighter font-barlow-condensed italic drop-shadow-2xl">
             TOUS NORMANDS,<br />TOUS RNR!
           </h1>
-          <p className="text-white text-xl md:text-2xl font-medium max-w-3xl">
+          <p className="text-white text-xl md:text-2xl font-medium max-w-3xl italic opacity-90">
             Persévérance, et force brute, le RNR avance !
           </p>
         </div>
 
         {/* Matchbar sticky at bottom of hero */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 bg-black/80 backdrop-blur-md border-t border-white/10 hidden md:block">
-          <div className="max-w-7xl mx-auto flex items-stretch h-24">
-            <div className="flex items-center gap-8 px-8 border-r border-white/10 relative">
-              <span className="absolute top-2 left-6 text-[8px] font-black uppercase bg-primary text-white px-2 py-0.5 tracking-widest">PROCHAIN MATCH</span>
-              <div className="flex gap-4 items-center">
-                <div className="text-center"><p className="text-xl font-black text-white">11</p><p className="text-[8px] uppercase font-bold text-white/60">Jours</p></div>
-                <div className="text-center"><p className="text-xl font-black text-white">08</p><p className="text-[8px] uppercase font-bold text-white/60">Hrs</p></div>
-                <div className="text-center"><p className="text-xl font-black text-white">00</p><p className="text-[8px] uppercase font-bold text-white/60">Min</p></div>
+        <div className="absolute bottom-6 left-0 right-0 z-20 hidden md:block px-4">
+          <div className="max-w-[1400px] mx-auto flex items-stretch h-28 bg-[#1a1a1a]/95 backdrop-blur-xl -skew-x-12 border-l-4 border-primary overflow-visible relative">
+            
+            {/* Countdown block with red tag */}
+            <div className="flex items-center gap-10 px-12 relative border-r border-white/5 skew-x-12">
+              <span className="absolute -top-3 -left-2 text-[10px] font-black uppercase bg-primary text-white px-3 py-1 tracking-[0.2em] -skew-x-12">PROCHAIN MATCH</span>
+              <div className="flex gap-6 items-center">
+                <div className="text-center group"><p className="text-2xl font-black text-white group-hover:text-primary transition-colors">11</p><p className="text-[10px] uppercase font-bold text-white/40 tracking-widest">Jours</p></div>
+                <div className="text-center group"><p className="text-2xl font-black text-white group-hover:text-primary transition-colors">08</p><p className="text-[10px] uppercase font-bold text-white/40 tracking-widest">Hrs</p></div>
+                <div className="text-center group"><p className="text-2xl font-black text-white group-hover:text-primary transition-colors">00</p><p className="text-[10px] uppercase font-bold text-white/40 tracking-widest">Min</p></div>
               </div>
             </div>
             
-            <div className="flex-1 flex items-center justify-center gap-6 px-8">
-              <div className="flex items-center gap-3">
-                <img src={logoRNR} alt="Rouen" className="w-10 h-10" />
-                <span className="font-black text-xl italic uppercase text-white">Rouen</span>
+            {/* Main encounter block */}
+            <div className="flex-1 flex items-center justify-center gap-12 px-12 skew-x-12">
+              <div className="flex items-center gap-5">
+                <img src={logoRNR} alt="Rouen" className="w-14 h-14 object-contain brightness-110" />
+                <span className="font-black text-3xl italic uppercase text-white tracking-tight">Rouen</span>
               </div>
-              <span className="font-black text-xl italic text-white/40">VS</span>
-              <div className="flex items-center gap-3">
-                <span className="font-black text-xl italic uppercase text-white">Massy</span>
-                <PlaceholderImage className="w-10 h-10 rounded-full border border-white/20" />
+              
+              <div className="flex flex-col items-center justify-center">
+                <span className="font-black text-xl italic text-primary/80 mb-1">VS</span>
+                <span className="text-[10px] font-bold text-white/30 uppercase tracking-[0.3em]">PRO D2 - J25</span>
               </div>
-              <button className="bg-primary text-white font-black uppercase px-6 py-3 ml-8 hover:bg-white hover:text-primary transition-all flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm">confirmation_number</span> RÉSERVER
+
+              <div className="flex items-center gap-5">
+                <span className="font-black text-3xl italic uppercase text-white tracking-tight">Massy</span>
+                <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden">
+                   <img src="/resources/logo_massy.png" alt="Massy" className="w-10 h-10 object-contain opacity-80" onError={(e) => e.target.style.display = 'none'} />
+                   <span className="text-white/20 text-[8px] font-bold uppercase">MASSY</span>
+                </div>
+              </div>
+
+              <button className="bg-primary text-white font-black uppercase px-10 py-4 ml-8 hover:bg-white hover:text-primary transition-all duration-300 -skew-x-12 shadow-[0_0_20px_rgba(219,39,40,0.3)] group">
+                <div className="skew-x-12 flex items-center gap-3">
+                  <span className="material-symbols-outlined text-base group-hover:scale-125 transition-transform">confirmation_number</span> 
+                  <span className="text-lg">RÉSERVER</span>
+                </div>
               </button>
             </div>
 
-            <div className="flex items-stretch border-l border-white/10">
-              <div className="px-8 flex flex-col justify-center border-r border-white/10">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] text-white/40 font-bold uppercase">28 MARS</span>
-                  <span className="material-symbols-outlined text-[10px] text-white/40">location_on</span>
+            {/* Side info blocks */}
+            <div className="flex items-stretch border-l border-white/5 skew-x-12">
+              <div className="px-10 flex flex-col justify-center border-r border-white/5">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-[12px] text-white/50 font-bold tracking-wider uppercase">28 MARS</span>
+                  <span className="material-symbols-outlined text-sm text-primary">location_on</span>
                 </div>
-                <p className="text-[10px] font-black text-white/60 uppercase mb-1 leading-none">DÉPLACEMENT</p>
-                <p className="text-sm font-black text-white uppercase leading-none">NIORT RC</p>
+                <p className="text-[11px] font-black text-primary/80 uppercase mb-1 leading-none tracking-widest">DÉPLACEMENT</p>
+                <p className="text-lg font-black text-white uppercase leading-none tracking-tight">NIORT RC</p>
               </div>
-              <div className="px-8 flex flex-col justify-center">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] text-white/40 font-bold uppercase">10 AVRIL</span>
-                  <span className="material-symbols-outlined text-[10px] text-white/40">home</span>
+              <div className="px-10 flex flex-col justify-center relative">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-[12px] text-white/50 font-bold tracking-wider uppercase">10 AVRIL</span>
+                  <span className="material-symbols-outlined text-sm text-primary">home</span>
                 </div>
-                <p className="text-[10px] font-black text-white/60 uppercase mb-1 leading-none">RÉCEPTION</p>
-                <p className="text-sm font-black text-white uppercase leading-none">CHAMBÉRY</p>
+                <p className="text-[11px] font-black text-primary/80 uppercase mb-1 leading-none tracking-widest">RÉCEPTION</p>
+                <p className="text-lg font-black text-white uppercase leading-none tracking-tight">CHAMBÉRY</p>
               </div>
             </div>
           </div>
