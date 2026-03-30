@@ -59,7 +59,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex justify-center border-t-2 border-black pt-8 text-[10px] font-black uppercase">
+        <div className="flex justify-center pt-8 text-[10px] font-black uppercase text-slate-500">
           <p>© 2026 ROUEN NORMANDIE RUGBY. TOUS DROITS RÉSERVÉS.</p>
         </div>
       </div>
