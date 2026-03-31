@@ -170,26 +170,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DASHBOARD SECTION: STATS & RÉSULTATS */}
-      <section className="bg-slate-50 py-24 w-full flex-shrink-0 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* DASHBOARD SECTION: STATS & RÉSULTATS - VARIATION A (3 BLOCS) */}
+      <section className="relative py-24 w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden">
+        {/* Background image for the section */}
+        <div className="absolute inset-0 z-0">
+          <img src={stadiumHero} alt="Stadium Statistics" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="mb-12">
+            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Dashboard v1</h2>
+            <h3 className="text-4xl font-black uppercase tracking-tighter italic">3 Blocs Séparés</h3>
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
-            <div className="flex flex-col items-center justify-center p-8 bg-white border-2 border-slate-100 shadow-sm rounded-xl">
-              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-4">Position</h3>
+            <div className="flex flex-col items-center justify-center p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 transition-all duration-500">
+              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/40 mb-4">Position</h3>
               <div className="relative">
-                <span className="text-[12rem] font-black leading-none italic tracking-tighter text-black select-none">#7</span>
-                <div className="absolute -bottom-4 right-0 bg-primary text-white px-4 py-2 font-black italic transform skew-x-[-15deg]">
-                  <span className="inline-block skew-x-[15deg]">SAISON 25/26</span>
+                <div className="flex items-start">
+                  <span className="text-6xl font-black italic tracking-tighter text-primary mt-6 mr-1">#</span>
+                  <span className="text-[14rem] font-black leading-none italic tracking-tighter text-white select-none">7</span>
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-3 font-black italic transform -skew-x-12 shadow-lg">
+                  <span className="inline-block skew-x-12">SAISON 25/26</span>
                 </div>
               </div>
-              <p className="mt-8 text-xs font-bold uppercase tracking-widest text-slate-400">Classé sur 14 équipes</p>
+              <p className="mt-12 text-xs font-bold uppercase tracking-widest text-white/50">Classé sur 14 équipes</p>
             </div>
 
             {/* Colonne Centre: DERNIERS RÉSULTATS */}
-            <div className="flex flex-col gap-4">
-              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-2">Derniers Résultats</h3>
+            <div className="flex flex-col gap-4 bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
+              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/40 mb-2">Derniers Résultats</h3>
               <div className="flex flex-col gap-3">
                 {[
                   { j: "J 22", date: "07/03/26", home: "BOURGOIN", away: "ROUEN", score: "11 - 33", win: true },
@@ -197,59 +211,169 @@ export default function Home() {
                   { j: "J 20", date: "21/02/26", home: "NICE", away: "ROUEN", score: "40 - 19", win: false },
                   { j: "J 19", date: "13/02/26", home: "ROUEN", away: "RENNES", score: "21 - 25", win: false },
                 ].map((res, i) => (
-                  <div key={i} className="bg-white border border-slate-100 p-4 flex items-center justify-between shadow-sm">
+                  <div key={i} className="bg-white/5 border border-white/5 p-4 flex items-center justify-between group hover:bg-white/10 transition-all duration-300">
                     <div className="flex flex-col">
-                      <span className="text-[10px] font-black text-slate-400 leading-none mb-1">{res.j}</span>
-                      <span className="text-[8px] font-bold text-slate-300">{res.date}</span>
+                      <span className="text-xs font-black text-white leading-none mb-1">{res.j}</span>
+                      <span className="text-[10px] font-bold text-white/40">{res.date}</span>
                     </div>
                     <div className="flex-1 flex justify-center items-center gap-3 text-sm font-black italic">
-                      <span className={`uppercase w-16 text-right truncate ${res.home === 'ROUEN' ? 'text-primary' : ''}`}>{res.home}</span>
-                      <span className={`${res.win ? 'bg-black text-white' : 'bg-slate-100 text-slate-400'} px-2 py-1 text-[10px] min-w-[50px] text-center transform skew-x-[-15deg]`}>
-                        <span className="inline-block skew-x-[15deg]">{res.score}</span>
+                      <span className={`uppercase w-16 text-right truncate ${res.home === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.home}</span>
+                      <span className={`${res.win ? 'bg-primary text-white' : 'bg-white/10 text-white/40'} px-2 py-1 text-[10px] min-w-[50px] text-center transform -skew-x-12`}>
+                        <span className="inline-block skew-x-12">{res.score}</span>
                       </span>
-                      <span className={`uppercase w-16 text-left truncate ${res.away === 'ROUEN' ? 'text-primary' : ''}`}>{res.away}</span>
+                      <span className={`uppercase w-16 text-left truncate ${res.away === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.away}</span>
                     </div>
                   </div>
                 ))}
               </div>
+              <a className="mt-4 text-[10px] font-black uppercase self-center tracking-widest text-primary hover:text-white transition-colors cursor-pointer border-b border-primary italic">
+                Voir tous les résultats
+              </a>
             </div>
 
-            {/* Colonne Droite: FORME & POINTS */}
-            <div className="flex flex-col gap-8">
+            {/* Colonne Droite: STATISTIQUES */}
+            <div className="flex flex-col gap-8 bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
               <div className="flex flex-col gap-4">
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-400">Historique</h3>
-                <div className="flex gap-2">
-                  {['V', 'V', 'D', 'D', 'V'].map((f, i) => (
-                    <div key={i} className={`w-10 h-10 flex items-center justify-center font-black rounded-lg ${f === 'V' ? 'bg-green-500 text-white' : 'bg-red-500 text-white shadow-inner opacity-80'}`}>
-                      {f}
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/40">Statistiques</h3>
+                 <div className="flex items-end gap-6 mb-2">
+                    <div className="flex flex-col">
+                      <span className="text-4xl font-black italic italic leading-none text-white">15</span>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Victoires</span>
                     </div>
-                  ))}
-                </div>
+                    <div className="flex flex-col">
+                      <span className="text-4xl font-black italic leading-none text-white/40">7</span>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-white/20">Défaites</span>
+                    </div>
+                    <div className="flex-1 flex justify-end gap-1">
+                      {['V', 'V', 'D', 'D', 'V'].map((f, i) => (
+                        <div key={i} className={`w-7 h-7 flex items-center justify-center text-[10px] font-black rounded-sm ${f === 'V' ? 'bg-green-500 text-white' : 'bg-red-500 text-white shadow-inner opacity-80'}`}>
+                          {f}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white p-6 border-2 border-slate-100 shadow-sm rounded-xl text-center">
-                  <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Points Marqués</p>
-                  <p className="text-4xl font-black italic leading-none">468</p>
+                <div className="bg-white/5 p-5 border border-white/5 rounded-xl text-center group hover:bg-white/10 transition-all">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-2">Points Marqués</p>
+                  <p className="text-4xl font-black italic leading-none text-white tracking-tighter">468</p>
                 </div>
-                <div className="bg-white p-6 border-2 border-slate-100 shadow-sm rounded-xl text-center">
-                  <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Points Concédés</p>
-                  <p className="text-4xl font-black italic leading-none text-slate-300">382</p>
+                <div className="bg-white/5 p-5 border border-white/5 rounded-xl text-center group hover:bg-white/10 transition-all">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-2">Points Concédés</p>
+                  <p className="text-4xl font-black italic leading-none text-white/40 tracking-tighter">382</p>
                 </div>
               </div>
 
-              <div className="bg-black text-white p-6 rounded-xl flex items-center justify-between">
+              <div className="bg-primary text-white p-6 rounded-xl flex items-center justify-between shadow-xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000"></div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-50 mb-1">Différence</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Différence</p>
                   <p className="text-3xl font-black italic">+86</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-50 mb-1">Points Class.</p>
-                  <p className="text-3xl font-black italic text-primary">56</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Points Class.</p>
+                  <p className="text-3xl font-black italic text-black">56</p>
                 </div>
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* DASHBOARD SECTION: STATS & RÉSULTATS - VARIATION B (UNIFIED) */}
+      <section className="relative py-24 w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden border-t-8 border-primary">
+        {/* Background image for the section */}
+        <div className="absolute inset-0 z-0">
+          <img src="/resources/hero_bg_alt.jpg" alt="Stadium Statistics Alt" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+           <div className="mb-12">
+            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Dashboard v2</h2>
+            <h3 className="text-4xl font-black uppercase tracking-tighter italic">Bloc Unifié (Editorial Strip)</h3>
+          </div>
+
+          <div className="bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[40px] shadow-2xl p-2 lg:p-4 overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-stretch">
+              
+              {/* Position */}
+              <div className="flex-1 flex flex-col items-center justify-center p-12 lg:border-r border-white/5 relative group">
+                <span className="absolute top-6 left-12 text-[10px] font-black uppercase tracking-[0.3em] text-white/20 italic">Position</span>
+                <div className="flex items-start">
+                  <span className="text-6xl font-black italic tracking-tighter text-primary mt-6 mr-1">#</span>
+                  <span className="text-[14rem] font-black leading-none italic tracking-tighter text-white select-none">7</span>
+                </div>
+                <div className="bg-primary/20 text-primary border border-primary/30 px-4 py-1 font-black text-[10px] italic skew-x-[-15deg] mt-4">
+                  <span className="inline-block skew-x-[15deg] uppercase">Classé sur 14</span>
+                </div>
+              </div>
+
+              {/* Résultats */}
+              <div className="flex-[1.5] p-12 lg:border-r border-white/5 flex flex-col gap-8 relative bg-white/2">
+                <span className="absolute top-6 left-12 text-[10px] font-black uppercase tracking-[0.3em] text-white/20 italic">Derniers Résultats</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                  {[
+                    { j: "J 22", score: "11-33", opp: "Massy", w: true },
+                    { j: "J 21", score: "20-19", opp: "Périgueux", w: true },
+                    { j: "J 20", score: "40-19", opp: "Nice", w: false },
+                    { j: "J 19", score: "21-25", opp: "Rennes", w: false },
+                  ].map((res, i) => (
+                    <div key={i} className="flex items-center gap-4 bg-white/5 p-4 group hover:bg-primary transition-all duration-300 cursor-default">
+                      <div className="flex flex-col border-r border-white/10 pr-4">
+                        <span className="text-[10px] font-black text-white/40 group-hover:text-black/40">{res.j}</span>
+                        <span className={`text-[12px] font-black ${res.w ? 'text-primary group-hover:text-white' : 'text-white/20'}`}>W</span>
+                      </div>
+                      <div className="flex-1 flex flex-col">
+                        <span className="text-xs font-black uppercase group-hover:text-black">{res.opp}</span>
+                        <span className="text-lg font-black italic tracking-tight group-hover:text-black">{res.score}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all group">
+                   voir tous les resultats <span className="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                </button>
+              </div>
+
+              {/* Statistiques */}
+              <div className="flex-1 p-12 relative flex flex-col justify-center">
+                <span className="absolute top-6 left-12 text-[10px] font-black uppercase tracking-[0.3em] text-white/20 italic">Statistiques</span>
+                
+                <div className="flex flex-col gap-10 mt-6">
+                  <div className="flex gap-10">
+                    <div className="flex flex-col">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-2">Victoires</p>
+                      <p className="text-6xl font-black italic leading-none">15</p>
+                    </div>
+                    <div className="flex flex-col border-l border-white/10 pl-10">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-2">Défaites</p>
+                      <p className="text-6xl font-black italic leading-none text-white/20">7</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    <div className="flex justify-between items-end border-b border-white/10 pb-2">
+                       <span className="text-[10px] font-bold uppercase text-white/40 italic">Différence</span>
+                       <span className="text-3xl font-black italic text-primary">+86</span>
+                    </div>
+                    <div className="flex justify-between items-end">
+                       <span className="text-[10px] font-bold uppercase text-white/40 italic">Points Class.</span>
+                       <span className="text-3xl font-black italic">56</span>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 justify-center py-4 bg-white/5 rounded-full">
+                    {['V', 'V', 'D', 'D', 'V'].map((f, i) => (
+                      <div key={i} className={`w-3 h-3 rounded-full ${f === 'V' ? 'bg-primary shadow-[0_0_10px_rgba(219,39,40,0.8)]' : 'bg-white/10'}`}></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
