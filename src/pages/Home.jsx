@@ -48,6 +48,15 @@ export default function Home() {
       <section className="relative h-[85vh] w-full flex-shrink-0 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={stadiumHero} alt="Stadium" className="absolute inset-0 w-full h-full object-cover" />
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/resources/video_bg.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
