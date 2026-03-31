@@ -61,10 +61,10 @@ export default function Home() {
         </div>
         
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-7xl md:text-[120px] font-black text-white uppercase mt-12 leading-[0.9] mb-6 tracking-tighter font-barlow-condensed italic drop-shadow-2xl">
+          <h1 className="text-7xl md:text-[120px] font-black text-white uppercase mt-12 leading-[0.9] mb-6 tracking-tighter font-barlow-condensed italic drop-shadow-lg">
             TOUS NORMANDS,<br />TOUS RNR!
           </h1>
-          <p className="text-white text-xl md:text-2xl font-medium max-w-3xl italic opacity-90">
+          <p className="text-white text-xl md:text-2xl font-medium max-w-3xl italic opacity-90 drop-shadow-md">
             Persévérance, et force brute, le RNR avance !
           </p>
         </div>

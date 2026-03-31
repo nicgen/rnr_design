@@ -59,7 +59,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className={`fixed w-full top-0 z-50 text-white transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/90 backdrop-blur-md py-1' : 'bg-transparent py-4'}`}>
+      <nav className={`fixed w-full top-0 z-50 text-white transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/90 backdrop-blur-md py-1' : 'bg-black/30 backdrop-blur-sm py-4'}`}>
         <div className="w-full px-6 lg:px-12 flex justify-between items-center relative h-[60px] lg:h-[80px]">
           {/* Mobile Menu Toggle */}
           <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 z-10 text-white hover:text-primary transition-colors">
