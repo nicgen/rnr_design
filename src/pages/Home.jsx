@@ -9,7 +9,7 @@ import player2Img from '/resources/Killian_LAISNE.jpg';
 import player3Img from '/resources/Marius_BUNEL.jpg';
 import fansImg from '/resources/Tous-derriere-les-Lions.jpeg';
 
-import Header from '../components/Header';
+
 
 const PlaceholderImage = ({ className }) => (
   <div className={`bg-slate-200 border border-slate-300 flex items-center justify-center ${className}`}>
@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <Header />
+
       
       {/* HERO SECTION */}
       <section className="relative h-[85vh] w-full flex-shrink-0 overflow-hidden">
