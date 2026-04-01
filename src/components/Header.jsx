@@ -59,8 +59,8 @@ export default function Header() {
 
   return (
     <>
-      <nav className={`fixed w-full top-0 z-50 text-white transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/90 backdrop-blur-md py-1' : 'bg-black/30 backdrop-blur-sm py-4'}`}>
-        <div className="w-full px-6 lg:px-12 flex justify-between items-center relative h-[60px] lg:h-[80px]">
+      <nav className={`fixed w-full top-0 z-50 text-white transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/95 backdrop-blur-md py-2 shadow-lg' : 'bg-gradient-to-b from-black/80 to-transparent py-3'}`}>
+        <div className="w-full px-6 lg:px-12 flex justify-between items-center relative h-[50px] lg:h-[60px]">
           {/* Mobile Menu Toggle */}
           <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 z-10 text-white hover:text-primary transition-colors">
             <span className="material-symbols-outlined text-3xl">menu</span>
