@@ -7,7 +7,7 @@ import partnersImg from '/resources/mise-en-avant-partenaires.jpeg';
 import player1Img from '/resources/Soig_MINGANT.jpg';
 import player2Img from '/resources/Killian_LAISNE.jpg';
 import player3Img from '/resources/Marius_BUNEL.jpg';
-import fansImg from '/resources/Tous-derriere-les-Lions.jpeg';
+import fansImg from '/resources/Tous-derriere-les-Lions.jpeg';import delphineImg from '/resources/Delphine_Bunel.jpg';
 
 
 
@@ -27,10 +27,10 @@ export default function Home() {
   };
 
   const news = [
-    { title: "CHANGEMENT DE PRÉSIDENCE.", category: "CLUB", author: "PHILIPPE MARTY PASSE LE RELAIS", img: presidentImg, size: "large", date: "22 MARS 2024" },
-    { title: "MAILLOT DOMICILE 25-26", category: "BOUTIQUE", author: "NOUVELLE COLLECTION", img: jerseyImg, size: "small", date: "20 MARS 2024" },
-    { title: "L'ART AU CŒUR DE NOTRE SOIRÉE DE GALA", category: "ÉVÉNEMENT", author: "SOIRÉE CARITATIVE D'EXCEPTION", img: galaImg, size: "small", date: "18 MARS 2024" },
-    { title: "MISE EN AVANT DE NOS PARTENAIRES", category: "PARTENAIRES", author: "EXPÉRIENCE CLUB AFFAIRES", img: partnersImg, size: "small", date: "15 MARS 2024" }
+    { title: "CHANGEMENT DE PRÉSIDENCE.", category: "CLUB", author: "PHILIPPE MARTY PASSE LE RELAIS", img: delphineImg, size: "large", date: "22 MARS 2024" },
+    { title: "MAILLOT DOMICILE 25-26", category: "BOUTIQUE", author: "NOUVELLE COLLECTION", img: jerseyImg, size: "small", date: "20 MARS 2026" },
+    { title: "L'ART AU CŒUR DE NOTRE SOIRÉE DE GALA", category: "ÉVÉNEMENT", author: "SOIRÉE CARITATIVE D'EXCEPTION", img: galaImg, size: "small", date: "18 MARS 2026" },
+    { title: "MISE EN AVANT DE NOS PARTENAIRES", category: "PARTENAIRES", author: "EXPÉRIENCE CLUB AFFAIRES", img: partnersImg, size: "small", date: "15 MARS 2026" }
   ];
 
   const secondaryNews = [
@@ -158,15 +158,33 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 w-full px-0 gap-0">
           {news.map((item, index) => (
-            <div key={index} className="relative group overflow-hidden aspect-[3/4] cursor-pointer">
-              <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            <div 
+              key={index} 
+              className="relative group overflow-hidden aspect-[3/4] cursor-pointer"
+            >
+              <img 
+                src={item.img} 
+                alt={item.title} 
+                className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ${item.size === 'large' ? 'scale-110 group-hover:scale-125' : 'group-hover:scale-105'}`} 
+              />
+              
+              {/* Overlay Gradient for better readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+              
+              {/* Category Tag */}
               <div className="absolute top-8 left-8">
-                <span className="bg-primary text-white text-[10px] font-black px-3 py-1 uppercase">{item.category}</span>
+                <div className="bg-primary text-white text-[10px] font-black px-3 py-1.5 uppercase -skew-x-12 inline-block shadow-lg">
+                  <span className="inline-block skew-x-12">{item.category}</span>
+                </div>
               </div>
-              <div className="absolute bottom-12 left-8 right-8 text-center text-white">
-                <p className="text-[10px] font-bold mb-2 uppercase tracking-widest text-white/80">{item.author}</p>
-                <h3 className="text-2xl font-black uppercase leading-tight tracking-tight">{item.title}</h3>
+              
+              {/* Content Panel */}
+              <div className="absolute bottom-10 left-8 right-8 text-left text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <p className="text-[10px] font-bold mb-2 uppercase tracking-[0.2em] text-white/60">{item.author}</p>
+                <h3 className="text-2xl font-black uppercase leading-tight tracking-tighter drop-shadow-2xl">
+                  {item.title}
+                </h3>
+                <div className="w-8 h-[2px] bg-primary mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
             </div>
           ))}
@@ -182,14 +200,25 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
           {secondaryNews.map((item, index) => (
             <div key={index} className="relative aspect-[3/4] group overflow-hidden cursor-pointer">
-              <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-              <div className="absolute top-8 left-8">
-                <span className="bg-primary text-white text-[8px] font-black px-2 py-1 uppercase">{item.category}</span>
+              <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+              
+              {/* Category Tag */}
+              <div className="absolute top-6 left-6">
+                <div className="bg-primary text-white text-[8px] font-black px-2 py-1 uppercase -skew-x-12 inline-block">
+                  <span className="inline-block skew-x-12">{item.category}</span>
+                </div>
               </div>
-              <div className="absolute bottom-12 left-8 right-8 text-center text-white">
-                <p className="text-[10px] font-bold mb-2 uppercase tracking-widest text-white/80">{item.subtitle}</p>
-                <h3 className="text-xl font-black uppercase leading-tight tracking-tight">{item.title}</h3>
+              
+              {/* Content Panel */}
+              <div className="absolute bottom-8 left-6 right-6 text-left text-white translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
+                <p className="text-[9px] font-bold mb-1.5 uppercase tracking-[0.2em] text-white/50">{item.subtitle}</p>
+                <h3 className="text-lg font-black uppercase leading-[1.1] tracking-tighter drop-shadow-xl">
+                  {item.title}
+                </h3>
+                <div className="w-6 h-[1.5px] bg-primary mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
             </div>
           ))}
