@@ -238,30 +238,29 @@ export default function Header() {
                    className="w-full h-full object-cover animate-ken-burns opacity-70"
                  />
                )}
-               {/* Deep Radial/Linear Gradient for readability */}
-               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/80 to-black z-10" />
+               {/* Deep Radial/Linear Gradient for readability - Lighter 50% opacity */}
+               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/50 to-black z-10" />
             </div>
 
             {/* Sub Links (Overlayed on gradient) */}
             <div className="relative z-20 h-full flex flex-col justify-center px-12 lg:px-24">
                {activeCategory && !menuSections.find(s => s.id === activeCategory)?.isExternal ? (
                  <div className="animate-slide-up max-w-lg">
-                    <h3 className="text-primary text-[11px] font-black uppercase tracking-[0.4em] mb-8 flex items-center gap-4">
-                      <span className="w-8 h-[1px] bg-primary" />
-                      Explorez
-                    </h3>
-                    <div className="flex flex-col gap-6">
+                    <div 
+                      key={activeCategory}
+                      className="flex flex-col gap-6"
+                    >
                       {menuSections.find(s => s.id === activeCategory)?.links.map((link, idx) => (
                         <Link 
                           key={idx}
                           to={link.to}
                           onClick={toggleMenu}
-                          className="group flex flex-col"
+                          className="group flex flex-col animate-fade-in-right opacity-0"
+                          style={{ animationDelay: `${idx * 0.08}s` }}
                         >
-                          <span className="text-2xl lg:text-4xl font-display font-bold text-white group-hover:text-primary transition-colors tracking-tight uppercase">
+                          <span className="text-3xl lg:text-5xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4">
                             {link.label}
                           </span>
-                          <span className="h-[1px] w-0 bg-primary group-hover:w-full transition-all duration-500 mt-1" />
                         </Link>
                       ))}
                     </div>
