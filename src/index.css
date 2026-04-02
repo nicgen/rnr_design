@@ -12,8 +12,26 @@
   --radius-xl: 16px;
   --radius-full: 9999px;
   
-  /* Additional wireframe specific utilities */
   --border-width-wireframe: 1px; /* Réduit pour aspect premium */
+
+  /* Animations for Mega Menu */
+  @keyframes ken-burns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+  }
+  @keyframes slide-up-fade {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes stretch-v {
+    0% { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
+  }
+}
+
+@utility animate-stretch-v {
+  animation: stretch-v 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+  transform-origin: center;
 }
 
 @utility wireframe-border {
@@ -25,8 +43,19 @@
                     linear-gradient(to top left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), transparent calc(50% + 1px));
 }
 
+@utility animate-ken-burns {
+  animation: ken-burns 20s ease-out forwards;
+}
+
+@utility animate-slide-up {
+  animation: slide-up-fade 0.5s ease-out forwards;
+}
+
 @layer base {
   body {
-    @apply bg-background-light font-display text-slate-900;
+    @apply bg-background-light font-body text-slate-900;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
   }
 }

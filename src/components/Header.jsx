@@ -1,31 +1,29 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import PlaceholderImage from './PlaceholderImage';
 
-const NavItem = ({ title, to, href, align = "left", disabled = false, children }) => (
-  <div className="relative group py-6">
-    {disabled ? (
-      <span className="cursor-not-allowed text-slate-400">{title}</span>
-    ) : href ? (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="hover:text-primary">{title}</a>
-    ) : (
-      <Link to={to} className="hover:text-primary">{title}</Link>
-    )}
-    {children && (
-      <div className={`absolute top-full ${align === "left" ? "left-0" : "right-0"} bg-white border-2 border-black p-4 hidden group-hover:flex flex-col gap-3 min-w-[240px] shadow-lg z-50`}>
-        {children}
-      </div>
-    )}
-  </div>
+const QuickLink = ({ to, children }) => (
+  <Link to={to} className="hover:text-primary transition-all duration-300 text-[11px] font-black uppercase tracking-widest">
+    {children}
+  </Link>
 );
 
-const NavSubItem = ({ children }) => (
-  <span className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">{children}</span>
+const ConversionLink = ({ href, children, isExternal = true }) => (
+  <a 
+    href={href} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="bg-primary hover:bg-white hover:text-black text-white px-5 py-2 rounded-full transition-all duration-300 text-[11px] font-black uppercase tracking-widest shadow-lg flex items-center gap-2"
+  >
+    {children}
+    {isExternal && <span className="material-symbols-outlined text-[14px]">arrow_outward</span>}
+  </a>
 );
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -33,17 +31,12 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Handle visibility (show/hide on scroll direction)
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setIsVisible(false); // scrolling down
+      if (currentScrollY > lastScrollY && currentScrollY > 70) {
+        setIsVisible(false);
       } else {
-        setIsVisible(true); // scrolling up
+        setIsVisible(true);
       }
-      
-      // Handle scrolled state for styling
-      setIsScrolled(currentScrollY > 50);
-      
+      setIsScrolled(currentScrollY > 40);
       setLastScrollY(currentScrollY);
     };
 
@@ -51,203 +44,243 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  // Reset submenu when closing
-  const handleCloseMenu = () => {
-    setIsMobileMenuOpen(false);
-    setActiveSubMenu(null);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      // Default to first category
+      setActiveCategory('club');
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   };
+
+  const menuSections = [
+    {
+      id: 'club',
+      title: 'LE CLUB',
+      image: '/resources/visuel_stade.jpeg',
+      links: [
+        { label: 'Histoire & Palmarès', to: '/le-club' },
+        { label: 'Direction & Organigramme', to: '/le-club/organigramme' },
+        { label: 'Infrastructures & Stade', to: '/le-club/infrastructures' },
+        { label: 'Engagements RSE', to: '/le-club/engagements' },
+        { label: 'Contact', to: '/contact' }
+      ]
+    },
+    {
+      id: 'pro',
+      title: "L'ÉQUIPE PRO",
+      isPlaceholder: true,
+      links: [
+        { label: 'Effectif Pro 23/24', to: '/equipe-pro' },
+        { label: 'Staff Technique', to: '/equipe-pro' },
+        { label: 'Calendrier & Résultats', to: '/equipe-pro/calendrier' },
+        { label: 'Classement Pro D2', to: '/equipe-pro/classement' }
+      ]
+    },
+    {
+      id: 'feminines',
+      title: "L'ÉQUIPE FÉMININE",
+      isPlaceholder: true,
+      links: [
+        { label: 'Effectif Élite 1', to: '/equipe-pro/feminines' },
+        { label: 'Staff & Calendrier', to: '/equipe-pro/feminines' },
+        { label: 'Classement Élite', to: '/equipe-pro/feminines' }
+      ]
+    },
+    {
+      id: 'formation',
+      title: 'FORMATION',
+      isPlaceholder: true,
+      links: [
+        { label: 'Centre de Formation', to: '/formation' },
+        { label: 'Pôle Espoirs (U18/U21)', to: '/formation/jeunes' },
+        { label: 'École de Rugby', to: '/formation/ecole-rugby' },
+        { label: 'Filières Spécialisées', to: '/formation/specialisees' }
+      ]
+    },
+    {
+      id: 'partenaires',
+      title: 'PARTENAIRES',
+      isPlaceholder: true,
+      links: [
+        { label: 'Le Business Club', to: '/partenaires' },
+        { label: 'Hospitalités & Loges', to: '/partenaires/hospitalites' },
+        { label: 'Visibilité & Sponsoring', to: '/partenaires/visibilite' },
+        { label: 'Actualités Partenaires', to: '/partenaires/actualites' },
+        { label: 'Devenir Partenaire', to: '/partenaires/contact' }
+      ]
+    },
+    {
+      id: 'actus',
+      title: 'ACTUALITÉS',
+      isPlaceholder: true,
+      links: [
+        { label: "Toute l'actualité", to: '/actualites-medias' },
+        { label: 'Galeries Photos', to: '/actualites-medias/photos' },
+        { label: 'Vidéos & Replay', to: '/actualites-medias/videos' }
+      ]
+    },
+    {
+      id: 'boutique',
+      title: 'BOUTIQUE',
+      isExternal: true,
+      href: 'http://boutique.rouennormandierugby.fr/',
+      isPlaceholder: true,
+      links: []
+    },
+    {
+      id: 'billetterie',
+      title: 'BILLETTERIE',
+      isExternal: true,
+      href: 'http://billetterie.rouen-normandie-rugby.fr/',
+      isPlaceholder: true,
+      links: []
+    }
+  ];
 
   return (
     <>
-      <nav className={`fixed w-full top-0 z-50 text-white transition-all duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/95 backdrop-blur-md py-2 shadow-lg' : 'bg-gradient-to-b from-black/80 to-transparent py-3'}`}>
-        <div className="w-full px-6 lg:px-12 flex justify-between items-center relative h-[50px] lg:h-[60px]">
-          {/* Mobile Menu Toggle */}
-          <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 z-10 text-white hover:text-primary transition-colors">
-            <span className="material-symbols-outlined text-3xl">menu</span>
-          </button>
+      <nav className={`fixed w-full top-0 z-[100] text-white transition-all duration-500 ${isVisible && !isMenuOpen ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/90 shadow-2xl backdrop-blur-md' : 'bg-gradient-to-b from-black to-transparent py-2'}`}>
+        <div className="w-full px-6 lg:px-12 flex justify-between items-center h-[70px] lg:h-[80px]">
+          
+          {/* LEFT: Burger + Quick Links */}
+          <div className="flex items-center gap-8">
+            <button 
+              onClick={toggleMenu} 
+              className="flex items-center group transition-all"
+            >
+              <div className="flex flex-col gap-1.5 w-8 py-2">
+                <span className="h-0.5 w-full bg-white transition-all duration-300" />
+                <span className="h-0.5 w-full bg-white transition-all duration-300" />
+                <span className="h-0.5 w-full bg-white transition-all duration-300" />
+              </div>
+            </button>
 
-          {/* Desktop Left Nav */}
-          <div className="hidden lg:flex gap-4 lg:gap-8 text-[11px] xl:text-xs font-bold uppercase tracking-widest z-10 items-center">
-            <div className="relative group py-6 flex items-center">
-              <Link to="/" className="flex items-center hover:text-primary transition-colors hover:scale-110" title="Accueil">
-                <span className="material-symbols-outlined text-xl">home</span>
-              </Link>
+            <div className="hidden xl:flex items-center gap-6 h-5 border-l border-white/20 pl-8">
+              <QuickLink to="/actualites-medias">Actualités</QuickLink>
+              <QuickLink to="/billetterie">Billetterie</QuickLink>
+              <QuickLink to="/boutique">Boutique</QuickLink>
             </div>
-            <NavItem title="Actualités" to="/actualites-medias">
-            </NavItem>
-
-            <NavItem title="Le Club" to="/le-club">
-              <Link to="/le-club" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Histoire & Palmarès</Link>
-              <Link to="/le-club/organigramme" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Organigramme & Direction</Link>
-              <Link to="/le-club/infrastructures" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Infrastructures / Le Stade</Link>
-              <Link to="/le-club/engagements" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Engagements (RSE, Projet club)</Link>
-            </NavItem>
-
-            <NavItem title="L'Équipe Pro" to="/equipe-pro">
-              <Link to="/equipe-pro" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Effectif (Joueurs & Staff)</Link>
-              <Link to="/equipe-pro/calendrier" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Calendrier & Résultats</Link>
-              <Link to="/equipe-pro/classement" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Classement</Link>
-              <hr className="my-2 border-slate-200" />
-              <Link to="/equipe-pro/feminines" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Les Équipes Féminines</Link>
-            </NavItem>
-
-            <NavItem title="Formation" to="/formation">
-              <a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">
-                Détection <span className="material-symbols-outlined text-[10px]">open_in_new</span>
-              </a>
-              <Link to="/formation" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Centre de formation - Académie</Link>
-              <Link to="/formation/jeunes" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Pôle jeune espoir et pré-formation</Link>
-              <Link to="/formation/ecole-rugby" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">École de rugby</Link>
-            </NavItem>
           </div>
 
-          <div className="absolute left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
-            <Link to="/" className="hover:opacity-80 transition-opacity">
-              <Logo />
+          {/* CENTER: Logo RNR */}
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <Link to="/">
+              <Logo isScrolled={isScrolled} />
             </Link>
           </div>
 
-          {/* Desktop Right Nav */}
-          <div className="hidden lg:flex gap-4 lg:gap-8 text-[11px] xl:text-xs font-bold uppercase tracking-widest justify-end z-10 items-center">
-            <NavItem title="Partenaires" to="/partenaires" align="left">
-              <Link to="/partenaires" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Le Business Club</Link>
-              <Link to="/partenaires/actualites" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Actualités B2B</Link>
-              <Link to="/partenaires/hospitalites" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Hospitalités & Loges</Link>
-              <Link to="/partenaires/visibilite" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Visibilité & Sponsoring</Link>
-              <Link to="/partenaires/contact" className="block hover:text-primary cursor-pointer text-xs font-bold uppercase whitespace-nowrap text-slate-800 hover:translate-x-1 transition-transform">Devenir Partenaire</Link>
-            </NavItem>
-
-            <NavItem title="Billetterie" href="http://billetterie.rouen-normandie-rugby.fr/" align="right" />
-
-            <NavItem title="Boutique" href="http://boutique.rouennormandierugby.fr/" align="right" />
-
-            <NavItem title="Contact" to="/contact" align="right" />
+          {/* RIGHT: Partenaires / Contact */}
+          <div className="hidden lg:flex items-center gap-8">
+            <QuickLink to="/partenaires">Partenaires</QuickLink>
+            <QuickLink to="/contact">Contact</QuickLink>
           </div>
         </div>
-
       </nav>
 
-      {/* Mobile Off-Canvas Menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] flex">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
+      {/* FULL SCREEN MENU OVERLAY */}
+      <div className={`fixed inset-0 z-[110] bg-black transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        
+        {/* CLOSE BUTTON */}
+        <button 
+          onClick={toggleMenu}
+          className="absolute top-8 left-8 lg:left-12 z-[120] text-white hover:text-primary transition-all flex items-center gap-3 group"
+        >
+          <span className="material-symbols-outlined text-4xl lg:text-5xl font-light">close</span>
+          <span className="text-[12px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity">Fermer</span>
+        </button>
 
-          {/* Menu Panel */}
-          <div className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl overflow-y-auto flex flex-col border-r-2 border-black">
-            {/* Header */}
-            <div className="flex justify-between items-center p-6 border-b-2 border-black sticky top-0 bg-white z-10">
-              <Link to="/" onClick={handleCloseMenu} className="w-12 h-12 wireframe-border flex items-center justify-center font-black italic bg-white">
-                RNR
-              </Link>
-              <button onClick={handleCloseMenu} className="p-2 hover:text-primary transition-colors">
-                <span className="material-symbols-outlined text-3xl">close</span>
-              </button>
-            </div>
-
-            {/* Links Structure */}
-            <div className="flex-1 p-6 flex flex-col uppercase font-bold text-sm tracking-tight text-slate-800">
-              {activeSubMenu === null ? (
-                <div className="flex flex-col gap-6">
-                  <Link to="/" onClick={handleCloseMenu} className="flex items-center gap-3 hover:text-primary transition-colors border-b-2 border-slate-100 pb-4">
-                    <span className="material-symbols-outlined">home</span> ACCUEIL
-                  </Link>
-                  <button onClick={() => setActiveSubMenu('actualites')} className="flex items-center justify-between hover:text-primary border-b-2 border-slate-100 pb-4 text-left uppercase">
-                    ACTUALITÉS <span className="material-symbols-outlined">chevron_right</span>
-                  </button>
-                  <button onClick={() => setActiveSubMenu('club')} className="flex items-center justify-between hover:text-primary border-b-2 border-slate-100 pb-4 text-left uppercase">
-                    LE CLUB <span className="material-symbols-outlined">chevron_right</span>
-                  </button>
-                  <button onClick={() => setActiveSubMenu('pro')} className="flex items-center justify-between hover:text-primary border-b-2 border-slate-100 pb-4 text-left uppercase">
-                    L'ÉQUIPE PRO <span className="material-symbols-outlined">chevron_right</span>
-                  </button>
-                  <button onClick={() => setActiveSubMenu('formation')} className="flex items-center justify-between hover:text-primary border-b-2 border-slate-100 pb-4 text-left uppercase">
-                    FORMATION <span className="material-symbols-outlined">chevron_right</span>
-                  </button>
-                  <button onClick={() => setActiveSubMenu('partenaires')} className="flex items-center justify-between hover:text-primary border-b-2 border-slate-100 pb-4 text-left uppercase">
-                    PARTENAIRES <span className="material-symbols-outlined">chevron_right</span>
-                  </button>
-
-                  <div className="flex flex-col gap-4 pt-2">
-                    <a href="http://billetterie.rouen-normandie-rugby.fr/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary border-b-2 border-transparent uppercase">
-                      <span className="material-symbols-outlined">local_activity</span> BILLETTERIE
+        <div className="w-full h-full flex flex-col lg:flex-row relative">
+          
+          {/* Main List (1 Column) */}
+          <div className="w-full lg:w-[45%] h-full flex flex-col justify-center px-8 lg:px-24 py-24 overflow-y-auto no-scrollbar z-10">
+            <div className="flex flex-col gap-4 lg:gap-6">
+              {menuSections.map((section) => (
+                <div key={section.id} className="relative group flex items-center">
+                  {/* Vertical Sporty Line */}
+                  <div className={`absolute -left-6 lg:-left-10 w-[2px] bg-primary transition-all pointer-events-none ${activeCategory === section.id ? 'h-[70%] top-[15%]' : 'h-0 top-1/2 group-hover:h-[60%] group-hover:top-[20%] group-hover:animate-stretch-v'}`} />
+                  
+                  {section.isExternal ? (
+                    <a 
+                      href={section.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 text-3xl lg:text-5xl font-display font-black uppercase italic italic-outfit tracking-tighter text-white/40 hover:text-white transition-all hover:translate-x-2"
+                    >
+                      {section.title}
+                      <span className="material-symbols-outlined text-2xl lg:text-3xl text-primary">arrow_outward</span>
                     </a>
-                    <a href="http://boutique.rouennormandierugby.fr/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary border-b-2 border-transparent uppercase">
-                      <span className="material-symbols-outlined">shopping_bag</span> BOUTIQUE
-                    </a>
-                    <Link to="/contact" onClick={handleCloseMenu} className="flex items-center gap-2 hover:text-primary border-b-2 border-transparent uppercase">
-                      <span className="material-symbols-outlined">mail</span> CONTACT
-                    </Link>
-                  </div>
-                </div>
-              ) : (
-                <div className="flex flex-col gap-4 animation-slide-in">
-                  <button onClick={() => setActiveSubMenu(null)} className="flex items-center gap-2 text-slate-500 hover:text-black border-b-2 border-slate-100 pb-4 w-full text-left">
-                    <span className="material-symbols-outlined text-sm">arrow_back</span> Retour
-                  </button>
-
-                  {activeSubMenu === 'actualites' && (
-                    <>
-                      <Link to="/actualites-medias" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Dernières Actus</Link>
-                    </>
-                  )}
-                  {activeSubMenu === 'club' && (
-                    <>
-                      <Link to="/le-club" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Histoire & Palmarès</Link>
-                      <Link to="/le-club/organigramme" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Organigramme & Direction</Link>
-                      <Link to="/le-club/infrastructures" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Infrastructures / Le Stade</Link>
-                      <Link to="/le-club/engagements" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Engagements (RSE)</Link>
-                    </>
-                  )}
-                  {activeSubMenu === 'pro' && (
-                    <>
-                      <Link to="/equipe-pro" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Effectif (Joueurs & Staff)</Link>
-                      <Link to="/equipe-pro/calendrier" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Calendrier & Résultats</Link>
-                      <Link to="/equipe-pro/classement" onClick={handleCloseMenu} className="hover:text-primary py-4">Classement</Link>
-                      <div className="border-t-2 border-slate-100 w-full my-2"></div>
-                      <Link to="/equipe-pro/feminines" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Les Équipes Féminines</Link>
-                    </>
-                  )}
-                  {activeSubMenu === 'formation' && (
-                    <>
-                      <a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary py-4 border-b-2 border-slate-100 uppercase">
-                        Détection <span className="material-symbols-outlined text-sm">open_in_new</span>
-                      </a>
-                      <Link to="/formation" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Centre de formation - Académie</Link>
-                      <Link to="/formation/jeunes" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Pôle jeune espoir et pré-formation</Link>
-                      <Link to="/formation/ecole-rugby" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">École de rugby</Link>
-                    </>
-                  )}
-                  {activeSubMenu === 'partenaires' && (
-                    <>
-                      <Link to="/partenaires" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Le Business Club</Link>
-                      <Link to="/partenaires/actualites" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Actualités B2B</Link>
-                      <Link to="/partenaires/hospitalites" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Hospitalités & Loges</Link>
-                      <Link to="/partenaires/visibilite" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Visibilité & Sponsoring</Link>
-                      <Link to="/partenaires/contact" onClick={handleCloseMenu} className="hover:text-primary py-4 border-b-2 border-slate-100">Devenir Partenaire</Link>
-                    </>
+                  ) : (
+                    <button 
+                      onClick={() => setActiveCategory(section.id)}
+                      className={`text-left text-3xl lg:text-5xl font-display font-black uppercase italic italic-outfit tracking-tighter transition-all hover:translate-x-2 ${activeCategory === section.id ? 'text-white' : 'text-white/40 hover:text-white'}`}
+                    >
+                      {section.title}
+                    </button>
                   )}
                 </div>
-              )}
+              ))}
+            </div>
+          </div>
+
+          {/* BACKGROUND IMAGE + SUB LINKS */}
+          <div className="absolute right-0 top-0 w-full lg:w-[65%] h-full overflow-hidden">
+            {/* Full Height Background Image */}
+            <div className="absolute inset-0 z-0">
+               {menuSections.find(s => s.id === activeCategory)?.isPlaceholder ? (
+                 <PlaceholderImage className="w-full h-full bg-slate-900 opacity-60" />
+               ) : (
+                 <img 
+                   src={menuSections.find(s => s.id === activeCategory)?.image} 
+                   alt="Category Background" 
+                   className="w-full h-full object-cover animate-ken-burns opacity-70"
+                 />
+               )}
+               {/* Deep Radial/Linear Gradient for readability */}
+               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/80 to-black z-10" />
             </div>
 
-            <div className="p-6 bg-slate-50 border-t-2 border-black flex justify-center gap-4">
-              <a href="#" className="w-10 h-10 border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors rounded-full">
-                <i className="fi fi-brands-facebook"></i>
-              </a>
-              <a href="#" className="w-10 h-10 border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors rounded-full">
-                <i className="fi fi-brands-instagram"></i>
-              </a>
-              <a href="#" className="w-10 h-10 border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors rounded-full">
-                <i className="fi fi-brands-twitter-alt"></i>
-              </a>
+            {/* Sub Links (Overlayed on gradient) */}
+            <div className="relative z-20 h-full flex flex-col justify-center px-12 lg:px-24">
+               {activeCategory && !menuSections.find(s => s.id === activeCategory)?.isExternal ? (
+                 <div className="animate-slide-up max-w-lg">
+                    <h3 className="text-primary text-[11px] font-black uppercase tracking-[0.4em] mb-8 flex items-center gap-4">
+                      <span className="w-8 h-[1px] bg-primary" />
+                      Explorez
+                    </h3>
+                    <div className="flex flex-col gap-6">
+                      {menuSections.find(s => s.id === activeCategory)?.links.map((link, idx) => (
+                        <Link 
+                          key={idx}
+                          to={link.to}
+                          onClick={toggleMenu}
+                          className="group flex flex-col"
+                        >
+                          <span className="text-2xl lg:text-4xl font-display font-bold text-white group-hover:text-primary transition-colors tracking-tight uppercase">
+                            {link.label}
+                          </span>
+                          <span className="h-[1px] w-0 bg-primary group-hover:w-full transition-all duration-500 mt-1" />
+                        </Link>
+                      ))}
+                    </div>
+                 </div>
+               ) : (
+                 <div className="flex flex-col gap-4 opacity-10 select-none">
+                    <span className="text-[12vw] font-display font-black italic tracking-tighter text-white leading-none">RNR</span>
+                    <span className="text-[6vw] font-display font-black italic tracking-tighter text-white leading-none leading-none opacity-50">NORMANDIE</span>
+                 </div>
+               )}
             </div>
           </div>
         </div>
-      )}
+
+        {/* BOTTOM DECOR / LOGO */}
+        <div className="absolute bottom-12 right-12 z-[120] hidden lg:block opacity-20">
+           <Logo isScrolled={false} />
+        </div>
+      </div>
     </>
   );
 }
