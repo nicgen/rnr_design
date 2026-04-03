@@ -36,20 +36,6 @@ export default function ProCalendar() {
           links={navLinks} 
         />
 
-        <div className="flex gap-2 mb-12 flex-wrap">
-          {["Tous les matchs", "Phase Aller", "Phase Retour"].map((btn, i) => (
-            <button 
-              key={btn}
-              className={`px-8 py-3 font-black uppercase text-[10px] tracking-widest transition-all ${
-                i === 0 
-                ? "bg-black text-white shadow-xl -skew-x-12" 
-                : "bg-slate-100 text-slate-400 hover:text-black border border-slate-200"
-              }`}
-            >
-              <span className={i === 0 ? "inline-block skew-x-12" : ""}>{btn}</span>
-            </button>
-          ))}
-        </div>
 
         <div className="flex flex-col max-w-5xl mx-auto">
           {matches.map((match, i) => (

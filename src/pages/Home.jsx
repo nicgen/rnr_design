@@ -8,7 +8,9 @@ import partnersImg from '/resources/mise-en-avant-partenaires.jpeg';
 import player1Img from '/resources/Soig_MINGANT.jpg';
 import player2Img from '/resources/Killian_LAISNE.jpg';
 import player3Img from '/resources/Marius_BUNEL.jpg';
-import fansImg from '/resources/Tous-derriere-les-Lions.jpeg';import delphineImg from '/resources/Delphine_Bunel.jpg';
+import fansImg from '/resources/Tous-derriere-les-Lions.jpeg';
+import delphineImg from '/resources/Delphine_Bunel.jpg';
+import vipBg from '/resources/vip_bg.png';
 
 
 
@@ -362,18 +364,49 @@ export default function Home() {
 
 
       <section className="bg-white py-24 w-full flex-shrink-0">
-        <div className="max-w-7xl mx-auto px-4 mb-16">
-          <h2 className="text-4xl font-black uppercase tracking-tighter italic">Le Club Affaires</h2>
+        <div className="max-w-7xl mx-auto px-4 mb-12">
+          <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Réseau Business</h2>
+          <h3 className="text-4xl font-black uppercase tracking-tighter italic">Le Club Affaires</h3>
         </div>
+        
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-slate-50 border-2 border-slate-100 flex flex-col lg:flex-row items-stretch rounded-xl overflow-hidden shadow-xl">
-            <PlaceholderImage className="w-full lg:w-1/2 min-h-[400px]" />
-            <div className="w-full lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center items-start gap-8 bg-white">
-              <h3 className="text-5xl font-black uppercase leading-[0.9] tracking-tighter">PLUS QU’UN MATCH,<br />UNE EXPERIENCE PARTENAIRE.</h3>
-              <p className="text-lg leading-relaxed text-slate-600 font-medium">Le Club Affaires du Rouen Normandie Rugby est un réseau dynamique regroupant plus de 260 entreprises partenaires. Véritable plateforme de networking, il permet aux acteurs économiques de la région de se rencontrer et d'échanger dans un cadre convivial et prestigieux lors de chaque rencontre à domicile.</p>
-              <button className="bg-primary text-white font-black uppercase px-10 py-5 hover:bg-black transition-all transform hover:translate-y-[-2px]">
-                Devenir Partenaire
+          <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl">
+            {/* VIP Background Visual */}
+            <div className="absolute inset-0 z-0">
+              <img src={vipBg} alt="VIP Club Affaires" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+            </div>
+
+            {/* Content Overlay */}
+            <div className="relative z-10 w-full lg:w-3/5 p-12 lg:p-20 flex flex-col justify-center items-start gap-8">
+              <div className="flex items-center gap-6 mb-4">
+                <img src={logoRNR} alt="RNR Logo" className="w-20 h-20 object-contain brightness-0 invert opacity-40" />
+                <div className="h-16 w-[1px] bg-white/20"></div>
+                <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/40 leading-tight">
+                  EXPÉRIENCE<br />EXCLUSIVE
+                </p>
+              </div>
+
+              <h3 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] via-[#bf953f] to-[#fcf6ba] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-barlow-condensed italic">
+                AU CŒUR<br />DES LIONS
+              </h3>
+
+              <p className="text-lg leading-relaxed text-white/70 font-medium italic max-w-xl">
+                Le Club Affaires du Rouen Normandie Rugby est un réseau dynamique regroupant plus de 260 partenaires. Une interface de prestige pour développer votre réseau au cœur de la mêlée.
+              </p>
+
+              <button className="relative overflow-hidden bg-gradient-to-r from-[#bf953f] to-[#fcf6ba] text-black font-black uppercase px-12 py-5 hover:scale-105 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.3)] group/btn">
+                <span className="relative z-10">Devenir Partenaire</span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity"></div>
               </button>
+            </div>
+
+            {/* Decorative Gold Badge */}
+            <div className="hidden lg:flex absolute top-12 right-12 w-32 h-32 border border-white/10 rounded-full items-center justify-center backdrop-blur-sm">
+                <div className="text-center">
+                    <p className="text-3xl font-black text-[#ffd700] italic leading-none">260+</p>
+                    <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest mt-1">Membres</p>
+                </div>
             </div>
           </div>
         </div>

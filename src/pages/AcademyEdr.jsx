@@ -1,82 +1,130 @@
-import SectionNav from "../components/SectionNav";
-import PlaceholderImage from "../components/PlaceholderImage";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
+import SectionNav from "../components/SectionNav";
+import heroImg from "/resources/hero_bg.jpg";
+import edrImg from "/resources/Tous-derriere-les-Lions.jpeg";
 
 const navLinks = [
-  { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },
   { label: "Centre de formation - Académie", path: "/formation", exact: true },
-  { label: "Pôle jeune espoir et pré-formation", path: "/formation/jeunes", exact: true },
+  { label: "Pôle jeune espoirs", path: "/formation/jeunes", exact: true },
   { label: "École de rugby", path: "/formation/ecole-rugby", exact: true },
+  { label: "Rugby Féminin", path: "/formation/feminines", exact: true },
+  { label: "Rugby Santé & Adapté", path: "/formation/specifique", exact: true },
 ];
 
-const CategoryCard = ({ title, ages }) => (
-  <div className="wireframe-border p-6 bg-white hover:bg-slate-50 transition-colors cursor-pointer group flex flex-col h-full relative overflow-hidden">
-    <h3 className="text-2xl font-black uppercase mb-2 relative z-10">{title}</h3>
-    <p className="text-sm font-bold text-primary mb-6 relative z-10">{ages}</p>
-    <div className="mt-auto space-y-4 relative z-10">
-      <div className="flex gap-3 items-start text-sm">
-        <span className="material-symbols-outlined text-slate-400 mt-0.5 text-lg">calendar_month</span>
-        <p><span className="font-bold">Mercredi:</span> 14h00 - 15h30<br/><span className="font-bold">Samedi:</span> 10h00 - 11h30</p>
-      </div>
-      <div className="flex gap-3 items-center text-sm">
-        <span className="material-symbols-outlined text-slate-400 text-lg">location_on</span>
-        <p className="font-bold uppercase text-xs">Stade Jean-Mermoz</p>
+const CategoryCard = ({ title, ages, schedule }) => (
+  <div className="bg-white border border-slate-200 p-8 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500 skew-x-[-2deg] shadow-sm hover:shadow-xl">
+    <div className="skew-x-[2deg] relative z-10">
+      <h3 className="text-2xl font-black uppercase italic tracking-tighter leading-none mb-2">{title}</h3>
+      <p className="text-primary font-bold uppercase text-[10px] tracking-[0.3em] mb-6">{ages}</p>
+      
+      <div className="space-y-3 text-sm font-medium italic opacity-60 group-hover:opacity-100 transition-opacity">
+        <div className="flex gap-3 items-start">
+          <span className="material-symbols-outlined text-primary text-lg">calendar_month</span>
+          <p>{schedule}</p>
+        </div>
+        <div className="flex gap-3 items-center">
+          <span className="material-symbols-outlined text-primary text-lg">location_on</span>
+          <p>Stade Jean-Mermoz</p>
+        </div>
       </div>
     </div>
+    <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-700"></div>
   </div>
 );
 
 export default function AcademyEdr() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 w-full flex-shrink-0">
-      <div className="mb-12">
-        <h1 className="text-5xl font-black uppercase mb-4">École de Rugby</h1>
-        <p className="text-lg mb-8">Découvrir, apprendre, et grandir avec les valeurs du rugby au Rouen Normandie Rugby.</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      {/* HERO SECTION */}
+      <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroImg} 
+            alt="École de Rugby" 
+            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        </div>
+        
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
+          <Breadcrumb />
+          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
+            ÉCOLE DE RUGBY
+          </h1>
+          <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
+            Le plaisir du jeu avant tout
+          </p>
+        </div>
+      </section>
 
-      <SectionNav links={navLinks} />
+      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-30 pb-24">
+        <SectionNav links={navLinks} />
 
-      {/* Intro École de Rugby */}
-      <div className="mb-16 grid grid-cols-1 lg:grid-cols-5 gap-8 bg-slate-50 p-6 sm:p-8 wireframe-border">
-          <div className="col-span-1 lg:col-span-3">
-              <h2 className="text-3xl font-black uppercase mb-6">L'École de Rugby (EDR)</h2>
-              <p className="text-lg leading-relaxed mb-6">L'École de Rugby est le socle de notre association. Elle accueille les enfants dès 3 ans pour leur faire découvrir les joies du ballon ovale. L'apprentissage se fait par le jeu, dans un cadre sécurisant et convivial, avec pour mots d'ordre : Plaisir, Respect et Solidarité.</p>
-              <div className="flex gap-4">
-                  <div className="bg-white wireframe-border p-4 text-center w-32">
-                      <p className="text-3xl font-black text-primary">3</p>
-                      <p className="text-[10px] uppercase font-bold text-slate-500">Étoiles FFR</p>
-                  </div>
-                   <div className="bg-white wireframe-border p-4 text-center w-32">
-                      <p className="text-3xl font-black text-primary">300+</p>
-                      <p className="text-[10px] uppercase font-bold text-slate-500">Enfants Licenciés</p>
-                  </div>
+        {/* INTRO & STATS */}
+        <section className="py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Apprentissage & Valeurs</h3>
+              <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8 leading-none">Le Socle des Lions</h2>
+              <p className="text-lg text-slate-500 font-medium italic leading-relaxed mb-10">
+                L'École de Rugby (EDR) accueille les enfants dès 3 ans. Notre pédagogie est basée sur le jeu et l'épanouissement personnel. Labellisée 3 étoiles par la FFR, elle garantit un encadrement de qualité et une sécurité optimale pour tous nos jeunes licenciés.
+              </p>
+              
+              <div className="flex gap-8">
+                <div className="relative group">
+                  <p className="text-6xl font-black text-slate-900 italic tracking-tighter group-hover:text-primary transition-colors">3★</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Label FFR</p>
+                </div>
+                <div className="w-[1px] h-16 bg-slate-100"></div>
+                <div className="relative group">
+                  <p className="text-6xl font-black text-slate-900 italic tracking-tighter group-hover:text-primary transition-colors">300+</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Licenciés</p>
+                </div>
               </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative overflow-hidden skew-x-[-3deg] shadow-2xl h-[500px]">
+                <img src={edrImg} alt="EDR Action" className="w-full h-full object-cover skew-x-[3deg] scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+              <div className="absolute -z-10 top-10 -left-10 w-full h-full border-2 border-slate-100 skew-x-[-3deg]"></div>
+            </div>
           </div>
-          <div className="col-span-1 lg:col-span-2">
-              <PlaceholderImage className="w-full h-full object-cover" />
+        </section>
+
+        {/* CATEGORIES */}
+        <section className="mb-24">
+          <div className="mb-12">
+            <h3 className="text-3xl font-black uppercase italic tracking-tighter">Nos Catégories</h3>
           </div>
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <CategoryCard title="Baby Rugby" ages="M6 (3 à 5 ans)" schedule="Samedi: 10h30 - 11h30" />
+            <CategoryCard title="Premiers Pas" ages="M8 (6 à 7 ans)" schedule="Mercredi: 14h00 - 16h00" />
+            <CategoryCard title="Poussins" ages="M10 (8 à 9 ans)" schedule="Mercredi: 14h00 - 16h00" />
+            <CategoryCard title="Benjamins" ages="M12 (10 à 11 ans)" schedule="Mercredi: 14h00 - 16h30" />
+            <CategoryCard title="Minimes" ages="M14 (12 à 13 ans)" schedule="Lun, Mer, Ven: 18h00" />
+          </div>
+        </section>
 
-      {/* Categories EDR */}
-      <h3 className="text-2xl font-black uppercase border-b-4 border-black pb-2 mb-8 inline-block">Catégories École de Rugby</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        <CategoryCard title="Baby Rugby" ages="M6 (3 à 5 ans)" />
-        <CategoryCard title="Premiers Pas" ages="M8 (6 à 7 ans)" />
-        <CategoryCard title="Poussins" ages="M10 (8 à 9 ans)" />
-        <CategoryCard title="Benjamins" ages="M12 (10 à 11 ans)" />
-        <CategoryCard title="Minimes" ages="M14 (12 à 13 ans)" />
+        {/* CTA */}
+        <section className="bg-black text-white p-12 lg:p-20 text-center relative overflow-hidden skew-x-[-2deg] shadow-2xl">
+          <div className="relative z-10 skew-x-[2deg]">
+            <h2 className="text-4xl lg:text-6xl font-black uppercase italic tracking-tighter mb-6">Rejoignez l'aventure !</h2>
+            <p className="text-lg text-white/60 font-medium italic max-w-2xl mx-auto mb-10">
+              Les inscriptions sont ouvertes toute l'année. Venez faire un essai gratuit et découvrez l'esprit Rugby au RNR.
+            </p>
+            <Link 
+              to="/contact?sujet=association" 
+              className="inline-block bg-primary text-white font-black uppercase px-12 py-5 hover:bg-white hover:text-primary transition-all duration-300"
+            >
+              Plus d'informations
+            </Link>
+          </div>
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+        </section>
       </div>
-
-      {/* Inscriptions */}
-      <div className="bg-black text-white p-12 text-center wireframe-border relative overflow-hidden group">
-         <div className="absolute inset-0 placeholder-x opacity-10"></div>
-         <h2 className="text-4xl font-black uppercase mb-6 relative z-10">Rejoindre le RNR !</h2>
-         <p className="text-lg max-w-2xl mx-auto mb-8 relative z-10">Les inscriptions pour la saison 2025/2026 sont ouvertes ! Retrouvez toutes les informations concernant les tarifs, les documents médicaux obligatoires et les dossiers d'inscription auprès de notre secrétariat.</p>
-         <Link to="/contact?sujet=association" className="bg-primary hover:bg-white hover:text-black transition-colors font-black uppercase px-8 py-4 text-sm relative z-10 flex items-center justify-center gap-2 mx-auto w-fit">
-             Contacter le Secrétariat <span className="material-symbols-outlined">mail</span>
-         </Link>
-      </div>
-
     </div>
   );
 }
