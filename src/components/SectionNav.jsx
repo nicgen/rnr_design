@@ -40,7 +40,7 @@ export default function SectionNav({ links, rightElement }) {
             ref={isActuallyActive ? activeLinkRef : null}
             className={`pb-4 uppercase font-black text-sm lg:text-base border-b-4 transition-colors whitespace-nowrap ${
               isActuallyActive
-                ? "border-primary text-black"
+                ? "border-primary text-primary"
                 : "border-transparent text-slate-400 hover:text-black hover:border-black/20"
             }`}
           >

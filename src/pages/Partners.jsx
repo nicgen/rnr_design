@@ -29,10 +29,10 @@ export default function Partners() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            BUSINESS CLUB
+            VIVEZ LE RUGBY AUTREMENT
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest leading-tight">
-            Vivez le rugby autrement, accélérez votre business
+            ACCÉLÉREZ VOTRE BUSINESS
           </p>
         </div>
       </section>
@@ -99,7 +99,7 @@ export default function Partners() {
                 </h2>
               </div>
               <p className="text-lg text-white/60 font-medium italic mb-10 leading-relaxed text-center lg:text-left">
-                Une plateforme exclusive pour renforcer vos liens, faciliter vos prises de rendez-vous et accéder à l'annuaire complet des 260+ entreprises partenaires.
+                Rejoindre le Rouen Normandie Rugby, c'est intégrer le premier réseau d'affaires de la région, partager les valeurs d'engagement et d'esprit d'équipe qui nous animent, et créer des moments inoubliables pour vos clients et collaborateurs. 
               </p>
               <div className="space-y-6">
                 {[

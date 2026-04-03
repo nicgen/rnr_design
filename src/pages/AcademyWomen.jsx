@@ -29,10 +29,10 @@ export default function AcademyWomen() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            RUGBY FÉMININ
+            LES ÉQUIPES FÉMININES
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            L'excellence au féminin
+            Découvrez l'effectif des Valkyries du Rouen Normandie Rugby pour la saison 2025-2026.
           </p>
         </div>
       </section>
@@ -52,10 +52,10 @@ export default function AcademyWomen() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Séniors Féminines</h3>
-              <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8 leading-none">Les Valkyries</h2>
+              <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">VALKYRIES NORMANDES</h3>
+              <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8 leading-none">L'élite féminine</h2>
               <p className="text-lg text-slate-500 font-medium italic leading-relaxed mb-10">
-                L'élite féminine du Rouen Normandie Rugby. Une équipe soudée, engagée et porteuse d'une ambition forte : porter haut les couleurs de la Normandie sur tous les terrains de France.
+                L'équipe féminine sénior du Rouen Normandie Rugby évolue actuellement dans le championnat de Fédérale. Composée de joueuses passionnées et engagées, l'équipe vise l'excellence sportive tout en préservant une forte cohésion de groupe. Venez encourager nos Valkyries normandes lors de leurs matchs à domicile !
               </p>
               
               <div className="bg-slate-50 p-8 border-l-4 border-primary mb-10">

@@ -370,9 +370,9 @@ export default function Home() {
         </div>
         
         <div className="max-w-7xl mx-auto px-4">
-          <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl">
+          <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl">
             {/* VIP Background Visual */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
               <img src={vipBg} alt="VIP Club Affaires" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
             </div>
@@ -380,19 +380,19 @@ export default function Home() {
             {/* Content Overlay */}
             <div className="relative z-10 w-full lg:w-3/5 p-12 lg:p-20 flex flex-col justify-center items-start gap-8">
               <div className="flex items-center gap-6 mb-4">
-                <img src={logoRNR} alt="RNR Logo" className="w-20 h-20 object-contain brightness-0 invert opacity-40" />
+                <img src={logoRNR} alt="RNR Logo" className="w-20 h-20 object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.3)] animate-pulse-slow" />
                 <div className="h-16 w-[1px] bg-white/20"></div>
                 <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/40 leading-tight">
                   EXPÉRIENCE<br />EXCLUSIVE
                 </p>
               </div>
 
-              <h3 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] via-[#bf953f] to-[#fcf6ba] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-barlow-condensed italic">
-                AU CŒUR<br />DES LIONS
+              <h3 className="text-4xl md:text-6xl font-black uppercase leading-[1.1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] via-[#bf953f] to-[#fcf6ba] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-barlow-condensed italic">
+                PLUS QU’UN MATCH,<br />UNE EXPERIENCE PARTENAIRE.
               </h3>
 
-              <p className="text-lg leading-relaxed text-white/70 font-medium italic max-w-xl">
-                Le Club Affaires du Rouen Normandie Rugby est un réseau dynamique regroupant plus de 260 partenaires. Une interface de prestige pour développer votre réseau au cœur de la mêlée.
+              <p className="text-lg leading-relaxed text-white/70 font-medium italic max-w-2xl">
+                Le Club Affaires du Rouen Normandie Rugby est un réseau dynamique regroupant plus de 260 entreprises partenaires. Véritable plateforme de networking, il permet aux acteurs économiques de la région de se rencontrer et d'échanger dans un cadre convivial et prestigieux lors de chaque rencontre à domicile. Rejoignez une communauté passionnée pour développer votre visibilité et vos opportunités d'affaires tout en soutenant l'excellence du rugby normand.
               </p>
 
               <button className="relative overflow-hidden bg-gradient-to-r from-[#bf953f] to-[#fcf6ba] text-black font-black uppercase px-12 py-5 hover:scale-105 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.3)] group/btn">

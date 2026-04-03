@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 import SectionNav from "../components/SectionNav";
-import heroImg from "/resources/hero_bg.jpg";
-import partnersImg from "/resources/mise-en-avant-partenaires.jpeg";
+import formationImg from "/resources/formation.jpg";
 
 const navLinks = [
   { label: "Centre de formation - Académie", path: "/formation", exact: true },
@@ -19,7 +18,7 @@ export default function Academy() {
       <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
         <div className="absolute inset-0 z-0">
           <img 
-            src={heroImg} 
+            src={formationImg} 
             alt="Academy" 
             className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" 
           />
@@ -29,10 +28,10 @@ export default function Academy() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            LA FABRIQUE DES LIONS
+            CENTRE DE FORMATION & ESPOIRS
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Former l'élite du rugby normand
+            La pépinière des Lions : Former les talents de demain pour repousser nos limites.
           </p>
         </div>
       </section>
@@ -45,14 +44,14 @@ export default function Academy() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="mb-8">
-                <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Excellence & Formation</h3>
-                <h2 className="text-5xl font-black uppercase tracking-tighter italic leading-none">La Meute de Demain</h2>
+                <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">L'EXCELLENCE NORMANDE</h3>
+                <h2 className="text-5xl font-black uppercase tracking-tighter italic leading-none">Centre de formation - Académie</h2>
               </div>
               <p className="text-xl text-slate-800 font-bold italic mb-8 leading-tight">
-                LE CENTRE DE FORMATION DU RNR EST L'ÉPICENTRE DE NOTRE AMBITION SPORTIVE.
+                LE CENTRE DE FORMATION DU ROUEN NORMANDIE RUGBY EST AU CŒUR DE NOTRE PROJET SPORTIF.
               </p>
               <p className="text-lg text-slate-500 font-medium italic leading-relaxed mb-10">
-                Agréé par la FFR et la LNR, notre centre vise la double excellence : sportive et académique. Nous forgeons non seulement des joueurs de haut niveau, mais aussi des hommes accomplis, prêts à relever les défis du monde professionnel.
+                Agréé par la FFR, il vise la double excellence : sportive et scolaire/professionnelle. Notre mission est d'accompagner chaque joueur dans son développement pour atteindre le haut niveau tout en préparant son avenir personnel.
               </p>
               
               <div className="space-y-6 mb-12">
@@ -76,12 +75,12 @@ export default function Academy() {
 
             <div className="relative">
                <div className="relative overflow-hidden skew-x-[-3deg] shadow-2xl h-[600px]">
-                  <img src={partnersImg} alt="Formation" className="w-full h-full object-cover skew-x-[3deg] scale-110" />
+                  <img src={formationImg} alt="Formation" className="w-full h-full object-cover skew-x-[3deg] scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-12 left-12 bg-primary text-white p-8 -skew-x-12 shadow-2xl">
                     <div className="skew-x-12">
-                      <p className="text-5xl font-black italic leading-none">Label</p>
-                      <p className="text-xl font-black uppercase italic tracking-widest mt-2">FFR / LNR</p>
+                      <p className="text-5xl font-black italic leading-none">Agréé</p>
+                      <p className="text-xl font-black uppercase italic tracking-widest mt-2">FFR</p>
                     </div>
                   </div>
                </div>

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 import SectionNav from "../components/SectionNav";
-import heroImg from "/resources/hero_bg.jpg";
-import edrImg from "/resources/Tous-derriere-les-Lions.jpeg";
+import edrImg from "/resources/formation_enfants.jpg";
 
 const navLinks = [
   { label: "Centre de formation - Académie", path: "/formation", exact: true },
@@ -40,7 +39,7 @@ export default function AcademyEdr() {
       <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
         <div className="absolute inset-0 z-0">
           <img 
-            src={heroImg} 
+            src={edrImg} 
             alt="École de Rugby" 
             className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" 
           />
@@ -50,10 +49,10 @@ export default function AcademyEdr() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            ÉCOLE DE RUGBY
+            ÉCOLE DE RUGBY (EDR)
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Le plaisir du jeu avant tout
+            LE PLAISIR, LE RESPECT ET LA SOLIDARITÉ.
           </p>
         </div>
       </section>
@@ -65,10 +64,10 @@ export default function AcademyEdr() {
         <section className="py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Apprentissage & Valeurs</h3>
-              <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8 leading-none">Le Socle des Lions</h2>
+              <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">L'EXCELLENCE NORMANDE</h3>
+              <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8 leading-none">École de rugby (EDR)</h2>
               <p className="text-lg text-slate-500 font-medium italic leading-relaxed mb-10">
-                L'École de Rugby (EDR) accueille les enfants dès 3 ans. Notre pédagogie est basée sur le jeu et l'épanouissement personnel. Labellisée 3 étoiles par la FFR, elle garantit un encadrement de qualité et une sécurité optimale pour tous nos jeunes licenciés.
+                L'École de Rugby est le socle de notre association. Elle accueille les enfants dès 3 ans pour leur faire découvrir les joies du ballon ovale. L'apprentissage se fait par le jeu, dans un cadre sécurisant et convivial, avec pour mots d'ordre : Plaisir, Respect et Solidarité.
               </p>
               
               <div className="flex gap-8">

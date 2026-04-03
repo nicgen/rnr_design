@@ -28,10 +28,10 @@ export default function PartnersVisibility() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic text-center">
-            VISIBILITÉ<br />& SPONSORING
+            VISIBILITÉ & SPONSORING
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Votre marque au cœur de l'action
+            VOTRE VITRINE AU COEUR DE L'ACTION
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function PartnersVisibility() {
           <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Exposition & Influence</h3>
           <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8">Boostez votre notoriété</h2>
           <p className="text-xl text-slate-500 font-medium italic leading-relaxed">
-            Profitez de la puissance médiatique du Rouen Normandie Rugby pour rayonner. De la tenue des joueurs aux écrans LED du stade, nous créons des dispositifs sur-mesure pour votre marque.
+            Associez l'image de votre entreprise à celle du Rouen Normandie Rugby. Bénéficiez d'une exposition premium auprès d'une audience qualifiée de décideurs, de supporters et d'entrepreneurs.
           </p>
         </section>
 

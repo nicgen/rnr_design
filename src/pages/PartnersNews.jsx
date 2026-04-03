@@ -27,10 +27,10 @@ export default function PartnersNews() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic text-center">
-            ACTUALITÉS<br />B2B
+            ACTUALITÉS B2B
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            La vie du premier réseau business de Normandie
+            LA VIE DU RÉSEAU
           </p>
         </div>
       </section>

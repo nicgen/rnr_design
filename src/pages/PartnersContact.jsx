@@ -27,10 +27,10 @@ export default function PartnersContact() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic text-center">
-            DEVENIR<br />PARTENAIRE
+            DEVENIR PARTENAIRE
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Rejoignez le premier réseau de Normandie
+            REJOIGNEZ LE 1ER RÉSEAU DE NORMANDIE
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function PartnersContact() {
               <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Contact Privilège</h3>
               <h2 className="text-4xl font-black uppercase tracking-tighter italic mb-6">Parlons de votre projet</h2>
               <p className="text-lg text-slate-500 font-medium italic">
-                Vous souhaitez associer votre marque au RNR ou découvrir nos offres d'hospitalité ? Remplissez ce formulaire, notre équipe commerciale vous recontactera sous 24h.
+                Vous souhaitez associer l'image de votre entreprise à celle du Rouen Normandie Rugby ou découvrir nos offres d'hospitalité ? Remplissez ce formulaire, notre équipe commerciale vous recontactera dans les plus brefs délais.
               </p>
             </div>
 

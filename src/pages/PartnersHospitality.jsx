@@ -28,10 +28,10 @@ export default function PartnersHospitality() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic text-center">
-            HOSPITALITÉS<br />& LOGES
+            OFFRES HOSPITALITÉS
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Plus qu'un match, une expérience premium
+            PLUS QU'UN MATCH, UNE EXPÉRIENCE
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function PartnersHospitality() {
           <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Exclusivité & Network</h3>
           <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8">Au cœur de l'émotion business</h2>
           <p className="text-xl text-slate-500 font-medium italic leading-relaxed">
-            C'est ici, au plus proche du terrain et dans un confort absolu, que les relations se nouent. Découvrez nos espaces réceptifs conçus pour valoriser votre image de marque auprès de vos invités.
+            C'est ici, au coeur de l'action, que les relations se nouent et que les opportunités naissent. Découvrez nos espaces réceptifs pour partager une expérience premium avec vos invités les plus importants.
           </p>
         </section>
 

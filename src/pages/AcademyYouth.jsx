@@ -58,11 +58,11 @@ export default function AcademyYouth() {
         
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
           <Breadcrumb />
-          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            PÔLE JEUNES ESPOIRS
+          <h1 className="text-5xl md:text-7xl font-black text-white uppercase mt-4 leading-tight tracking-tighter font-barlow-condensed italic">
+            PÔLE JEUNE ESPOIR ET PRÉ-FORMATION
           </h1>
           <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            L'Élite de demain se prépare ici
+            Découvrir, apprendre, et grandir avec les valeurs du rugby au Rouen Normandie Rugby.
           </p>
         </div>
       </section>
@@ -72,8 +72,8 @@ export default function AcademyYouth() {
 
         {/* INTRO */}
         <section className="py-24 text-center max-w-4xl mx-auto">
-          <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Pré-Formation & Performance</h3>
-          <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8">L'antichambre du professionnalisme</h2>
+          <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Performance</h3>
+          <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8 text-slate-900">PÔLE COMPÉTITION JEUNES</h2>
           <p className="text-xl text-slate-500 font-medium italic leading-relaxed">
             Le Pôle Jeunes Espoirs du Rouen Normandie Rugby accompagne les talents régionaux et nationaux vers le plus haut niveau. Encadrés par des techniciens diplômés, nos jeunes Lions bénéficient d'un suivi sportif et scolaire rigoureux.
           </p>
