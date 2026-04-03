@@ -92,10 +92,10 @@ export default function Header() {
       title: 'FORMATION',
       isPlaceholder: true,
       links: [
-        { label: 'Centre de Formation', to: '/formation' },
-        { label: 'Pôle Espoirs (U18/U21)', to: '/formation/jeunes' },
-        { label: 'École de Rugby', to: '/formation/ecole-rugby' },
-        { label: 'Filières Spécialisées', to: '/formation/specialisees' }
+        { label: 'Détection', to: 'https://www.rouennormandierugbyformation.fr/detections/', isExternal: true },
+        { label: 'Centre de formation - Académie', to: '/formation' },
+        { label: 'Pôle jeune espoir et pré-formation', to: '/formation/jeunes' },
+        { label: 'École de rugby', to: '/formation/ecole-rugby' }
       ]
     },
     {
@@ -249,17 +249,33 @@ export default function Header() {
                       className="flex flex-col gap-6"
                     >
                       {menuSections.find(s => s.id === activeCategory)?.links.map((link, idx) => (
-                        <Link 
-                          key={idx}
-                          to={link.to}
-                          onClick={toggleMenu}
-                          className="group flex flex-col animate-fade-in-right opacity-0"
-                          style={{ animationDelay: `${idx * 0.08}s` }}
-                        >
-                          <span className="text-3xl lg:text-5xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4">
-                            {link.label}
-                          </span>
-                        </Link>
+                        link.isExternal ? (
+                          <a 
+                            key={idx}
+                            href={link.to}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex flex-col animate-fade-in-right opacity-0"
+                            style={{ animationDelay: `${idx * 0.08}s` }}
+                          >
+                            <span className="text-3xl lg:text-5xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4 flex items-center gap-4">
+                              {link.label}
+                              <span className="material-symbols-outlined text-2xl lg:text-3xl text-primary">arrow_outward</span>
+                            </span>
+                          </a>
+                        ) : (
+                          <Link 
+                            key={idx}
+                            to={link.to}
+                            onClick={toggleMenu}
+                            className="group flex flex-col animate-fade-in-right opacity-0"
+                            style={{ animationDelay: `${idx * 0.08}s` }}
+                          >
+                            <span className="text-3xl lg:text-5xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4">
+                              {link.label}
+                            </span>
+                          </Link>
+                        )
                       ))}
                     </div>
                  </div>

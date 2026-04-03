@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 import SectionNav from "../components/SectionNav";
 import heroImg from "/resources/hero_bg_alt.jpg";
-import valkyriesImg from "/resources/players_bg.jpg";
+import valkyriesImg from "/resources/hero_bg_alt.jpg";
 
 const navLinks = [
+  { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },
   { label: "Centre de formation - Académie", path: "/formation", exact: true },
-  { label: "Pôle jeune espoirs", path: "/formation/jeunes", exact: true },
+  { label: "Pôle jeune espoir et pré-formation", path: "/formation/jeunes", exact: true },
   { label: "École de rugby", path: "/formation/ecole-rugby", exact: true },
-  { label: "Rugby Féminin", path: "/formation/feminines", exact: true },
-  { label: "Rugby Santé & Adapté", path: "/formation/specifique", exact: true },
 ];
 
 export default function AcademyWomen() {

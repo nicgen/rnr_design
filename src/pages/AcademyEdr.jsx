@@ -4,11 +4,10 @@ import SectionNav from "../components/SectionNav";
 import edrImg from "/resources/formation_enfants.jpg";
 
 const navLinks = [
+  { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },
   { label: "Centre de formation - Académie", path: "/formation", exact: true },
-  { label: "Pôle jeune espoirs", path: "/formation/jeunes", exact: true },
+  { label: "Pôle jeune espoir et pré-formation", path: "/formation/jeunes", exact: true },
   { label: "École de rugby", path: "/formation/ecole-rugby", exact: true },
-  { label: "Rugby Féminin", path: "/formation/feminines", exact: true },
-  { label: "Rugby Santé & Adapté", path: "/formation/specifique", exact: true },
 ];
 
 const CategoryCard = ({ title, ages, schedule }) => (
