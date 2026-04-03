@@ -76,18 +76,16 @@ export default function Header() {
         { label: 'Effectif Pro 23/24', to: '/equipe-pro' },
         { label: 'Staff Technique', to: '/equipe-pro' },
         { label: 'Calendrier & Résultats', to: '/equipe-pro/calendrier' },
-        { label: 'Classement Pro D2', to: '/equipe-pro/classement' }
+        { label: 'Classement', to: '/equipe-pro/classement' }
       ]
     },
     {
       id: 'feminines',
       title: "L'ÉQUIPE FÉMININE",
+      isExternal: true,
+      href: 'https://www.les-valkyries-rouen.com/',
       isPlaceholder: true,
-      links: [
-        { label: 'Effectif Élite 1', to: '/equipe-pro/feminines' },
-        { label: 'Staff & Calendrier', to: '/equipe-pro/feminines' },
-        { label: 'Classement Élite', to: '/equipe-pro/feminines' }
-      ]
+      links: []
     },
     {
       id: 'formation',

@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import PlaceholderImage from "../components/PlaceholderImage";
+import Breadcrumb from "../components/Breadcrumb";
 import SectionNav from "../components/SectionNav";
 
 const navLinks = [
@@ -20,66 +19,95 @@ export default function ProCalendar() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 w-full flex-shrink-0">
-      <div className="mb-12">
-        <h1 className="text-5xl font-black uppercase mb-4">Calendrier & Résultats</h1>
-        <p className="text-lg">Suivez les performances du RNR tout au long du championnat de Nationale.</p>
+    <div className="min-h-screen bg-white">
+      {/* HEADER SECTION */}
+      <div className="bg-slate-50 border-b border-slate-200 mb-12">
+        <div className="max-w-7xl mx-auto px-4 pt-32 pb-16">
+          <Breadcrumb />
+          <h1 className="text-6xl font-black uppercase italic tracking-tighter mb-4">Calendrier & Résultats</h1>
+          <p className="text-lg text-slate-500 max-w-2xl font-medium italic">
+            Suivez le parcours des Lions en Nationale. Résultats, prochaines rencontres et billetterie.
+          </p>
+        </div>
       </div>
 
-      <SectionNav 
-        links={navLinks} 
-        rightElement={
-          <Link to="/equipe-pro/feminines" className="bg-primary text-white font-black uppercase text-xs px-6 py-3 wireframe-border hover:bg-black transition-colors block text-center">
-            Les Équipes Féminines
-          </Link>
-        }
-      />
+      <div className="max-w-7xl mx-auto px-4 pb-24">
+        <SectionNav 
+          links={navLinks} 
+        />
 
-      <div className="flex gap-4 mb-8 flex-wrap">
-        <button className="bg-black text-white px-6 py-2 font-black uppercase text-xs">Tous les matchs</button>
-        <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300">Phase Aller</button>
-        <button className="bg-slate-200 text-black px-6 py-2 font-black uppercase text-xs hover:bg-slate-300">Phase Retour</button>
-      </div>
+        <div className="flex gap-2 mb-12 flex-wrap">
+          {["Tous les matchs", "Phase Aller", "Phase Retour"].map((btn, i) => (
+            <button 
+              key={btn}
+              className={`px-8 py-3 font-black uppercase text-[10px] tracking-widest transition-all ${
+                i === 0 
+                ? "bg-black text-white shadow-xl -skew-x-12" 
+                : "bg-slate-100 text-slate-400 hover:text-black border border-slate-200"
+              }`}
+            >
+              <span className={i === 0 ? "inline-block skew-x-12" : ""}>{btn}</span>
+            </button>
+          ))}
+        </div>
 
-      <div className="flex flex-col gap-4 max-w-4xl mx-auto">
-        {matches.map((match, i) => (
-          <div key={i} className={`wireframe-border p-4 flex flex-col md:flex-row items-center justify-between font-bold w-full gap-4 md:gap-0 transition-colors ${match.isNext ? 'bg-primary/5 border-l-4 border-l-primary' : 'bg-white hover:bg-slate-50'}`}>
-            <div className="flex justify-between w-full md:w-auto px-4 md:px-0">
-              <div className="w-16 text-center text-sm">{match.day}</div>
-              <div className="w-32 text-center text-xs text-slate-500">{match.date}</div>
-            </div>
-            
-            <div className="flex-1 flex justify-center items-center gap-2 md:gap-4 text-sm md:text-xl font-black italic w-full">
-              <div className="flex flex-col items-center flex-1 w-0">
-                <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
-                <span className={`uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg ${match.home === "Rouen" ? 'text-primary' : ''}`}>{match.home}</span>
+        <div className="flex flex-col max-w-5xl mx-auto">
+          {matches.map((match, i) => (
+            <div 
+              key={i} 
+              className={`group flex flex-col md:flex-row items-center justify-between py-8 border-b border-slate-100 transition-all duration-300 hover:bg-slate-50/50 px-6 ${match.isNext ? 'bg-primary/[0.02] border-l-4 border-l-primary' : ''}`}
+            >
+              {/* Date & Day */}
+              <div className="flex flex-col items-center md:items-start w-full md:w-32 mb-4 md:mb-0">
+                <span className="text-primary font-black italic text-xl tracking-tighter leading-none">{match.day}</span>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{match.date}</span>
               </div>
               
-              <div className="flex items-center justify-center">
+              {/* Teams & Score */}
+              <div className="flex-1 flex justify-center items-center gap-4 md:gap-12 w-full mb-6 md:mb-0">
+                {/* Home Team */}
+                <div className="flex flex-col items-end flex-1 w-0">
+                  <span className={`uppercase text-right font-black italic text-sm md:text-2xl tracking-tighter truncate w-full ${match.home === "Rouen" ? 'text-black' : 'text-slate-400'}`}>
+                    {match.home}
+                  </span>
+                </div>
+                
+                {/* Result / Time */}
+                <div className="flex items-center justify-center min-w-[100px] md:min-w-[160px]">
+                  {match.score ? (
+                    <div className="bg-black group-hover:bg-primary transition-colors text-white px-4 py-2 md:px-8 md:py-3 text-xl md:text-3xl font-black italic tracking-tighter -skew-x-12 flex items-center justify-center">
+                      <span className="inline-block skew-x-12">{match.score}</span>
+                    </div>
+                  ) : (
+                    <div className="bg-slate-100 text-slate-900 border border-slate-200 px-4 py-2 md:px-8 md:py-3 text-lg md:text-2xl font-black italic tracking-tighter -skew-x-12 flex items-center justify-center">
+                      <span className="inline-block skew-x-12">{match.time}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Away Team */}
+                <div className="flex flex-col items-start flex-1 w-0">
+                  <span className={`uppercase text-left font-black italic text-sm md:text-2xl tracking-tighter truncate w-full ${match.away === "Rouen" ? 'text-black' : 'text-slate-400'}`}>
+                    {match.away}
+                  </span>
+                </div>
+              </div>
+
+              {/* Status / Action */}
+              <div className="w-full md:w-40 flex justify-center md:justify-end">
                 {match.score ? (
-                  <span className="bg-black text-white px-2 py-1 md:px-4 md:py-1 text-sm md:text-xl flex-shrink-0 min-w-[60px] md:min-w-[100px] text-center">{match.score}</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">Match Terminé</span>
+                ) : match.home === "Rouen" ? (
+                  <button className="bg-black text-white px-6 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-primary transition-all -skew-x-12">
+                    <span className="inline-block skew-x-12">Billetterie</span>
+                  </button>
                 ) : (
-                  <span className="bg-slate-200 text-slate-600 px-2 py-1 md:px-4 md:py-1 text-sm md:text-lg flex-shrink-0 min-w-[60px] md:min-w-[100px] text-center">{match.time}</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 italic">Extérieur</span>
                 )}
               </div>
-
-              <div className="flex flex-col items-center flex-1 w-0">
-                <PlaceholderImage className="w-8 h-8 rounded-full mb-1 border border-slate-200" />
-                <span className={`uppercase text-center truncate w-full text-[10px] sm:text-xs md:text-lg ${match.away === "Rouen" ? 'text-primary' : ''}`}>{match.away}</span>
-              </div>
             </div>
-
-            <div className="w-full md:w-32 text-center md:text-right">
-              {match.score ? (
-                <span className="text-xs font-black uppercase text-slate-400">Terminé</span>
-              ) : match.home === "Rouen" ? (
-                <button className="text-[10px] bg-black text-white font-black uppercase px-4 py-2 hover:bg-primary transition-colors">
-                  Billetterie
-                </button>
-              ) : null}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SectionNav from "../components/SectionNav";
 
 const navLinks = [
@@ -13,10 +13,10 @@ export default function ProStandings() {
     { pos: 2, team: "STADE NIÇOIS", played: 20, won: 16, draw: 1, lost: 3, diff: 288, pts: 81 },
     { pos: 3, team: "RC NARBONNAIS", played: 21, won: 15, draw: 0, lost: 6, diff: 243, pts: 76 },
     { pos: 4, team: "CA PÉRIGOURDIN", played: 20, won: 14, draw: 0, lost: 6, diff: 160, pts: 73 },
-    { pos: 4, team: "RC MASSY ESSONNE", played: 20, won: 14, draw: 0, lost: 6, diff: 130, pts: 73 },
+    { pos: 5, team: "RC MASSY ESSONNE", played: 20, won: 14, draw: 0, lost: 6, diff: 130, pts: 73 },
     { pos: 6, team: "SO CHAMBÉRIEN", played: 20, won: 14, draw: 0, lost: 6, diff: 236, pts: 72 },
     { pos: 7, team: "NIORT RC", played: 20, won: 11, draw: 0, lost: 9, diff: -51, pts: 56 },
-    { pos: 7, team: "ROUEN NORMANDIE RUGBY", played: 20, won: 11, draw: 0, lost: 9, diff: 69, pts: 56 },
+    { pos: 8, team: "ROUEN NORMANDIE RUGBY", played: 20, won: 11, draw: 0, lost: 9, diff: 69, pts: 56 },
     { pos: 9, team: "US BRESSANE", played: 21, won: 10, draw: 0, lost: 11, diff: -65, pts: 51 },
     { pos: 10, team: "RC SURESNES", played: 20, won: 8, draw: 1, lost: 11, diff: 6, pts: 46 },
     { pos: 11, team: "CS BOURGOIN JALLIEU", played: 20, won: 7, draw: 1, lost: 12, diff: -44, pts: 39 },
@@ -26,72 +26,101 @@ export default function ProStandings() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 w-full flex-shrink-0">
-      <div className="mb-12">
-        <h1 className="text-5xl font-black uppercase mb-4">Classement Nationale</h1>
-        <p className="text-lg">Suivez le classement officiel du championnat de Nationale pour la saison 2025-2026.</p>
+    <div className="min-h-screen bg-white">
+      {/* HEADER SECTION */}
+      <div className="bg-slate-50 border-b border-slate-200 mb-12">
+        <div className="max-w-7xl mx-auto px-4 pt-32 pb-16">
+          <Breadcrumb />
+          <h1 className="text-6xl font-black uppercase italic tracking-tighter mb-4">Classement Nationale</h1>
+          <p className="text-lg text-slate-500 max-w-2xl font-medium italic">
+            Suivez l'évolution des Lions au classement officiel de la Nationale pour la saison 2025-2026.
+          </p>
+        </div>
       </div>
 
-      <SectionNav 
-        links={navLinks} 
-        rightElement={
-          <Link to="/equipe-pro/feminines" className="bg-primary text-white font-black uppercase text-xs px-6 py-3 wireframe-border hover:bg-black transition-colors block text-center">
-            Les Équipes Féminines
-          </Link>
-        }
-      />
+      <div className="max-w-7xl mx-auto px-4 pb-24">
+        <SectionNav 
+          links={navLinks} 
+        />
 
-      <div className="wireframe-border overflow-x-auto mt-8 max-w-5xl mx-auto">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-black text-white uppercase text-xs font-bold">
-            <tr>
-              <th className="p-4 text-center">Pos</th>
-              <th className="p-4">Club</th>
-              <th className="p-4 text-center">J</th>
-              <th className="p-4 text-center">G</th>
-              <th className="p-4 text-center">N</th>
-              <th className="p-4 text-center">P</th>
-              <th className="p-4 text-center">+/-</th>
-              <th className="p-4 text-center text-primary font-black">PTS</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y-2 divide-black">
-            {standings.map((team, index) => (
-              <tr 
-                key={index} 
-                className={`transition-colors hover:bg-slate-50 ${
-                  team.team === "ROUEN NORMANDIE RUGBY" ? "bg-primary/10 border-l-4 border-l-primary font-bold" : ""
-                } ${index < 6 ? "bg-slate-50/50" : ""}`}
-              >
-                <td className="p-4 text-center font-bold">
-                  {index < 2 ? (
-                    <span className="bg-primary text-white w-6 h-6 inline-flex items-center justify-center rounded-full text-xs">{team.pos}</span>
-                  ) : index < 6 ? (
-                    <span className="bg-black text-white w-6 h-6 inline-flex items-center justify-center rounded-full text-xs">{team.pos}</span>
-                  ) : index >= 12 ? (
-                    <span className="bg-red-600 text-white w-6 h-6 inline-flex items-center justify-center rounded-full text-xs">{team.pos}</span>
-                  ) : (
-                    team.pos
-                  )}
-                </td>
-                <td className={`p-4 font-bold ${team.team === "ROUEN NORMANDIE RUGBY" ? "text-primary uppercase" : ""}`}>{team.team}</td>
-                <td className="p-4 text-center">{team.played}</td>
-                <td className="p-4 text-center text-green-600">{team.won}</td>
-                <td className="p-4 text-center">{team.draw}</td>
-                <td className="p-4 text-center text-red-600">{team.lost}</td>
-                <td className="p-4 text-center">{team.diff > 0 ? `+${team.diff}` : team.diff}</td>
-                <td className="p-4 text-center font-black text-base">{team.pts}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      
-      {/* Legend */}
-      <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-4 sm:gap-8 mt-8 text-xs font-bold uppercase py-4 border-t-2 border-slate-200 max-w-5xl mx-auto">
-        <div className="flex items-center gap-2"><span className="w-3 h-3 bg-primary rounded-full"></span> Qualifiés Demi-finales</div>
-        <div className="flex items-center gap-2"><span className="w-3 h-3 bg-black rounded-full"></span> Qualifiés Barrages</div>
-        <div className="flex items-center gap-2"><span className="w-3 h-3 bg-red-600 rounded-full"></span> Relégables</div>
+        <div className="bg-white border border-slate-100 shadow-xl overflow-hidden max-w-5xl mx-auto">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-black text-white italic uppercase text-[10px] tracking-widest font-black">
+                  <th className="p-6 text-center">Pos</th>
+                  <th className="p-6">Club</th>
+                  <th className="p-6 text-center">J</th>
+                  <th className="p-6 text-center">G</th>
+                  <th className="p-6 text-center">N</th>
+                  <th className="p-6 text-center">P</th>
+                  <th className="p-6 text-center">+/-</th>
+                  <th className="p-6 text-center text-primary">PTS</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {standings.map((team, index) => (
+                  <tr 
+                    key={index} 
+                    className={`group transition-all duration-300 hover:bg-slate-50 ${
+                      team.team === "ROUEN NORMANDIE RUGBY" ? "bg-primary/[0.03] relative z-10" : ""
+                    }`}
+                  >
+                    <td className="p-5 text-center font-black italic text-lg tracking-tighter">
+                      <div className="flex items-center justify-center">
+                        {index < 2 ? (
+                          <span className="bg-primary text-white w-8 h-8 flex items-center justify-center rounded-full text-xs shadow-lg -skew-x-12">
+                            <span className="skew-x-12">{team.pos}</span>
+                          </span>
+                        ) : index < 6 ? (
+                          <span className="bg-black text-white w-8 h-8 flex items-center justify-center rounded-full text-xs -skew-x-12">
+                            <span className="skew-x-12">{team.pos}</span>
+                          </span>
+                        ) : index >= 12 ? (
+                          <span className="bg-slate-200 text-slate-500 w-8 h-8 flex items-center justify-center rounded-full text-xs -skew-x-12">
+                            <span className="skew-x-12">{team.pos}</span>
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">{team.pos}</span>
+                        )}
+                      </div>
+                    </td>
+                    <td className={`p-5 font-black italic text-base md:text-xl tracking-tighter uppercase ${
+                      team.team === "ROUEN NORMANDIE RUGBY" ? "text-primary" : "text-black"
+                    }`}>
+                      {team.team}
+                      {team.team === "ROUEN NORMANDIE RUGBY" && (
+                        <span className="ml-2 inline-block w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                      )}
+                    </td>
+                    <td className="p-5 text-center font-bold text-slate-400">{team.played}</td>
+                    <td className="p-5 text-center font-bold text-green-600">{team.won}</td>
+                    <td className="p-5 text-center font-bold text-slate-400">{team.draw}</td>
+                    <td className="p-5 text-center font-bold text-red-600">{team.lost}</td>
+                    <td className="p-5 text-center font-bold text-slate-500">{team.diff > 0 ? `+${team.diff}` : team.diff}</td>
+                    <td className="p-5 text-center font-black italic text-2xl tracking-tighter text-black">{team.pts}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        {/* Legend */}
+        <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 md:gap-12 mt-12 text-[10px] font-black uppercase tracking-widest text-slate-400 py-8 border-t border-slate-100 max-w-5xl mx-auto">
+          <div className="flex items-center gap-3">
+            <span className="w-4 h-4 bg-primary rounded-full shadow-lg shadow-primary/30 -skew-x-12"></span> 
+            Qualifiés Demi-finales
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="w-4 h-4 bg-black rounded-full shadow-lg shadow-black/30 -skew-x-12"></span> 
+            Qualifiés Barrages
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="w-4 h-4 bg-slate-200 rounded-full -skew-x-12"></span> 
+            Relégables
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import NewsMedia from "./pages/NewsMedia";
+import NewsDetail from "./pages/NewsDetail";
 import Photos from "./pages/Photos";
 import Videos from "./pages/Videos";
 import Club from "./pages/Club";
@@ -22,7 +24,6 @@ import PartnersHospitality from "./pages/PartnersHospitality";
 import PartnersVisibility from "./pages/PartnersVisibility";
 import PartnersContact from "./pages/PartnersContact";
 import Contact from "./pages/Contact";
-import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="actualites-medias" element={<NewsMedia />} />
+          <Route path="actualites-medias/:id" element={<NewsDetail />} />
           <Route path="actualites-medias/photos" element={<Photos />} />
           <Route path="actualites-medias/videos" element={<Videos />} />
           <Route path="le-club" element={<Club />} />

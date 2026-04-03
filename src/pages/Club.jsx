@@ -1,5 +1,9 @@
-import PlaceholderImage from "../components/PlaceholderImage";
+import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SectionNav from "../components/SectionNav";
+import heroStadium from "/resources/hero_bg.jpg";
+import galaImg from "/resources/gala.jpeg";
+import partnersImg from "/resources/mise-en-avant-partenaires.jpeg";
 
 const navLinks = [
   { label: "Histoire & Palmarès", path: "/le-club", exact: true },
@@ -10,68 +14,156 @@ const navLinks = [
 
 export default function Club() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 w-full flex-shrink-0">
-      <div className="mb-12">
-        <h1 className="text-5xl font-black uppercase mb-4">Le Club</h1>
-        <p className="text-lg">Découvrez l'histoire, les valeurs et les ambitions du Rouen Normandie Rugby.</p>
-      </div>
-
-      <SectionNav links={navLinks} />
-
-      {/* Palmarès / Trophées */}
-      <div className="bg-black text-white p-12 mb-16 wireframe-border flex flex-col sm:flex-row justify-around gap-8 sm:gap-0">
-        <div className="text-center">
-          <span className="material-symbols-outlined text-6xl text-primary mb-4">emoji_events</span>
-          <p className="text-4xl font-black mb-2">2</p>
-          <p className="text-sm font-bold uppercase tracking-widest text-slate-400">Titres de Champion de France</p>
-          <p className="text-xs mt-2 text-slate-500">(2017 - Fédérale 1 / 2019 - Fédérale 1)</p>
+    <div className="min-h-screen bg-white">
+      {/* HERO SECTION */}
+      <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroStadium} 
+            alt="Club History" 
+            className="absolute inset-0 w-full h-full object-cover opacity-60" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
         </div>
-        <div className="text-center">
-          <span className="material-symbols-outlined text-6xl text-primary mb-4">military_tech</span>
-          <p className="text-4xl font-black mb-2">2019</p>
-          <p className="text-sm font-bold uppercase tracking-widest text-slate-400">Montée Historique en Pro D2</p>
+        
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
+          <Breadcrumb />
+          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
+            L'ÂME DES LIONS
+          </h1>
+          <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
+            Histoire & Palmarès du RNR
+          </p>
         </div>
-      </div>
+      </section>
 
-      {/* Histoire - Timeline Alternate */}
-      <h3 className="text-3xl font-black uppercase mb-8">Notre Histoire</h3>
-      
-      <div className="flex flex-col gap-12">
-        {/* 2009 */}
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div className="w-full md:w-1/2">
-            <h4 className="text-6xl font-black text-slate-200 mb-2">2009</h4>
-            <h5 className="text-2xl font-black uppercase mb-4">Création du Stade Rouennais</h5>
-            <p className="text-slate-600 leading-relaxed text-lg">Le club naît sous sa forme moderne, marquant le début d'une nouvelle ère pour le rugby normand avec des ambitions renouvelées et une volonté de s'imposer sur la scène nationale amateur.</p>
-          </div>
-          <div className="w-full md:w-1/2 p-4 wireframe-border bg-slate-50">
-            <PlaceholderImage className="aspect-video w-full" />
-          </div>
-        </div>
+      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-30 pb-24">
+        <SectionNav links={navLinks} />
 
-        {/* 2016-2017 */}
-        <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
-          <div className="w-full md:w-1/2 text-left md:text-right">
-            <h4 className="text-6xl font-black text-slate-200 mb-2">2017</h4>
-            <h5 className="text-2xl font-black uppercase mb-4">Premier Titre de Champion de France</h5>
-            <p className="text-slate-600 leading-relaxed text-lg">L'équipe s'impose comme le champion du plus haut niveau amateur, posant les jalons du professionnalisme et fédérant tout un territoire autour de ses succès sportifs.</p>
-          </div>
-          <div className="w-full md:w-1/2 p-4 wireframe-border bg-slate-50">
-            <PlaceholderImage className="aspect-video w-full" />
-          </div>
-        </div>
+        {/* PALMARÈS SECTION */}
+        <section className="py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div className="bg-black text-white p-12 relative overflow-hidden group border-l-8 border-primary shadow-2xl skew-x-[-2deg]">
+              <div className="skew-x-[2deg]">
+                <div className="flex items-center gap-6 mb-8">
+                  <span className="material-symbols-outlined text-7xl text-primary drop-shadow-[0_0_15px_rgba(219,39,40,0.5)]">emoji_events</span>
+                  <div>
+                    <h2 className="text-4xl font-black italic tracking-tighter uppercase leading-none">2 Titres</h2>
+                    <p className="text-primary font-bold uppercase text-[10px] tracking-[0.3em] mt-1">Champion de France</p>
+                  </div>
+                </div>
+                <div className="space-y-4 border-t border-white/10 pt-6">
+                  <div className="flex justify-between items-center group/item hover:translate-x-2 transition-transform duration-300">
+                    <span className="text-3xl font-black italic text-white/20 group-hover/item:text-primary transition-colors">2017</span>
+                    <span className="text-lg font-black uppercase italic tracking-tighter">Fédérale 1</span>
+                  </div>
+                  <div className="flex justify-between items-center group/item hover:translate-x-2 transition-transform duration-300 border-t border-white/5 pt-4">
+                    <span className="text-3xl font-black italic text-white/20 group-hover/item:text-primary transition-colors">2019</span>
+                    <span className="text-lg font-black uppercase italic tracking-tighter">Fédérale 1 Elite</span>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700"></div>
+            </div>
 
-        {/* 2018-2019 */}
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div className="w-full md:w-1/2">
-            <h4 className="text-6xl font-black text-slate-200 mb-2">2019</h4>
-            <h5 className="text-2xl font-black uppercase mb-4">Le Sacre et la Pro D2</h5>
-            <p className="text-slate-600 leading-relaxed text-lg">Une saison exceptionnelle couronnée par un deuxième titre de Fédérale 1 et l'accession historique en Pro D2. C'est le début d'une aventure professionnelle remarquable pour les Lions.</p>
+            <div className="bg-slate-900 text-white p-12 relative overflow-hidden group border-r-8 border-white/20 shadow-2xl skew-x-[2deg]">
+              <div className="skew-x-[-2deg]">
+                <div className="flex items-center gap-6 mb-8">
+                  <span className="material-symbols-outlined text-7xl text-white/40 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">military_tech</span>
+                  <div>
+                    <h2 className="text-4xl font-black italic tracking-tighter uppercase leading-none">Accession</h2>
+                    <p className="text-white/40 font-bold uppercase text-[10px] tracking-[0.3em] mt-1">Niveau Professionnel</p>
+                  </div>
+                </div>
+                <div className="space-y-4 border-t border-white/10 pt-6">
+                  <div className="flex flex-col">
+                    <span className="text-6xl font-black italic text-white leading-none">2019</span>
+                    <p className="text-lg font-bold italic text-primary uppercase mt-2 tracking-tighter">Montée Historique en Pro D2</p>
+                    <p className="text-sm text-white/50 mt-4 leading-relaxed font-medium">
+                      Le Rouen Normandie Rugby devient le premier club normand à atteindre le monde professionnel.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-full md:w-1/2 p-4 wireframe-border bg-slate-50">
-            <PlaceholderImage className="aspect-video w-full" />
+        </section>
+
+        {/* TIMELINE SECTION */}
+        <section className="py-20 relative overflow-hidden">
+          <div className="mb-16">
+            <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Notre Parcours</h3>
+            <h4 className="text-5xl font-black uppercase tracking-tighter italic">L'odyssée du RNR</h4>
           </div>
-        </div>
+
+          <div className="relative space-y-32">
+            {/* Timeline Vertical Line */}
+            <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-slate-200 hidden lg:block"></div>
+
+            {/* 2009 */}
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
+              <div className="order-2 lg:order-1 lg:text-right">
+                <span className="text-8xl font-black italic text-slate-100 group-hover:text-primary/10 transition-colors duration-700 leading-none mb-4 absolute lg:-right-4 left-0 top-0 -z-10 lg:left-auto">2009</span>
+                <h5 className="text-3xl font-black uppercase italic mb-4 tracking-tighter group-hover:text-primary transition-colors">Création du Club</h5>
+                <p className="text-slate-500 leading-relaxed text-lg font-medium italic lg:pl-12">
+                  Le club naît sous sa forme moderne, marquant le début d’une nouvelle ère pour le rugby normand avec des ambitions renouvelées et une volonté de s’imposer sur la scène nationale.
+                </p>
+              </div>
+              <div className="order-1 lg:order-2 relative h-80 overflow-hidden skew-x-[-3deg] shadow-2xl">
+                <img src={partnersImg} alt="2009" className="w-full h-full object-cover skew-x-[3deg] scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              </div>
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-primary rounded-full z-10 shadow-[0_0_15px_rgba(219,39,40,0.5)]"></div>
+            </div>
+
+            {/* 2017 */}
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
+              <div className="relative h-80 overflow-hidden skew-x-[3deg] shadow-2xl">
+                <img src={galaImg} alt="2017" className="w-full h-full object-cover skew-x-[-3deg] scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              </div>
+              <div>
+                <span className="text-8xl font-black italic text-slate-100 group-hover:text-primary/10 transition-colors duration-700 leading-none mb-4 absolute left-0 top-0 -z-10">2017</span>
+                <h5 className="text-3xl font-black uppercase italic mb-4 tracking-tighter group-hover:text-primary transition-colors">Le Premier Titre</h5>
+                <p className="text-slate-500 leading-relaxed text-lg font-medium italic lg:pr-12">
+                  L’équipe s’impose comme le champion du plus haut niveau amateur, posant les jalons du professionnalisme et fédérant tout un territoire autour de ses succès.
+                </p>
+              </div>
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-primary rounded-full z-10 shadow-[0_0_15px_rgba(219,39,40,0.5)]"></div>
+            </div>
+
+            {/* 2019 */}
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
+              <div className="order-2 lg:order-1 lg:text-right">
+                <span className="text-8xl font-black italic text-slate-100 group-hover:text-primary/10 transition-colors duration-700 leading-none mb-4 absolute lg:-right-4 left-0 top-0 -z-10 lg:left-auto">2019</span>
+                <h5 className="text-3xl font-black uppercase italic mb-4 tracking-tighter group-hover:text-primary transition-colors">Route vers la Pro D2</h5>
+                <p className="text-slate-500 leading-relaxed text-lg font-medium italic lg:pl-12">
+                  Une saison exceptionnelle couronnée par un deuxième titre de Fédérale 1 et l’accession historique en Pro D2. C’est le début d’une aventure professionnelle remarquable.
+                </p>
+              </div>
+              <div className="order-1 lg:order-2 relative h-80 overflow-hidden skew-x-[-3deg] shadow-2xl">
+                <img src={heroStadium} alt="2019" className="w-full h-full object-cover skew-x-[3deg] scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              </div>
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-primary rounded-full z-10 shadow-[0_0_15px_rgba(219,39,40,0.5)]"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* VALUES / QUOTE */}
+        <section className="py-24 bg-slate-50 border-y border-slate-200 mt-20 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] select-none pointer-events-none flex flex-col justify-around">
+            <p className="text-[200px] font-black italic whitespace-nowrap -translate-x-20">PASSION • ENGAGEMENT • SOLIDARITÉ</p>
+            <p className="text-[200px] font-black italic whitespace-nowrap translate-x-20">HUMILITÉ • FORCE • TERRITOIRE</p>
+          </div>
+          <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
+            <span className="material-symbols-outlined text-6xl text-primary mb-8 opacity-40">format_quote</span>
+            <blockquote className="text-4xl font-black italic uppercase tracking-tighter leading-tight mb-8">
+              "Le Rouen Normandie Rugby n'est pas qu'un club, c'est l'ambition de tout un territoire de porter haut les couleurs de la Normandie."
+            </blockquote>
+            <p className="text-sm font-black uppercase tracking-widest text-slate-400">— Les Lions du RNR</p>
+          </div>
+        </section>
       </div>
     </div>
   );

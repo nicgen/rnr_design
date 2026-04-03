@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logoRNR from '/resources/logo_RNR_alpha.png';
 import stadiumHero from '/resources/hero_bg.jpg';
 import presidentImg from '/resources/Matinee-conviviale-avec-le-RNR.jpeg';
@@ -27,17 +28,17 @@ export default function Home() {
   };
 
   const news = [
-    { title: "CHANGEMENT DE PRÉSIDENCE.", category: "CLUB", author: "PHILIPPE MARTY PASSE LE RELAIS", img: delphineImg, size: "large", date: "22 MARS 2024" },
-    { title: "MAILLOT DOMICILE 25-26", category: "BOUTIQUE", author: "NOUVELLE COLLECTION", img: jerseyImg, size: "small", date: "20 MARS 2026" },
-    { title: "L'ART AU CŒUR DE NOTRE SOIRÉE DE GALA", category: "ÉVÉNEMENT", author: "SOIRÉE CARITATIVE D'EXCEPTION", img: galaImg, size: "small", date: "18 MARS 2026" },
-    { title: "MISE EN AVANT DE NOS PARTENAIRES", category: "PARTENAIRES", author: "EXPÉRIENCE CLUB AFFAIRES", img: partnersImg, size: "small", date: "15 MARS 2026" }
+    { id: "changement-presidence", title: "CHANGEMENT DE PRÉSIDENCE.", category: "CLUB", author: "PHILIPPE MARTY PASSE LE RELAIS", img: delphineImg, size: "large", date: "22 MARS 2024" },
+    { id: "maillot-domicile-25-26", title: "MAILLOT DOMICILE 25-26", category: "BOUTIQUE", author: "NOUVELLE COLLECTION", img: jerseyImg, size: "small", date: "20 MARS 2026" },
+    { id: "soiree-de-gala-art", title: "L'ART AU CŒUR DE NOTRE SOIRÉE DE GALA", category: "ÉVÉNEMENT", author: "SOIRÉE CARITATIVE D'EXCEPTION", img: galaImg, size: "small", date: "18 MARS 2026" },
+    { id: "mise-en-avant-partenaires", title: "MISE EN AVANT DE NOS PARTENAIRES", category: "PARTENAIRES", author: "EXPÉRIENCE CLUB AFFAIRES", img: partnersImg, size: "small", date: "15 MARS 2026" }
   ];
 
   const secondaryNews = [
-    { title: "SOÏG MINGANT PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player1Img },
-    { title: "KILLIAN LAISNÉ PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player2Img },
-    { title: "MARIUS BUNEL PROLONGE JUSQU'EN 2028 !", category: "PROLONGATION", subtitle: "ENGAGEMENT", img: player3Img },
-    { title: "TOUS DERRIÈRE LES LIONS", category: "LIONS", subtitle: "NATIONAL 1", img: fansImg }
+    { id: "prolongation-soig-mingant", title: "SOÏG MINGANT PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player1Img },
+    { id: "prolongation-killian-laisne", title: "KILLIAN LAISNÉ PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player2Img },
+    { id: "prolongation-marius-bunel", title: "MARIUS BUNEL PROLONGE JUSQU'EN 2028 !", category: "PROLONGATION", subtitle: "ENGAGEMENT", img: player3Img },
+    { id: "tous-derriere-les-lions", title: "TOUS DERRIÈRE LES LIONS", category: "LIONS", subtitle: "NATIONAL 1", img: fansImg }
   ];
 
   return (
@@ -158,8 +159,9 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 w-full px-0 gap-0">
           {news.map((item, index) => (
-            <div 
+            <Link 
               key={index} 
+              to={`/actualites-medias/${item.id}`}
               className="relative group overflow-hidden aspect-[3/4] cursor-pointer"
             >
               <img 
@@ -186,7 +188,7 @@ export default function Home() {
                 </h3>
                 <div className="w-8 h-[2px] bg-primary mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -195,11 +197,15 @@ export default function Home() {
       <section className="bg-white py-20 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4 mb-10 flex justify-between items-end">
           <h2 className="text-4xl font-black uppercase tracking-tighter italic">L'Actu du RNR</h2>
-          <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer tracking-widest pb-1">Voir plus d'actualités</a>
+          <Link to="/actualites-medias" className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer tracking-widest pb-1">Voir plus d'actualités</Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
           {secondaryNews.map((item, index) => (
-            <div key={index} className="relative aspect-[3/4] group overflow-hidden cursor-pointer">
+            <Link 
+              key={index} 
+              to={`/actualites-medias/${item.id}`}
+              className="relative aspect-[3/4] group overflow-hidden cursor-pointer"
+            >
               <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               
               {/* Overlay Gradient */}
@@ -220,7 +226,7 @@ export default function Home() {
                 </h3>
                 <div className="w-6 h-[1.5px] bg-primary mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -396,7 +402,7 @@ export default function Home() {
       {/* Nous suivre (Instagram) */}
       <section className="bg-slate-50 py-24 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4 mb-16 flex justify-between items-end">
-          <h2 className="text-4xl font-black uppercase tracking-tighter italic">Nous suivre (Instagram)</h2>
+          <h2 className="text-4xl font-black uppercase tracking-tighter italic">Nous suivre</h2>
         </div>
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
           {[1,2,3,4,5,6].map(i => (
@@ -408,8 +414,8 @@ export default function Home() {
       {/* Partenaires */}
       <section className="bg-white py-24 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end">
-          <h2 className="text-3xl font-black uppercase tracking-tighter border-l-4 border-primary pl-6">Partenaires</h2>
-          <a className="text-[10px] font-black uppercase tracking-widest border-b-2 border-black">Page des partenaires</a>
+          <h2 className="text-4xl font-black uppercase tracking-tighter italic">Partenaires</h2>
+          <a className="text-xs font-black uppercase border-b-2 border-black hover:text-primary transition-colors cursor-pointer tracking-widest pb-1">Page des partenaires</a>
         </div>
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-3 md:grid-cols-6 gap-8">
           {[1,2,3,4,5,6].map(i => (
