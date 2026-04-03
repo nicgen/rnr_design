@@ -225,7 +225,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DASHBOARD SECTION: STATS & RÉSULTATS - VARIATION A (3 BLOCS) */}
+      {/* DASHBOARD SECTION: LES CHIFFRES CLÉS */}
       <section className="relative py-24 w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden">
         {/* Background image for the section */}
         <div className="absolute inset-0 z-0">
@@ -235,11 +235,11 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="mb-12">
-            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Dashboard v1</h2>
-            <h3 className="text-4xl font-black uppercase tracking-tighter italic">3 Blocs Séparés</h3>
+            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Dashboard</h2>
+            <h3 className="text-4xl font-black uppercase tracking-tighter italic">Les Chiffres Clés</h3>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
             <div className="flex flex-col items-center justify-center p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 transition-all duration-500">
@@ -287,151 +287,73 @@ export default function Home() {
             </div>
 
             {/* Colonne Droite: STATISTIQUES */}
-            <div className="flex flex-col gap-8 bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
-              <div className="flex flex-col gap-4">
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/40">Statistiques</h3>
-                 <div className="flex items-end gap-6 mb-2">
-                    <div className="flex flex-col">
-                      <span className="text-4xl font-black italic italic leading-none text-white">15</span>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Victoires</span>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-4xl font-black italic leading-none text-white/40">7</span>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-white/20">Défaites</span>
-                    </div>
-                    <div className="flex-1 flex justify-end gap-1">
-                      {['V', 'V', 'D', 'D', 'V'].map((f, i) => (
-                        <div key={i} className={`w-7 h-7 flex items-center justify-center text-[10px] font-black rounded-sm ${f === 'V' ? 'bg-green-500 text-white' : 'bg-red-500 text-white shadow-inner opacity-80'}`}>
-                          {f}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/5 p-5 border border-white/5 rounded-xl text-center group hover:bg-white/10 transition-all">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-2">Points Marqués</p>
-                  <p className="text-4xl font-black italic leading-none text-white tracking-tighter">468</p>
-                </div>
-                <div className="bg-white/5 p-5 border border-white/5 rounded-xl text-center group hover:bg-white/10 transition-all">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-2">Points Concédés</p>
-                  <p className="text-4xl font-black italic leading-none text-white/40 tracking-tighter">382</p>
-                </div>
-              </div>
-
-              <div className="bg-primary text-white p-6 rounded-xl flex items-center justify-between shadow-xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000"></div>
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Différence</p>
-                  <p className="text-3xl font-black italic">+86</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Points Class.</p>
-                  <p className="text-3xl font-black italic text-black">56</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* DASHBOARD SECTION: STATS & RÉSULTATS - VARIATION B (UNIFIED) */}
-      <section className="relative py-24 w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden border-t-8 border-primary">
-        {/* Background image for the section */}
-        <div className="absolute inset-0 z-0">
-          <img src="/resources/hero_bg_alt.jpg" alt="Stadium Statistics Alt" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-           <div className="mb-12">
-            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Dashboard v2</h2>
-            <h3 className="text-4xl font-black uppercase tracking-tighter italic">Bloc Unifié (Editorial Strip)</h3>
-          </div>
-
-          <div className="bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[40px] shadow-2xl p-2 lg:p-4 overflow-hidden">
-            <div className="flex flex-col lg:flex-row items-stretch">
-              
-              {/* Position */}
-              <div className="flex-1 flex flex-col items-center justify-center p-12 lg:border-r border-white/5 relative group">
-                <span className="absolute top-6 left-12 text-[10px] font-black uppercase tracking-[0.3em] text-white/20 italic">Position</span>
-                <div className="flex items-start">
-                  <span className="text-6xl font-black italic tracking-tighter text-primary mt-6 mr-1">#</span>
-                  <span className="text-[14rem] font-black leading-none italic tracking-tighter text-white select-none">7</span>
-                </div>
-                <div className="bg-primary/20 text-primary border border-primary/30 px-4 py-1 font-black text-[10px] italic skew-x-[-15deg] mt-4">
-                  <span className="inline-block skew-x-[15deg] uppercase">Classé sur 14</span>
-                </div>
-              </div>
-
-              {/* Résultats */}
-              <div className="flex-[1.5] p-12 lg:border-r border-white/5 flex flex-col gap-8 relative bg-white/2">
-                <span className="absolute top-6 left-12 text-[10px] font-black uppercase tracking-[0.3em] text-white/20 italic">Derniers Résultats</span>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                  {[
-                    { j: "J 22", score: "11-33", opp: "Massy", w: true },
-                    { j: "J 21", score: "20-19", opp: "Périgueux", w: true },
-                    { j: "J 20", score: "40-19", opp: "Nice", w: false },
-                    { j: "J 19", score: "21-25", opp: "Rennes", w: false },
-                  ].map((res, i) => (
-                    <div key={i} className="flex items-center gap-4 bg-white/5 p-4 group hover:bg-primary transition-all duration-300 cursor-default">
-                      <div className="flex flex-col border-r border-white/10 pr-4">
-                        <span className="text-[10px] font-black text-white/40 group-hover:text-black/40">{res.j}</span>
-                        <span className={`text-[12px] font-black ${res.w ? 'text-primary group-hover:text-white' : 'text-white/20'}`}>W</span>
-                      </div>
-                      <div className="flex-1 flex flex-col">
-                        <span className="text-xs font-black uppercase group-hover:text-black">{res.opp}</span>
-                        <span className="text-lg font-black italic tracking-tight group-hover:text-black">{res.score}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <button className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all group">
-                   voir tous les resultats <span className="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
-                </button>
-              </div>
-
-              {/* Statistiques */}
-              <div className="flex-1 p-12 relative flex flex-col justify-center">
-                <span className="absolute top-6 left-12 text-[10px] font-black uppercase tracking-[0.3em] text-white/20 italic">Statistiques</span>
+            <div className="flex flex-col justify-between bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
+              <div className="relative z-10">
+                <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20 mb-8 italic">Statistiques</h3>
                 
-                <div className="flex flex-col gap-10 mt-6">
-                  <div className="flex gap-10">
+                <div className="flex flex-col gap-8">
+                  {/* Victoires | Defaites */}
+                  <div className="flex gap-8">
                     <div className="flex flex-col">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-2">Victoires</p>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-1">Victoires</p>
                       <p className="text-6xl font-black italic leading-none">15</p>
                     </div>
-                    <div className="flex flex-col border-l border-white/10 pl-10">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-2">Défaites</p>
+                    <div className="flex flex-col border-l border-white/10 pl-8">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-1">Défaites</p>
                       <p className="text-6xl font-black italic leading-none text-white/20">7</p>
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-4">
-                    <div className="flex justify-between items-end border-b border-white/10 pb-2">
+                  {/* Recap Forme (Circles with letters) */}
+                  <div className="flex gap-2 py-4">
+                    {[
+                      { l: 'V', w: true }, 
+                      { l: 'V', w: true }, 
+                      { l: 'D', w: false }, 
+                      { l: 'N', w: false, n: true }, 
+                      { l: 'V', w: true }
+                    ].map((f, i) => (
+                      <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black transition-all duration-300 ${f.w ? 'bg-primary text-white shadow-[0_0_15px_rgba(219,39,40,0.4)]' : f.n ? 'bg-white/20 text-white' : 'bg-white/5 text-white/30 border border-white/5'}`}>
+                        {f.l}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Points Marqués | Concédés */}
+                  <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6">
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-1">Points Marqués</p>
+                      <p className="text-2xl font-black italic tracking-tighter">468</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-1">Points Concédés</p>
+                      <p className="text-2xl font-black italic tracking-tighter text-white/40">382</p>
+                    </div>
+                  </div>
+
+                  {/* Différence | Points Class. */}
+                  <div className="flex flex-col gap-3 pt-2">
+                    <div className="flex justify-between items-end border-b border-white/5 pb-2">
                        <span className="text-[10px] font-bold uppercase text-white/40 italic">Différence</span>
                        <span className="text-3xl font-black italic text-primary">+86</span>
                     </div>
                     <div className="flex justify-between items-end">
                        <span className="text-[10px] font-bold uppercase text-white/40 italic">Points Class.</span>
-                       <span className="text-3xl font-black italic">56</span>
+                       <span className="text-3xl font-black italic text-white">56</span>
                     </div>
-                  </div>
-
-                  <div className="flex gap-2 justify-center py-4 bg-white/5 rounded-full">
-                    {['V', 'V', 'D', 'D', 'V'].map((f, i) => (
-                      <div key={i} className={`w-3 h-3 rounded-full ${f === 'V' ? 'bg-primary shadow-[0_0_10px_rgba(219,39,40,0.8)]' : 'bg-white/10'}`}></div>
-                    ))}
                   </div>
                 </div>
               </div>
-
+              
+              {/* Subtle background glow */}
+              <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-700"></div>
             </div>
+
           </div>
         </div>
       </section>
+
+
 
       <section className="bg-white py-24 w-full flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4 mb-16">
