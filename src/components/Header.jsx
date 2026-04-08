@@ -4,7 +4,7 @@ import Logo from './Logo';
 import PlaceholderImage from './PlaceholderImage';
 
 const QuickLink = ({ to, children }) => (
-  <Link to={to} className="hover:text-primary transition-all duration-300 text-[11px] font-black uppercase tracking-widest">
+  <Link to={to} className="hover:text-primary transition-all duration-300 text-sm font-black uppercase tracking-widest">
     {children}
   </Link>
 );
@@ -14,10 +14,10 @@ const ConversionLink = ({ href, children, isExternal = true }) => (
     href={href} 
     target="_blank" 
     rel="noopener noreferrer" 
-    className="bg-primary hover:bg-white hover:text-black text-white px-5 py-2 rounded-full transition-all duration-300 text-[11px] font-black uppercase tracking-widest shadow-lg flex items-center gap-2"
+    className="bg-primary hover:bg-white hover:text-black text-white px-6 py-2.5 rounded-full transition-all duration-300 text-sm font-display font-black italic uppercase tracking-[0.2em] shadow-lg flex items-center gap-2"
   >
     {children}
-    {isExternal && <span className="material-symbols-outlined text-[14px]">arrow_outward</span>}
+    {isExternal && <span className="material-symbols-outlined text-[16px]">arrow_outward</span>}
   </a>
 );
 
@@ -71,7 +71,7 @@ export default function Header() {
     {
       id: 'pro',
       title: "L'ÉQUIPE PRO",
-      isPlaceholder: true,
+      image: '/resources/visuel_stade.jpeg',
       links: [
         { label: 'Effectif Pro 23/24', to: '/equipe-pro' },
         { label: 'Staff Technique', to: '/equipe-pro' },
@@ -90,7 +90,7 @@ export default function Header() {
     {
       id: 'formation',
       title: 'FORMATION',
-      isPlaceholder: true,
+      image: '/resources/visuel_stade.jpeg',
       links: [
         { label: 'Détection', to: 'https://www.rouennormandierugbyformation.fr/detections/', isExternal: true },
         { label: 'Centre de formation - Académie', to: '/formation' },
@@ -101,7 +101,7 @@ export default function Header() {
     {
       id: 'partenaires',
       title: 'PARTENAIRES',
-      isPlaceholder: true,
+      image: '/resources/visuel_stade.jpeg',
       links: [
         { label: 'Le Business Club', to: '/partenaires' },
         { label: 'Hospitalités & Loges', to: '/partenaires/hospitalites' },
@@ -113,7 +113,7 @@ export default function Header() {
     {
       id: 'actus',
       title: 'ACTUALITÉS',
-      isPlaceholder: true,
+      image: '/resources/visuel_stade.jpeg',
       links: [
         { label: "Toute l'actualité", to: '/actualites-medias' },
         { label: 'Galeries Photos', to: '/actualites-medias/photos' },
@@ -190,10 +190,24 @@ export default function Header() {
           <span className="text-[12px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity">Fermer</span>
         </button>
 
-        <div className="w-full h-full flex flex-col lg:flex-row relative">
+        {/* FULL SCREEN BACKGROUND IMAGE (Pushed to back) */}
+        <div className="absolute inset-0 z-0 lg:left-auto lg:right-0 lg:w-[65%] h-full overflow-hidden pointer-events-none">
+           {menuSections.find(s => s.id === activeCategory)?.isPlaceholder ? (
+             <PlaceholderImage className="w-full h-full bg-slate-900 opacity-60" />
+           ) : (
+             <img 
+               src={menuSections.find(s => s.id === activeCategory)?.image} 
+               alt="Category Background" 
+               className="w-full h-full object-cover animate-ken-burns opacity-70"
+             />
+           )}
+           <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-black via-black/80 lg:via-black/50 to-transparent lg:to-black z-10" />
+        </div>
+
+        <div className="w-full h-full flex flex-col lg:flex-row relative z-10 overflow-y-auto lg:overflow-hidden no-scrollbar">
           
           {/* Main List (1 Column) */}
-          <div className="w-full lg:w-[45%] h-full flex flex-col justify-center px-8 lg:px-24 py-24 overflow-y-auto no-scrollbar z-10">
+          <div className="w-full lg:w-[45%] min-h-max lg:h-full flex flex-col justify-start lg:justify-center px-8 lg:px-24 pt-32 pb-8 lg:py-24 shrink-0">
             <div className="flex flex-col gap-4 lg:gap-6">
               {menuSections.map((section) => (
                 <div key={section.id} className="relative group flex items-center">
@@ -223,27 +237,10 @@ export default function Header() {
             </div>
           </div>
 
-          {/* BACKGROUND IMAGE + SUB LINKS */}
-          <div className="absolute right-0 top-0 w-full lg:w-[65%] h-full overflow-hidden">
-            {/* Full Height Background Image */}
-            <div className="absolute inset-0 z-0">
-               {menuSections.find(s => s.id === activeCategory)?.isPlaceholder ? (
-                 <PlaceholderImage className="w-full h-full bg-slate-900 opacity-60" />
-               ) : (
-                 <img 
-                   src={menuSections.find(s => s.id === activeCategory)?.image} 
-                   alt="Category Background" 
-                   className="w-full h-full object-cover animate-ken-burns opacity-70"
-                 />
-               )}
-               {/* Deep Radial/Linear Gradient for readability - Lighter 50% opacity */}
-               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/50 to-black z-10" />
-            </div>
-
-            {/* Sub Links (Overlayed on gradient) */}
-            <div className="relative z-20 h-full flex flex-col justify-center px-12 lg:px-24">
+          {/* SUB LINKS */}
+          <div className="w-full lg:w-[55%] min-h-max lg:h-full flex flex-col justify-start lg:justify-center px-12 lg:px-24 pb-32 pt-12 lg:py-24 shrink-0 relative z-20">
                {activeCategory && !menuSections.find(s => s.id === activeCategory)?.isExternal ? (
-                 <div className="animate-slide-up max-w-lg">
+                 <div className="animate-slide-up w-full max-w-lg">
                     <div 
                       key={activeCategory}
                       className="flex flex-col gap-6"
@@ -258,7 +255,7 @@ export default function Header() {
                             className="group flex flex-col animate-fade-in-right opacity-0"
                             style={{ animationDelay: `${idx * 0.08}s` }}
                           >
-                            <span className="text-3xl lg:text-5xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4 flex items-center gap-4">
+                            <span className="text-2xl lg:text-4xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4 flex items-center gap-4">
                               {link.label}
                               <span className="material-symbols-outlined text-2xl lg:text-3xl text-primary">arrow_outward</span>
                             </span>
@@ -286,7 +283,6 @@ export default function Header() {
                  </div>
                )}
             </div>
-          </div>
         </div>
 
         {/* BOTTOM DECOR / LOGO */}
