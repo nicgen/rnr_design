@@ -102,7 +102,7 @@ export default function Home() {
 
       
       {/* HERO SECTION */}
-      <section id="section-hero" className="relative h-[85vh] w-full flex-shrink-0 overflow-hidden">
+      <section id="section-hero" className="relative h-[100vh] w-full flex-shrink-0 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={stadiumHero} alt="Stadium" className="absolute inset-0 w-full h-full object-cover" />
           <video 
@@ -128,9 +128,14 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-0 z-[999] left-0 right-0 flex justify-center pb-4 pointer-events-none">
+          <span className="material-symbols-outlined text-white/60 text-4xl animate-bounce">keyboard_arrow_down</span>
+        </div>
+
         {/* MATCHBAR */}
         <div id="hero-matchbar" className={`absolute bottom-0 left-0 right-0 z-20 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${showBanner ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-          <div className="backdrop-blur-md bg-black/50 border-t-[3px] border-primary shadow-[0_-8px_32px_rgba(0,0,0,0.6)]">
+          <div className="backdrop-blur-md bg-black/50 shadow-[0_-8px_32px_rgba(0,0,0,0.6)]">
             <div className="container-premium">
 
               {/* Mobile */}
@@ -261,7 +266,7 @@ export default function Home() {
         </div>
 
         <div className="container-premium relative z-10">
-          <SectionHeader title="LES CHIFFRES CLÉS" isDark />
+          <SectionHeader title="LES RÉSULTATS" isDark />
           
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
@@ -378,7 +383,7 @@ export default function Home() {
       </section>
 
       {/* LA BOUTIQUE OFFICIELLE */}
-      <section id="section-boutique" className="bg-white py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
+      <section id="section-boutique" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
 <SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" />
 
         <div className="container-premium relative z-10">
@@ -443,9 +448,10 @@ export default function Home() {
       </section>
 
       {/* CHIFFRES DU CLUB */}
-      <section className="bg-slate-900 text-white py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
+      <section id="section-chiffres" className="bg-slate-900 text-white py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
         <div className="absolute inset-0 bg-[repeating-linear-gradient(-55deg,transparent,transparent_60px,rgba(255,255,255,0.012)_60px,rgba(255,255,255,0.012)_61px)]" />
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-primary" />
+        <SectionHeader title="LES CHIFFRES CLÉS" isDark />
         <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {[
@@ -455,39 +461,13 @@ export default function Home() {
               { val: "120", label: "Bénévoles engagés",              icon: "favorite" },
             ].map((stat, i) => (
               <div key={i} className="flex items-center gap-6 group">
-                <span className="material-symbols-outlined text-[clamp(5rem,10vw,10rem)] leading-none text-primary/40 group-hover:text-primary/70 transition-colors duration-300 shrink-0">{stat.icon}</span>
+                <span className="material-symbols-outlined leading-none text-primary/40 group-hover:text-primary/70 transition-colors duration-300 shrink-0" style={{ fontSize: 'clamp(5rem,10vw,10rem)' }}>{stat.icon}</span>
                 <div>
                   <p className="text-[clamp(3.5rem,8vw,5rem)] font-black italic leading-none text-white group-hover:text-primary transition-colors duration-300">{stat.val}</p>
                   <div className="w-8 h-[2px] bg-primary mb-2" />
                   <p className="text-(--text-xs) uppercase font-black tracking-[0.2em] text-slate-400">{stat.label}</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* RÉSEAUX SOCIAUX */}
-      <section id="section-social" className="bg-[#0f0f0f] py-(--space-xl) w-full flex-shrink-0">
-        <div className="container-premium">
-          <SectionHeader title="NOUS SUIVRE" isDark />
-          <div className="flex justify-center gap-12 lg:gap-20 flex-wrap">
-            {[
-              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera" },
-              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  icon: "thumb_up" },
-              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   icon: "play_circle" },
-              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", icon: "work" },
-            ].map((social, i) => (
-              <a
-                key={i}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center gap-3 text-white/40 hover:text-primary transition-colors duration-300"
-              >
-                <span className="material-symbols-outlined text-5xl">{social.icon}</span>
-                <span className="text-(--text-xs) font-black uppercase tracking-widest">{social.name}</span>
-              </a>
             ))}
           </div>
         </div>
@@ -524,6 +504,32 @@ export default function Home() {
                 </div>
               ))
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* RÉSEAUX SOCIAUX */}
+      <section id="section-social" className="bg-[#0f0f0f] py-(--space-xl) w-full flex-shrink-0">
+        <SectionHeader title="NOUS SUIVRE" isDark />
+        <div className="container-premium">
+          <div className="flex justify-center gap-12 lg:gap-20 flex-wrap">
+            {[
+              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera" },
+              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  icon: "thumb_up" },
+              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   icon: "play_circle" },
+              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", icon: "work" },
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-3 text-white/40 hover:text-primary transition-colors duration-300"
+              >
+                <span className="material-symbols-outlined text-5xl">{social.icon}</span>
+                <span className="text-(--text-xs) font-black uppercase tracking-widest">{social.name}</span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
