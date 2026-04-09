@@ -20,7 +20,7 @@ import vipBg from '/resources/vip_bg.png';
 // --- COMPOSANTS INTERNES D'UNIFICATION ---
 
 const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
-  <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-12 flex justify-between items-end gap-6 rnr-section-header">
+  <div className="container-premium mb-12 flex justify-between items-end gap-6 rnr-section-header">
     <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
     {linkTo && (
       <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white hover:border-white' : ''}`}>
@@ -31,20 +31,16 @@ const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
   </div>
 );
 
-const UnifiedCard = ({ image, title, subtitle, link, isDark = false }) => (
-  <Link to={link} className="group rnr-card-premium relative h-full min-h-[450px] rounded-2xl overflow-hidden border-none shadow-xl flex flex-col bg-white rnr-unified-card">
-    <div className="relative flex-[0_0_55%] overflow-hidden rnr-card-image-wrapper">
-      <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-    </div>
-    <div className={`p-8 pb-10 flex flex-col flex-1 ${isDark ? 'bg-slate-900/80' : 'bg-white/80'} backdrop-blur-md relative -mt-4 z-10 rnr-card-text-panel`}>
-      <div className="flex flex-col gap-3">
-        <h3 className={`text-2xl md:text-3xl leading-tight line-clamp-3 rnr-card-title ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
-        {subtitle && <p className={`text-sm md:text-base italic opacity-70 line-clamp-2 rnr-card-subtitle ${isDark ? 'text-white/70' : 'text-slate-600'}`}>{subtitle}</p>}
-      </div>
-      <div className="mt-auto pt-6 flex items-center gap-2 text-base md:text-lg font-black uppercase tracking-widest text-primary group-hover:translate-x-2 transition-transform rnr-card-cta">
+const UnifiedCard = ({ image, title, subtitle, link }) => (
+  <Link to={link} className="group rnr-card-premium relative h-full min-h-[360px] rounded-xl overflow-hidden shadow-xl block bg-slate-900 rnr-unified-card">
+    <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rnr-card-image-wrapper" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+    <div className="absolute bottom-0 left-0 right-0 p-5 backdrop-blur-[3px] bg-black/30 rnr-card-text-panel">
+      <h3 className="text-white text-xl leading-snug line-clamp-2 rnr-card-title mb-1">{title}</h3>
+      {subtitle && <p className="text-white/55 text-sm italic line-clamp-1 rnr-card-subtitle mb-2">{subtitle}</p>}
+      <div className="flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-primary group-hover:translate-x-2 transition-transform duration-300 rnr-card-cta">
         <span>Lire la suite</span>
-        <span className="material-symbols-outlined font-bold text-xl">arrow_forward</span>
+        <span className="material-symbols-outlined text-sm">arrow_forward</span>
       </div>
     </div>
   </Link>
@@ -126,78 +122,84 @@ export default function Home() {
             <h1 className="mt-12 drop-shadow-lg text-white">
               TOUS NORMANDS,<br />TOUS RNR!
             </h1>
-            <h2 className="text-white text-[clamp(1rem,1.5vw,1.4rem)] font-medium max-w-2xl mx-auto italic opacity-90 drop-shadow-md mt-6 leading-relaxed">
+            <p className="text-white text-[clamp(1rem,1.5vw,1.4rem)] font-medium max-w-2xl mx-auto italic opacity-90 drop-shadow-md mt-6 leading-relaxed">
               Persévérance, force brute et passion : le Rouen Normandie Rugby avance, porté par tout un peuple.
-            </h2>
+            </p>
           </div>
         </div>
 
-        {/* Matchbar sticky at bottom of hero */}
-        <div id="hero-matchbar" className={`absolute bottom-6 left-0 right-0 z-20 hidden md:block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${showBanner ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
-          <div className="container-premium">
-            <div className="flex items-stretch h-[clamp(80px,10vh,112px)] bg-[#1a1a1a] shadow-[0_20px_50px_rgba(0,0,0,0.5)] -skew-x-12 border-l-4 border-primary overflow-visible relative">
-              
-              {/* 1. Countdown block */}
-              <div className="flex items-center flex-col justify-center gap-2 px-8 lg:px-12 bg-primary relative skew-x-12 h-full">
-                <span className="text-sm lg:text-base font-black uppercase text-white tracking-widest leading-none -skew-x-12 text-center">
-                  PROCHAIN<br/>MATCH
-                </span>
-                
-                <div className="flex gap-4 -skew-x-12">
-                  {[
-                    { val: "11", label: "JOURS" },
-                    { val: "08", label: "HRS" },
-                  ].map((unit, i) => (
-                    <div key={i} className="flex flex-col items-center">
-                      <span className="text-base lg:text-lg font-black text-white italic leading-none">{unit.val}</span>
-                      <span className="text-[8px] font-black text-white/70 tracking-[0.2em] mt-[2px]">{unit.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* 2. Main encounter block */}
-              <div className="flex-1 flex items-center justify-center gap-8 lg:gap-16 skew-x-12 relative border-r border-white/10">
-                <div className="absolute top-2 left-6 hidden xl:flex items-center gap-6 -skew-x-12">
-                  <span className="text-[10px] xl:text-(--text-xs) font-black text-white/50 uppercase tracking-[0.4em]">20 MARS</span>
-                </div>
-                
-                <div className="flex items-center gap-4 lg:gap-8 -skew-x-12">
-                  <img src={logoRNR} alt="Rouen" className="w-12 h-12 lg:w-20 lg:h-20 object-contain drop-shadow-md brightness-110" />
-                  <span className="font-black text-2xl lg:text-5xl italic uppercase text-white tracking-tight font-barlow">ROUEN</span>
-                </div>
-                
-                <div className="flex flex-col items-center justify-center mx-2 lg:mx-4 -skew-x-12">
-                  <span className="font-black text-xl lg:text-3xl italic text-primary drop-shadow-[0_0_15px_rgba(219,39,40,0.4)]">VS</span>
-                </div>
+        {/* MATCHBAR */}
+        <div id="hero-matchbar" className={`absolute bottom-0 left-0 right-0 z-20 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${showBanner ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <div className="bg-[#1a1a1a] border-t-[3px] border-primary shadow-[0_-8px_32px_rgba(0,0,0,0.6)]">
+            <div className="container-premium">
 
-                <div className="flex items-center gap-4 lg:gap-8 -skew-x-12">
-                  <span className="font-black text-2xl lg:text-5xl italic uppercase text-white tracking-tight font-barlow">MASSY</span>
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 rounded-full bg-white border-2 border-[#1a1a1a] flex items-center justify-center overflow-hidden shadow-lg p-1">
-                    <img src="/resources/logo_MASSY.webp" alt="Massy" className="w-8 h-8 lg:w-12 lg:h-12 object-contain" onError={(e) => e.target.style.display = 'none'} />
-                  </div>
+              {/* Mobile */}
+              <div className="flex md:hidden items-center justify-between h-14 gap-4">
+                <div className="flex items-center gap-2 min-w-0 flex-1">
+                  <img src={logoRNR} alt="Rouen" className="w-7 h-7 object-contain flex-shrink-0" />
+                  <span className="font-black text-sm italic uppercase text-white tracking-tight">ROUEN</span>
+                  <span className="text-primary font-black text-sm italic mx-1">VS</span>
+                  <span className="font-black text-sm italic uppercase text-white tracking-tight">MASSY</span>
                 </div>
-
-                <a id="hero-matchbar-cta" href="#" className="bg-primary text-white font-black uppercase px-4 lg:px-6 py-2.5 lg:py-3 ml-4 lg:ml-6 hover:bg-white hover:text-primary transition-all duration-300 shadow-lg group transform -skew-x-12 mt-2 hidden lg:block rnr-hero-cta">
-                  <div className="skew-x-12 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm font-bold">confirmation_number</span> 
-                    <span className="text-xs lg:text-sm font-barlow leading-none">BILLETTERIE</span>
-                  </div>
+                <a
+                  href="http://billetterie.rouen-normandie-rugby.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
+                >
+                  <span className="skew-x-12 flex items-center gap-1.5 font-black uppercase text-[11px] tracking-[0.2em] px-5 h-8">
+                    <span className="material-symbols-outlined text-[13px]">confirmation_number</span>
+                    BILLETS
+                  </span>
                 </a>
               </div>
 
-              {/* 3. Side info blocks */}
-              <div className="hidden xl:flex items-stretch border-l border-white/10 skew-x-12 bg-black/40 backdrop-blur-md">
-                <div className="px-8 flex flex-col justify-center border-r border-white/10 hover:bg-white/5 transition-colors cursor-pointer group">
-                  <p className="text-(--text-xs) font-black text-white/50 uppercase mb-1 tracking-widest group-hover:text-white transition-colors">DÉPLACEMENT</p>
-                  <p className="text-lg font-black text-white uppercase leading-none font-barlow group-hover:text-primary transition-colors">NIORT RC</p>
+              {/* Desktop */}
+              <div className="hidden md:flex items-stretch h-[clamp(96px,12vh,120px)]">
+
+                {/* Countdown */}
+                <div className="flex flex-col justify-center gap-1 pr-8 lg:pr-12 border-r border-white/10 shrink-0">
+                  <span className="text-[9px] font-black uppercase bg-primary text-white px-2 py-0.5 tracking-widest w-fit">PROCHAIN MATCH</span>
+                  <span className="text-[10px] font-black text-white/50 uppercase tracking-widest mt-1">20 MARS 2026 · 20:00</span>
+                  <div className="flex gap-5 mt-1">
+                    {[{ val: '11', label: 'JOURS' }, { val: '08', label: 'HRS' }, { val: '00', label: 'MIN' }].map((u, i) => (
+                      <div key={i} className="flex flex-col items-center">
+                        <span className="text-2xl lg:text-3xl font-black italic text-white leading-none">{u.val}</span>
+                        <span className="text-[8px] font-black text-white/40 tracking-[0.15em] mt-0.5">{u.label}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="px-8 flex flex-col justify-center hover:bg-white/5 transition-colors cursor-pointer group">
-                  <p className="text-(--text-xs) font-black text-white/50 uppercase mb-1 tracking-widest group-hover:text-white transition-colors">RÉCEPTION</p>
-                  <p className="text-lg font-black text-white uppercase leading-none font-barlow group-hover:text-primary transition-colors">CHAMBÉRY</p>
+
+                {/* Teams */}
+                <div className="flex-1 flex items-center justify-center gap-4 lg:gap-8 px-8 lg:px-12">
+                  <div className="flex items-center gap-2 lg:gap-3">
+                    <img src={logoRNR} alt="Rouen" className="w-10 h-10 lg:w-14 lg:h-14 object-contain drop-shadow-md" />
+                    <span className="font-black text-2xl lg:text-4xl italic uppercase text-white tracking-tight">ROUEN</span>
+                  </div>
+                  <span className="font-black text-xl lg:text-2xl italic text-primary shrink-0">VS</span>
+                  <div className="flex items-center gap-2 lg:gap-3">
+                    <span className="font-black text-2xl lg:text-4xl italic uppercase text-white tracking-tight">MASSY</span>
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
+                      <img src="/resources/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
+                    </div>
+                  </div>
                 </div>
+
+                {/* CTA skeweé */}
+                <a
+                  href="http://billetterie.rouen-normandie-rugby.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center self-stretch shrink-0 -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors duration-300 shadow-[-4px_0_24px_rgba(226,30,38,0.4)] ml-4"
+                >
+                  <div className="skew-x-12 flex items-center gap-3 px-10 lg:px-14">
+                    <span className="material-symbols-outlined text-2xl">confirmation_number</span>
+                    <span className="font-black uppercase tracking-[0.2em] text-sm lg:text-base">BILLETTERIE</span>
+                  </div>
+                </a>
+
               </div>
-              
             </div>
           </div>
         </div>
@@ -207,7 +209,7 @@ export default function Home() {
       <section id="section-mise-en-avant" className="bg-white py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
         <SectionHeader title="À NE PAS MANQUER" linkTo="/actualites-medias" linkLabel="Voir tout" />
         
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container-premium grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <UnifiedCard 
             image={partnersImg} 
             title="Soutenez votre club de coeur" 
@@ -239,8 +241,8 @@ export default function Home() {
       <section id="section-actu" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
         <SectionHeader title="L'ACTU DU RNR" linkTo="/actualites-medias" linkLabel="Toutes les actualités" />
         
-        <div className="container-premium w-full mx-auto px-6 xl:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 md:h-[700px]">
+        <div className="container-premium">
+          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 md:h-[760px]">
             {secondaryNews.map((item, index) => {
               let gridClass = "";
               if (index === 0) gridClass = "md:col-span-2 md:row-span-2";
@@ -272,7 +274,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 relative z-10">
+        <div className="container-premium relative z-10">
           <SectionHeader title="LES CHIFFRES CLÉS" />
           
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
@@ -302,7 +304,7 @@ export default function Home() {
                   { j: "J 20", date: "21/02/26", home: "NICE", away: "ROUEN", score: "40 - 19", win: false },
                   { j: "J 19", date: "13/02/26", home: "ROUEN", away: "RENNES", score: "21 - 25", win: false },
                 ].map((res, i) => (
-                  <div key={i} className="bg-white/5 border border-white/5 p-4 flex items-center justify-between group hover:bg-white/10 transition-all duration-300">
+                  <div key={i} className={`p-4 flex items-center justify-between group hover:bg-white/10 transition-all duration-300 border-l-[3px] ${res.win ? 'border-primary bg-primary/5' : 'border-white/10 bg-white/5'}`}>
                     <div className="flex flex-col">
                       <span className="text-xs font-black text-white leading-none mb-1">{res.j}</span>
                       <span className="text-(--text-xs) font-bold text-white/40">{res.date}</span>
@@ -331,11 +333,11 @@ export default function Home() {
                   {/* Victoires | Defaites */}
                   <div className="flex gap-8">
                     <div className="flex flex-col">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-primary mb-1">Victoires</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-primary mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">emoji_events</span>Victoires</p>
                       <p className="text-stat font-black italic leading-none">15</p>
                     </div>
                     <div className="flex flex-col border-l border-white/10 pl-8">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Défaites</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">close</span>Défaites</p>
                       <p className="text-stat font-black italic leading-none text-white/20">7</p>
                     </div>
                   </div>
@@ -396,17 +398,17 @@ export default function Home() {
           <span className="text-[clamp(8rem,25vw,30rem)] heading-bold leading-none whitespace-nowrap text-white">SHOP</span>
         </div>
 
-        <SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" isDark />
+        <SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" />
 
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 relative z-10">
+        <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="lg:col-span-1 flex flex-col justify-center gap-6">
-              <h2 className="text-white drop-shadow-2xl">PORTONS HAUT <br />NOS COULEURS.</h2>
+            <div className="lg:col-span-1 flex flex-col justify-center gap-6 min-w-0">
+              <h2 className="text-white drop-shadow-2xl" style={{fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)'}}>PORTONS HAUT<br />NOS COULEURS.</h2>
               <p className="text-white/60 font-medium leading-relaxed text-sm">Découvrez la nouvelle collection 25-26. Maillots officiels et accessoires pour soutenir les Lions.</p>
             </div>
-            <UnifiedCard image={jerseyImg} title="Maillot Domicile 25-26" subtitle="Le maillot officiel des Lions de Rouen." link="http://boutique.rouennormandierugby.fr/" isDark />
-            <UnifiedCard image={player3Img} title="Collection Training" subtitle="Équipez-vous comme les pros au quotidien." link="http://boutique.rouennormandierugby.fr/" isDark />
-            <UnifiedCard image={fansImg} title="Accessoires Supporter" subtitle="Affichez vos couleurs partout en Normandie." link="http://boutique.rouennormandierugby.fr/" isDark />
+            <UnifiedCard image={jerseyImg} title="Maillot Domicile 25-26" subtitle="Le maillot officiel des Lions de Rouen." link="http://boutique.rouennormandierugby.fr/" />
+            <UnifiedCard image={player3Img} title="Collection Training" subtitle="Équipez-vous comme les pros au quotidien." link="http://boutique.rouennormandierugby.fr/" />
+            <UnifiedCard image={fansImg} title="Accessoires Supporter" subtitle="Affichez vos couleurs partout en Normandie." link="http://boutique.rouennormandierugby.fr/" />
           </div>
         </div>
       </section>
@@ -416,7 +418,7 @@ export default function Home() {
       <section id="section-sponsor" className="bg-white py-(--space-xl) w-full flex-shrink-0">
         <SectionHeader title="LE CLUB AFFAIRES" />
         
-        <div className="container-premium w-full mx-auto px-6 xl:px-12">
+        <div className="container-premium">
           <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl">
             {/* VIP Background Visual */}
             <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
@@ -460,18 +462,21 @@ export default function Home() {
       </section>
 
       {/* CHIFFRES DU CLUB */}
-      <section className="bg-slate-900 text-white py-(--space-xl) w-full flex-shrink-0 border-t border-white/5">
-        <div className="container-premium w-full mx-auto px-6 xl:px-12">
+      <section className="bg-slate-900 text-white py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(-55deg,transparent,transparent_60px,rgba(255,255,255,0.012)_60px,rgba(255,255,255,0.012)_61px)]" />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-primary" />
+        <div className="container-premium relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {[
-              { val: "2", label: "titres de champions de France" },
-              { val: "400", label: "licenciés au club" },
-              { val: "260", label: "partenaires officiels" },
-              { val: "120", label: "bénévoles engagés" }
+              { val: "2",   label: "Titres de Champions de France", icon: "emoji_events" },
+              { val: "400", label: "Licenciés au club",             icon: "groups" },
+              { val: "260", label: "Partenaires officiels",          icon: "handshake" },
+              { val: "120", label: "Bénévoles engagés",              icon: "favorite" },
             ].map((stat, i) => (
               <div key={i} className="text-center group">
-                <p className="text-[clamp(3.5rem,8vw,5rem)] font-black mb-4 italic leading-none text-white group-hover:text-primary transition-colors">{stat.val}</p>
-                <div className="w-10 h-1 bg-primary mx-auto mb-4"></div>
+                <span className="material-symbols-outlined text-3xl text-primary/30 group-hover:text-primary/70 transition-colors duration-300 mb-2 block">{stat.icon}</span>
+                <p className="text-[clamp(3.5rem,8vw,5rem)] font-black mb-3 italic leading-none text-white group-hover:text-primary transition-colors duration-300">{stat.val}</p>
+                <div className="w-8 h-[2px] bg-primary mx-auto mb-3" />
                 <p className="text-(--text-xs) uppercase font-black tracking-[0.2em] text-slate-400">{stat.label}</p>
               </div>
             ))}
@@ -480,32 +485,35 @@ export default function Home() {
       </section>
 
       {/* RÉSEAUX SOCIAUX */}
-      <section id="section-social" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-200">
-        <SectionHeader title="NOUS SUIVRE" />
-        
-        <div className="container-premium w-full mx-auto px-6 xl:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section id="section-social" className="bg-[#0f0f0f] py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <span className="text-[clamp(4rem,18vw,14rem)] font-black italic uppercase text-white/[0.025] leading-none whitespace-nowrap tracking-tighter">SUIVEZ LES LIONS</span>
+        </div>
+        <div className="container-premium relative z-10">
+          <SectionHeader title="NOUS SUIVRE" isDark />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
             {[
-              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera" },
-              { name: "FACEBOOK", url: "https://facebook.com/rouennormandierugby", icon: "thumb_up" },
-              { name: "YOUTUBE", url: "https://youtube.com/rouennormandierugby", icon: "play_circle" },
-              { name: "LINKEDIN", url: "https://linkedin.com/company/rouennormandierugby", icon: "work" }
+              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera", handle: "@rouennormandierugby" },
+              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  icon: "thumb_up",    handle: "Rouen Normandie Rugby" },
+              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   icon: "play_circle", handle: "RNR Officiel" },
+              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", icon: "work", handle: "Rouen Normandie Rugby" },
             ].map((social, i) => (
-              <a 
-                key={i} 
-                href={social.url} 
-                target="_blank" 
+              <a
+                key={i}
+                href={social.url}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-4 p-8 bg-white/50 backdrop-blur-sm rounded-2xl border border-slate-200 hover:bg-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-2"
+                className="group flex flex-col gap-5 p-8 lg:p-10 bg-[#0f0f0f] hover:bg-primary transition-all duration-400"
               >
-                <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-white transition-colors">
-                  <span className="material-symbols-outlined text-3xl text-slate-400 group-hover:text-primary">
-                    {social.icon}
-                  </span>
+                <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-white transition-colors duration-300">{social.icon}</span>
+                <div>
+                  <p className="font-black text-2xl lg:text-3xl italic uppercase text-white tracking-tight leading-none mb-1">{social.name}</p>
+                  <p className="text-xs text-white/30 group-hover:text-white/70 transition-colors">{social.handle}</p>
                 </div>
-                <span className="text-sm font-black italic tracking-widest text-slate-400 group-hover:text-white transition-colors">
-                  {social.name}
-                </span>
+                <div className="mt-auto flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-primary group-hover:text-white transition-colors">
+                  <span>Suivre</span>
+                  <span className="material-symbols-outlined text-sm">arrow_outward</span>
+                </div>
               </a>
             ))}
           </div>

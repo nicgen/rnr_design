@@ -145,8 +145,9 @@ export default function Header() {
           
           {/* LEFT: Burger + Quick Links */}
           <div className="flex items-center gap-4 lg:gap-8">
-            <button 
-              onClick={toggleMenu} 
+            <button
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               className="flex items-center group transition-all"
             >
               <div className="flex flex-col gap-1.5 w-6 lg:w-8 py-2">

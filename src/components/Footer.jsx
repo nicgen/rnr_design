@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="py-12 bg-slate-100 mt-auto border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container-premium">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-40">Actualités</h4>

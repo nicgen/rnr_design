@@ -28,7 +28,7 @@
   --space-xl: clamp(3rem, 8vw, 6rem);
 
   /* Limites d'affichage */
-  --container-max: 1800px;
+  --container-max: 1440px;
   
   --nav-height: clamp(70px, 8vh, 100px);
   
