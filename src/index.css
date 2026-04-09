@@ -150,3 +150,21 @@
 .animate-marquee-right:hover {
   animation-play-state: paused;
 }
+
+/* --- COMPOSANTS RÉUTILISABLES (Pour surcharge manuelle) --- */
+
+/* Fiches unifiées */
+.rnr-unified-card {}
+.rnr-card-image-wrapper {}
+.rnr-card-text-panel {}
+.rnr-card-title {}
+.rnr-card-subtitle {}
+.rnr-card-cta {}
+
+/* Titres de sections */
+.rnr-section-header {}
+.rnr-section-header-title {}
+.rnr-section-header-link {}
+
+/* Boutons & Bouton Hero */
+.rnr-hero-cta {}

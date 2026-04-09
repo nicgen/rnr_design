@@ -20,10 +20,10 @@ import vipBg from '/resources/vip_bg.png';
 // --- COMPOSANTS INTERNES D'UNIFICATION ---
 
 const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
-  <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-12 flex justify-between items-end gap-6">
-    <h2 className={`section-title-block ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
+  <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-12 flex justify-between items-end gap-6 rnr-section-header">
+    <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
     {linkTo && (
-      <Link to={linkTo} className={`btn-link ${isDark ? 'text-white/60 hover:text-white hover:border-white' : ''}`}>
+      <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white hover:border-white' : ''}`}>
         {linkLabel}
         <span className="material-symbols-outlined text-sm">arrow_forward</span>
       </Link>
@@ -32,17 +32,17 @@ const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
 );
 
 const UnifiedCard = ({ image, title, subtitle, link, isDark = false }) => (
-  <Link to={link} className="group rnr-card-premium relative h-[600px] rounded-2xl overflow-hidden border-none shadow-xl flex flex-col bg-white">
-    <div className="relative flex-[0_0_55%] overflow-hidden">
+  <Link to={link} className="group rnr-card-premium relative h-full min-h-[450px] rounded-2xl overflow-hidden border-none shadow-xl flex flex-col bg-white rnr-unified-card">
+    <div className="relative flex-[0_0_55%] overflow-hidden rnr-card-image-wrapper">
       <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
     </div>
-    <div className={`p-8 pb-10 flex flex-col flex-1 ${isDark ? 'bg-slate-900/95' : 'bg-white/95'} backdrop-blur-md relative -mt-4 rounded-t-3xl z-10`}>
+    <div className={`p-8 pb-10 flex flex-col flex-1 ${isDark ? 'bg-slate-900/80' : 'bg-white/80'} backdrop-blur-md relative -mt-4 z-10 rnr-card-text-panel`}>
       <div className="flex flex-col gap-3">
-        <h3 className={`text-2xl md:text-3xl leading-tight line-clamp-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
-        {subtitle && <p className={`text-sm md:text-base italic opacity-70 line-clamp-2 ${isDark ? 'text-white/70' : 'text-slate-600'}`}>{subtitle}</p>}
+        <h3 className={`text-2xl md:text-3xl leading-tight line-clamp-3 rnr-card-title ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
+        {subtitle && <p className={`text-sm md:text-base italic opacity-70 line-clamp-2 rnr-card-subtitle ${isDark ? 'text-white/70' : 'text-slate-600'}`}>{subtitle}</p>}
       </div>
-      <div className="mt-auto pt-6 flex items-center gap-2 text-base md:text-lg font-black uppercase tracking-widest text-primary group-hover:translate-x-2 transition-transform">
+      <div className="mt-auto pt-6 flex items-center gap-2 text-base md:text-lg font-black uppercase tracking-widest text-primary group-hover:translate-x-2 transition-transform rnr-card-cta">
         <span>Lire la suite</span>
         <span className="material-symbols-outlined font-bold text-xl">arrow_forward</span>
       </div>
@@ -106,7 +106,7 @@ export default function Home() {
 
       
       {/* HERO SECTION */}
-      <section className="relative h-[85vh] w-full flex-shrink-0 overflow-hidden">
+      <section id="section-hero" className="relative h-[85vh] w-full flex-shrink-0 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={stadiumHero} alt="Stadium" className="absolute inset-0 w-full h-full object-cover" />
           <video 
@@ -129,20 +129,11 @@ export default function Home() {
             <h2 className="text-white text-[clamp(1rem,1.5vw,1.4rem)] font-medium max-w-2xl mx-auto italic opacity-90 drop-shadow-md mt-6 leading-relaxed">
               Persévérance, force brute et passion : le Rouen Normandie Rugby avance, porté par tout un peuple.
             </h2>
-            
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <MagneticWrapper force={0.3}>
-                <Link to="/billetterie" className="btn-cta-hero inline-flex items-center gap-4">
-                  <span>PRENDRE MES PLACES</span>
-                  <span className="material-symbols-outlined">local_activity</span>
-                </Link>
-              </MagneticWrapper>
-            </div>
           </div>
         </div>
 
         {/* Matchbar sticky at bottom of hero */}
-        <div className={`absolute bottom-6 left-0 right-0 z-20 hidden md:block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${showBanner ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+        <div id="hero-matchbar" className={`absolute bottom-6 left-0 right-0 z-20 hidden md:block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${showBanner ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
           <div className="container-premium">
             <div className="flex items-stretch h-[clamp(80px,10vh,112px)] bg-[#1a1a1a] shadow-[0_20px_50px_rgba(0,0,0,0.5)] -skew-x-12 border-l-4 border-primary overflow-visible relative">
               
@@ -187,7 +178,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <a href="#" className="bg-primary text-white font-black uppercase px-4 lg:px-6 py-2.5 lg:py-3 ml-4 lg:ml-6 hover:bg-white hover:text-primary transition-all duration-300 shadow-lg group transform -skew-x-12 mt-2 hidden lg:block">
+                <a id="hero-matchbar-cta" href="#" className="bg-primary text-white font-black uppercase px-4 lg:px-6 py-2.5 lg:py-3 ml-4 lg:ml-6 hover:bg-white hover:text-primary transition-all duration-300 shadow-lg group transform -skew-x-12 mt-2 hidden lg:block rnr-hero-cta">
                   <div className="skew-x-12 flex items-center gap-2">
                     <span className="material-symbols-outlined text-sm font-bold">confirmation_number</span> 
                     <span className="text-xs lg:text-sm font-barlow leading-none">BILLETTERIE</span>
@@ -213,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* À NE PAS MANQUER */}
-      <section className="bg-white py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
+      <section id="section-mise-en-avant" className="bg-white py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
         <SectionHeader title="À NE PAS MANQUER" linkTo="/actualites-medias" linkLabel="Voir tout" />
         
         <div className="container-premium w-full mx-auto px-6 xl:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -245,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* L’ACTU DU RNR */}
-      <section className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
+      <section id="section-actu" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
         <SectionHeader title="L'ACTU DU RNR" linkTo="/actualites-medias" linkLabel="Toutes les actualités" />
         
         <div className="container-premium w-full mx-auto px-6 xl:px-12">
@@ -274,7 +265,7 @@ export default function Home() {
 
 
       {/* DASHBOARD SECTION: LES CHIFFRES CLÉS */}
-      <section className="relative py-(--space-xl) w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden">
+      <section id="section-stats" className="relative py-(--space-xl) w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden">
         {/* Background image for the section */}
         <div className="absolute inset-0 z-0">
           <img src={stadiumHero} alt="Stadium Statistics" className="absolute inset-0 w-full h-full object-cover opacity-50" />
@@ -399,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* LA BOUTIQUE OFFICIELLE */}
-      <section className="bg-black py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
+      <section id="section-boutique" className="bg-black py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
         {/* Typographie Géante en Arrière-plan */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none w-full flex justify-center opacity-[0.03]">
           <span className="text-[clamp(8rem,25vw,30rem)] heading-bold leading-none whitespace-nowrap text-white">SHOP</span>
@@ -422,7 +413,7 @@ export default function Home() {
 
 
 
-      <section className="bg-white py-(--space-xl) w-full flex-shrink-0">
+      <section id="section-sponsor" className="bg-white py-(--space-xl) w-full flex-shrink-0">
         <SectionHeader title="LE CLUB AFFAIRES" />
         
         <div className="container-premium w-full mx-auto px-6 xl:px-12">
@@ -489,7 +480,7 @@ export default function Home() {
       </section>
 
       {/* RÉSEAUX SOCIAUX */}
-      <section className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-200">
+      <section id="section-social" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-200">
         <SectionHeader title="NOUS SUIVRE" />
         
         <div className="container-premium w-full mx-auto px-6 xl:px-12">
@@ -522,7 +513,7 @@ export default function Home() {
       </section>
 
       {/* PARTENAIRES */}
-      <section className="bg-white py-(--space-xl) w-full flex-shrink-0 overflow-hidden">
+      <section id="section-partenaires-logos" className="bg-white py-(--space-xl) w-full flex-shrink-0 overflow-hidden">
         <SectionHeader title="PARTENAIRES" linkTo="/partenaires" linkLabel="Voir tous les partenaires" />
 
         {/* Rangée 1 — défile vers la gauche */}
