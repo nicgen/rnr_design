@@ -47,7 +47,7 @@ export default function ProStandings() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-black text-white italic uppercase text-[10px] tracking-widest font-black">
+                <tr className="bg-black text-white italic uppercase text-(--text-xs) tracking-widest font-black">
                   <th className="p-6 text-center">Pos</th>
                   <th className="p-6">Club</th>
                   <th className="p-6 text-center">J</th>
@@ -107,7 +107,7 @@ export default function ProStandings() {
         </div>
         
         {/* Legend */}
-        <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 md:gap-12 mt-12 text-[10px] font-black uppercase tracking-widest text-slate-400 py-8 border-t border-slate-100 max-w-5xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 md:gap-12 mt-12 text-(--text-xs) font-black uppercase tracking-widest text-slate-400 py-8 border-t border-slate-100 max-w-5xl mx-auto">
           <div className="flex items-center gap-3">
             <span className="w-4 h-4 bg-primary rounded-full shadow-lg shadow-primary/30 -skew-x-12"></span> 
             Qualifiés Demi-finales

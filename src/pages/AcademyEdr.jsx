@@ -14,7 +14,7 @@ const CategoryCard = ({ title, ages, schedule }) => (
   <div className="bg-white border border-slate-200 p-8 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500 skew-x-[-2deg] shadow-sm hover:shadow-xl">
     <div className="skew-x-[2deg] relative z-10">
       <h3 className="text-2xl font-black uppercase italic tracking-tighter leading-none mb-2">{title}</h3>
-      <p className="text-primary font-bold uppercase text-[10px] tracking-[0.3em] mb-6">{ages}</p>
+      <p className="text-primary font-bold uppercase text-(--text-xs) tracking-[0.3em] mb-6">{ages}</p>
       
       <div className="space-y-3 text-sm font-medium italic opacity-60 group-hover:opacity-100 transition-opacity">
         <div className="flex gap-3 items-start">
@@ -72,12 +72,12 @@ export default function AcademyEdr() {
               <div className="flex gap-8">
                 <div className="relative group">
                   <p className="text-6xl font-black text-slate-900 italic tracking-tighter group-hover:text-primary transition-colors">3★</p>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Label FFR</p>
+                  <p className="text-(--text-xs) font-black uppercase tracking-widest text-slate-400">Label FFR</p>
                 </div>
                 <div className="w-[1px] h-16 bg-slate-100"></div>
                 <div className="relative group">
                   <p className="text-6xl font-black text-slate-900 italic tracking-tighter group-hover:text-primary transition-colors">300+</p>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Licenciés</p>
+                  <p className="text-(--text-xs) font-black uppercase tracking-widest text-slate-400">Licenciés</p>
                 </div>
               </div>
             </div>

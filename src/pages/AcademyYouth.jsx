@@ -16,7 +16,7 @@ const CategoryCard = ({ title, ages, categories }) => (
       <div className="flex justify-between items-start mb-6">
         <div>
           <h3 className="text-3xl font-black uppercase italic tracking-tighter leading-none mb-2">{title}</h3>
-          <p className="text-primary font-bold uppercase text-[10px] tracking-[0.3em]">{ages}</p>
+          <p className="text-primary font-bold uppercase text-(--text-xs) tracking-[0.3em]">{ages}</p>
         </div>
         <span className="material-symbols-outlined text-4xl text-primary/20 group-hover:text-primary transition-colors">workspace_premium</span>
       </div>

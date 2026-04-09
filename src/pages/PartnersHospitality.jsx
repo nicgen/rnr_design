@@ -51,7 +51,7 @@ export default function PartnersHospitality() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
           {/* Espace Epicuriens */}
           <div className="bg-slate-50 border-t-8 border-primary p-12 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute top-8 right-8 bg-black text-white px-4 py-1 text-[10px] font-black uppercase tracking-widest italic -skew-x-12">Le plus Prisé</div>
+            <div className="absolute top-8 right-8 bg-black text-white px-4 py-1 text-(--text-xs) font-black uppercase tracking-widest italic -skew-x-12">Le plus Prisé</div>
             <h3 className="text-4xl font-black uppercase italic tracking-tighter mb-2">Espace Épicuriens</h3>
             <p className="text-primary font-bold italic mb-8 tracking-widest uppercase text-sm">Le cercle des décideurs</p>
             <div className="mb-10 text-slate-500 font-medium italic leading-relaxed">
@@ -66,7 +66,7 @@ export default function PartnersHospitality() {
               ))}
             </ul>
             <div className="pt-8 border-t border-slate-200">
-               <span className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1 italic">Investissement Annuel</span>
+               <span className="block text-(--text-xs) font-black uppercase tracking-widest text-slate-400 mb-1 italic">Investissement Annuel</span>
                <div className="text-4xl font-black italic tracking-tighter">3 900 € <span className="text-sm text-slate-400">HT / pers.</span></div>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function PartnersHospitality() {
               ))}
             </ul>
             <div className="pt-8 border-t border-white/10">
-               <span className="block text-[10px] font-black uppercase tracking-widest text-white/30 mb-1 italic">Investissement Annuel</span>
+               <span className="block text-(--text-xs) font-black uppercase tracking-widest text-white/30 mb-1 italic">Investissement Annuel</span>
                <div className="text-4xl font-black italic tracking-tighter text-primary">3 300 € <span className="text-sm text-white/30 italic">HT / pers.</span></div>
             </div>
           </div>
@@ -112,15 +112,15 @@ export default function PartnersHospitality() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/20">
                 <div>
-                   <span className="block text-[10px] font-black uppercase tracking-widest text-white/40 mb-2 italic">10 Personnes</span>
+                   <span className="block text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-2 italic">10 Personnes</span>
                    <span className="text-2xl font-black italic tracking-tighter">2 850 € <span className="text-xs">HT</span></span>
                 </div>
                 <div>
-                   <span className="block text-[10px] font-black uppercase tracking-widest text-white/40 mb-2 italic">15 Personnes</span>
+                   <span className="block text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-2 italic">15 Personnes</span>
                    <span className="text-2xl font-black italic tracking-tighter">3 990 € <span className="text-xs">HT</span></span>
                 </div>
                 <div>
-                   <span className="block text-[10px] font-black uppercase tracking-widest text-white/40 mb-2 italic">22 Personnes</span>
+                   <span className="block text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-2 italic">22 Personnes</span>
                    <span className="text-2xl font-black italic tracking-tighter">5 790 € <span className="text-xs">HT</span></span>
                 </div>
               </div>

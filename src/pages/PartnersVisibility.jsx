@@ -66,7 +66,7 @@ export default function PartnersVisibility() {
                    <span className="material-symbols-outlined text-black group-hover:text-white text-3xl skew-x-12">{item.icon}</span>
                 </div>
                 <h4 className="text-xl font-black uppercase italic tracking-tighter mb-2 leading-none">{item.title}</h4>
-                <p className="text-[10px] font-black uppercase tracking-widest text-primary italic opacity-70">{item.sub}</p>
+                <p className="text-(--text-xs) font-black uppercase tracking-widest text-primary italic opacity-70">{item.sub}</p>
               </div>
             ))}
           </div>
@@ -85,7 +85,7 @@ export default function PartnersVisibility() {
                    </div>
                    <div>
                       <h4 className="font-black uppercase italic text-lg leading-none mb-1">Panneaux LED</h4>
-                      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest italic">Affichage dynamique</p>
+                      <p className="text-(--text-xs) font-bold text-slate-500 uppercase tracking-widest italic">Affichage dynamique</p>
                    </div>
                 </div>
                 <div className="bg-slate-100 p-6 flex flex-col gap-4 group">
@@ -94,7 +94,7 @@ export default function PartnersVisibility() {
                    </div>
                    <div>
                       <h4 className="font-black uppercase italic text-lg leading-none mb-1">Piquets de touche</h4>
-                      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest italic">Visibilité fixe stratégique</p>
+                      <p className="text-(--text-xs) font-bold text-slate-500 uppercase tracking-widest italic">Visibilité fixe stratégique</p>
                    </div>
                 </div>
              </div>
@@ -111,7 +111,7 @@ export default function PartnersVisibility() {
                    </div>
                    <div>
                       <h4 className="font-black uppercase italic text-lg leading-none mb-1">Naming d'espaces</h4>
-                      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest italic">Salons & Loges</p>
+                      <p className="text-(--text-xs) font-bold text-slate-500 uppercase tracking-widest italic">Salons & Loges</p>
                    </div>
                 </div>
                 <div className="bg-slate-100 p-6 flex flex-col gap-4 group">
@@ -120,7 +120,7 @@ export default function PartnersVisibility() {
                    </div>
                    <div>
                       <h4 className="font-black uppercase italic text-lg leading-none mb-1">Animations Match</h4>
-                      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest italic">Coup d'envoi & Mascotte</p>
+                      <p className="text-(--text-xs) font-bold text-slate-500 uppercase tracking-widest italic">Coup d'envoi & Mascotte</p>
                    </div>
                 </div>
              </div>

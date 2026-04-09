@@ -78,10 +78,10 @@ export default function PartnersNews() {
                <div className="p-10">
                   <div className="flex justify-between items-center mb-6">
                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-black text-primary font-black italic flex items-center justify-center text-[10px] -skew-x-12">RNR</div>
+                        <div className="w-12 h-12 bg-black text-primary font-black italic flex items-center justify-center text-(--text-xs) -skew-x-12">RNR</div>
                         <div>
                            <div className="text-sm font-black uppercase tracking-tight italic">Rouen Normandie Rugby - Business Club</div>
-                           <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{post.date}</div>
+                           <div className="text-(--text-xs) font-bold text-slate-400 uppercase tracking-widest">{post.date}</div>
                         </div>
                      </div>
                      <span className="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">more_horiz</span>
@@ -92,7 +92,7 @@ export default function PartnersNews() {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-8">
                     {post.tags.map((tag, j) => (
-                      <span key={j} className="text-[10px] font-black uppercase tracking-widest text-[#0077b5]">{tag}</span>
+                      <span key={j} className="text-(--text-xs) font-black uppercase tracking-widest text-[#0077b5]">{tag}</span>
                     ))}
                   </div>
                   <div className="aspect-video bg-slate-200 relative overflow-hidden">
@@ -101,14 +101,14 @@ export default function PartnersNews() {
                </div>
                <div className="border-t border-slate-200 px-10 py-6 flex justify-between items-center bg-white/50">
                   <div className="flex gap-8">
-                    <button className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-[10px] font-black uppercase tracking-widest">
+                    <button className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-(--text-xs) font-black uppercase tracking-widest">
                        <span className="material-symbols-outlined text-lg">thumb_up</span> J'aime
                     </button>
-                    <button className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-[10px] font-black uppercase tracking-widest">
+                    <button className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-(--text-xs) font-black uppercase tracking-widest">
                        <span className="material-symbols-outlined text-lg">chat_bubble</span> Commenter
                     </button>
                   </div>
-                  <button className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-[10px] font-black uppercase tracking-widest">
+                  <button className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-(--text-xs) font-black uppercase tracking-widest">
                      <span className="material-symbols-outlined text-lg">share</span> Partager
                   </button>
                </div>

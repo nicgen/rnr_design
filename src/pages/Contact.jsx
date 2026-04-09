@@ -84,7 +84,7 @@ export default function Contact() {
                 <span className="material-symbols-outlined text-5xl text-slate-400 relative z-10 mb-4">map</span>
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
                     <span className="material-symbols-outlined text-primary text-4xl mb-2 drop-shadow-md">location_pin</span>
-                    <div className="bg-white text-black px-3 py-1 font-black uppercase text-[10px] shadow-lg">Jean-Mermoz</div>
+                    <div className="bg-white text-black px-3 py-1 font-black uppercase text-(--text-xs) shadow-lg">Jean-Mermoz</div>
                 </div>
               </div>
 

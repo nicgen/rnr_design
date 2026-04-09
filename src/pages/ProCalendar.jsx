@@ -46,7 +46,7 @@ export default function ProCalendar() {
               {/* Date & Day */}
               <div className="flex flex-col items-center md:items-start w-full md:w-32 mb-4 md:mb-0">
                 <span className="text-primary font-black italic text-xl tracking-tighter leading-none">{match.day}</span>
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{match.date}</span>
+                <span className="text-(--text-xs) font-bold text-slate-400 uppercase tracking-widest mt-1">{match.date}</span>
               </div>
               
               {/* Teams & Score */}
@@ -82,13 +82,13 @@ export default function ProCalendar() {
               {/* Status / Action */}
               <div className="w-full md:w-40 flex justify-center md:justify-end">
                 {match.score ? (
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">Match Terminé</span>
+                  <span className="text-(--text-xs) font-black uppercase tracking-[0.2em] text-slate-300">Match Terminé</span>
                 ) : match.home === "Rouen" ? (
-                  <button className="bg-black text-white px-6 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-primary transition-all -skew-x-12">
+                  <button className="bg-black text-white px-6 py-2 text-(--text-xs) font-black uppercase tracking-widest hover:bg-primary transition-all -skew-x-12">
                     <span className="inline-block skew-x-12">Billetterie</span>
                   </button>
                 ) : (
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 italic">Extérieur</span>
+                  <span className="text-(--text-xs) font-black uppercase tracking-[0.2em] text-slate-300 italic">Extérieur</span>
                 )}
               </div>
             </div>

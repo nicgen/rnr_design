@@ -25,7 +25,7 @@ const PlayerCard = ({ name, position, nationality, image }) => (
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       <div className="absolute top-4 left-4">
-        <span className="bg-black text-white text-[10px] font-black px-2 py-1 uppercase -skew-x-12 inline-block">
+        <span className="bg-black text-white text-(--text-xs) font-black px-2 py-1 uppercase -skew-x-12 inline-block">
           <span className="inline-block skew-x-12">{nationality}</span>
         </span>
       </div>
@@ -34,7 +34,7 @@ const PlayerCard = ({ name, position, nationality, image }) => (
       <h4 className="font-black uppercase text-xl italic tracking-tighter mb-1 group-hover:text-primary transition-colors">
         {name}
       </h4>
-      <p className="text-[10px] font-bold text-primary uppercase tracking-widest italic">{position}</p>
+      <p className="text-(--text-xs) font-bold text-primary uppercase tracking-widest italic">{position}</p>
     </div>
   </div>
 );
@@ -133,7 +133,7 @@ export default function ProTeam() {
             <button 
               key={f}
               onClick={() => setFilter(f === "Le Staff" ? "Staff" : f === "Les Joueurs" ? "Joueurs" : "Tous")}
-              className={`px-8 py-3 font-black uppercase text-[10px] tracking-widest transition-all ${
+              className={`px-8 py-3 font-black uppercase text-(--text-xs) tracking-widest transition-all ${
                 (filter === "Tous" && f === "Tous") || (filter === "Staff" && f === "Le Staff") || (filter === "Joueurs" && f === "Les Joueurs")
                 ? "bg-black text-white shadow-xl -skew-x-12" 
                 : "bg-slate-100 text-slate-400 hover:text-black border border-slate-200"

@@ -49,7 +49,7 @@ export default function Club() {
                   <span className="material-symbols-outlined text-7xl text-primary drop-shadow-[0_0_15px_rgba(219,39,40,0.5)]">emoji_events</span>
                   <div>
                     <h2 className="text-4xl font-black italic tracking-tighter uppercase leading-none">2 Titres</h2>
-                    <p className="text-primary font-bold uppercase text-[10px] tracking-[0.3em] mt-1">Champion de France</p>
+                    <p className="text-primary font-bold uppercase text-(--text-xs) tracking-[0.3em] mt-1">Champion de France</p>
                   </div>
                 </div>
                 <div className="space-y-4 border-t border-white/10 pt-6">
@@ -72,7 +72,7 @@ export default function Club() {
                   <span className="material-symbols-outlined text-7xl text-white/40 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">military_tech</span>
                   <div>
                     <h2 className="text-4xl font-black italic tracking-tighter uppercase leading-none">Accession</h2>
-                    <p className="text-white/40 font-bold uppercase text-[10px] tracking-[0.3em] mt-1">Niveau Professionnel</p>
+                    <p className="text-white/40 font-bold uppercase text-(--text-xs) tracking-[0.3em] mt-1">Niveau Professionnel</p>
                   </div>
                 </div>
                 <div className="space-y-4 border-t border-white/10 pt-6">

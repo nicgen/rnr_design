@@ -66,12 +66,12 @@ export default function ClubStadium() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-slate-50 p-6 border-l-4 border-primary group hover:bg-black hover:text-white transition-all duration-300">
                   <span className="material-symbols-outlined text-3xl text-primary mb-2">groups</span>
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Capacité</p>
+                  <p className="text-(--text-xs) font-black uppercase tracking-widest opacity-60 mb-1">Capacité</p>
                   <p className="text-2xl font-black italic uppercase tracking-tighter">12 000 places</p>
                 </div>
                 <div className="bg-slate-50 p-6 border-l-4 border-slate-200 group hover:bg-black hover:text-white transition-all duration-300">
                   <span className="material-symbols-outlined text-3xl text-primary mb-2">location_on</span>
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Localisation</p>
+                  <p className="text-(--text-xs) font-black uppercase tracking-widest opacity-60 mb-1">Localisation</p>
                   <p className="text-lg font-black italic uppercase tracking-tighter leading-tight">Canadiens, Petit-Quevilly</p>
                 </div>
               </div>
@@ -107,12 +107,12 @@ export default function ClubStadium() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-slate-50 p-6 border-r-4 border-slate-200 group hover:bg-black hover:text-white transition-all duration-300">
                   <span className="material-symbols-outlined text-3xl text-primary mb-2">fitness_center</span>
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Usage</p>
+                  <p className="text-(--text-xs) font-black uppercase tracking-widest opacity-60 mb-1">Usage</p>
                   <p className="text-xl font-black italic uppercase tracking-tighter">Entraînement & Admin</p>
                 </div>
                 <div className="bg-slate-50 p-6 border-r-4 border-primary group hover:bg-black hover:text-white transition-all duration-300">
                   <span className="material-symbols-outlined text-3xl text-primary mb-2">directions_car</span>
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Accès</p>
+                  <p className="text-(--text-xs) font-black uppercase tracking-widest opacity-60 mb-1">Accès</p>
                   <p className="text-lg font-black italic uppercase tracking-tighter leading-tight">Rue de la Motte, Rouen</p>
                 </div>
               </div>

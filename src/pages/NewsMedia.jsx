@@ -87,13 +87,13 @@ const ArticleCard = ({ article }) => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
       <div className="absolute top-4 left-4">
-        <span className="bg-primary text-white text-[10px] font-black px-2 py-1 uppercase -skew-x-12 inline-block">
+        <span className="bg-primary text-white text-(--text-xs) font-black px-2 py-1 uppercase -skew-x-12 inline-block">
           <span className="inline-block skew-x-12">{article.category}</span>
         </span>
       </div>
     </div>
     <div className="p-6 flex flex-col flex-grow">
-      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">{article.date}</p>
+      <p className="text-(--text-xs) font-bold text-slate-400 uppercase tracking-widest mb-2">{article.date}</p>
       <h3 className="font-black uppercase text-xl leading-tight mb-4 group-hover:text-primary transition-colors line-clamp-2 italic tracking-tighter">
         {article.title}
       </h3>
@@ -101,7 +101,7 @@ const ArticleCard = ({ article }) => (
         {article.excerpt}
       </p>
       <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
-        <span className="text-[10px] font-black uppercase tracking-widest text-primary italic">Lire l'article</span>
+        <span className="text-(--text-xs) font-black uppercase tracking-widest text-primary italic">Lire l'article</span>
         <span className="material-symbols-outlined text-primary text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
       </div>
     </div>
@@ -136,7 +136,7 @@ export default function NewsMedia() {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-3 text-[10px] font-black uppercase tracking-widest transition-all ${
+              className={`px-6 py-3 text-(--text-xs) font-black uppercase tracking-widest transition-all ${
                 filter === cat 
                 ? "bg-primary text-white shadow-lg -skew-x-12" 
                 : "bg-white text-slate-400 hover:text-black border border-slate-200"

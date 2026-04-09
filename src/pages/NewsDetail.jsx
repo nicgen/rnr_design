@@ -80,7 +80,7 @@ export default function NewsDetail() {
         {/* SOCIAL SHARE & TAGS */}
         <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex gap-4">
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Partager :</span>
+            <span className="text-(--text-xs) font-black uppercase tracking-widest text-slate-400">Partager :</span>
             <div className="flex gap-6">
               <span className="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">facebook</span>
               <span className="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">share</span>
@@ -110,7 +110,7 @@ export default function NewsDetail() {
                      <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                   </div>
                   <div className="p-6">
-                    <p className="text-[9px] font-bold text-slate-400 mb-2">{item.date}</p>
+                    <p className="text-(--text-xs) font-bold text-slate-400 mb-2">{item.date}</p>
                     <h3 className="font-black uppercase text-lg leading-tight group-hover:text-primary transition-colors line-clamp-2 italic tracking-tighter">
                       {item.title}
                     </h3>

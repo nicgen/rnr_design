@@ -52,7 +52,7 @@ export default function PartnersContact() {
             <form className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest italic text-slate-400" htmlFor="name">Nom Complet</label>
+                  <label className="text-(--text-xs) font-black uppercase tracking-widest italic text-slate-400" htmlFor="name">Nom Complet</label>
                   <input 
                     type="text" 
                     id="name"
@@ -61,7 +61,7 @@ export default function PartnersContact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest italic text-slate-400" htmlFor="company">Société</label>
+                  <label className="text-(--text-xs) font-black uppercase tracking-widest italic text-slate-400" htmlFor="company">Société</label>
                   <input 
                     type="text" 
                     id="company"
@@ -73,7 +73,7 @@ export default function PartnersContact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest italic text-slate-400" htmlFor="email">Email Professionnel</label>
+                  <label className="text-(--text-xs) font-black uppercase tracking-widest italic text-slate-400" htmlFor="email">Email Professionnel</label>
                   <input 
                     type="email" 
                     id="email"
@@ -82,7 +82,7 @@ export default function PartnersContact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest italic text-slate-400" htmlFor="phone">Téléphone</label>
+                  <label className="text-(--text-xs) font-black uppercase tracking-widest italic text-slate-400" htmlFor="phone">Téléphone</label>
                   <input 
                     type="tel" 
                     id="phone"
@@ -93,7 +93,7 @@ export default function PartnersContact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest italic text-slate-400" htmlFor="subject">Votre Intérêt</label>
+                <label className="text-(--text-xs) font-black uppercase tracking-widest italic text-slate-400" htmlFor="subject">Votre Intérêt</label>
                 <select 
                   id="subject"
                   className="w-full bg-slate-50 border-b-2 border-slate-200 p-4 focus:border-primary outline-none font-black uppercase italic transition-colors appearance-none"
@@ -106,7 +106,7 @@ export default function PartnersContact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest italic text-slate-400" htmlFor="message">Message</label>
+                <label className="text-(--text-xs) font-black uppercase tracking-widest italic text-slate-400" htmlFor="message">Message</label>
                 <textarea 
                   id="message"
                   rows="4"
@@ -138,8 +138,8 @@ export default function PartnersContact() {
                     </div>
                     <div>
                       <h4 className="font-black uppercase italic tracking-tight">{member.name}</h4>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-primary italic mb-1">{member.role}</p>
-                      <p className="text-[10px] font-bold opacity-60 tracking-widest">{member.email}</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-primary italic mb-1">{member.role}</p>
+                      <p className="text-(--text-xs) font-bold opacity-60 tracking-widest">{member.email}</p>
                     </div>
                   </div>
                 ))}
@@ -152,7 +152,7 @@ export default function PartnersContact() {
                 <p className="text-sm font-medium italic opacity-90 mb-6 font-barlow-condensed leading-relaxed">
                   Notre catalogue d'offres 2025/2026 est disponible en téléchargement direct pour nos membres pré-inscrits.
                 </p>
-                <button className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] hover:underline underline-offset-4">
+                <button className="flex items-center gap-3 text-(--text-xs) font-black uppercase tracking-[0.2em] hover:underline underline-offset-4">
                   Version digitale (PDF) <span className="material-symbols-outlined text-lg">download</span>
                 </button>
               </div>

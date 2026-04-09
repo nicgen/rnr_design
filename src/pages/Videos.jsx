@@ -14,7 +14,7 @@ const VideoCard = ({ title, duration, date }) => (
       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
         <span className="material-symbols-outlined text-4xl text-white">play_circle</span>
       </div>
-      <span className="absolute bottom-2 right-2 bg-black text-white text-[10px] font-black px-2 py-1">{duration}</span>
+      <span className="absolute bottom-2 right-2 bg-black text-white text-(--text-xs) font-black px-2 py-1">{duration}</span>
     </div>
     <div>
       <h3 className="font-black uppercase text-[15px] leading-tight line-clamp-2">{title}</h3>
@@ -45,7 +45,7 @@ export default function Videos() {
           <PlaceholderImage className="absolute inset-0 w-full h-full opacity-50" />
           <span className="material-symbols-outlined text-8xl text-black relative z-10 group-hover:scale-110 transition-transform">play_circle</span>
           <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent text-white">
-            <span className="bg-primary text-white text-[10px] font-black uppercase px-2 py-1 mb-2 inline-block">Inside RNR</span>
+            <span className="bg-primary text-white text-(--text-xs) font-black uppercase px-2 py-1 mb-2 inline-block">Inside RNR</span>
             <h2 className="text-3xl font-black uppercase">Dans les vestiaires après la victoire (Episode 4)</h2>
           </div>
         </div>

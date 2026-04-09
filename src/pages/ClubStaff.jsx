@@ -22,7 +22,7 @@ const ProfileCard = ({ name, role, photo }) => (
     </div>
     <div className="py-6 px-4 text-center">
       <h4 className="font-black uppercase text-xl leading-none italic tracking-tighter mb-2 group-hover:text-primary transition-colors">{name}</h4>
-      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{role}</p>
+      <p className="text-(--text-xs) font-bold uppercase tracking-[0.2em] text-slate-400">{role}</p>
     </div>
   </div>
 );

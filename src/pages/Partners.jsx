@@ -51,7 +51,7 @@ export default function Partners() {
               <div className="skew-x-[2deg]">
                 <span className="text-6xl font-black text-primary italic tracking-tighter block mb-2">{stat.num}</span>
                 <span className="text-sm font-black uppercase tracking-[0.3em] block mb-1">{stat.label}</span>
-                <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest">{stat.sub}</span>
+                <span className="text-(--text-xs) font-bold text-white/30 uppercase tracking-widest">{stat.sub}</span>
               </div>
               <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
             </div>
@@ -79,7 +79,7 @@ export default function Partners() {
                 <div>
                   <div className="flex justify-between items-start mb-4">
                     <h4 className="text-2xl font-black uppercase italic tracking-tighter">{event.title}</h4>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 italic">{event.tag}</span>
+                    <span className="text-(--text-xs) font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 italic">{event.tag}</span>
                   </div>
                   <p className="text-slate-500 font-medium italic leading-relaxed">{event.desc}</p>
                 </div>
@@ -120,7 +120,7 @@ export default function Partners() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                   <div className="absolute bottom-10 left-0 w-full text-center px-6">
                       <div className="w-12 h-1 bg-primary mx-auto mb-4 rounded-full"></div>
-                      <p className="text-[10px] font-black uppercase tracking-widest italic opacity-60">Le réseau au creux de votre main</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest italic opacity-60">Le réseau au creux de votre main</p>
                   </div>
                </div>
                {/* Decorative glow */}

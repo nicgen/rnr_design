@@ -14,7 +14,7 @@ const Breadcrumb = ({ items }) => {
   });
 
   return (
-    <nav className="flex items-center gap-2 mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+    <nav className="flex items-center gap-2 mb-4 text-(--text-xs) font-black uppercase tracking-[0.2em] text-slate-400">
       <Link to="/" className="hover:text-primary transition-colors">ACCUEIL</Link>
       
       {breadcrumbItems.map((item, index) => (
