@@ -17,6 +17,39 @@ import vipBg from '/resources/vip_bg.png';
 
 
 
+// --- COMPOSANTS INTERNES D'UNIFICATION ---
+
+const SectionHeader = ({ title, linkTo, linkLabel }) => (
+  <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-12 flex justify-between items-end gap-6">
+    <h2 className="section-title-block">{title}</h2>
+    {linkTo && (
+      <Link to={linkTo} className="btn-link">
+        {linkLabel}
+        <span className="material-symbols-outlined text-sm">arrow_forward</span>
+      </Link>
+    )}
+  </div>
+);
+
+const UnifiedCard = ({ image, title, subtitle, link, isDark = false }) => (
+  <Link to={link} className="group rnr-card-premium relative h-[500px]">
+    <div className="relative h-[60%] overflow-hidden">
+      <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+    </div>
+    <div className={`p-8 flex flex-col justify-between flex-grow ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+      <div className="flex flex-col gap-3">
+        <h3 className={`text-xl md:text-2xl leading-tight line-clamp-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
+        {subtitle && <p className={`text-sm italic opacity-70 line-clamp-2 ${isDark ? 'text-white/70' : 'text-slate-600'}`}>{subtitle}</p>}
+      </div>
+      <div className="mt-4 flex items-center gap-2 text-(--text-xs) font-black uppercase tracking-widest text-primary group-hover:translate-x-2 transition-transform">
+        <span>Lire la suite</span>
+        <span className="material-symbols-outlined text-xs">arrow_forward</span>
+      </div>
+    </div>
+  </Link>
+);
+
 const PlaceholderImage = ({ className }) => (
   <div className={`bg-slate-200 border border-slate-300 flex items-center justify-center ${className}`}>
     <span className="material-symbols-outlined text-slate-400">image</span>
@@ -90,12 +123,21 @@ export default function Home() {
         
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center">
           <div className="container-premium w-full">
-            <h1 className="mt-12 drop-shadow-lg">
+            <h1 className="mt-12 drop-shadow-lg text-white">
               TOUS NORMANDS,<br />TOUS RNR!
             </h1>
-            <p className="text-white text-hero-lead font-medium max-w-3xl mx-auto italic opacity-90 drop-shadow-md">
-              Persévérance, et force brute, le RNR avance !
-            </p>
+            <h2 className="text-white text-hero-lead font-medium max-w-3xl mx-auto italic opacity-90 drop-shadow-md mt-6">
+              Persévérance, force brute et passion : le Rouen Normandie Rugby avance, porté par tout un peuple.
+            </h2>
+            
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <MagneticWrapper force={0.3}>
+                <Link to="/billetterie" className="btn-cta-hero inline-flex items-center gap-4">
+                  <span>PRENDRE MES PLACES</span>
+                  <span className="material-symbols-outlined">local_activity</span>
+                </Link>
+              </MagneticWrapper>
+            </div>
           </div>
         </div>
 
@@ -165,109 +207,51 @@ export default function Home() {
       </section>
 
       {/* À NE PAS MANQUER */}
-      <section className="bg-white py-(--space-xl) w-full flex-shrink-0 overflow-hidden">
-        <div className="w-full mb-10 overflow-hidden flex whitespace-nowrap">
-          <div ref={marqueeRef} className="flex whitespace-nowrap will-change-transform">
-            {[...Array(12)].map((_, i) => (
-              <h2 key={i} className="pr-8 opacity-90 drop-shadow-sm group-hover:text-primary transition-colors cursor-default whitespace-nowrap shrink-0">
-                À NE PAS MANQUER <span className="text-primary mx-4 md:mx-8">/</span>
-              </h2>
-            ))}
-          </div>
-        </div>
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 grid grid-cols-1 md:grid-cols-4 gap-6 pb-12">
-          {news.map((item, index) => (
-            <Link 
-              key={index} 
-              to={`/actualites-medias/${item.id}`}
-              className="relative group overflow-hidden rounded-[24px] h-[400px] md:h-[600px] lg:h-[700px] cursor-pointer border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500"
-            >
-              <img 
-                src={item.img} 
-                alt={item.title} 
-                className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ${item.size === 'large' ? 'scale-110 group-hover:scale-125' : 'group-hover:scale-105'}`} 
-              />
-              
-              {/* Overlay Gradient for better readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
-              
-              {/* Category Tag */}
-              <div className="absolute top-8 left-8">
-                <div className="bg-primary text-white text-(--text-xs) font-black px-3 py-1.5 uppercase -skew-x-12 inline-block shadow-lg">
-                  <span className="inline-block skew-x-12">{item.category}</span>
-                </div>
-              </div>
-              
-              {/* Content Panel */}
-              <div className="absolute bottom-10 left-8 right-8 text-left text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                <p className="text-(--text-xs) font-bold mb-2 uppercase tracking-[0.2em] text-white/60">{item.author}</p>
-                <h3 className="drop-shadow-2xl">
-                  {item.title}
-                </h3>
-                <div className="w-8 h-[2px] bg-primary mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-              </div>
-            </Link>
-          ))}
+      <section className="bg-white py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
+        <SectionHeader title="À NE PAS MANQUER" linkTo="/actualites-medias" linkLabel="Voir tout" />
+        
+        <div className="container-premium w-full mx-auto px-6 xl:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <UnifiedCard 
+            image={partnersImg} 
+            title="Soutenez votre club de coeur" 
+            subtitle="Devenez partenaire et rejoignez la famille du RNR pour une saison mémorable." 
+            link="/partenaires" 
+          />
+          <UnifiedCard 
+            image={delphineImg} 
+            title="Interview exclusive de Delphine Bunel" 
+            subtitle="Découvrez le parcours et les ambitions de la capitaine pour cette nouvelle saison." 
+            link="/actualites-medias" 
+          />
+          <UnifiedCard 
+            image={galaImg} 
+            title="Soirée de Gala 2026" 
+            subtitle="Revivez les meilleurs moments de notre soirée annuelle au Kindarena." 
+            link="/actualites-medias" 
+          />
+          <UnifiedCard 
+            image={presidentImg} 
+            title="Mot du Président" 
+            subtitle="Jean-Louis Louvel revient sur les objectifs de la mi-saison." 
+            link="/actualites-medias" 
+          />
         </div>
       </section>
 
-      {/* L’ACTU DU RNR - BENTO GRID */}
-      <section className="bg-white py-(--space-xl) w-full flex-shrink-0">
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-          <h2 className="border-l-4 border-primary pl-4 md:pl-6">L'Actu du RNR</h2>
-          <MagneticWrapper force={0.4} innerForce={0.2}>
-            <Link to="/actualites-medias" className="text-(--text-xs) md:text-xs font-black uppercase text-slate-500 hover:text-primary cursor-pointer tracking-widest flex items-center gap-2 group transition-colors">
-              Toutes les actualités
-              <span className="material-symbols-outlined text-sm transform group-hover:translate-x-1 transition-transform">east</span>
-            </Link>
-          </MagneticWrapper>
-        </div>
-
-        <div className="container-premium w-full mx-auto px-6 xl:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 md:h-[600px] lg:h-[700px] w-full">
-            {secondaryNews.map((item, index) => {
-              // Configuration de la mosaïque Bento
-              let gridClass = "";
-              let titleClass = "";
-
-              if (index === 0) {
-                // Grand module à gauche (Span 2 col, Span 2 rows)
-                gridClass = "md:col-span-2 md:row-span-2";
-                titleClass = "text-h2";
-              } else if (index === 1) {
-                // Module horizontal en haut à droite (Span 2 col, Span 1 row)
-                gridClass = "md:col-span-2 md:row-span-1";
-                titleClass = "text-h3";
-              } else {
-                // Petits modules carrés en bas à droite (Span 1 col, Span 1 row)
-                gridClass = "md:col-span-1 md:row-span-1";
-                titleClass = "text-h4";
-              }
-
-              return (
-                <Link key={index} to={`/actualites-medias/${item.id}`} className={`relative group overflow-hidden cursor-pointer rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 ${gridClass} min-h-[350px] md:min-h-0 block`}>
-                  {/* Image de fond avec effet de zoom */}
-                  <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-
-                  {/* Dégradé sombre pour la lisibilité */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10 opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-
-                  {/* Badge Catégorie haut de page */}
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-primary text-white text-(--text-xs) font-black px-3 py-1.5 uppercase rounded-sm shadow-lg tracking-widest block transform group-hover:-translate-y-1 transition-transform">{item.category}</span>
-                  </div>
-
-                  {/* Contenu Textuel en bas à gauche */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white flex flex-col items-start text-left">
-                    <p className="text-(--text-xs) md:text-(--text-xs) font-black mb-3 uppercase tracking-[0.3em] text-white/70 border border-white/20 backdrop-blur-md px-3 py-1 rounded-full">{item.subtitle}</p>
-                    <h3 className={`leading-[0.95] group-hover:text-primary transition-colors duration-300 drop-shadow-lg`}>
-                      {item.title}
-                    </h3>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+      {/* L’ACTU DU RNR */}
+      <section className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
+        <SectionHeader title="L'ACTU DU RNR" linkTo="/actualites-medias" linkLabel="Toutes les actualités" />
+        
+        <div className="container-premium w-full mx-auto px-6 xl:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {secondaryNews.map((item, index) => (
+            <UnifiedCard 
+              key={index}
+              image={item.img} 
+              title={item.title} 
+              subtitle={item.subtitle} 
+              link={`/actualites-medias/${item.id}`} 
+            />
+          ))}
         </div>
       </section>
 
@@ -282,20 +266,17 @@ export default function Home() {
         </div>
 
         <div className="container-premium w-full mx-auto px-6 xl:px-12 relative z-10">
-          <div className="mb-12">
-            <p className="text-(--text-xs) font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Dashboard</p>
-            <h3>Les Chiffres Clés</h3>
-          </div>
+          <SectionHeader title="LES CHIFFRES CLÉS" />
           
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
             <Link to="/equipe-pro/classement" className="flex flex-col items-center justify-center p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 hover:bg-black/50 cursor-pointer transition-all duration-500">
-              <h3 className="text-sm text-white/40 mb-4 group-hover:text-primary transition-colors">Position</h3>
+              <h3 className="text-sm text-white/40 mb-4 group-hover:text-primary transition-colors">POSITION</h3>
               <div className="relative pointer-events-none">
                 <div className="flex items-start">
                   <span className="text-h1 font-black italic tracking-tighter text-primary mt-6 mr-1">#</span>
-                  <span className="text-[clamp(8rem,15vw,16rem)] font-black leading-none italic tracking-tighter text-white select-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all"><AnimatedCounter value={7} duration={1500} /></span>
+                  <span className="text-[clamp(8rem,15vw,16rem)] font-black leading-none italic tracking-tighter text-white select-none">7</span>
                 </div>
                 <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-3 transform -skew-x-12 shadow-lg">
                   <span className="inline-block skew-x-12 font-black italic">SAISON 25/26</span>
@@ -344,11 +325,11 @@ export default function Home() {
                   <div className="flex gap-8">
                     <div className="flex flex-col">
                       <p className="text-(--text-xs) font-black uppercase tracking-widest text-primary mb-1">Victoires</p>
-                      <p className="text-stat font-black italic leading-none"><AnimatedCounter value={15} duration={1500} /></p>
+                      <p className="text-stat font-black italic leading-none">15</p>
                     </div>
                     <div className="flex flex-col border-l border-white/10 pl-8">
                       <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Défaites</p>
-                      <p className="text-stat font-black italic leading-none text-white/20"><AnimatedCounter value={7} duration={1000} /></p>
+                      <p className="text-stat font-black italic leading-none text-white/20">7</p>
                     </div>
                   </div>
 
@@ -361,7 +342,7 @@ export default function Home() {
                       { l: 'N', w: false, n: true }, 
                       { l: 'V', w: true }
                     ].map((f, i) => (
-                      <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-(--text-xs) font-black transition-all duration-300 ${f.w ? 'bg-primary text-white shadow-[0_0_15px_rgba(219,39,40,0.4)]' : f.n ? 'bg-white/20 text-white' : 'bg-white/5 text-white/30 border border-white/5'}`}>
+                      <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-(--text-xs) font-black transition-all duration-300 ${f.w ? 'bg-primary text-white' : f.n ? 'bg-white/20 text-white' : 'bg-white/5 text-white/30 border border-white/5'}`}>
                         {f.l}
                       </div>
                     ))}
@@ -371,11 +352,11 @@ export default function Home() {
                   <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6">
                     <div>
                       <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Points Marqués</p>
-                      <p className="text-h3 font-black italic tracking-tighter"><AnimatedCounter value={468} duration={2500} /></p>
+                      <p className="text-h3 font-black italic tracking-tighter">468</p>
                     </div>
                     <div className="text-right">
                       <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Points Concédés</p>
-                      <p className="text-h3 font-black italic tracking-tighter text-white/40"><AnimatedCounter value={382} duration={2500} /></p>
+                      <p className="text-h3 font-black italic tracking-tighter text-white/40">382</p>
                     </div>
                   </div>
 
@@ -383,11 +364,11 @@ export default function Home() {
                   <div className="flex flex-col gap-3 pt-2">
                     <div className="flex justify-between items-end border-b border-white/5 pb-2">
                        <span className="text-(--text-xs) font-bold uppercase text-white/40 italic">Différence</span>
-                       <span className="text-h3 font-black italic text-primary"><AnimatedCounter value={86} prefix="+" duration={2000} /></span>
+                       <span className="text-h3 font-black italic text-primary">+86</span>
                     </div>
                     <div className="flex justify-between items-end">
                        <span className="text-(--text-xs) font-bold uppercase text-white/40 italic">Points Class.</span>
-                       <span className="text-h3 font-black italic text-white"><AnimatedCounter value={56} duration={1500} /></span>
+                       <span className="text-h3 font-black italic text-white">56</span>
                     </div>
                   </div>
                 </div>
@@ -401,52 +382,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LA BOUTIQUE OFFICIELLE - L'Écrin Découpé / Néon */}
+      {/* LA BOUTIQUE OFFICIELLE */}
       <section className="bg-black py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
-        {/* Typographie Géante en Arrière-plan (Effet Filigrane) */}
+        {/* Typographie Géante en Arrière-plan */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none w-full flex justify-center opacity-[0.03]">
           <span className="text-[clamp(8rem,25vw,30rem)] heading-bold leading-none whitespace-nowrap text-white">SHOP</span>
         </div>
 
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 relative z-10 flex flex-col lg:flex-row items-center gap-16">
-          {/* Colonne de gauche : Texte et Bouton */}
-          <div className="w-full lg:w-1/3 flex flex-col items-start gap-6">
-            <span className="text-[#FFCC00] font-black tracking-[0.3em] text-(--text-xs) uppercase border border-[#FFCC00]/30 px-3 py-1 rounded-sm">Boutique Officielle</span>
-            <h2 className="text-white drop-shadow-2xl">PORTONS HAUT <br />NOS COULEURS.</h2>
-            <p className="text-white/60 font-medium leading-relaxed text-sm">Découvrez la nouvelle collection 25-26. Maillots officiels, vêtements d'entraînement et accessoires pour soutenir les Lions de Rouen à Diochon comme ailleurs.</p>
-            <a href="http://boutique.rouennormandierugby.fr/" target="_blank" rel="noopener noreferrer" className="mt-4 bg-[#FFCC00] text-black font-black uppercase text-sm tracking-widest px-8 py-4 hover:bg-white transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.2)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.3)] transform hover:-translate-y-1 inline-flex items-center gap-3">
-              <span>VISITER LE SHOP</span>
-              <span className="material-symbols-outlined text-lg">shopping_cart</span>
-            </a>
-          </div>
+        <SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" />
 
-          {/* Colonne de droite : Grille de produits "suspendus" */}
-          <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { name: "MAILLOT DOMICILE", cat: "MATCH", img: jerseyImg },
-              { name: "MAILLOT EXT.", cat: "MATCH", img: jerseyImg }, // Identique en placeholder
-              { name: "SWEAT TRAINING", cat: "LIFESTYLE", img: player3Img } // Placeholder
-            ].map((prod, i) => (
-              <a href="http://boutique.rouennormandierugby.fr/" target="_blank" rel="noopener noreferrer" key={i} className="group relative bg-[#111111] border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-between min-h-[350px] md:min-h-[400px] shadow-2xl hover:bg-[#1a1a1a] hover:border-white/30 transition-all duration-500 cursor-pointer overflow-hidden block">
-
-                {/* Lueur Néon (s'allume au survol) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#FFCC00]/20 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full"></div>
-
-                <div className="w-full flex justify-between items-start mb-6 relative z-10">
-                  <span className="text-white/40 font-bold text-(--text-xs) tracking-[0.2em]">{prod.cat}</span>
-                </div>
-
-                {/* L'image détourée flottante */}
-                <div className="flex-1 w-full relative flex items-center justify-center mb-6">
-                  <img src={prod.img} alt={prod.name} className="h-40 md:h-48 w-auto object-contain transform group-hover:scale-110 group-hover:-translate-y-4 transition-all duration-500 relative z-10 drop-shadow-2xl brightness-90 group-hover:brightness-110 mix-blend-screen" />
-                </div>
-
-                <div className="w-full text-center relative z-10">
-                  <h3 className="text-white text-lg mb-2">{prod.name}</h3>
-                  <span className="text-(--text-xs) font-black text-[#FFCC00] uppercase tracking-widest border-b border-[#FFCC00]/30 pb-1 group-hover:border-[#FFCC00] transition-colors inline-block">VOIR LA BOUTIQUE</span>
-                </div>
-              </a>
-            ))}
+        <div className="container-premium w-full mx-auto px-6 xl:px-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-1 flex flex-col justify-center gap-6">
+              <h2 className="text-white drop-shadow-2xl">PORTONS HAUT <br />NOS COULEURS.</h2>
+              <p className="text-white/60 font-medium leading-relaxed text-sm">Découvrez la nouvelle collection 25-26. Maillots officiels et accessoires pour soutenir les Lions.</p>
+            </div>
+            <UnifiedCard image={jerseyImg} title="Maillot Domicile 25-26" subtitle="Le maillot officiel des Lions de Rouen." link="http://boutique.rouennormandierugby.fr/" isDark />
+            <UnifiedCard image={player3Img} title="Collection Training" subtitle="Équipez-vous comme les pros au quotidien." link="http://boutique.rouennormandierugby.fr/" isDark />
+            <UnifiedCard image={fansImg} title="Accessoires Supporter" subtitle="Affichez vos couleurs partout en Normandie." link="http://boutique.rouennormandierugby.fr/" isDark />
           </div>
         </div>
       </section>
@@ -454,10 +407,7 @@ export default function Home() {
 
 
       <section className="bg-white py-(--space-xl) w-full flex-shrink-0">
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-12">
-          <p className="text-(--text-xs) font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Réseau Business</p>
-          <h3>Le Club Affaires</h3>
-        </div>
+        <SectionHeader title="LE CLUB AFFAIRES" />
         
         <div className="container-premium w-full mx-auto px-6 xl:px-12">
           <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl">
@@ -502,8 +452,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chiffres Importants */}
-      <section className="bg-black text-white py-(--space-xl) w-full flex-shrink-0">
+      {/* CHIFFRES DU CLUB */}
+      <section className="bg-slate-900 text-white py-(--space-xl) w-full flex-shrink-0 border-t border-white/5">
         <div className="container-premium w-full mx-auto px-6 xl:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {[
@@ -512,8 +462,8 @@ export default function Home() {
               { val: "260", label: "partenaires officiels" },
               { val: "120", label: "bénévoles engagés" }
             ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <p className="text-6xl font-black mb-4 italic leading-none">{stat.val}</p>
+              <div key={i} className="text-center group">
+                <p className="text-[clamp(3.5rem,8vw,5rem)] font-black mb-4 italic leading-none text-white group-hover:text-primary transition-colors">{stat.val}</p>
                 <div className="w-10 h-1 bg-primary mx-auto mb-4"></div>
                 <p className="text-(--text-xs) uppercase font-black tracking-[0.2em] text-slate-400">{stat.label}</p>
               </div>
@@ -522,43 +472,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RÉSEAUX SOCIAUX - Premium Typography */}
-      <section className="bg-[#1a1a1a] py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/resources/hero_bg.jpg')] opacity-5 bg-cover bg-center mix-blend-overlay"></div>
+      {/* RÉSEAUX SOCIAUX */}
+      <section className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden border-t border-slate-200">
+        <SectionHeader title="REJOIGNEZ LA MEUTE" />
         
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
-          <h2 className="text-sm md:text-base font-black uppercase tracking-[0.4em] text-primary italic">Rejoignez-nous</h2>
-        </div>
-
-        <div className="w-full border-t border-white/10 flex flex-col">
+        <div className="w-full border-t border-slate-200 flex flex-col">
           {[
-            { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", color: "hover:text-pink-500", icon: "photo_camera" },
-            { name: "FACEBOOK", url: "https://facebook.com/rouennormandierugby", color: "hover:text-blue-500", icon: "thumb_up" },
-            { name: "LINKEDIN", url: "https://linkedin.com/company/rouennormandierugby", color: "hover:text-blue-400", icon: "work" },
-            { name: "YOUTUBE", url: "https://youtube.com/rouennormandierugby", color: "hover:text-red-500", icon: "play_circle" }
+            { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera" },
+            { name: "FACEBOOK", url: "https://facebook.com/rouennormandierugby", icon: "thumb_up" },
+            { name: "LINKEDIN", url: "https://linkedin.com/company/rouennormandierugby", icon: "work" },
+            { name: "YOUTUBE", url: "https://youtube.com/rouennormandierugby", icon: "play_circle" }
           ].map((social, i) => (
             <a 
               key={i} 
               href={social.url} 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`group relative flex items-center justify-between px-4 md:px-12 py-4 md:py-6 border-b border-white/5 transition-all duration-500 hover:bg-white/5 overflow-hidden ${social.color}`}
+              className="group relative flex items-center justify-between px-6 md:px-24 py-8 border-b border-slate-200 transition-all duration-500 hover:bg-slate-100 overflow-hidden text-slate-900"
             >
-              {/* Animated Background Color Glow */}
-              <div className="absolute left-0 top-0 w-1 h-full bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+              <div className="absolute left-0 top-0 w-2 h-full bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
 
-              <div className="flex items-center gap-6 md:gap-12 relative z-10">
-                <span className="text-white/20 font-black text-xl md:text-3xl italic group-hover:text-primary transition-colors">
+              <div className="flex items-center gap-12 relative z-10">
+                <span className="text-slate-200 font-black text-4xl italic group-hover:text-primary transition-colors">
                   0{i + 1}
                 </span>
-                <span className="text-section-title text-white/50 transition-all duration-500 group-hover:-translate-y-1 font-barlow group-hover:text-inherit">
+                <span className="text-[clamp(1.5rem,4vw,3rem)] font-black italic uppercase leading-none group-hover:translate-x-4 transition-transform duration-500">
                   {social.name}
                 </span>
               </div>
 
-              <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/10 flex items-center justify-center transform group-hover:-rotate-45 group-hover:bg-white transition-all duration-500">
-                <span className="material-symbols-outlined text-2xl md:text-3xl text-white/50 group-hover:text-black transition-colors">
-                  arrow_forward
+              <div className="relative z-10 w-16 h-16 rounded-full border border-slate-200 flex items-center justify-center transform group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+                <span className="material-symbols-outlined text-3xl text-slate-400 group-hover:text-white transition-colors">
+                  north_east
                 </span>
               </div>
             </a>
@@ -566,12 +511,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partenaires — Marquee Infini */}
+      {/* PARTENAIRES */}
       <section className="bg-white py-(--space-xl) w-full flex-shrink-0 overflow-hidden">
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-14 flex justify-between items-end">
-          <h2 className="border-l-4 border-primary pl-6">Partenaires</h2>
-          <a href="/partenaires" className="text-(--text-xs) font-black uppercase tracking-widest border-b-2 border-black hover:border-primary hover:text-primary transition-colors cursor-pointer">Page des partenaires</a>
-        </div>
+        <SectionHeader title="PARTENAIRES" linkTo="/partenaires" linkLabel="Voir tous les partenaires" />
 
         {/* Rangée 1 — défile vers la gauche */}
         <div className="relative mb-6 overflow-hidden">
