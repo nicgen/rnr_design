@@ -19,11 +19,11 @@ import vipBg from '/resources/vip_bg.png';
 
 // --- COMPOSANTS INTERNES D'UNIFICATION ---
 
-const SectionHeader = ({ title, linkTo, linkLabel }) => (
+const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
   <div className="container-premium w-full mx-auto px-6 xl:px-12 mb-12 flex justify-between items-end gap-6">
-    <h2 className="section-title-block">{title}</h2>
+    <h2 className={`section-title-block ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
     {linkTo && (
-      <Link to={linkTo} className="btn-link">
+      <Link to={linkTo} className={`btn-link ${isDark ? 'text-white/60 hover:text-white hover:border-white' : ''}`}>
         {linkLabel}
         <span className="material-symbols-outlined text-sm">arrow_forward</span>
       </Link>
@@ -32,19 +32,19 @@ const SectionHeader = ({ title, linkTo, linkLabel }) => (
 );
 
 const UnifiedCard = ({ image, title, subtitle, link, isDark = false }) => (
-  <Link to={link} className="group rnr-card-premium relative h-[500px]">
-    <div className="relative h-[60%] overflow-hidden">
+  <Link to={link} className="group rnr-card-premium relative h-[600px] rounded-2xl overflow-hidden border-none shadow-xl flex flex-col bg-white">
+    <div className="relative flex-[0_0_55%] overflow-hidden">
       <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
     </div>
-    <div className={`p-8 flex flex-col justify-between flex-grow ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+    <div className={`p-8 pb-10 flex flex-col flex-1 ${isDark ? 'bg-slate-900/95' : 'bg-white/95'} backdrop-blur-md relative -mt-4 rounded-t-3xl z-10`}>
       <div className="flex flex-col gap-3">
-        <h3 className={`text-xl md:text-2xl leading-tight line-clamp-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
-        {subtitle && <p className={`text-sm italic opacity-70 line-clamp-2 ${isDark ? 'text-white/70' : 'text-slate-600'}`}>{subtitle}</p>}
+        <h3 className={`text-2xl md:text-3xl leading-tight line-clamp-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
+        {subtitle && <p className={`text-sm md:text-base italic opacity-70 line-clamp-2 ${isDark ? 'text-white/70' : 'text-slate-600'}`}>{subtitle}</p>}
       </div>
-      <div className="mt-4 flex items-center gap-2 text-(--text-xs) font-black uppercase tracking-widest text-primary group-hover:translate-x-2 transition-transform">
+      <div className="mt-auto pt-6 flex items-center gap-2 text-base md:text-lg font-black uppercase tracking-widest text-primary group-hover:translate-x-2 transition-transform">
         <span>Lire la suite</span>
-        <span className="material-symbols-outlined text-xs">arrow_forward</span>
+        <span className="material-symbols-outlined font-bold text-xl">arrow_forward</span>
       </div>
     </div>
   </Link>
@@ -126,7 +126,7 @@ export default function Home() {
             <h1 className="mt-12 drop-shadow-lg text-white">
               TOUS NORMANDS,<br />TOUS RNR!
             </h1>
-            <h2 className="text-white text-hero-lead font-medium max-w-3xl mx-auto italic opacity-90 drop-shadow-md mt-6">
+            <h2 className="text-white text-[clamp(1rem,1.5vw,1.4rem)] font-medium max-w-2xl mx-auto italic opacity-90 drop-shadow-md mt-6 leading-relaxed">
               Persévérance, force brute et passion : le Rouen Normandie Rugby avance, porté par tout un peuple.
             </h2>
             
@@ -147,35 +147,41 @@ export default function Home() {
             <div className="flex items-stretch h-[clamp(80px,10vh,112px)] bg-[#1a1a1a] shadow-[0_20px_50px_rgba(0,0,0,0.5)] -skew-x-12 border-l-4 border-primary overflow-visible relative">
               
               {/* 1. Countdown block */}
-              <div className="flex items-center gap-(--space-m) px-(--space-m) relative border-r border-white/10 skew-x-12">
-                <span className="absolute -top-3 -left-2 text-(--text-xs) font-black uppercase bg-primary text-white px-3 py-1 -skew-x-12 shadow-lg tracking-widest">
-                  PROCHAIN MATCH
+              <div className="flex items-center flex-col justify-center gap-2 px-8 lg:px-12 bg-primary relative skew-x-12 h-full">
+                <span className="text-sm lg:text-base font-black uppercase text-white tracking-widest leading-none -skew-x-12 text-center">
+                  PROCHAIN<br/>MATCH
                 </span>
                 
-                <div className="flex gap-4 lg:gap-6 items-center">
-                  <div className="text-center group flex flex-col items-center"><p className="text-2xl lg:text-3xl font-black text-white group-hover:text-primary transition-colors leading-none font-barlow"><AnimatedCounter value={11} duration={1500} /></p><p className="text-(--text-xs) uppercase font-bold text-white/40 tracking-widest mt-1">Jours</p></div>
-                  <div className="text-center group flex flex-col items-center"><p className="text-2xl lg:text-3xl font-black text-white group-hover:text-primary transition-colors leading-none font-barlow">08</p><p className="text-(--text-xs) uppercase font-bold text-white/40 tracking-widest mt-1">Hrs</p></div>
+                <div className="flex gap-4 -skew-x-12">
+                  {[
+                    { val: "11", label: "JOURS" },
+                    { val: "08", label: "HRS" },
+                  ].map((unit, i) => (
+                    <div key={i} className="flex flex-col items-center">
+                      <span className="text-base lg:text-lg font-black text-white italic leading-none">{unit.val}</span>
+                      <span className="text-[8px] font-black text-white/70 tracking-[0.2em] mt-[2px]">{unit.label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
               
               {/* 2. Main encounter block */}
-              <div className="flex-1 flex items-center justify-center gap-(--space-m) px-6 lg:px-(--space-m) skew-x-12 relative border-r border-white/10">
-                <div className="absolute top-2 left-6 hidden xl:flex items-center gap-6">
-                  <span className="text-(--text-xs) font-black text-primary uppercase tracking-[0.4em] opacity-80">PRO D2 - J25</span>
-                  <span className="text-(--text-xs) font-black text-white/50 uppercase tracking-[0.4em]">20 MARS</span>
+              <div className="flex-1 flex items-center justify-center gap-8 lg:gap-16 skew-x-12 relative border-r border-white/10">
+                <div className="absolute top-2 left-6 hidden xl:flex items-center gap-6 -skew-x-12">
+                  <span className="text-[10px] xl:text-(--text-xs) font-black text-white/50 uppercase tracking-[0.4em]">20 MARS</span>
                 </div>
                 
-                <div className="flex items-center gap-3 lg:gap-5 mt-2">
-                  <img src={logoRNR} alt="Rouen" className="w-10 h-10 lg:w-16 lg:h-16 object-contain drop-shadow-md brightness-110" />
-                  <span className="font-black text-xl lg:text-4xl italic uppercase text-white tracking-tight font-barlow">Rouen</span>
+                <div className="flex items-center gap-4 lg:gap-8 -skew-x-12">
+                  <img src={logoRNR} alt="Rouen" className="w-12 h-12 lg:w-20 lg:h-20 object-contain drop-shadow-md brightness-110" />
+                  <span className="font-black text-2xl lg:text-5xl italic uppercase text-white tracking-tight font-barlow">ROUEN</span>
                 </div>
                 
-                <div className="flex flex-col items-center justify-center mx-2 mt-2">
-                  <span className="font-black text-xl italic text-primary drop-shadow-[0_0_15px_rgba(219,39,40,0.4)]">VS</span>
+                <div className="flex flex-col items-center justify-center mx-2 lg:mx-4 -skew-x-12">
+                  <span className="font-black text-xl lg:text-3xl italic text-primary drop-shadow-[0_0_15px_rgba(219,39,40,0.4)]">VS</span>
                 </div>
 
-                <div className="flex items-center gap-3 lg:gap-5 mt-2">
-                  <span className="font-black text-xl lg:text-4xl italic uppercase text-white tracking-tight font-barlow">Massy</span>
+                <div className="flex items-center gap-4 lg:gap-8 -skew-x-12">
+                  <span className="font-black text-2xl lg:text-5xl italic uppercase text-white tracking-tight font-barlow">MASSY</span>
                   <div className="w-10 h-10 lg:w-16 lg:h-16 rounded-full bg-white border-2 border-[#1a1a1a] flex items-center justify-center overflow-hidden shadow-lg p-1">
                     <img src="/resources/logo_MASSY.webp" alt="Massy" className="w-8 h-8 lg:w-12 lg:h-12 object-contain" onError={(e) => e.target.style.display = 'none'} />
                   </div>
@@ -242,16 +248,26 @@ export default function Home() {
       <section className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
         <SectionHeader title="L'ACTU DU RNR" linkTo="/actualites-medias" linkLabel="Toutes les actualités" />
         
-        <div className="container-premium w-full mx-auto px-6 xl:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {secondaryNews.map((item, index) => (
-            <UnifiedCard 
-              key={index}
-              image={item.img} 
-              title={item.title} 
-              subtitle={item.subtitle} 
-              link={`/actualites-medias/${item.id}`} 
-            />
-          ))}
+        <div className="container-premium w-full mx-auto px-6 xl:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 md:h-[700px]">
+            {secondaryNews.map((item, index) => {
+              let gridClass = "";
+              if (index === 0) gridClass = "md:col-span-2 md:row-span-2";
+              else if (index === 1) gridClass = "md:col-span-2 md:row-span-1";
+              else gridClass = "md:col-span-1 md:row-span-1";
+
+              return (
+                <div key={index} className={`${gridClass}`}>
+                  <UnifiedCard 
+                    image={item.img} 
+                    title={item.title} 
+                    subtitle={item.subtitle} 
+                    link={`/actualites-medias/${item.id}`} 
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -389,7 +405,7 @@ export default function Home() {
           <span className="text-[clamp(8rem,25vw,30rem)] heading-bold leading-none whitespace-nowrap text-white">SHOP</span>
         </div>
 
-        <SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" />
+        <SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" isDark />
 
         <div className="container-premium w-full mx-auto px-6 xl:px-12 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -473,41 +489,35 @@ export default function Home() {
       </section>
 
       {/* RÉSEAUX SOCIAUX */}
-      <section className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden border-t border-slate-200">
-        <SectionHeader title="REJOIGNEZ LA MEUTE" />
+      <section className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-200">
+        <SectionHeader title="NOUS SUIVRE" />
         
-        <div className="w-full border-t border-slate-200 flex flex-col">
-          {[
-            { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera" },
-            { name: "FACEBOOK", url: "https://facebook.com/rouennormandierugby", icon: "thumb_up" },
-            { name: "LINKEDIN", url: "https://linkedin.com/company/rouennormandierugby", icon: "work" },
-            { name: "YOUTUBE", url: "https://youtube.com/rouennormandierugby", icon: "play_circle" }
-          ].map((social, i) => (
-            <a 
-              key={i} 
-              href={social.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group relative flex items-center justify-between px-6 md:px-24 py-8 border-b border-slate-200 transition-all duration-500 hover:bg-slate-100 overflow-hidden text-slate-900"
-            >
-              <div className="absolute left-0 top-0 w-2 h-full bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
-
-              <div className="flex items-center gap-12 relative z-10">
-                <span className="text-slate-200 font-black text-4xl italic group-hover:text-primary transition-colors">
-                  0{i + 1}
-                </span>
-                <span className="text-[clamp(1.5rem,4vw,3rem)] font-black italic uppercase leading-none group-hover:translate-x-4 transition-transform duration-500">
+        <div className="container-premium w-full mx-auto px-6 xl:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera" },
+              { name: "FACEBOOK", url: "https://facebook.com/rouennormandierugby", icon: "thumb_up" },
+              { name: "YOUTUBE", url: "https://youtube.com/rouennormandierugby", icon: "play_circle" },
+              { name: "LINKEDIN", url: "https://linkedin.com/company/rouennormandierugby", icon: "work" }
+            ].map((social, i) => (
+              <a 
+                key={i} 
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center gap-4 p-8 bg-white/50 backdrop-blur-sm rounded-2xl border border-slate-200 hover:bg-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-2"
+              >
+                <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl text-slate-400 group-hover:text-primary">
+                    {social.icon}
+                  </span>
+                </div>
+                <span className="text-sm font-black italic tracking-widest text-slate-400 group-hover:text-white transition-colors">
                   {social.name}
                 </span>
-              </div>
-
-              <div className="relative z-10 w-16 h-16 rounded-full border border-slate-200 flex items-center justify-center transform group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-                <span className="material-symbols-outlined text-3xl text-slate-400 group-hover:text-white transition-colors">
-                  north_east
-                </span>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
