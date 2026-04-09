@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
 
 @theme {
   --color-primary: #e21e26; /* RNR Red */
@@ -11,6 +12,27 @@
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 9999px;
+  
+  /* Typography Scale - Fluid System (Perfect Fourth - 1.333) */
+  --text-xs:   clamp(0.75rem, 0.1vw + 0.7rem, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.2vw + 0.8rem, 1rem);
+  --text-base: clamp(1rem, 0.3vw + 0.9rem, 1.125rem);    /* Corps de texte */
+  --text-h4:   clamp(1.33rem, 1.5vw + 1rem, 1.75rem);   
+  --text-h3:   clamp(1.77rem, 3vw + 1rem, 2.5rem);      
+  --text-h2:   clamp(2.36rem, 6vw + 1rem, 4.25rem);      
+  --text-h1:   clamp(3.15rem, 10vw + 1rem, 6.5rem);     
+  
+  /* Espacements Fluides (Padding, Margin, Gap) */
+  --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+  --space-m:  clamp(1.5rem, 4vw, 3rem);
+  --space-xl: clamp(3rem, 8vw, 6rem);
+
+  /* Limites d'affichage */
+  --container-max: 1800px;
+  
+  --nav-height: clamp(70px, 8vh, 100px);
+  
+  --font-barlow: "Barlow Condensed", sans-serif;
   
   --border-width-wireframe: 1px; /* Réduit pour aspect premium */
 
@@ -59,13 +81,31 @@
   animation: fade-in-right 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
+@utility container-premium {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-m);
+  padding-right: var(--space-m);
+}
+
+@utility heading-bold {
+  @apply font-display font-black uppercase italic tracking-tighter;
+}
+
 @layer base {
   body {
     @apply bg-background-light font-body text-slate-900;
+    font-size: var(--text-base);
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold;
+    @apply heading-bold;
+    line-height: 1.1;
   }
+  h1 { font-size: var(--text-h1); line-height: 0.9; letter-spacing: -0.04em; }
+  h2 { font-size: var(--text-h2); line-height: 0.95; letter-spacing: -0.03em; }
+  h3 { font-size: var(--text-h3); line-height: 1.0; }
+  h4 { font-size: var(--text-h4); line-height: 1.1; }
 }
 
 /* ===== MARQUEE INFINI ===== */

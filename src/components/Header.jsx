@@ -4,7 +4,7 @@ import Logo from './Logo';
 import PlaceholderImage from './PlaceholderImage';
 
 const QuickLink = ({ to, children }) => (
-  <Link to={to} className="hover:text-primary transition-all duration-300 text-sm font-black uppercase tracking-widest">
+  <Link to={to} className="hover:text-primary transition-all duration-300 text-(--text-nav) font-black uppercase tracking-widest">
     {children}
   </Link>
 );
@@ -141,15 +141,15 @@ export default function Header() {
   return (
     <>
       <nav className={`fixed w-full top-0 z-[100] text-white transition-all duration-500 ${isVisible && !isMenuOpen ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/90 shadow-2xl backdrop-blur-md' : 'bg-gradient-to-b from-black to-transparent py-2'}`}>
-        <div className="w-full px-6 lg:px-12 flex justify-between items-center h-[70px] lg:h-[80px]">
+        <div className="container-premium flex justify-between items-center h-(--nav-height)">
           
           {/* LEFT: Burger + Quick Links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 lg:gap-8">
             <button 
               onClick={toggleMenu} 
               className="flex items-center group transition-all"
             >
-              <div className="flex flex-col gap-1.5 w-8 py-2">
+              <div className="flex flex-col gap-1.5 w-6 lg:w-8 py-2">
                 <span className="h-0.5 w-full bg-white transition-all duration-300" />
                 <span className="h-0.5 w-full bg-white transition-all duration-300" />
                 <span className="h-0.5 w-full bg-white transition-all duration-300" />
@@ -164,7 +164,7 @@ export default function Header() {
           </div>
 
           {/* CENTER: Logo RNR */}
-          <div className="absolute left-1/2 -translate-x-1/2">
+          <div className="absolute left-1/2 -translate-x-1/2 scale-90 lg:scale-100 transition-transform">
             <Link to="/">
               <Logo isScrolled={isScrolled} />
             </Link>
@@ -187,7 +187,7 @@ export default function Header() {
           className="absolute top-8 left-8 lg:left-12 z-[120] text-white hover:text-primary transition-all flex items-center gap-3 group"
         >
           <span className="material-symbols-outlined text-4xl lg:text-5xl font-light">close</span>
-          <span className="text-[12px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity">Fermer</span>
+          <span className="text-(--text-sm) font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity">Fermer</span>
         </button>
 
         {/* FULL SCREEN BACKGROUND IMAGE (Pushed to back) */}
@@ -219,7 +219,7 @@ export default function Header() {
                       href={section.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 text-3xl lg:text-5xl font-display font-black uppercase italic italic-outfit tracking-tighter text-white/40 hover:text-white transition-all hover:translate-x-2"
+                      className="flex items-center gap-4 text-h2 heading-bold text-white/40 hover:text-white transition-all hover:translate-x-2"
                     >
                       {section.title}
                       <span className="material-symbols-outlined text-2xl lg:text-3xl text-primary">arrow_outward</span>
@@ -227,7 +227,7 @@ export default function Header() {
                   ) : (
                     <button 
                       onClick={() => setActiveCategory(section.id)}
-                      className={`text-left text-3xl lg:text-5xl font-display font-black uppercase italic italic-outfit tracking-tighter transition-all hover:translate-x-2 ${activeCategory === section.id ? 'text-white' : 'text-white/40 hover:text-white'}`}
+                      className={`text-left text-h2 heading-bold transition-all hover:translate-x-2 ${activeCategory === section.id ? 'text-white' : 'text-white/40 hover:text-white'}`}
                     >
                       {section.title}
                     </button>
@@ -255,7 +255,7 @@ export default function Header() {
                             className="group flex flex-col animate-fade-in-right opacity-0"
                             style={{ animationDelay: `${idx * 0.08}s` }}
                           >
-                            <span className="text-2xl lg:text-4xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4 flex items-center gap-4">
+                            <span className="text-h3 heading-bold text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4 flex items-center gap-4">
                               {link.label}
                               <span className="material-symbols-outlined text-2xl lg:text-3xl text-primary">arrow_outward</span>
                             </span>
@@ -268,7 +268,7 @@ export default function Header() {
                             className="group flex flex-col animate-fade-in-right opacity-0"
                             style={{ animationDelay: `${idx * 0.08}s` }}
                           >
-                            <span className="text-3xl lg:text-5xl font-display font-black italic italic-outfit tracking-tighter text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4">
+                            <span className="text-h2 heading-bold text-white group-hover:text-primary transition-all duration-300 uppercase leading-tight transform hover:translate-x-4">
                               {link.label}
                             </span>
                           </Link>
@@ -278,8 +278,8 @@ export default function Header() {
                  </div>
                ) : (
                  <div className="flex flex-col gap-4 opacity-10 select-none">
-                    <span className="text-[12vw] font-display font-black italic tracking-tighter text-white leading-none">RNR</span>
-                    <span className="text-[6vw] font-display font-black italic tracking-tighter text-white leading-none leading-none opacity-50">NORMANDIE</span>
+                    <span className="text-h1 heading-bold text-white leading-none">RNR</span>
+                    <span className="text-h3 heading-bold text-white leading-none opacity-50">NORMANDIE</span>
                  </div>
                )}
             </div>
