@@ -214,44 +214,44 @@ export default function Home() {
       <section id="section-mise-en-avant" className="bg-white py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
         <SectionHeader title="À NE PAS MANQUER" />
 
-        <div className="container-premium grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-          {[
-            { image: delphineImg, title: "Le Rouen Normandie Rugby annonce un changement de présidence.", subtitle: "Philippe Marty passe le relais.", link: "/actualites-medias" },
-            { image: fansImg, title: "Tous derrière les Lions !", subtitle: "Rendez-vous vendredi 20 mars à 20h pour la réception du RCM !", link: "/actualites-medias" },
-            { image: galaImg, title: "L'art au cœur de notre soirée de gala", subtitle: "Vente aux enchères exclusive le 16 avril à 19h30.", link: "/actualites-medias" },
-            { image: presidentImg, title: "Matinée conviviale avec le RNR", subtitle: "Petit-déjeuner mensuel organisé par Mercedes-Benz Groupe MET.", link: "/actualites-medias" },
-          ].map((item, i) => (
-            <div key={i} className="min-h-[480px]">
-              <UnifiedCard {...item} />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* L’ACTU DU RNR */}
-      <section id="section-actu" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
-        <SectionHeader title="L'ACTU DU RNR" linkTo="/actualites-medias" linkLabel="Toutes les actualités" />
-        
         <div className="container-premium">
           <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 md:h-[760px]">
-            {secondaryNews.map((item, index) => {
+            {[
+              { image: delphineImg, title: "Le Rouen Normandie Rugby annonce un changement de présidence.", subtitle: "Philippe Marty passe le relais.", link: "/actualites-medias" },
+              { image: fansImg, title: "Tous derrière les Lions !", subtitle: "Rendez-vous vendredi 20 mars à 20h pour la réception du RCM !", link: "/actualites-medias" },
+              { image: galaImg, title: "L’art au cœur de notre soirée de gala", subtitle: "Vente aux enchères exclusive le 16 avril à 19h30.", link: "/actualites-medias" },
+              { image: presidentImg, title: "Matinée conviviale avec le RNR", subtitle: "Petit-déjeuner mensuel organisé par Mercedes-Benz Groupe MET.", link: "/actualites-medias" },
+            ].map((item, index) => {
               let gridClass = "";
               if (index === 0) gridClass = "md:col-span-2 md:row-span-2";
               else if (index === 1) gridClass = "md:col-span-2 md:row-span-1";
               else gridClass = "md:col-span-1 md:row-span-1";
 
               return (
-                <div key={index} className={`${gridClass}`}>
-                  <UnifiedCard 
-                    image={item.img} 
-                    title={item.title} 
-                    subtitle={item.subtitle} 
-                    link={`/actualites-medias/${item.id}`} 
-                  />
+                <div key={index} className={gridClass}>
+                  <UnifiedCard {...item} />
                 </div>
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* L’ACTU DU RNR */}
+      <section id="section-actu" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 border-t border-slate-100">
+        <SectionHeader title="L’ACTU DU RNR" linkTo="/actualites-medias" linkLabel="Toutes les actualités" />
+
+        <div className="container-premium grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          {secondaryNews.map((item, i) => (
+            <div key={i} className="min-h-[480px]">
+              <UnifiedCard
+                image={item.img}
+                title={item.title}
+                subtitle={item.subtitle}
+                link={`/actualites-medias/${item.id}`}
+              />
+            </div>
+          ))}
         </div>
       </section>
 
@@ -450,7 +450,6 @@ export default function Home() {
       {/* CHIFFRES DU CLUB */}
       <section id="section-chiffres" className="bg-slate-900 text-white py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
         <div className="absolute inset-0 bg-[repeating-linear-gradient(-55deg,transparent,transparent_60px,rgba(255,255,255,0.012)_60px,rgba(255,255,255,0.012)_61px)]" />
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-primary" />
         <SectionHeader title="LES CHIFFRES CLÉS" isDark />
         <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -460,12 +459,11 @@ export default function Home() {
               { val: "260", label: "Partenaires officiels",          icon: "handshake" },
               { val: "120", label: "Bénévoles engagés",              icon: "favorite" },
             ].map((stat, i) => (
-              <div key={i} className="flex items-center gap-6 group">
-                <span className="material-symbols-outlined leading-none text-primary/40 group-hover:text-primary/70 transition-colors duration-300 shrink-0" style={{ fontSize: 'clamp(5rem,10vw,10rem)' }}>{stat.icon}</span>
-                <div>
+              <div key={i} className="relative flex items-center group overflow-hidden rounded-lg px-6 py-4">
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 material-symbols-outlined leading-none text-white/5 group-hover:text-white/8 transition-colors duration-300 pointer-events-none select-none" style={{ fontSize: 'clamp(8rem,14vw,14rem)' }}>{stat.icon}</span>
+                <div className="relative z-10">
                   <p className="text-[clamp(3.5rem,8vw,5rem)] font-black italic leading-none text-white group-hover:text-primary transition-colors duration-300">{stat.val}</p>
-                  <div className="w-8 h-[2px] bg-primary mb-2" />
-                  <p className="text-(--text-xs) uppercase font-black tracking-[0.2em] text-slate-400">{stat.label}</p>
+                  <p className="text-(--text-xs) uppercase font-black tracking-[0.2em] text-slate-400 mt-1">{stat.label}</p>
                 </div>
               </div>
             ))}
