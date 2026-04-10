@@ -512,20 +512,20 @@ export default function Home() {
         <div className="container-premium">
           <div className="flex justify-center gap-12 lg:gap-20 flex-wrap">
             {[
-              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", icon: "photo_camera" },
-              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  icon: "thumb_up" },
-              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   icon: "play_circle" },
-              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", icon: "work" },
+              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", logo: "/resources/logo_instagram.svg" },
+              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  logo: "/resources/logo_facebook.svg" },
+              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   logo: "/resources/logo_youtube.svg" },
+              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", logo: "/resources/logo_linkedIn.svg" },
             ].map((social, i) => (
               <a
                 key={i}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-3 text-white/40 hover:text-primary transition-colors duration-300"
+                className="flex flex-col items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-300"
               >
-                <span className="material-symbols-outlined text-5xl">{social.icon}</span>
-                <span className="text-(--text-xs) font-black uppercase tracking-widest">{social.name}</span>
+                <img src={social.logo} alt={social.name} className="w-12 h-12" />
+                <span className="text-(--text-xs) font-black uppercase tracking-widest text-white">{social.name}</span>
               </a>
             ))}
           </div>

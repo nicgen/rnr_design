@@ -250,14 +250,14 @@ export default function Header() {
           {/* Social networks — bottom of left panel */}
           <div className="flex items-center gap-6 pt-8 mt-auto border-t border-white/10">
             {[
-              { url: 'https://instagram.com/rouennormandierugby', icon: 'photo_camera', label: 'Instagram' },
-              { url: 'https://facebook.com/rouennormandierugby', icon: 'thumb_up', label: 'Facebook' },
-              { url: 'https://youtube.com/rouennormandierugby', icon: 'play_circle', label: 'YouTube' },
-              { url: 'https://linkedin.com/company/rouennormandierugby', icon: 'work', label: 'LinkedIn' },
+              { url: 'https://instagram.com/rouennormandierugby', logo: '/resources/logo_instagram.svg', label: 'Instagram' },
+              { url: 'https://facebook.com/rouennormandierugby', logo: '/resources/logo_facebook.svg', label: 'Facebook' },
+              { url: 'https://youtube.com/rouennormandierugby', logo: '/resources/logo_youtube.svg', label: 'YouTube' },
+              { url: 'https://linkedin.com/company/rouennormandierugby', logo: '/resources/logo_linkedIn.svg', label: 'LinkedIn' },
             ].map((s, i) => (
               <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                className="text-white/30 hover:text-primary transition-colors duration-300">
-                <span className="material-symbols-outlined text-2xl">{s.icon}</span>
+                className="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src={s.logo} alt={s.label} className="w-8 h-8" />
               </a>
             ))}
           </div>
