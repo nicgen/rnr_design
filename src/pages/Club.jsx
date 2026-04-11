@@ -25,8 +25,8 @@ export default function Club() {
         {/* PALMARÈS SECTION */}
         <section className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            <div className="bg-black text-white p-12 relative overflow-hidden group border-l-8 border-primary shadow-2xl skew-x-[-2deg]">
-              <div className="skew-x-[2deg]">
+            <div className="bg-black text-white p-12 relative overflow-hidden group border-l-8 border-primary shadow-2xl">
+              <div>
                 <div className="flex items-center gap-6 mb-8">
                   <span className="material-symbols-outlined text-7xl text-primary drop-shadow-[0_0_15px_rgba(219,39,40,0.5)]">emoji_events</span>
                   <div>
@@ -48,8 +48,8 @@ export default function Club() {
               <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700"></div>
             </div>
 
-            <div className="bg-slate-900 text-white p-12 relative overflow-hidden group border-r-8 border-white/20 shadow-2xl skew-x-[2deg]">
-              <div className="skew-x-[-2deg]">
+            <div className="bg-slate-900 text-white p-12 relative overflow-hidden group border-r-8 border-white/20 shadow-2xl">
+              <div>
                 <div className="flex items-center gap-6 mb-8">
                   <span className="material-symbols-outlined text-7xl text-white/40 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">military_tech</span>
                   <div>
@@ -90,8 +90,8 @@ export default function Club() {
                   Le club naît sous sa forme moderne, marquant le début d'une nouvelle ère pour le rugby normand avec des ambitions renouvelées et une volonté de s'imposer sur la scène nationale.
                 </p>
               </div>
-              <div className="order-1 lg:order-2 relative h-80 overflow-hidden skew-x-[-3deg] shadow-2xl">
-                <img src={partnersImg} alt="2009" className="w-full h-full object-cover skew-x-[3deg] scale-110 group-hover:scale-100 transition-transform duration-1000" />
+              <div className="order-1 lg:order-2 relative h-80 overflow-hidden shadow-2xl">
+                <img src={partnersImg} alt="2009" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
               <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-primary rounded-full z-10 shadow-[0_0_15px_rgba(219,39,40,0.5)]"></div>
@@ -99,8 +99,8 @@ export default function Club() {
 
             {/* 2017 */}
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
-              <div className="relative h-80 overflow-hidden skew-x-[3deg] shadow-2xl">
-                <img src={galaImg} alt="2017" className="w-full h-full object-cover skew-x-[-3deg] scale-110 group-hover:scale-100 transition-transform duration-1000" />
+              <div className="relative h-80 overflow-hidden shadow-2xl">
+                <img src={galaImg} alt="2017" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
               <div>
@@ -122,8 +122,8 @@ export default function Club() {
                   Une saison exceptionnelle couronnée par un deuxième titre de Fédérale 1 et l'accession historique en Pro D2. C'est le début d'une aventure professionnelle remarquable.
                 </p>
               </div>
-              <div className="order-1 lg:order-2 relative h-80 overflow-hidden skew-x-[-3deg] shadow-2xl">
-                <img src={heroStadium} alt="2019" className="w-full h-full object-cover skew-x-[3deg] scale-110 group-hover:scale-100 transition-transform duration-1000" />
+              <div className="order-1 lg:order-2 relative h-80 overflow-hidden shadow-2xl">
+                <img src={heroStadium} alt="2019" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
               <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-primary rounded-full z-10 shadow-[0_0_15px_rgba(219,39,40,0.5)]"></div>

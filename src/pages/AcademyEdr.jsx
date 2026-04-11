@@ -10,8 +10,8 @@ const navLinks = [
 ];
 
 const CategoryCard = ({ title, ages, schedule }) => (
-  <div className="bg-white border border-slate-200 p-8 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500 skew-x-[-2deg] shadow-sm hover:shadow-xl">
-    <div className="skew-x-[2deg] relative z-10">
+  <div className="bg-white border border-slate-200 p-8 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500 shadow-sm hover:shadow-xl">
+    <div className="relative z-10">
       <h3 className="text-2xl font-black uppercase italic tracking-tighter leading-none mb-2">{title}</h3>
       <p className="text-primary font-bold uppercase text-xs tracking-[0.3em] mb-6">{ages}</p>
 
@@ -64,11 +64,11 @@ export default function AcademyEdr() {
             </div>
 
             <div className="relative">
-              <div className="relative overflow-hidden skew-x-[-3deg] shadow-2xl h-[500px]">
-                <img src={edrImg} alt="EDR Action" className="w-full h-full object-cover skew-x-[3deg] scale-110" />
+              <div className="relative overflow-hidden shadow-2xl h-[500px]">
+                <img src={edrImg} alt="EDR Action" className="w-full h-full object-cover scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </div>
-              <div className="absolute -z-10 top-10 -left-10 w-full h-full border-2 border-slate-100 skew-x-[-3deg]"></div>
+              <div className="absolute -z-10 top-10 -left-10 w-full h-full border-2 border-slate-100"></div>
             </div>
           </div>
         </section>
@@ -86,8 +86,8 @@ export default function AcademyEdr() {
           </div>
         </section>
 
-        <section className="bg-black text-white p-12 lg:p-20 text-center relative overflow-hidden skew-x-[-2deg] shadow-2xl">
-          <div className="relative z-10 skew-x-[2deg]">
+        <section className="bg-black text-white p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl">
+          <div className="relative z-10">
             <h2 className="text-4xl lg:text-6xl font-black uppercase italic tracking-tighter mb-6">Rejoignez l'aventure !</h2>
             <p className="text-lg text-white/60 font-medium italic max-w-2xl mx-auto mb-10">
               Les inscriptions sont ouvertes toute l'année. Venez faire un essai gratuit et découvrez l'esprit Rugby au RNR.

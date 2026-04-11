@@ -28,11 +28,11 @@ export default function ClubStadium() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative group overflow-hidden shadow-2xl skew-x-[-2deg]">
+            <div className="relative group overflow-hidden shadow-2xl">
               <img
                 src={diochonImg}
                 alt="Stade Robert Diochon"
-                className="w-full h-full object-cover skew-x-[2deg] scale-110 group-hover:scale-100 transition-transform duration-1000"
+                className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
               />
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             </div>
@@ -59,11 +59,11 @@ export default function ClubStadium() {
               </div>
 
               <div className="flex gap-4">
-                <button className="bg-black text-white font-black uppercase px-8 py-4 hover:bg-primary transition-all duration-300 -skew-x-12">
-                  <span className="inline-block skew-x-12">Venir au stade</span>
+                <button className="bg-black text-white font-black uppercase px-8 py-4 hover:bg-primary transition-all duration-300">
+                  Venir au stade
                 </button>
-                <button className="border-2 border-slate-200 text-slate-800 font-black uppercase px-8 py-4 hover:bg-slate-100 transition-all duration-300 -skew-x-12">
-                  <span className="inline-block skew-x-12">Réserver</span>
+                <button className="border-2 border-slate-200 text-slate-800 font-black uppercase px-8 py-4 hover:bg-slate-100 transition-all duration-300">
+                  Réserver
                 </button>
               </div>
             </div>
@@ -100,11 +100,11 @@ export default function ClubStadium() {
               </div>
             </div>
 
-            <div className="relative group overflow-hidden shadow-2xl skew-x-[2deg] order-1 lg:order-2 h-[450px]">
+            <div className="relative group overflow-hidden shadow-2xl order-1 lg:order-2 h-[450px]">
               <img
                 src={heroImg}
                 alt="Stade Jean Mermoz"
-                className="w-full h-full object-cover skew-x-[-2deg] scale-110 group-hover:scale-100 transition-transform duration-1000"
+                className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
               />
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             </div>

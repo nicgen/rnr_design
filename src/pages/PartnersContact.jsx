@@ -68,8 +68,8 @@ export default function PartnersContact() {
                 <textarea id="message" rows="4" placeholder="Décrivez votre besoin..." className="w-full bg-slate-50 border-b-2 border-slate-200 p-4 focus:border-primary outline-none font-black uppercase italic transition-colors resize-none"></textarea>
               </div>
 
-              <button className="bg-black hover:bg-primary text-white transition-all duration-300 font-black uppercase px-12 py-6 italic tracking-widest skew-x-[-12deg] shadow-xl group">
-                <span className="inline-block skew-x-[12deg] group-hover:scale-105 transition-transform">Envoyer la demande</span>
+              <button className="bg-black hover:bg-primary text-white transition-all duration-300 font-black uppercase px-12 py-6 italic tracking-widest shadow-xl">
+                Envoyer la demande
               </button>
             </form>
           </section>
@@ -83,10 +83,8 @@ export default function PartnersContact() {
                   { name: "Prénom Nom", role: "Responsable Partenariats", email: "p.nom2@rnr.fr" }
                 ].map((member, i) => (
                   <div key={i} className="flex items-center gap-6 group cursor-pointer bg-slate-50 p-6 hover:bg-black hover:text-white transition-all duration-500">
-                    <div className="w-16 h-16 bg-white shadow-lg overflow-hidden -skew-x-6 shrink-0 group-hover:bg-primary">
-                      <div className="w-full h-full flex items-center justify-center skew-x-6">
-                        <span className="material-symbols-outlined text-slate-300 group-hover:text-white">person</span>
-                      </div>
+                    <div className="w-16 h-16 bg-white shadow-lg overflow-hidden shrink-0 group-hover:bg-primary flex items-center justify-center">
+                      <span className="material-symbols-outlined text-slate-300 group-hover:text-white">person</span>
                     </div>
                     <div>
                       <h4 className="font-black uppercase italic tracking-tight">{member.name}</h4>
@@ -98,8 +96,8 @@ export default function PartnersContact() {
               </div>
             </div>
 
-            <div className="bg-primary p-10 text-white skew-x-[-1deg]">
-              <div className="skew-x-[1deg]">
+            <div className="bg-primary p-10 text-white">
+              <div>
                 <h4 className="text-2xl font-black uppercase italic tracking-tighter mb-4">Besoin d'un devis express ?</h4>
                 <p className="text-sm font-medium italic opacity-90 mb-6 leading-relaxed">
                   Notre catalogue d'offres 2025/2026 est disponible en téléchargement direct pour nos membres pré-inscrits.

@@ -10,8 +10,8 @@ const navLinks = [
 ];
 
 const CategoryCard = ({ title, ages, categories }) => (
-  <div className="bg-slate-50 border border-slate-200 p-10 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500 skew-x-[-2deg]">
-    <div className="skew-x-[2deg] relative z-10">
+  <div className="bg-slate-50 border border-slate-200 p-10 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500">
+    <div className="relative z-10">
       <div className="flex justify-between items-start mb-6">
         <div>
           <h3 className="text-3xl font-black uppercase italic tracking-tighter leading-none mb-2">{title}</h3>
@@ -64,8 +64,8 @@ export default function AcademyYouth() {
           <CategoryCard title="Juniors" ages="M18 (16 à 17 ans)" categories="Élite Crabos" />
         </div>
 
-        <section className="relative p-12 lg:p-20 overflow-hidden bg-black text-white skew-x-[-2deg] shadow-2xl">
-          <div className="skew-x-[2deg] relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section className="relative p-12 lg:p-20 overflow-hidden bg-black text-white shadow-2xl">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h4 className="text-4xl lg:text-6xl font-black uppercase italic tracking-tighter leading-none mb-6">
                 Rejoindre<br /><span className="text-primary">la meute !</span>
@@ -87,7 +87,7 @@ export default function AcademyYouth() {
               </div>
             </div>
           </div>
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-20"></div>
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 translate-x-20"></div>
         </section>
       </div>
     </div>

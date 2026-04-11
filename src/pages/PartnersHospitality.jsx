@@ -31,7 +31,7 @@ export default function PartnersHospitality() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
           <div className="bg-slate-50 border-t-8 border-primary p-12 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute top-8 right-8 bg-black text-white px-4 py-1 text-xs font-black uppercase tracking-widest italic -skew-x-12">Le plus Prisé</div>
+            <div className="absolute top-8 right-8 tag-pill bg-black text-white">Le plus Prisé</div>
             <h3 className="text-4xl font-black uppercase italic tracking-tighter mb-2">Espace Épicuriens</h3>
             <p className="text-primary font-bold italic mb-8 tracking-widest uppercase text-sm">Le cercle des décideurs</p>
             <div className="mb-10 text-slate-500 font-medium italic leading-relaxed">
@@ -72,11 +72,11 @@ export default function PartnersHospitality() {
           </div>
         </div>
 
-        <section className="bg-black text-white relative overflow-hidden mb-24 skew-x-[-1deg]">
+        <section className="bg-black text-white relative overflow-hidden mb-24">
           <div className="absolute inset-0 bg-[url('/resources/hero_bg.jpg')] bg-cover bg-center opacity-20"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
 
-          <div className="relative z-10 skew-x-[1deg] p-12 lg:p-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative z-10 p-12 lg:p-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-[2px] w-12 bg-primary"></div>
@@ -103,7 +103,7 @@ export default function PartnersHospitality() {
                 </div>
               </div>
             </div>
-            <div className="bg-primary/5 border border-primary/20 backdrop-blur-md p-10 -skew-y-2">
+            <div className="bg-primary/5 border border-primary/20 backdrop-blur-md p-10">
               <h4 className="text-xl font-black uppercase italic mb-6 text-primary tracking-widest">Inclus dans l'offre :</h4>
               <ul className="space-y-6">
                 {[
@@ -125,8 +125,8 @@ export default function PartnersHospitality() {
 
         <section className="text-center py-12">
           <h3 className="text-2xl font-black uppercase italic tracking-tighter mb-8">Besoin d'une offre personnalisée ?</h3>
-          <Link to="/partenaires/contact" className="inline-block bg-black text-white hover:bg-primary transition-all duration-300 font-black uppercase px-12 py-6 italic tracking-widest skew-x-[-12deg]">
-            <span className="inline-block skew-x-[12deg]">Contacter le service commercial</span>
+          <Link to="/partenaires/contact" className="inline-block bg-black text-white hover:bg-primary transition-all duration-300 font-black uppercase px-12 py-6 italic tracking-widest">
+            Contacter le service commercial
           </Link>
         </section>
       </div>

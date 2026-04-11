@@ -33,7 +33,7 @@ export default function AcademySpecial() {
             <div className="lg:col-span-4 relative h-[400px] lg:h-auto">
               <div className="w-full h-full bg-slate-200 animate-pulse"></div>
               <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute top-8 left-8 bg-black text-white px-4 py-2 text-xs font-black uppercase tracking-widest -skew-x-12">
+              <div className="absolute top-8 left-8 tag-pill bg-black text-white">
                 Handisport
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function AcademySpecial() {
             <div className="lg:col-span-4 relative h-[400px] lg:h-auto order-1 lg:order-2">
               <div className="w-full h-full bg-slate-800 animate-pulse"></div>
               <div className="absolute inset-0 bg-primary/10"></div>
-              <div className="absolute top-8 right-8 bg-primary text-white px-4 py-2 text-xs font-black uppercase tracking-widest skew-x-12">
+              <div className="absolute top-8 right-8 tag-pill bg-primary text-white">
                 Inclusion
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function AcademySpecial() {
             <div className="lg:col-span-4 relative h-[400px] lg:h-auto">
               <div className="w-full h-full bg-slate-200 animate-pulse"></div>
               <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute top-8 left-8 bg-black text-white px-4 py-2 text-xs font-black uppercase tracking-widest -skew-x-12">
+              <div className="absolute top-8 left-8 tag-pill bg-black text-white">
                 Loisir & Santé
               </div>
             </div>

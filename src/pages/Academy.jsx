@@ -54,25 +54,23 @@ export default function Academy() {
             </div>
 
             <div className="relative">
-              <div className="relative overflow-hidden skew-x-[-3deg] shadow-2xl h-[600px]">
-                <img src={formationImg} alt="Formation" className="w-full h-full object-cover skew-x-[3deg] scale-110" />
+              <div className="relative overflow-hidden shadow-2xl h-[600px]">
+                <img src={formationImg} alt="Formation" className="w-full h-full object-cover scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-12 left-12 bg-primary text-white p-8 -skew-x-12 shadow-2xl">
-                  <div className="skew-x-12">
-                    <p className="text-5xl font-black italic leading-none">Agréé</p>
-                    <p className="text-xl font-black uppercase italic tracking-widest mt-2">FFR</p>
-                  </div>
+                <div className="absolute bottom-12 left-12 bg-primary text-white p-8 shadow-2xl">
+                  <p className="text-5xl font-black italic leading-none">Agréé</p>
+                  <p className="text-xl font-black uppercase italic tracking-widest mt-2">FFR</p>
                 </div>
               </div>
-              <div className="absolute -z-10 top-10 -right-10 w-full h-full border-2 border-slate-100 skew-x-[-3deg]"></div>
+              <div className="absolute -z-10 top-10 -right-10 w-full h-full border-2 border-slate-100"></div>
             </div>
           </div>
         </section>
 
         {/* DETECTIONS & PROCESS */}
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pt-12">
-          <div className="lg:col-span-1 bg-black text-white p-12 relative overflow-hidden flex flex-col justify-between group skew-x-[-2deg]">
-            <div className="skew-x-[2deg] relative z-10">
+          <div className="lg:col-span-1 bg-black text-white p-12 relative overflow-hidden flex flex-col justify-between group">
+            <div className="relative z-10">
               <span className="material-symbols-outlined text-6xl text-primary mb-8 opacity-40">person_search</span>
               <h3 className="text-4xl font-black uppercase italic tracking-tighter mb-4 leading-none">Devenez un Lion</h3>
               <p className="text-slate-400 font-medium italic text-lg mb-8">
@@ -90,8 +88,8 @@ export default function Academy() {
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700"></div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-50 p-12 skew-x-[2deg] border border-slate-200">
-            <div className="skew-x-[-2deg]">
+          <div className="lg:col-span-2 bg-slate-50 p-12 border border-slate-200">
+            <div>
               <h3 className="text-3xl font-black uppercase italic tracking-tighter mb-12">Le Processus de Recrutement</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[

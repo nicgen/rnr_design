@@ -28,8 +28,8 @@ export default function Partners() {
             { num: "260+", label: "Entreprises", sub: "Partenaires actifs" },
             { num: "1er", label: "Réseau B2B", sub: "De Haute-Normandie" }
           ].map((stat, i) => (
-            <div key={i} className="bg-black text-white p-12 relative overflow-hidden group skew-x-[-2deg] flex flex-col items-center text-center">
-              <div className="skew-x-[2deg]">
+            <div key={i} className="bg-black text-white p-12 relative overflow-hidden group flex flex-col items-center text-center">
+              <div>
                 <span className="text-6xl font-black text-primary italic tracking-tighter block mb-2">{stat.num}</span>
                 <span className="text-sm font-black uppercase tracking-[0.3em] block mb-1">{stat.label}</span>
                 <span className="text-xs font-bold text-white/30 uppercase tracking-widest">{stat.sub}</span>
@@ -54,8 +54,8 @@ export default function Partners() {
               { icon: "handshake", title: "Speed Business", desc: "Optimisez vos prises de contacts lors de nos sessions de networking structurées et tournois sportifs.", tag: "Efficacité" }
             ].map((event, i) => (
               <div key={i} className="bg-slate-50 border border-slate-200 p-10 flex flex-col sm:flex-row gap-8 items-start hover:bg-white hover:shadow-2xl transition-all duration-500 group">
-                <div className="w-16 h-16 bg-black text-primary flex items-center justify-center shrink-0 -skew-x-12 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                  <span className="material-symbols-outlined text-3xl skew-x-12">{event.icon}</span>
+                <div className="w-16 h-16 bg-black text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <span className="material-symbols-outlined text-3xl">{event.icon}</span>
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-4">
@@ -70,8 +70,8 @@ export default function Partners() {
         </section>
 
         {/* L'APPLICATION BUSINESS */}
-        <section className="relative bg-black text-white p-12 lg:p-24 overflow-hidden shadow-2xl skew-x-[-1deg]">
-          <div className="relative z-10 skew-x-[1deg] grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <section className="relative bg-black text-white p-12 lg:p-24 overflow-hidden shadow-2xl">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <div className="mb-12">
                 <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-4 italic text-center lg:text-left">Écosystème Digital</h3>

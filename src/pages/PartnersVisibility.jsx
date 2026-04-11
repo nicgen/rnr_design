@@ -42,8 +42,8 @@ export default function PartnersVisibility() {
               { title: "Remplaçants", sub: "Chasubles banc", icon: "groups" }
             ].map((item, i) => (
               <div key={i} className="bg-slate-50 p-8 flex flex-col items-center text-center group hover:bg-black hover:text-white transition-all duration-500 cursor-pointer">
-                <div className="w-16 h-16 bg-white shadow-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors -skew-x-12">
-                  <span className="material-symbols-outlined text-black group-hover:text-white text-3xl skew-x-12">{item.icon}</span>
+                <div className="w-16 h-16 bg-white shadow-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                  <span className="material-symbols-outlined text-black group-hover:text-white text-3xl">{item.icon}</span>
                 </div>
                 <h4 className="text-xl font-black uppercase italic tracking-tighter mb-2 leading-none">{item.title}</h4>
                 <p className="text-xs font-black uppercase tracking-widest text-primary italic opacity-70">{item.sub}</p>
@@ -106,8 +106,8 @@ export default function PartnersVisibility() {
           </div>
         </div>
 
-        <section className="bg-black text-white p-12 lg:p-20 relative overflow-hidden shadow-2xl skew-x-[-1deg]">
-          <div className="relative z-10 skew-x-[1deg] flex flex-col lg:flex-row items-center justify-between gap-12">
+        <section className="bg-black text-white p-12 lg:p-20 relative overflow-hidden shadow-2xl">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="w-full lg:w-3/5 text-center lg:text-left">
               <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-4 italic">Social Media</h3>
               <h2 className="text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-none mb-8">
@@ -126,8 +126,8 @@ export default function PartnersVisibility() {
               </div>
             </div>
             <div className="w-full lg:w-1/3 flex justify-center">
-              <Link to="/partenaires/contact" className="bg-primary hover:bg-white text-white hover:text-black transition-all duration-300 font-black uppercase px-10 py-6 italic tracking-widest skew-x-[-12deg] shadow-[0_0_50px_rgba(191,149,63,0.3)]">
-                <span className="inline-block skew-x-[12deg]">Demander le catalogue</span>
+              <Link to="/partenaires/contact" className="bg-primary hover:bg-white text-white hover:text-black transition-all duration-300 font-black uppercase px-10 py-6 italic tracking-widest shadow-[0_0_50px_rgba(191,149,63,0.3)]">
+                Demander le catalogue
               </Link>
             </div>
           </div>

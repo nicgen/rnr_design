@@ -68,7 +68,7 @@ export default function ClubCommitments() {
             </div>
 
             <div className="relative group">
-              <div className="absolute -inset-4 bg-primary/10 -skew-x-6 scale-95 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              <div className="absolute -inset-4 bg-primary/10 scale-95 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
               <div className="relative border-8 border-white shadow-2xl overflow-hidden -rotate-2 group-hover:rotate-0 transition-transform duration-700">
                 <img src={heroImg} alt="Engagements" className="w-full grayscale group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-30 group-hover:opacity-0 transition-opacity duration-700"></div>
@@ -82,8 +82,8 @@ export default function ClubCommitments() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {actions.map((action, i) => (
                 <div key={i} className="bg-white p-10 shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group">
-                  <div className="w-16 h-16 bg-slate-50 flex items-center justify-center mb-8 skew-x-[-12deg] group-hover:bg-black transition-colors duration-300">
-                    <span className="material-symbols-outlined text-4xl text-primary skew-x-[12deg]">{action.icon}</span>
+                  <div className="w-16 h-16 bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-black transition-colors duration-300">
+                    <span className="material-symbols-outlined text-4xl text-primary">{action.icon}</span>
                   </div>
                   <h5 className="font-black uppercase text-2xl mb-4 italic tracking-tight">{action.title}</h5>
                   <p className="text-slate-500 font-medium italic leading-relaxed">{action.desc}</p>
