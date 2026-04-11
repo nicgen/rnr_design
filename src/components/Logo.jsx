@@ -18,7 +18,7 @@ const Logo = () => {
         alt="RNR Logo"
         className="h-full w-auto transition-all duration-500 ease-in-out"
       />
-      <span className={`font-display font-black italic tracking-tighter transition-all duration-500 ${isScrolled ? 'text-lg lg:text-xl' : 'text-2xl lg:text-3xl'} text-white`}>
+      <span className={`font-heading font-black italic tracking-tighter transition-all duration-500 ${isScrolled ? 'text-lg lg:text-xl' : 'text-2xl lg:text-3xl'} text-white`}>
         RNR
       </span>
     </div>

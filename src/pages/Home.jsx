@@ -20,10 +20,10 @@ import vipBg from '/resources/vip_bg.png';
 // --- COMPOSANTS INTERNES D'UNIFICATION ---
 
 const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
-  <div className="container-premium mb-12 flex justify-between items-end gap-6 rnr-section-header">
+  <div className="container-premium mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-2 rnr-section-header">
     <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
     {linkTo && (
-      <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white hover:border-white' : ''}`}>
+      <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white' : ''}`}>
         {linkLabel}
         <span className="material-symbols-outlined text-sm">arrow_forward</span>
       </Link>
@@ -139,38 +139,56 @@ export default function Home() {
             <div className="container-premium">
 
               {/* Mobile */}
-              <div className="flex md:hidden items-center justify-between h-20 gap-4">
-                <div className="flex items-center gap-2 min-w-0 flex-1">
-                  <img src={logoRNR} alt="Rouen" className="w-7 h-7 object-contain flex-shrink-0" />
-                  <span className="font-black text-sm italic uppercase text-white tracking-tight">ROUEN</span>
-                  <span className="text-primary font-black text-sm italic mx-1">VS</span>
-                  <span className="font-black text-sm italic uppercase text-white tracking-tight">MASSY</span>
+              <div className="flex md:hidden flex-col py-3 gap-2">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-black uppercase bg-primary text-white px-1.5 py-0.5 tracking-widest shrink-0">J</span>
+                    <span className="text-[9px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
+                  </div>
+                  <div className="flex gap-3">
+                    {[{ val: '11', label: 'J' }, { val: '08', label: 'H' }, { val: '00', label: 'M' }].map((u, i) => (
+                      <div key={i} className="flex items-baseline gap-0.5">
+                        <span className="text-xl font-black italic text-white leading-none">{u.val}</span>
+                        <span className="text-[8px] font-black text-white/40 tracking-wide">{u.label}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <a
-                  href="http://billetterie.rouen-normandie-rugby.fr/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-shrink-0 -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
-                >
-                  <span className="skew-x-12 flex items-center gap-1.5 font-black uppercase text-[11px] tracking-[0.2em] px-5 h-8">
-                    <span className="material-symbols-outlined text-[13px]">confirmation_number</span>
-                    BILLETS
-                  </span>
-                </a>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <img src={logoRNR} alt="Rouen" className="w-6 h-6 object-contain flex-shrink-0" />
+                    <span className="font-black text-base italic uppercase text-white tracking-tight">ROUEN</span>
+                    <span className="text-primary font-black text-base italic mx-1">VS</span>
+                    <span className="font-black text-base italic uppercase text-white tracking-tight">MASSY</span>
+                  </div>
+                  <a
+                    href="http://billetterie.rouen-normandie-rugby.fr/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
+                  >
+                    <span className="skew-x-12 flex items-center gap-1.5 font-black uppercase text-[11px] tracking-[0.2em] px-4 h-7">
+                      <span className="material-symbols-outlined text-[13px]">confirmation_number</span>
+                      BILLETS
+                    </span>
+                  </a>
+                </div>
               </div>
 
               {/* Desktop */}
               <div className="hidden md:flex items-stretch h-[clamp(130px,16vh,160px)]">
 
                 {/* Countdown */}
-                <div className="flex flex-col justify-center gap-1 pr-8 lg:pr-12 border-r border-white/10 shrink-0">
-                  <span className="text-[9px] font-black uppercase bg-primary text-white px-2 py-0.5 tracking-widest w-fit">PROCHAIN MATCH</span>
-                  <span className="text-[10px] font-black text-white/50 uppercase tracking-widest mt-1">20 MARS 2026 · 20:00</span>
-                  <div className="flex gap-5 mt-1">
+                <div className="flex flex-col justify-center gap-2 pr-8 lg:pr-12 shrink-0 relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-white/10 after:-skew-x-12 after:origin-top">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] font-black uppercase bg-primary text-white px-2 py-0.5 tracking-widest">PROCHAIN MATCH</span>
+                    <span className="text-[10px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
+                  </div>
+                  <div className="flex gap-6">
                     {[{ val: '11', label: 'JOURS' }, { val: '08', label: 'HRS' }, { val: '00', label: 'MIN' }].map((u, i) => (
                       <div key={i} className="flex flex-col items-center">
-                        <span className="text-2xl lg:text-3xl font-black italic text-white leading-none">{u.val}</span>
-                        <span className="text-[8px] font-black text-white/40 tracking-[0.15em] mt-0.5">{u.label}</span>
+                        <span className="text-5xl lg:text-6xl font-black italic text-white leading-none">{u.val}</span>
+                        <span className="text-[9px] font-black text-white/40 tracking-[0.15em] mt-1">{u.label}</span>
                       </div>
                     ))}
                   </div>
@@ -178,14 +196,14 @@ export default function Home() {
 
                 {/* Teams */}
                 <div className="flex-1 flex items-center justify-center gap-4 lg:gap-8 px-8 lg:px-12">
-                  <div className="flex items-center gap-2 lg:gap-3">
-                    <img src={logoRNR} alt="Rouen" className="w-10 h-10 lg:w-14 lg:h-14 object-contain drop-shadow-md" />
-                    <span className="font-black text-2xl lg:text-4xl italic uppercase text-white tracking-tight">ROUEN</span>
+                  <div className="flex items-center gap-2 lg:gap-4">
+                    <img src={logoRNR} alt="Rouen" className="w-12 h-12 lg:w-16 lg:h-16 object-contain drop-shadow-md" />
+                    <span className="font-black text-3xl lg:text-5xl italic uppercase text-white tracking-tight">ROUEN</span>
                   </div>
-                  <span className="font-black text-xl lg:text-2xl italic text-primary shrink-0">VS</span>
-                  <div className="flex items-center gap-2 lg:gap-3">
-                    <span className="font-black text-2xl lg:text-4xl italic uppercase text-white tracking-tight">MASSY</span>
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
+                  <span className="font-black text-2xl lg:text-3xl italic text-primary shrink-0">VS</span>
+                  <div className="flex items-center gap-2 lg:gap-4">
+                    <span className="font-black text-3xl lg:text-5xl italic uppercase text-white tracking-tight">MASSY</span>
+                    <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
                       <img src="/resources/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
                     </div>
                   </div>
@@ -265,9 +283,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
+        <SectionHeader title="LES RÉSULTATS" isDark />
+
         <div className="container-premium relative z-10">
-          <SectionHeader title="LES RÉSULTATS" isDark />
-          
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
@@ -390,7 +408,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="lg:col-span-1 flex flex-col justify-center gap-6 min-w-0">
               <h2 className="text-slate-900" style={{fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)'}}>PORTONS HAUT<br />NOS COULEURS.</h2>
-              <p className="text-slate-500 font-medium leading-relaxed text-sm">Découvrez la nouvelle collection 25-26. Maillots officiels et accessoires pour soutenir les Lions.</p>
+              <p className="text-slate-500 font-medium leading-relaxed text-base">Découvrez la nouvelle collection 25-26. Maillots officiels et accessoires pour soutenir les Lions.</p>
             </div>
             <UnifiedCard image={jerseyImg} title="Maillot Domicile 25-26" subtitle="Maillot Domicile Replica Rouen Normandie Rugby 25-26." link="http://boutique.rouennormandierugby.fr/" />
             <UnifiedCard image={player3Img} title="Maillot Extérieur 25-26" subtitle="Maillot Extérieur Officiel Rouen Normandie Rugby 25-26." link="http://boutique.rouennormandierugby.fr/" />
@@ -422,7 +440,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <h3 className="text-h2 font-black uppercase leading-[1.1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] via-[#bf953f] to-[#fcf6ba] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-display italic">
+              <h3 className="text-h2 font-black uppercase leading-[1.1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] via-[#bf953f] to-[#fcf6ba] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-heading italic">
                 PLUS QU’UN MATCH,<br />UNE EXPERIENCE PARTENAIRE.
               </h3>
 
