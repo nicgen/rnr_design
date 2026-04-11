@@ -54,7 +54,15 @@ const PlaceholderImage = ({ className }) => (
 
 export default function Home() {
   const marqueeRef = useRef(null);
+  const videoRef = useRef(null);
   const [showBanner, setShowBanner] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
 
   useEffect(() => {
     // Show the Match banner after a short delay
@@ -105,11 +113,12 @@ export default function Home() {
       <section id="section-hero" className="relative h-[100vh] w-full flex-shrink-0 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={stadiumHero} alt="Stadium" className="absolute inset-0 w-full h-full object-cover" />
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/resources/video_bg.mp4" type="video/mp4" />
