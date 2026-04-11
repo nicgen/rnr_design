@@ -56,11 +56,12 @@ export default function NewsDetail() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
         
         <div className="absolute inset-x-0 bottom-0 max-w-5xl mx-auto px-4 pb-16">
-          <Breadcrumb 
+          <Breadcrumb
+            isDark
             items={[
-              { label: "ACTUALITÉS", to: "/actualites-medias" },
+              { label: "Actualités", to: "/actualites-medias" },
               { label: article.category, to: "/actualites-medias" }
-            ]} 
+            ]}
           />
           <h1 className="text-4xl md:text-6xl font-black uppercase text-white leading-none italic tracking-tighter drop-shadow-2xl mb-4">
             {article.title}

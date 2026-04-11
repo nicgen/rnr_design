@@ -1,5 +1,4 @@
-import Breadcrumb from "../components/Breadcrumb";
-import SectionNav from "../components/SectionNav";
+import PageHero from "../components/PageHero";
 import heroImg from "/resources/hero_bg.jpg";
 
 const navLinks = [
@@ -29,32 +28,15 @@ export default function ClubCommitments() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-24">
-      {/* HERO SECTION */}
-      <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImg} 
-            alt="Club Commitments" 
-            className="absolute inset-0 w-full h-full object-cover opacity-40 scale-110 grayscale" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent"></div>
-        </div>
-        
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
-          <Breadcrumb />
-          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            NOS ENGAGEMENTS
-          </h1>
-          <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Plus qu'un club, un acteur du territoire
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-slate-50">
+      <PageHero
+        title="Nos Engagements"
+        subtitle="Plus qu'un club, un acteur du territoire"
+        bgImage={heroImg}
+        subNavLinks={navLinks}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-30">
-        <SectionNav links={navLinks} />
-
+      <div className="container-premium pb-24">
         <div className="py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
             <div className="space-y-8">
@@ -64,7 +46,7 @@ export default function ClubCommitments() {
                   Le Rugby Comme Moteur de Lien Social
                 </h4>
               </div>
-              
+
               <p className="text-xl text-slate-600 font-medium italic leading-relaxed">
                 Au-delà des performances sportives, le Rouen Normandie Rugby s'engage activement sur son territoire. Via son dispositif d'actions sociétales et environnementales (RSE), le club défend des valeurs de solidarité, de partage et de respect.
               </p>
@@ -96,7 +78,7 @@ export default function ClubCommitments() {
 
           <div className="border-t border-slate-200 pt-24">
             <h4 className="text-4xl font-black uppercase tracking-tighter italic mb-16 text-center">Focus sur nos actions</h4>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {actions.map((action, i) => (
                 <div key={i} className="bg-white p-10 shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group">

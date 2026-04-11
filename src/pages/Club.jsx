@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
-import SectionNav from "../components/SectionNav";
-import heroStadium from "/resources/hero_bg.jpg";
+import PageHero from "../components/PageHero";
 import galaImg from "/resources/gala.jpeg";
 import partnersImg from "/resources/mise-en-avant-partenaires.jpeg";
+import heroStadium from "/resources/hero_bg.jpg";
 
 const navLinks = [
   { label: "Histoire & Palmarès", path: "/le-club", exact: true },
@@ -15,31 +14,14 @@ const navLinks = [
 export default function Club() {
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO SECTION */}
-      <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroStadium} 
-            alt="Club History" 
-            className="absolute inset-0 w-full h-full object-cover opacity-60" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-        </div>
-        
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
-          <Breadcrumb />
-          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            L'ÂME DES LIONS
-          </h1>
-          <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Histoire & Palmarès du RNR
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="L'Âme des Lions"
+        subtitle="Histoire & Palmarès du RNR"
+        bgImage={heroStadium}
+        subNavLinks={navLinks}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-30 pb-24">
-        <SectionNav links={navLinks} />
-
+      <div className="container-premium pb-24">
         {/* PALMARÈS SECTION */}
         <section className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
@@ -97,7 +79,6 @@ export default function Club() {
           </div>
 
           <div className="relative space-y-32">
-            {/* Timeline Vertical Line */}
             <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-slate-200 hidden lg:block"></div>
 
             {/* 2009 */}
@@ -106,7 +87,7 @@ export default function Club() {
                 <span className="text-8xl font-black italic text-slate-100 group-hover:text-primary/10 transition-colors duration-700 leading-none mb-4 absolute lg:-right-4 left-0 top-0 -z-10 lg:left-auto">2009</span>
                 <h5 className="text-3xl font-black uppercase italic mb-4 tracking-tighter group-hover:text-primary transition-colors">Création du Club</h5>
                 <p className="text-slate-500 leading-relaxed text-lg font-medium italic lg:pl-12">
-                  Le club naît sous sa forme moderne, marquant le début d’une nouvelle ère pour le rugby normand avec des ambitions renouvelées et une volonté de s’imposer sur la scène nationale.
+                  Le club naît sous sa forme moderne, marquant le début d'une nouvelle ère pour le rugby normand avec des ambitions renouvelées et une volonté de s'imposer sur la scène nationale.
                 </p>
               </div>
               <div className="order-1 lg:order-2 relative h-80 overflow-hidden skew-x-[-3deg] shadow-2xl">
@@ -126,7 +107,7 @@ export default function Club() {
                 <span className="text-8xl font-black italic text-slate-100 group-hover:text-primary/10 transition-colors duration-700 leading-none mb-4 absolute left-0 top-0 -z-10">2017</span>
                 <h5 className="text-3xl font-black uppercase italic mb-4 tracking-tighter group-hover:text-primary transition-colors">Le Premier Titre</h5>
                 <p className="text-slate-500 leading-relaxed text-lg font-medium italic lg:pr-12">
-                  L’équipe s’impose comme le champion du plus haut niveau amateur, posant les jalons du professionnalisme et fédérant tout un territoire autour de ses succès.
+                  L'équipe s'impose comme le champion du plus haut niveau amateur, posant les jalons du professionnalisme et fédérant tout un territoire autour de ses succès.
                 </p>
               </div>
               <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-primary rounded-full z-10 shadow-[0_0_15px_rgba(219,39,40,0.5)]"></div>
@@ -138,7 +119,7 @@ export default function Club() {
                 <span className="text-8xl font-black italic text-slate-100 group-hover:text-primary/10 transition-colors duration-700 leading-none mb-4 absolute lg:-right-4 left-0 top-0 -z-10 lg:left-auto">2019</span>
                 <h5 className="text-3xl font-black uppercase italic mb-4 tracking-tighter group-hover:text-primary transition-colors">Route vers la Pro D2</h5>
                 <p className="text-slate-500 leading-relaxed text-lg font-medium italic lg:pl-12">
-                  Une saison exceptionnelle couronnée par un deuxième titre de Fédérale 1 et l’accession historique en Pro D2. C’est le début d’une aventure professionnelle remarquable.
+                  Une saison exceptionnelle couronnée par un deuxième titre de Fédérale 1 et l'accession historique en Pro D2. C'est le début d'une aventure professionnelle remarquable.
                 </p>
               </div>
               <div className="order-1 lg:order-2 relative h-80 overflow-hidden skew-x-[-3deg] shadow-2xl">

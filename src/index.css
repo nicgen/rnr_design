@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
 
 @theme {
   --color-primary: #e21e26; /* RNR Red */
@@ -176,3 +176,52 @@
 
 /* Boutons & Bouton Hero */
 .rnr-hero-cta {}
+
+/* ===== PAGES INTERNES ===== */
+
+@utility page-hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(280px, 40vh, 480px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@utility breadcrumb-nav {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@utility subnav-bar {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+@utility tag-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+}
+
+@utility filter-btn {
+  font-size: var(--text-xs);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  transition: background-color 150ms, color 150ms;
+  white-space: nowrap;
+  cursor: pointer;
+}

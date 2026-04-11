@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
-import SectionNav from "../components/SectionNav";
+import PageHero from "../components/PageHero";
 import heroImg from "/resources/hero_bg.jpg";
 import appImg from "/resources/mise-en-avant-partenaires.jpeg";
 
@@ -15,31 +13,14 @@ const navLinks = [
 export default function Partners() {
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO SECTION */}
-      <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImg} 
-            alt="Partners Business Club" 
-            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-        </div>
-        
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
-          <Breadcrumb />
-          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            VIVEZ LE RUGBY AUTREMENT
-          </h1>
-          <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest leading-tight">
-            ACCÉLÉREZ VOTRE BUSINESS
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Vivez le Rugby Autrement"
+        subtitle="Accélérez votre business avec le premier réseau B2B de Haute-Normandie."
+        bgImage={heroImg}
+        subNavLinks={navLinks}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-30 pb-24">
-        <SectionNav links={navLinks} />
-
+      <div className="container-premium pb-24">
         {/* CHIFFRES CLÉS */}
         <section className="py-24 grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -51,7 +32,7 @@ export default function Partners() {
               <div className="skew-x-[2deg]">
                 <span className="text-6xl font-black text-primary italic tracking-tighter block mb-2">{stat.num}</span>
                 <span className="text-sm font-black uppercase tracking-[0.3em] block mb-1">{stat.label}</span>
-                <span className="text-(--text-xs) font-bold text-white/30 uppercase tracking-widest">{stat.sub}</span>
+                <span className="text-xs font-bold text-white/30 uppercase tracking-widest">{stat.sub}</span>
               </div>
               <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
             </div>
@@ -64,7 +45,7 @@ export default function Partners() {
             <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Networking & Events</h3>
             <h2 className="text-4xl font-black uppercase tracking-tighter italic">Les Rendez-vous du Réseau</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {[
               { icon: "stadium", title: "Matchs au Sommet", desc: "15 rencontres à domicile au Stade Robert-Diochon. L'émotion du terrain au service de vos relations publiques.", tag: "Saison Régulière" },
@@ -79,7 +60,7 @@ export default function Partners() {
                 <div>
                   <div className="flex justify-between items-start mb-4">
                     <h4 className="text-2xl font-black uppercase italic tracking-tighter">{event.title}</h4>
-                    <span className="text-(--text-xs) font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 italic">{event.tag}</span>
+                    <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 italic">{event.tag}</span>
                   </div>
                   <p className="text-slate-500 font-medium italic leading-relaxed">{event.desc}</p>
                 </div>
@@ -99,7 +80,7 @@ export default function Partners() {
                 </h2>
               </div>
               <p className="text-lg text-white/60 font-medium italic mb-10 leading-relaxed text-center lg:text-left">
-                Rejoindre le Rouen Normandie Rugby, c'est intégrer le premier réseau d'affaires de la région, partager les valeurs d'engagement et d'esprit d'équipe qui nous animent, et créer des moments inoubliables pour vos clients et collaborateurs. 
+                Rejoindre le Rouen Normandie Rugby, c'est intégrer le premier réseau d'affaires de la région, partager les valeurs d'engagement et d'esprit d'équipe qui nous animent, et créer des moments inoubliables pour vos clients et collaborateurs.
               </p>
               <div className="space-y-6">
                 {[
@@ -115,22 +96,19 @@ export default function Partners() {
               </div>
             </div>
             <div className="relative flex justify-center">
-               <div className="relative w-full max-w-[320px] aspect-[9/18.5] bg-slate-900 border-[8px] border-slate-800 rounded-[3rem] shadow-[0_0_50px_rgba(191,149,63,0.2)] overflow-hidden animate-float">
-                  <img src={appImg} alt="Application B2B" className="w-full h-full object-cover opacity-80" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                  <div className="absolute bottom-10 left-0 w-full text-center px-6">
-                      <div className="w-12 h-1 bg-primary mx-auto mb-4 rounded-full"></div>
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest italic opacity-60">Le réseau au creux de votre main</p>
-                  </div>
-               </div>
-               {/* Decorative glow */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -z-10"></div>
+              <div className="relative w-full max-w-[320px] aspect-[9/18.5] bg-slate-900 border-[8px] border-slate-800 rounded-[3rem] shadow-[0_0_50px_rgba(191,149,63,0.2)] overflow-hidden">
+                <img src={appImg} alt="Application B2B" className="w-full h-full object-cover opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div className="absolute bottom-10 left-0 w-full text-center px-6">
+                  <div className="w-12 h-1 bg-primary mx-auto mb-4 rounded-full"></div>
+                  <p className="text-xs font-black uppercase tracking-widest italic opacity-60">Le réseau au creux de votre main</p>
+                </div>
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -z-10"></div>
             </div>
           </div>
-          {/* Subtle logo background */}
           <div className="absolute -bottom-20 -right-20 w-96 h-96 opacity-5 rotate-12 bg-primary/20 rounded-full"></div>
         </section>
-
       </div>
     </div>
   );
