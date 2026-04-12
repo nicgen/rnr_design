@@ -2,26 +2,27 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedCounter from '../components/AnimatedCounter';
 import MagneticWrapper from '../components/MagneticWrapper';
-import logoRNR from '/resources/logo_RNR_alpha.png';
-import stadiumHero from '/resources/hero_bg.jpg';
-import presidentImg from '/resources/Matinee-conviviale-avec-le-RNR.jpeg';
-import jerseyImg from '/resources/Maillot-Domicile-25-26.webp';
-import galaImg from '/resources/gala.jpeg';
-import partnersImg from '/resources/mise-en-avant-partenaires.jpeg';
-import player1Img from '/resources/Soig_MINGANT.jpg';
-import player2Img from '/resources/Killian_LAISNE.jpg';
-import player3Img from '/resources/Marius_BUNEL.jpg';
-import fansImg from '/resources/Tous-derriere-les-Lions.jpeg';
-import delphineImg from '/resources/Delphine_Bunel.jpg';
-import vipBg from '/resources/vip_bg.png';
+import logoRNR from '/assets/images/content/logo_RNR_alpha.png';
+import stadiumHero from '/assets/images/ui/hero_bg.webp';
+import presidentImg from '/assets/images/content/Matinee-conviviale-avec-le-RNR.webp';
+import jerseyImg from '/assets/images/ui/Maillot-Domicile-25-26.webp';
+import galaImg from '/assets/images/ui/gala.webp';
+import partnersImg from '/assets/images/ui/mise-en-avant-partenaires.webp';
+import player1Img from '/assets/images/content/Soig_MINGANT.webp';
+import player2Img from '/assets/images/content/Killian_LAISNE.webp';
+import player3Img from '/assets/images/content/Marius_BUNEL.webp';
+import fansImg from '/assets/images/content/Tous-derriere-les-Lions.webp';
+import delphineImg from '/assets/images/content/Delphine_Bunel.webp';
+import vipBg from '/assets/images/ui/vip_bg.webp';
 
 
 
 // --- COMPOSANTS INTERNES D'UNIFICATION ---
 
-const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
+const SectionHeader = ({ title, linkTo, linkLabel, isDark = false, badge }) => (
   <div className="container-premium mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-2 rnr-section-header">
     <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
+    {badge && <span className="tag-pill bg-primary text-white">{badge}</span>}
     {linkTo && (
       <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white' : ''}`}>
         {linkLabel}
@@ -99,10 +100,10 @@ export default function Home() {
   ];
 
   const secondaryNews = [
-    { id: "changement-presidence", title: "LE ROUEN NORMANDIE RUGBY ANNONCE UN CHANGEMENT DE PRÉSIDENCE.", category: "CLUB", subtitle: "PHILIPPE MARTY PASSE LE RELAIS", img: delphineImg },
     { id: "prolongation-soig-mingant", title: "SOÏG MINGANT PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player1Img },
     { id: "prolongation-killian-laisne", title: "KILLIAN LAISNÉ PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player2Img },
     { id: "prolongation-marius-bunel", title: "MARIUS BUNEL PROLONGE JUSQU'EN 2028 !", category: "PROLONGATION", subtitle: "ENGAGEMENT", img: player3Img },
+    { id: "tous-derriere-les-lions", title: "TOUS DERRIÈRE LES LIONS !", category: "MATCH", subtitle: "Après deux victoires consécutives, nos Lions veulent enchaîner à domicile.", img: fansImg },
   ];
 
   return (
@@ -121,7 +122,7 @@ export default function Home() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/resources/video_bg.mp4" type="video/mp4" />
+            <source src="/assets/video/video_bg.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
@@ -148,40 +149,40 @@ export default function Home() {
             <div className="container-premium">
 
               {/* Mobile */}
-              <div className="flex md:hidden flex-col py-3 gap-2">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-black uppercase bg-primary text-white px-1.5 py-0.5 tracking-widest shrink-0">J</span>
-                    <span className="text-[9px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
-                  </div>
-                  <div className="flex gap-3">
-                    {[{ val: '11', label: 'J' }, { val: '08', label: 'H' }, { val: '00', label: 'M' }].map((u, i) => (
-                      <div key={i} className="flex items-baseline gap-0.5">
-                        <span className="text-xl font-black italic text-white leading-none">{u.val}</span>
-                        <span className="text-[8px] font-black text-white/40 tracking-wide">{u.label}</span>
-                      </div>
-                    ))}
-                  </div>
+              <div className="flex md:hidden flex-col py-3 gap-2.5">
+                {/* Ligne 1 : label + date */}
+                <div className="flex items-center gap-2">
+                  <span className="text-[9px] font-black uppercase bg-primary text-white px-1.5 py-0.5 tracking-widest shrink-0">PROCHAIN MATCH</span>
+                  <span className="text-[9px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
                 </div>
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <img src={logoRNR} alt="Rouen" className="w-6 h-6 object-contain flex-shrink-0" />
-                    <span className="font-black text-base italic uppercase text-white tracking-tight">ROUEN</span>
-                    <span className="text-primary font-black text-base italic mx-1">VS</span>
-                    <span className="font-black text-base italic uppercase text-white tracking-tight">MASSY</span>
-                  </div>
-                  <a
-                    href="http://billetterie.rouen-normandie-rugby.fr/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-shrink-0 -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
-                  >
-                    <span className="skew-x-12 flex items-center gap-1.5 font-black uppercase text-[11px] tracking-[0.2em] px-4 h-7">
-                      <span className="material-symbols-outlined text-[13px]">confirmation_number</span>
-                      BILLETS
-                    </span>
-                  </a>
+                {/* Ligne 2 : décompte */}
+                <div className="flex gap-4 justify-center">
+                  {[{ val: '11', label: 'J' }, { val: '08', label: 'H' }, { val: '00', label: 'M' }].map((u, i) => (
+                    <div key={i} className="flex items-baseline gap-0.5">
+                      <span className="text-xl font-black italic text-white leading-none">{u.val}</span>
+                      <span className="text-[8px] font-black text-white/40 tracking-wide">{u.label}</span>
+                    </div>
+                  ))}
                 </div>
+                {/* Ligne 3 : équipes */}
+                <div className="flex items-center justify-center gap-2">
+                  <img src={logoRNR} alt="Rouen" className="w-5 h-5 object-contain flex-shrink-0" />
+                  <span className="font-black text-sm italic uppercase text-white tracking-tight">ROUEN</span>
+                  <span className="text-primary font-black text-sm italic mx-1">VS</span>
+                  <span className="font-black text-sm italic uppercase text-white tracking-tight">MASSY</span>
+                </div>
+                {/* Ligne 4 : billetterie pleine largeur */}
+                <a
+                  href="http://billetterie.rouen-normandie-rugby.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
+                >
+                  <span className="skew-x-12 flex items-center justify-center gap-1.5 font-black uppercase text-[11px] tracking-[0.2em] px-4 h-8">
+                    <span className="material-symbols-outlined text-[13px]">confirmation_number</span>
+                    BILLETS
+                  </span>
+                </a>
               </div>
 
               {/* Desktop */}
@@ -213,7 +214,7 @@ export default function Home() {
                   <div className="flex items-center gap-2 lg:gap-4">
                     <span className="font-black text-3xl lg:text-5xl italic uppercase text-white tracking-tight">MASSY</span>
                     <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
-                      <img src="/resources/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
+                      <img src="/assets/images/content/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
                     </div>
                   </div>
                 </div>
@@ -292,24 +293,22 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
-        <SectionHeader title="LES RÉSULTATS" isDark />
+        <SectionHeader title="LES RÉSULTATS" isDark badge="SAISON 25/26" />
 
         <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
             <Link to="/equipe-pro/classement" className="flex flex-col items-center justify-center p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 hover:bg-black/50 cursor-pointer transition-all duration-500">
-              <h3 className="text-sm text-white/40 mb-4 group-hover:text-primary transition-colors">POSITION</h3>
-              <div className="relative pointer-events-none">
+              <div className="flex items-center justify-center pointer-events-none">
                 <div className="flex items-start">
-                  <span className="text-3xl font-black italic text-primary mt-3 mr-1">#</span>
-                  <span className="text-[clamp(9rem,18vw,20rem)] font-black leading-none italic tracking-tighter text-white select-none">7</span>
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-3 transform -skew-x-12 shadow-lg">
-                  <span className="inline-block skew-x-12 font-black italic">SAISON 25/26</span>
+                  <span className="text-6xl font-black italic text-primary leading-none self-start mt-4 mr-1">#</span>
+                  <div className="flex flex-col items-center">
+                    <span className="text-[clamp(9rem,18vw,20rem)] font-black leading-none italic tracking-tighter text-white select-none">7</span>
+                    <span className="text-2xl font-black italic text-white/40 leading-none -mt-2">/14</span>
+                  </div>
                 </div>
               </div>
-              <p className="mt-12 text-xs font-bold uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Classé sur 14 équipes</p>
             </Link>
 
             {/* Colonne Centre: DERNIERS RÉSULTATS */}
@@ -322,23 +321,24 @@ export default function Home() {
                   { j: "J 20", date: "21/02/26", home: "NICE", away: "ROUEN", score: "40 - 19", win: false },
                   { j: "J 19", date: "13/02/26", home: "ROUEN", away: "RENNES", score: "21 - 25", win: false },
                 ].map((res, i) => (
-                  <div key={i} className={`py-5 px-4 flex items-center justify-between group hover:bg-white/10 transition-all duration-300 border-l-[3px] ${res.win ? 'border-primary bg-primary/5' : 'border-white/10 bg-white/5'}`}>
-                    <div className="flex flex-col">
-                      <span className="text-xs font-black text-white leading-none mb-1">{res.j}</span>
+                  <div key={i} className={`py-3 px-4 flex flex-col md:flex-row md:items-center md:justify-between group hover:bg-white/10 transition-all duration-300 border-l-[3px] ${res.win ? 'border-primary bg-primary/5' : 'border-white/10 bg-white/5'}`}>
+                    <div className="flex items-center gap-3 mb-1.5 md:mb-0 md:flex-col md:items-start md:gap-0">
+                      <span className="text-xs font-black text-white leading-none">{res.j}</span>
                       <span className="text-(--text-xs) font-bold text-white/40">{res.date}</span>
                     </div>
-                    <div className="flex-1 flex justify-center items-center gap-3 text-sm font-black italic">
-                      <span className={`uppercase w-16 text-right truncate ${res.home === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.home}</span>
-                      <span className={`${res.win ? 'bg-primary text-white' : 'bg-white/10 text-white/40'} px-2 py-1 text-(--text-xs) min-w-[50px] text-center transform -skew-x-12`}>
+                    <div className="flex justify-center items-center gap-3 text-sm font-black italic w-full md:flex-1">
+                      <span className={`uppercase truncate flex-1 text-right ${res.home === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.home}</span>
+                      <span className={`${res.win ? 'bg-primary text-white' : 'bg-white/10 text-white/40'} px-2 py-1 text-(--text-xs) min-w-[50px] text-center transform -skew-x-12 shrink-0`}>
                         <span className="inline-block skew-x-12">{res.score}</span>
                       </span>
-                      <span className={`uppercase w-16 text-left truncate ${res.away === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.away}</span>
+                      <span className={`uppercase truncate flex-1 text-left ${res.away === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.away}</span>
                     </div>
                   </div>
                 ))}
               </div>
-              <Link to="/equipe-pro/calendrier" className="mt-4 text-(--text-xs) font-black uppercase self-center tracking-widest text-primary hover:text-white transition-colors cursor-pointer border-b border-primary italic">
+              <Link to="/equipe-pro/calendrier" className="mt-4 btn-link rnr-section-header-link text-white/60 hover:text-white self-center">
                 Voir tous les résultats
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
 
@@ -411,7 +411,7 @@ export default function Home() {
 
       {/* LA BOUTIQUE OFFICIELLE */}
       <section id="section-boutique" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
-<SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" />
+<SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter la boutique" />
 
         <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -486,8 +486,8 @@ export default function Home() {
               { val: "260", label: "Partenaires officiels",          icon: "handshake" },
               { val: "120", label: "Bénévoles engagés",              icon: "favorite" },
             ].map((stat, i) => (
-              <div key={i} className="relative flex items-center group overflow-hidden rounded-lg px-6 py-4">
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 material-symbols-outlined leading-none text-white/5 group-hover:text-white/8 transition-colors duration-300 pointer-events-none select-none" style={{ fontSize: 'clamp(8rem,14vw,14rem)' }}>{stat.icon}</span>
+              <div key={i} className="relative flex items-center group rounded-lg px-6 py-4">
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 material-symbols-outlined leading-none text-white/5 group-hover:text-white/8 transition-colors duration-300 pointer-events-none select-none" style={{ fontSize: 'clamp(8rem,14vw,14rem)' }}>{stat.icon}</span>
                 <div className="relative z-10">
                   <p className="text-[clamp(3.5rem,8vw,5rem)] font-black italic leading-none text-white group-hover:text-primary transition-colors duration-300">{stat.val}</p>
                   <p className="text-(--text-xs) uppercase font-black tracking-[0.2em] text-slate-400 mt-1">{stat.label}</p>
@@ -539,10 +539,10 @@ export default function Home() {
         <div className="container-premium">
           <div className="flex justify-center gap-12 lg:gap-20 flex-wrap">
             {[
-              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", logo: "/resources/logo_instagram.svg" },
-              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  logo: "/resources/logo_facebook.svg" },
-              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   logo: "/resources/logo_youtube.svg" },
-              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", logo: "/resources/logo_linkedIn.svg" },
+              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", logo: "/assets/svg/logo_instagram.svg" },
+              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  logo: "/assets/svg/logo_facebook.svg" },
+              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   logo: "/assets/svg/logo_youtube.svg" },
+              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", logo: "/assets/svg/logo_linkedIn.svg" },
             ].map((social, i) => (
               <a
                 key={i}

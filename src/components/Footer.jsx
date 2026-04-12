@@ -7,13 +7,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-40">Actualités</h4>
-            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500">
+            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
               <li><Link to="/actualites-medias" className="hover:text-primary transition-colors">Dernières Actus</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-40">Le Club</h4>
-            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500">
+            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
               <li><Link to="/le-club" className="hover:text-primary transition-colors">Histoire & Palmarès</Link></li>
               <li><Link to="/le-club/organigramme" className="hover:text-primary transition-colors">Organigramme</Link></li>
               <li><Link to="/le-club/infrastructures" className="hover:text-primary transition-colors">Infrastructures</Link></li>
@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-40">L'Équipe Pro</h4>
-            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500">
+            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
               <li><Link to="/equipe-pro" className="hover:text-primary transition-colors">Effectif</Link></li>
               <li><Link to="/equipe-pro/calendrier" className="hover:text-primary transition-colors">Calendrier</Link></li>
               <li><Link to="/equipe-pro/classement" className="hover:text-primary transition-colors">Classement</Link></li>
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-40">Formation</h4>
-            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500">
+            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
               <li><a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Détection</a></li>
               <li><Link to="/formation" className="hover:text-primary transition-colors">Académie</Link></li>
               <li><Link to="/formation/jeunes" className="hover:text-primary transition-colors">Pôle Jeunes</Link></li>
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-40">Partenaires</h4>
-            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500">
+            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
               <li><Link to="/partenaires" className="hover:text-primary transition-colors">Business Club</Link></li>
               <li><Link to="/partenaires/hospitalites" className="hover:text-primary transition-colors">Hospitalités</Link></li>
               <li><Link to="/partenaires/visibilite" className="hover:text-primary transition-colors">Visibilité</Link></li>
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-40">Pratique</h4>
-            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500">
+            <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
               <li><a href="http://billetterie.rouen-normandie-rugby.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Billetterie</a></li>
               <li><a href="http://boutique.rouennormandierugby.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Boutique</a></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
