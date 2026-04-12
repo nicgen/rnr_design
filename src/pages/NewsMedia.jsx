@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
+import actuImg from "/assets/images/ui/www_actualite.webp";
 import ArticleCard from "../components/ArticleCard";
 import FilterBar from "../components/FilterBar";
 
@@ -92,6 +93,7 @@ export default function NewsMedia() {
       <PageHero
         title="Actualités & Médias"
         subtitle="Suivez au quotidien la vie du Rouen Normandie Rugby : coulisses, résultats, vie du club et événements partenaires."
+        bgImage={actuImg}
       />
 
       <div className="container-premium py-16">

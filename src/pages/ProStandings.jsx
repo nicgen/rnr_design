@@ -1,5 +1,5 @@
 import PageHero from "../components/PageHero";
-import heroImg from "/assets/images/ui/hero_bg.webp";
+import heroImg from "/assets/images/ui/www_equipe_pro.webp";
 
 const navLinks = [
   { label: "Effectif (Joueurs & Staff)", path: "/equipe-pro", exact: true },

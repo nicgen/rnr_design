@@ -1,5 +1,5 @@
 import PageHero from "../components/PageHero";
-import heroImg from "/assets/images/ui/hero_bg.webp";
+import heroImg from "/assets/images/ui/www_formation.webp";
 
 const navLinks = [
   { label: "Centre de formation - Académie", path: "/formation", exact: true },

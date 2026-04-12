@@ -1,5 +1,5 @@
 import PageHero from "../components/PageHero";
-import heroImg from "/assets/images/ui/hero_bg.webp";
+import heroImg from "/assets/images/ui/www_entreprise.webp";
 
 const navLinks = [
   { label: "Le Business Club", path: "/partenaires", exact: true },

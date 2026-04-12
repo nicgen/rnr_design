@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import PageHero from "../components/PageHero";
+import contactImg from "/assets/images/ui/www_contact.webp";
 import PlaceholderImage from "../components/PlaceholderImage";
 
 export default function Contact() {
@@ -14,6 +15,7 @@ export default function Contact() {
       <PageHero
         title="Nous Contacter"
         subtitle="Une question, une demande de partenariat ou d'information ? Nous vous répondons rapidement."
+        bgImage={contactImg}
       />
 
       <div className="container-premium py-16">
