@@ -4,6 +4,7 @@ import AnimatedCounter from '../components/AnimatedCounter';
 import MagneticWrapper from '../components/MagneticWrapper';
 import logoRNR from '/assets/images/content/logo_RNR_alpha.png';
 import stadiumHero from '/assets/images/ui/hero_bg.webp';
+import statsHero from '/assets/images/ui/www_leclub.webp';
 import presidentImg from '/assets/images/content/Matinee-conviviale-avec-le-RNR.webp';
 import jerseyImg from '/assets/images/ui/Maillot-Domicile-25-26.webp';
 import galaImg from '/assets/images/ui/gala.webp';
@@ -21,8 +22,10 @@ import vipBg from '/assets/images/ui/vip_bg.webp';
 
 const SectionHeader = ({ title, linkTo, linkLabel, isDark = false, badge }) => (
   <div className="container-premium mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-2 rnr-section-header">
-    <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
-    {badge && <span className="tag-pill bg-primary text-white -skew-x-12 self-start"><span className="skew-x-12 inline-block">{badge}</span></span>}
+    <div className="flex items-center gap-5 flex-wrap">
+      <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
+      {badge && <span className="-skew-x-12 self-center bg-primary px-4 py-1.5"><span className="skew-x-12 inline-block text-white font-black uppercase tracking-widest" style={{ fontSize: 'var(--text-h4)' }}>{badge}</span></span>}
+    </div>
     {linkTo && (
       <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white' : ''}`}>
         {linkLabel}
@@ -296,7 +299,7 @@ export default function Home() {
       <section id="section-stats" className="relative py-(--space-xl) w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden">
         {/* Background image for the section */}
         <div className="absolute inset-0 z-0">
-          <img src={stadiumHero} alt="Stadium Statistics" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+          <img src={statsHero} alt="Stadium Statistics" className="absolute inset-0 w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 

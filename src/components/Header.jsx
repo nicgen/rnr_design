@@ -56,7 +56,7 @@ export default function Header() {
     {
       id: 'club',
       title: 'LE CLUB',
-      image: '/assets/images/ui/visuel_stade.webp',
+      image: '/assets/images/ui/www_leclub.webp',
       links: [
         { label: 'Histoire & Palmarès', to: '/le-club' },
         { label: 'Direction & Organigramme', to: '/le-club/organigramme' },
@@ -67,7 +67,7 @@ export default function Header() {
     {
       id: 'pro',
       title: "L'ÉQUIPE PRO",
-      image: '/assets/images/ui/visuel_stade.webp',
+      image: '/assets/images/ui/www_equipe_pro.webp',
       links: [
         { label: 'Effectif Pro 23/24', to: '/equipe-pro' },
         { label: 'Staff Technique', to: '/equipe-pro' },
@@ -86,7 +86,7 @@ export default function Header() {
     {
       id: 'formation',
       title: 'FORMATION',
-      image: '/assets/images/ui/visuel_stade.webp',
+      image: '/assets/images/ui/www_formation.webp',
       links: [
         { label: 'Détection', to: 'https://www.rouennormandierugbyformation.fr/detections/', isExternal: true },
         { label: 'Centre de formation - Académie', to: '/formation' },
@@ -97,7 +97,7 @@ export default function Header() {
     {
       id: 'partenaires',
       title: 'PARTENAIRES',
-      image: '/assets/images/ui/visuel_stade.webp',
+      image: '/assets/images/ui/www_entreprise.webp',
       links: [
         { label: 'Le Business Club', to: '/partenaires' },
         { label: 'Hospitalités & Loges', to: '/partenaires/hospitalites' },
