@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 import FilterBar from "../components/FilterBar";
-import heroImg from "/resources/hero_bg.jpg";
+import heroImg from "/assets/images/ui/hero_bg.webp";
 
 const navLinks = [
   { label: "Effectif (Joueurs & Staff)", path: "/equipe-pro", exact: true },
@@ -71,8 +71,8 @@ export default function ProTeam() {
     {
       title: "Troisième Ligne",
       players: [
-        { name: "Soïg MINGANT", position: "Troisième ligne aile (6)", nationality: "FRA", image: "/resources/Soig_MINGANT.jpg" },
-        { name: "Killian LAISNÉ", position: "Troisième ligne aile (7)", nationality: "FRA", image: "/resources/Killian_LAISNE.jpg" },
+        { name: "Soïg MINGANT", position: "Troisième ligne aile (6)", nationality: "FRA", image: "/assets/images/content/Soig_MINGANT.webp" },
+        { name: "Killian LAISNÉ", position: "Troisième ligne aile (7)", nationality: "FRA", image: "/assets/images/content/Killian_LAISNE.webp" },
         { name: "Nom Prénom", position: "Troisième ligne centre (8)", nationality: "FRA" }
       ]
     },
@@ -93,7 +93,7 @@ export default function ProTeam() {
     {
       title: "Ailiers",
       players: [
-        { name: "Marius BUNEL", position: "Trois-quarts aile (11)", nationality: "FRA", image: "/resources/Marius_BUNEL.jpg" },
+        { name: "Marius BUNEL", position: "Trois-quarts aile (11)", nationality: "FRA", image: "/assets/images/content/Marius_BUNEL.webp" },
         { name: "Nom Prénom", position: "Trois-quarts aile (14)", nationality: "FRA" },
       ]
     },

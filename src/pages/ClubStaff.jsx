@@ -1,6 +1,6 @@
 import PageHero from "../components/PageHero";
-import heroImg from "/resources/hero_bg_alt.jpg";
-import presidentImg from "/resources/Delphine_Bunel.jpg";
+import heroImg from "/assets/images/ui/hero_bg_alt.webp";
+import presidentImg from "/assets/images/content/Delphine_Bunel.webp";
 
 const navLinks = [
   { label: "Histoire & Palmarès", path: "/le-club", exact: true },
@@ -13,7 +13,7 @@ const ProfileCard = ({ name, role, photo }) => (
   <div className="group relative bg-white border border-slate-100 p-2 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden">
     <div className="relative aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
       <img
-        src={photo || "/resources/logo_RNR_alpha.png"}
+        src={photo || "/assets/images/content/logo_RNR_alpha.png"}
         alt={name}
         className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 ${!photo ? 'opacity-10 p-12' : ''}`}
       />

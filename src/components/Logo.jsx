@@ -14,7 +14,7 @@ const Logo = () => {
   return (
     <div className={`relative flex items-center justify-center gap-2 transition-all duration-500 ${isScrolled ? 'h-[40px]' : 'h-[50px] lg:h-[60px]'}`}>
       <img 
-        src="/resources/logo_RNR_white.svg" 
+        src="/assets/svg/logo_RNR_white.svg" 
         alt="RNR Logo"
         className="h-full w-auto transition-all duration-500 ease-in-out"
       />

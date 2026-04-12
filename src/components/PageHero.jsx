@@ -7,7 +7,7 @@ export default function PageHero({ title, subtitle, bgImage, subNavLinks }) {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={bgImage || '/resources/rnr_hero-bg-image-placeholder.png'}
+          src={bgImage || '/assets/images/ui/rnr_hero-bg-image-placeholder.png'}
           alt=""
           className="w-full h-full object-cover opacity-50 animate-ken-burns"
         />

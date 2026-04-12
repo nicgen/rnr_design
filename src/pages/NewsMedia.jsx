@@ -9,7 +9,7 @@ const articles = [
     category: "CLUB",
     title: "Changement à la tête de la présidence du RNR",
     date: "22 Mars 2024",
-    img: "/resources/Delphine_Bunel.jpg",
+    img: "/assets/images/content/Delphine_Bunel.webp",
     excerpt: "Le Rouen Normandie Rugby annonce aujourd'hui un changement à la tête de sa gouvernance. Philippe Marty a décidé de passer le relais..."
   },
   {
@@ -17,7 +17,7 @@ const articles = [
     category: "PRO",
     title: "Soïg MINGANT prolonge avec le RNR !",
     date: "12 Mars 2026",
-    img: "/resources/Soig_MINGANT.jpg",
+    img: "/assets/images/content/Soig_MINGANT.webp",
     excerpt: "C'est au tour de Soïg de poursuivre l'aventure avec le Rouen Normandie Rugby. Notre 3ème ligne est désormais lié au club jusqu'en 2028."
   },
   {
@@ -25,7 +25,7 @@ const articles = [
     category: "PRO",
     title: "Killian LAISNÉ prolonge avec le RNR !",
     date: "10 Mars 2026",
-    img: "/resources/Killian_LAISNE.jpg",
+    img: "/assets/images/content/Killian_LAISNE.webp",
     excerpt: "Issu du Centre de Formation du RNR, notre troisième ligne de 19 ans prolonge son aventure jusqu'en 2028 avec nos Lions !"
   },
   {
@@ -33,7 +33,7 @@ const articles = [
     category: "PRO",
     title: "Marius BUNEL prolonge jusqu'en 2028 !",
     date: "08 Mars 2026",
-    img: "/resources/Marius_BUNEL.jpg",
+    img: "/assets/images/content/Marius_BUNEL.webp",
     excerpt: "Arrivé au Rouen Normandie Rugby en 2019, Marius BUNEL continue son ascension et prolonge son engagement."
   },
   {
@@ -41,7 +41,7 @@ const articles = [
     category: "MATCH",
     title: "Tous derrière les Lions pour la réception de Massy !",
     date: "05 Mars 2026",
-    img: "/resources/Tous-derriere-les-Lions.jpeg",
+    img: "/assets/images/content/Tous-derriere-les-Lions.webp",
     excerpt: "Après deux victoires consécutives, nos Lions veulent enchaîner à domicile. Rendez-vous vendredi 20 mars à 20h !"
   },
   {
@@ -49,7 +49,7 @@ const articles = [
     category: "ÉVÉNEMENT",
     title: "L'art au cœur de notre soirée de gala",
     date: "01 Mars 2026",
-    img: "/resources/gala.jpeg",
+    img: "/assets/images/ui/gala.webp",
     excerpt: "À l'occasion de notre soirée de gala, nous aurons le plaisir de proposer une vente aux enchères exclusive mettant à l'honneur des œuvres uniques."
   },
   {
@@ -57,7 +57,7 @@ const articles = [
     category: "BUSINESS",
     title: "Matinée conviviale : Petit-déjeuner mensuel",
     date: "25 Février 2026",
-    img: "/resources/Matinee-conviviale-avec-le-RNR.jpeg",
+    img: "/assets/images/content/Matinee-conviviale-avec-le-RNR.webp",
     excerpt: "Le RNR et son réseau de partenaires se sont retrouvés pour leur petit-déjeuner mensuel, organisé par Mercedes-Benz Groupe MET."
   },
   {
@@ -65,7 +65,7 @@ const articles = [
     category: "BUSINESS",
     title: "Mise en avant de nos partenaires locaux",
     date: "20 Février 2026",
-    img: "/resources/mise-en-avant-partenaires.jpeg",
+    img: "/assets/images/ui/mise-en-avant-partenaires.webp",
     excerpt: "À l'occasion de notre dernière rencontre à domicile, nous avons souhaité proposer une expérience différente à nos partenaires."
   },
   {
@@ -73,7 +73,7 @@ const articles = [
     category: "BOUTIQUE",
     title: "Maillot Domicile Replica 25-26 disponible",
     date: "15 Février 2026",
-    img: "/resources/Maillot-Domicile-25-26.webp",
+    img: "/assets/images/ui/Maillot-Domicile-25-26.webp",
     excerpt: "Montrez votre soutien aux Lions avec le maillot domicile replica du Rouen Normandie Rugby ! Conçu pour les passionnés."
   }
 ];

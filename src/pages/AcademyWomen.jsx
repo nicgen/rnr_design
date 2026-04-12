@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
-import heroImg from "/resources/hero_bg_alt.jpg";
+import heroImg from "/assets/images/ui/hero_bg_alt.webp";
 
 const navLinks = [
   { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },

@@ -1,5 +1,5 @@
 import PageHero from "../components/PageHero";
-import formationImg from "/resources/formation.jpg";
+import formationImg from "/assets/images/ui/formation.webp";
 
 const navLinks = [
   { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },

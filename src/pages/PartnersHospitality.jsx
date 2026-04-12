@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
-import heroImg from "/resources/hero_bg.jpg";
+import heroImg from "/assets/images/ui/hero_bg.webp";
 
 const navLinks = [
   { label: "Le Business Club", path: "/partenaires", exact: true },
@@ -73,7 +73,7 @@ export default function PartnersHospitality() {
         </div>
 
         <section className="bg-black text-white relative overflow-hidden mb-24">
-          <div className="absolute inset-0 bg-[url('/resources/hero_bg.jpg')] bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-[url('/assets/images/ui/hero_bg.webp')] bg-cover bg-center opacity-20"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
 
           <div className="relative z-10 p-12 lg:p-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

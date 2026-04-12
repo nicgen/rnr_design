@@ -1,6 +1,6 @@
 import PageHero from "../components/PageHero";
-import diochonImg from "/resources/stade_diochon.jpeg";
-import heroImg from "/resources/hero_bg.jpg";
+import diochonImg from "/assets/images/ui/stade_diochon.webp";
+import heroImg from "/assets/images/ui/hero_bg.webp";
 
 const navLinks = [
   { label: "Histoire & Palmarès", path: "/le-club", exact: true },

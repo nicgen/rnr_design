@@ -6,7 +6,7 @@ const articlesData = {
     category: "CLUB",
     title: "Le Rouen Normandie Rugby annonce un changement de présidence.",
     date: "22 MARS 2024",
-    img: "/resources/Delphine_Bunel.jpg",
+    img: "/assets/images/content/Delphine_Bunel.webp",
     content: `Le Rouen Normandie Rugby annonce aujourd’hui un changement à la tête de sa gouvernance. Philippe Marty a décidé de passer le relais. Cette décision, mûrement réfléchie, s’inscrit dans une volonté de continuité et de pérennité du projet du RNR.
 
     Le Conseil d’administration a désigné Delphine Bunel pour lui succéder à la présidence du club. Déjà fortement impliquée dans la vie rugbystique locale et régionale, elle aura pour mission de poursuivre le développement sportif, économique et institutionnel du club, dans le respect de ses valeurs.
@@ -19,7 +19,7 @@ const articlesData = {
     category: "PRO",
     title: "Soïg MINGANT prolonge avec le RNR !",
     date: "12 MARS 2026",
-    img: "/resources/Soig_MINGANT.jpg",
+    img: "/assets/images/content/Soig_MINGANT.webp",
     content: `C’est au tour de Soïg de poursuivre l’aventure avec le Rouen Normandie Rugby. À 21 ans, notre 3ème ligne issu du centre de formation a déjà pris part à 13 rencontres avec l’équipe professionnelle 🔥
 
     Soïg MINGANT est désormais lié au RNR jusqu’en 2028 🔴⚫
@@ -30,7 +30,7 @@ const articlesData = {
     category: "PRO",
     title: "Marius BUNEL prolonge jusqu’en 2028 !",
     date: "08 MARS 2026",
-    img: "/resources/Marius_BUNEL.jpg",
+    img: "/assets/images/content/Marius_BUNEL.webp",
     content: `Marius BUNEL prolonge l’aventure ! Arrivé au Rouen Normandie Rugby en 2019, Marius BUNEL continue son ascension. Formé à Rouen, notre ailier poursuit l’aventure et prolonge son engagement avec le RNR jusqu’en 2028.
 
     Une belle récompense pour son travail, sa progression et son engagement sous les couleurs rouennaises.

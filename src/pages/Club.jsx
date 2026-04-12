@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
-import galaImg from "/resources/gala.jpeg";
-import partnersImg from "/resources/mise-en-avant-partenaires.jpeg";
-import heroStadium from "/resources/hero_bg.jpg";
+import galaImg from "/assets/images/ui/gala.webp";
+import partnersImg from "/assets/images/ui/mise-en-avant-partenaires.webp";
+import heroStadium from "/assets/images/ui/hero_bg.webp";
 
 const navLinks = [
   { label: "Histoire & Palmarès", path: "/le-club", exact: true },

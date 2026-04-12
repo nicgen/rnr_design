@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
-import heroImg from "/resources/hero_bg.jpg";
+import heroImg from "/assets/images/ui/hero_bg.webp";
 
 const navLinks = [
   { label: "Le Business Club", path: "/partenaires", exact: true },
