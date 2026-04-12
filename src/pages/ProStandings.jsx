@@ -1,5 +1,5 @@
-import Breadcrumb from "../components/Breadcrumb";
-import SectionNav from "../components/SectionNav";
+import PageHero from "../components/PageHero";
+import heroImg from "/assets/images/ui/www_equipe_pro.webp";
 
 const navLinks = [
   { label: "Effectif (Joueurs & Staff)", path: "/equipe-pro", exact: true },
@@ -27,27 +27,19 @@ export default function ProStandings() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HEADER SECTION */}
-      <div className="bg-slate-50 border-b border-slate-200 mb-12">
-        <div className="max-w-7xl mx-auto px-4 pt-32 pb-16">
-          <Breadcrumb />
-          <h1 className="text-6xl font-black uppercase italic tracking-tighter mb-4">Classement Nationale</h1>
-          <p className="text-lg text-slate-500 max-w-2xl font-medium italic">
-            Suivez l'évolution des Lions au classement officiel de la Nationale pour la saison 2025-2026.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="Classement Nationale"
+        subtitle="Suivez l'évolution des Lions au classement officiel de la Nationale pour la saison 2025-2026."
+        bgImage={heroImg}
+        subNavLinks={navLinks}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 pb-24">
-        <SectionNav 
-          links={navLinks} 
-        />
-
+      <div className="container-premium pb-24 pt-12">
         <div className="bg-white border border-slate-100 shadow-xl overflow-hidden max-w-5xl mx-auto">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-black text-white italic uppercase text-(--text-xs) tracking-widest font-black">
+                <tr className="bg-black text-white italic uppercase text-xs tracking-widest font-black">
                   <th className="p-6 text-center">Pos</th>
                   <th className="p-6">Club</th>
                   <th className="p-6 text-center">J</th>
@@ -60,34 +52,30 @@ export default function ProStandings() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {standings.map((team, index) => (
-                  <tr 
-                    key={index} 
-                    className={`group transition-all duration-300 hover:bg-slate-50 ${
-                      team.team === "ROUEN NORMANDIE RUGBY" ? "bg-primary/[0.03] relative z-10" : ""
-                    }`}
+                  <tr
+                    key={index}
+                    className={`group transition-all duration-300 hover:bg-slate-50 ${team.team === "ROUEN NORMANDIE RUGBY" ? "bg-primary/[0.03] relative z-10" : ""}`}
                   >
                     <td className="p-5 text-center font-black italic text-lg tracking-tighter">
                       <div className="flex items-center justify-center">
                         {index < 2 ? (
-                          <span className="bg-primary text-white w-8 h-8 flex items-center justify-center rounded-full text-xs shadow-lg -skew-x-12">
-                            <span className="skew-x-12">{team.pos}</span>
+                          <span className="bg-primary text-white w-8 h-8 flex items-center justify-center rounded-full text-xs shadow-lg">
+                            {team.pos}
                           </span>
                         ) : index < 6 ? (
-                          <span className="bg-black text-white w-8 h-8 flex items-center justify-center rounded-full text-xs -skew-x-12">
-                            <span className="skew-x-12">{team.pos}</span>
+                          <span className="bg-black text-white w-8 h-8 flex items-center justify-center rounded-full text-xs">
+                            {team.pos}
                           </span>
                         ) : index >= 12 ? (
-                          <span className="bg-slate-200 text-slate-500 w-8 h-8 flex items-center justify-center rounded-full text-xs -skew-x-12">
-                            <span className="skew-x-12">{team.pos}</span>
+                          <span className="bg-slate-200 text-slate-500 w-8 h-8 flex items-center justify-center rounded-full text-xs">
+                            {team.pos}
                           </span>
                         ) : (
                           <span className="text-slate-400">{team.pos}</span>
                         )}
                       </div>
                     </td>
-                    <td className={`p-5 font-black italic text-base md:text-xl tracking-tighter uppercase ${
-                      team.team === "ROUEN NORMANDIE RUGBY" ? "text-primary" : "text-black"
-                    }`}>
+                    <td className={`p-5 font-black italic text-base md:text-xl tracking-tighter uppercase ${team.team === "ROUEN NORMANDIE RUGBY" ? "text-primary" : "text-black"}`}>
                       {team.team}
                       {team.team === "ROUEN NORMANDIE RUGBY" && (
                         <span className="ml-2 inline-block w-2 h-2 bg-primary rounded-full animate-pulse"></span>
@@ -105,19 +93,18 @@ export default function ProStandings() {
             </table>
           </div>
         </div>
-        
-        {/* Legend */}
-        <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 md:gap-12 mt-12 text-(--text-xs) font-black uppercase tracking-widest text-slate-400 py-8 border-t border-slate-100 max-w-5xl mx-auto">
+
+        <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 md:gap-12 mt-12 text-xs font-black uppercase tracking-widest text-slate-400 py-8 border-t border-slate-100 max-w-5xl mx-auto">
           <div className="flex items-center gap-3">
-            <span className="w-4 h-4 bg-primary rounded-full shadow-lg shadow-primary/30 -skew-x-12"></span> 
+            <span className="w-4 h-4 bg-primary rounded-full shadow-lg shadow-primary/30"></span>
             Qualifiés Demi-finales
           </div>
           <div className="flex items-center gap-3">
-            <span className="w-4 h-4 bg-black rounded-full shadow-lg shadow-black/30 -skew-x-12"></span> 
+            <span className="w-4 h-4 bg-black rounded-full shadow-lg shadow-black/30"></span>
             Qualifiés Barrages
           </div>
           <div className="flex items-center gap-3">
-            <span className="w-4 h-4 bg-slate-200 rounded-full -skew-x-12"></span> 
+            <span className="w-4 h-4 bg-slate-200 rounded-full"></span>
             Relégables
           </div>
         </div>

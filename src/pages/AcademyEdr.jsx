@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
-import SectionNav from "../components/SectionNav";
-import edrImg from "/resources/formation_enfants.jpg";
+import PageHero from "../components/PageHero";
+import edrImg from "/assets/images/ui/www_formation.webp";
 
 const navLinks = [
   { label: "Détection", path: "https://www.rouennormandierugbyformation.fr/detections/", external: true },
@@ -11,11 +10,11 @@ const navLinks = [
 ];
 
 const CategoryCard = ({ title, ages, schedule }) => (
-  <div className="bg-white border border-slate-200 p-8 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500 skew-x-[-2deg] shadow-sm hover:shadow-xl">
-    <div className="skew-x-[2deg] relative z-10">
+  <div className="bg-white border border-slate-200 p-8 relative overflow-hidden group hover:bg-black hover:text-white transition-all duration-500 shadow-sm hover:shadow-xl">
+    <div className="relative z-10">
       <h3 className="text-2xl font-black uppercase italic tracking-tighter leading-none mb-2">{title}</h3>
-      <p className="text-primary font-bold uppercase text-(--text-xs) tracking-[0.3em] mb-6">{ages}</p>
-      
+      <p className="text-primary font-bold uppercase text-xs tracking-[0.3em] mb-6">{ages}</p>
+
       <div className="space-y-3 text-sm font-medium italic opacity-60 group-hover:opacity-100 transition-opacity">
         <div className="flex gap-3 items-start">
           <span className="material-symbols-outlined text-primary text-lg">calendar_month</span>
@@ -34,32 +33,14 @@ const CategoryCard = ({ title, ages, schedule }) => (
 export default function AcademyEdr() {
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO SECTION */}
-      <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={edrImg} 
-            alt="École de Rugby" 
-            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-        </div>
-        
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
-          <Breadcrumb />
-          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic">
-            ÉCOLE DE RUGBY (EDR)
-          </h1>
-          <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            LE PLAISIR, LE RESPECT ET LA SOLIDARITÉ.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="École de Rugby (EDR)"
+        subtitle="Le plaisir, le respect et la solidarité."
+        bgImage={edrImg}
+        subNavLinks={navLinks}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-30 pb-24">
-        <SectionNav links={navLinks} />
-
-        {/* INTRO & STATS */}
+      <div className="container-premium pb-24">
         <section className="py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -68,31 +49,30 @@ export default function AcademyEdr() {
               <p className="text-lg text-slate-500 font-medium italic leading-relaxed mb-10">
                 L'École de Rugby est le socle de notre association. Elle accueille les enfants dès 3 ans pour leur faire découvrir les joies du ballon ovale. L'apprentissage se fait par le jeu, dans un cadre sécurisant et convivial, avec pour mots d'ordre : Plaisir, Respect et Solidarité.
               </p>
-              
+
               <div className="flex gap-8">
                 <div className="relative group">
                   <p className="text-6xl font-black text-slate-900 italic tracking-tighter group-hover:text-primary transition-colors">3★</p>
-                  <p className="text-(--text-xs) font-black uppercase tracking-widest text-slate-400">Label FFR</p>
+                  <p className="text-xs font-black uppercase tracking-widest text-slate-400">Label FFR</p>
                 </div>
                 <div className="w-[1px] h-16 bg-slate-100"></div>
                 <div className="relative group">
                   <p className="text-6xl font-black text-slate-900 italic tracking-tighter group-hover:text-primary transition-colors">300+</p>
-                  <p className="text-(--text-xs) font-black uppercase tracking-widest text-slate-400">Licenciés</p>
+                  <p className="text-xs font-black uppercase tracking-widest text-slate-400">Licenciés</p>
                 </div>
               </div>
             </div>
 
             <div className="relative">
-              <div className="relative overflow-hidden skew-x-[-3deg] shadow-2xl h-[500px]">
-                <img src={edrImg} alt="EDR Action" className="w-full h-full object-cover skew-x-[3deg] scale-110" />
+              <div className="relative overflow-hidden shadow-2xl h-[500px]">
+                <img src={edrImg} alt="EDR Action" className="w-full h-full object-cover scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </div>
-              <div className="absolute -z-10 top-10 -left-10 w-full h-full border-2 border-slate-100 skew-x-[-3deg]"></div>
+              <div className="absolute -z-10 top-10 -left-10 w-full h-full border-2 border-slate-100"></div>
             </div>
           </div>
         </section>
 
-        {/* CATEGORIES */}
         <section className="mb-24">
           <div className="mb-12">
             <h3 className="text-3xl font-black uppercase italic tracking-tighter">Nos Catégories</h3>
@@ -106,15 +86,14 @@ export default function AcademyEdr() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-black text-white p-12 lg:p-20 text-center relative overflow-hidden skew-x-[-2deg] shadow-2xl">
-          <div className="relative z-10 skew-x-[2deg]">
+        <section className="bg-black text-white p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl">
+          <div className="relative z-10">
             <h2 className="text-4xl lg:text-6xl font-black uppercase italic tracking-tighter mb-6">Rejoignez l'aventure !</h2>
             <p className="text-lg text-white/60 font-medium italic max-w-2xl mx-auto mb-10">
               Les inscriptions sont ouvertes toute l'année. Venez faire un essai gratuit et découvrez l'esprit Rugby au RNR.
             </p>
-            <Link 
-              to="/contact?sujet=association" 
+            <Link
+              to="/contact?sujet=association"
               className="inline-block bg-primary text-white font-black uppercase px-12 py-5 hover:bg-white hover:text-primary transition-all duration-300"
             >
               Plus d'informations

@@ -56,19 +56,18 @@ export default function Header() {
     {
       id: 'club',
       title: 'LE CLUB',
-      image: '/resources/visuel_stade.jpeg',
+      image: '/assets/images/ui/www_leclub.webp',
       links: [
         { label: 'Histoire & Palmarès', to: '/le-club' },
         { label: 'Direction & Organigramme', to: '/le-club/organigramme' },
         { label: 'Infrastructures & Stade', to: '/le-club/infrastructures' },
-        { label: 'Engagements RSE', to: '/le-club/engagements' },
-        { label: 'Contact', to: '/contact' }
+        { label: 'Engagements RSE', to: '/le-club/engagements' }
       ]
     },
     {
       id: 'pro',
       title: "L'ÉQUIPE PRO",
-      image: '/resources/visuel_stade.jpeg',
+      image: '/assets/images/ui/www_equipe_pro.webp',
       links: [
         { label: 'Effectif Pro 23/24', to: '/equipe-pro' },
         { label: 'Staff Technique', to: '/equipe-pro' },
@@ -87,7 +86,7 @@ export default function Header() {
     {
       id: 'formation',
       title: 'FORMATION',
-      image: '/resources/visuel_stade.jpeg',
+      image: '/assets/images/ui/www_formation.webp',
       links: [
         { label: 'Détection', to: 'https://www.rouennormandierugbyformation.fr/detections/', isExternal: true },
         { label: 'Centre de formation - Académie', to: '/formation' },
@@ -98,7 +97,7 @@ export default function Header() {
     {
       id: 'partenaires',
       title: 'PARTENAIRES',
-      image: '/resources/visuel_stade.jpeg',
+      image: '/assets/images/ui/www_entreprise.webp',
       links: [
         { label: 'Le Business Club', to: '/partenaires' },
         { label: 'Hospitalités & Loges', to: '/partenaires/hospitalites' },
@@ -139,7 +138,7 @@ export default function Header() {
       <nav className={`fixed w-full top-0 z-[100] text-white transition-all duration-500 ${isVisible && !isMenuOpen ? 'translate-y-0' : '-translate-y-full'} ${isScrolled ? 'bg-black/90 shadow-2xl backdrop-blur-md' : 'bg-gradient-to-b from-black to-transparent py-2'}`}>
         <div className="container-premium flex justify-between items-center h-(--nav-height)">
 
-          {/* LEFT: Burger + Quick Links */}
+          {/* LEFT: Burger + Actualités */}
           <div className="flex items-center gap-4 lg:gap-8">
             <button
               onClick={toggleMenu}
@@ -153,10 +152,8 @@ export default function Header() {
               </div>
             </button>
 
-            <div className="hidden xl:flex items-center gap-6 h-5 border-l border-white/20 pl-8">
+            <div className="hidden xl:flex items-center h-5 border-l border-white/20 pl-8">
               <QuickLink to="/actualites-medias">Actualités</QuickLink>
-              <QuickLink to="/billetterie">Billetterie</QuickLink>
-              <QuickLink to="/boutique">Boutique</QuickLink>
             </div>
           </div>
 
@@ -167,10 +164,11 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* RIGHT: Partenaires / Contact */}
-          <div className="hidden lg:flex items-center gap-8">
-            <QuickLink to="/partenaires">Partenaires</QuickLink>
-            <QuickLink to="/contact">Contact</QuickLink>
+          {/* RIGHT: Boutique / Billetterie */}
+          <div className="hidden lg:flex items-center gap-6">
+            <QuickLink to="/boutique">Boutique</QuickLink>
+            <div className="border-l border-white/20 h-5" />
+            <QuickLink to="/billetterie">Billetterie</QuickLink>
           </div>
         </div>
       </nav>
@@ -250,10 +248,10 @@ export default function Header() {
           {/* Social networks — bottom of left panel */}
           <div className="flex items-center gap-6 pt-8 mt-auto border-t border-white/10">
             {[
-              { url: 'https://instagram.com/rouennormandierugby', logo: '/resources/logo_instagram.svg', label: 'Instagram' },
-              { url: 'https://facebook.com/rouennormandierugby', logo: '/resources/logo_facebook.svg', label: 'Facebook' },
-              { url: 'https://youtube.com/rouennormandierugby', logo: '/resources/logo_youtube.svg', label: 'YouTube' },
-              { url: 'https://linkedin.com/company/rouennormandierugby', logo: '/resources/logo_linkedIn.svg', label: 'LinkedIn' },
+              { url: 'https://instagram.com/rouennormandierugby', logo: '/assets/svg/logo_instagram.svg', label: 'Instagram' },
+              { url: 'https://facebook.com/rouennormandierugby', logo: '/assets/svg/logo_facebook.svg', label: 'Facebook' },
+              { url: 'https://youtube.com/rouennormandierugby', logo: '/assets/svg/logo_youtube.svg', label: 'YouTube' },
+              { url: 'https://linkedin.com/company/rouennormandierugby', logo: '/assets/svg/logo_linkedIn.svg', label: 'LinkedIn' },
             ].map((s, i) => (
               <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label}
                 className="opacity-30 hover:opacity-100 transition-opacity duration-300">

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
-import SectionNav from "../components/SectionNav";
+import PageHero from "../components/PageHero";
+import FilterBar from "../components/FilterBar";
+import heroImg from "/assets/images/ui/www_equipe_pro.webp";
 
 const navLinks = [
   { label: "Effectif (Joueurs & Staff)", path: "/equipe-pro", exact: true },
@@ -13,10 +13,10 @@ const PlayerCard = ({ name, position, nationality, image }) => (
   <div className="group relative flex flex-col bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden">
     <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
       {image ? (
-        <img 
-          src={image} 
-          alt={name} 
-          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center text-slate-300">
@@ -25,16 +25,12 @@ const PlayerCard = ({ name, position, nationality, image }) => (
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       <div className="absolute top-4 left-4">
-        <span className="bg-black text-white text-(--text-xs) font-black px-2 py-1 uppercase -skew-x-12 inline-block">
-          <span className="inline-block skew-x-12">{nationality}</span>
-        </span>
+        <span className="tag-pill bg-black text-white">{nationality}</span>
       </div>
     </div>
     <div className="p-5 text-center relative z-10 bg-white">
-      <h4 className="font-black uppercase text-xl italic tracking-tighter mb-1 group-hover:text-primary transition-colors">
-        {name}
-      </h4>
-      <p className="text-(--text-xs) font-bold text-primary uppercase tracking-widest italic">{position}</p>
+      <h4 className="font-black uppercase text-xl italic tracking-tighter mb-1 group-hover:text-primary transition-colors">{name}</h4>
+      <p className="text-xs font-bold text-primary uppercase tracking-widest italic">{position}</p>
     </div>
   </div>
 );
@@ -75,8 +71,8 @@ export default function ProTeam() {
     {
       title: "Troisième Ligne",
       players: [
-        { name: "Soïg MINGANT", position: "Troisième ligne aile (6)", nationality: "FRA", image: "/resources/Soig_MINGANT.jpg" },
-        { name: "Killian LAISNÉ", position: "Troisième ligne aile (7)", nationality: "FRA", image: "/resources/Killian_LAISNE.jpg" },
+        { name: "Soïg MINGANT", position: "Troisième ligne aile (6)", nationality: "FRA", image: "/assets/images/content/Soig_MINGANT.webp" },
+        { name: "Killian LAISNÉ", position: "Troisième ligne aile (7)", nationality: "FRA", image: "/assets/images/content/Killian_LAISNE.webp" },
         { name: "Nom Prénom", position: "Troisième ligne centre (8)", nationality: "FRA" }
       ]
     },
@@ -97,7 +93,7 @@ export default function ProTeam() {
     {
       title: "Ailiers",
       players: [
-        { name: "Marius BUNEL", position: "Trois-quarts aile (11)", nationality: "FRA", image: "/resources/Marius_BUNEL.jpg" },
+        { name: "Marius BUNEL", position: "Trois-quarts aile (11)", nationality: "FRA", image: "/assets/images/content/Marius_BUNEL.webp" },
         { name: "Nom Prénom", position: "Trois-quarts aile (14)", nationality: "FRA" },
       ]
     },
@@ -111,41 +107,19 @@ export default function ProTeam() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HEADER SECTION */}
-      <div className="bg-slate-50 border-b border-slate-200 mb-12">
-        <div className="max-w-7xl mx-auto px-4 pt-32 pb-16">
-          <Breadcrumb />
-          <h1 className="text-6xl font-black uppercase italic tracking-tighter mb-4">Effectif Professionnel</h1>
-          <p className="text-lg text-slate-500 max-w-2xl font-medium italic">
-            Découvrez les Lions qui portent haut les couleurs du Rouen Normandie Rugby pour la saison 2025-2026.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="Effectif Professionnel"
+        subtitle="Découvrez les Lions qui portent haut les couleurs du Rouen Normandie Rugby pour la saison 2025-2026."
+        bgImage={heroImg}
+        subNavLinks={navLinks}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 pb-24">
-        <SectionNav 
-          links={navLinks} 
-        />
-
-        {/* Filters */}
-        <div className="flex gap-2 mb-16 flex-wrap">
-          {["Tous", "Le Staff", "Les Joueurs"].map(f => (
-            <button 
-              key={f}
-              onClick={() => setFilter(f === "Le Staff" ? "Staff" : f === "Les Joueurs" ? "Joueurs" : "Tous")}
-              className={`px-8 py-3 font-black uppercase text-(--text-xs) tracking-widest transition-all ${
-                (filter === "Tous" && f === "Tous") || (filter === "Staff" && f === "Le Staff") || (filter === "Joueurs" && f === "Les Joueurs")
-                ? "bg-black text-white shadow-xl -skew-x-12" 
-                : "bg-slate-100 text-slate-400 hover:text-black border border-slate-200"
-              }`}
-            >
-              <span className={((filter === "Tous" && f === "Tous") || (filter === "Staff" && f === "Le Staff") || (filter === "Joueurs" && f === "Les Joueurs")) ? "inline-block skew-x-12" : ""}>{f}</span>
-            </button>
-          ))}
+      <div className="container-premium pb-24">
+        <div className="pt-16">
+          <FilterBar filters={["Tous", "Le Staff", "Les Joueurs"]} active={filter} onChange={setFilter} />
         </div>
 
-        {/* Le Staff */}
-        {(filter === "Tous" || filter === "Staff") && (
+        {(filter === "Tous" || filter === "Le Staff") && (
           <div className="mb-24">
             <div className="flex items-center gap-6 mb-10">
               <h3 className="text-4xl font-black uppercase italic tracking-tighter whitespace-nowrap">Le Staff Sportif</h3>
@@ -160,8 +134,7 @@ export default function ProTeam() {
           </div>
         )}
 
-        {/* Roster Sections */}
-        {(filter === "Tous" || filter === "Joueurs") && positions.map((pos) => (
+        {(filter === "Tous" || filter === "Les Joueurs") && positions.map((pos) => (
           <PositionSection key={pos.title} title={pos.title} players={pos.players} />
         ))}
       </div>

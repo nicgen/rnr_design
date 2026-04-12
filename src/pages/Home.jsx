@@ -2,28 +2,32 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedCounter from '../components/AnimatedCounter';
 import MagneticWrapper from '../components/MagneticWrapper';
-import logoRNR from '/resources/logo_RNR_alpha.png';
-import stadiumHero from '/resources/hero_bg.jpg';
-import presidentImg from '/resources/Matinee-conviviale-avec-le-RNR.jpeg';
-import jerseyImg from '/resources/Maillot-Domicile-25-26.webp';
-import galaImg from '/resources/gala.jpeg';
-import partnersImg from '/resources/mise-en-avant-partenaires.jpeg';
-import player1Img from '/resources/Soig_MINGANT.jpg';
-import player2Img from '/resources/Killian_LAISNE.jpg';
-import player3Img from '/resources/Marius_BUNEL.jpg';
-import fansImg from '/resources/Tous-derriere-les-Lions.jpeg';
-import delphineImg from '/resources/Delphine_Bunel.jpg';
-import vipBg from '/resources/vip_bg.png';
+import logoRNR from '/assets/images/content/logo_RNR_alpha.png';
+import stadiumHero from '/assets/images/ui/hero_bg.webp';
+import statsHero from '/assets/images/ui/www_leclub.webp';
+import presidentImg from '/assets/images/content/Matinee-conviviale-avec-le-RNR.webp';
+import jerseyImg from '/assets/images/ui/Maillot-Domicile-25-26.webp';
+import galaImg from '/assets/images/ui/gala.webp';
+import partnersImg from '/assets/images/ui/mise-en-avant-partenaires.webp';
+import player1Img from '/assets/images/content/Soig_MINGANT.webp';
+import player2Img from '/assets/images/content/Killian_LAISNE.webp';
+import player3Img from '/assets/images/content/Marius_BUNEL.webp';
+import fansImg from '/assets/images/content/Tous-derriere-les-Lions.webp';
+import delphineImg from '/assets/images/content/Delphine_Bunel.webp';
+import vipBg from '/assets/images/ui/vip_bg.webp';
 
 
 
 // --- COMPOSANTS INTERNES D'UNIFICATION ---
 
-const SectionHeader = ({ title, linkTo, linkLabel, isDark = false }) => (
-  <div className="container-premium mb-12 flex justify-between items-end gap-6 rnr-section-header">
-    <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
+const SectionHeader = ({ title, linkTo, linkLabel, isDark = false, badge }) => (
+  <div className="container-premium mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-2 rnr-section-header">
+    <div className="flex items-center gap-5 flex-wrap">
+      <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
+      {badge && <span className="-skew-x-12 self-center bg-primary px-4 py-1.5"><span className="skew-x-12 inline-block text-white font-black uppercase tracking-widest" style={{ fontSize: 'var(--text-h4)' }}>{badge}</span></span>}
+    </div>
     {linkTo && (
-      <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white hover:border-white' : ''}`}>
+      <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white' : ''}`}>
         {linkLabel}
         <span className="material-symbols-outlined text-sm">arrow_forward</span>
       </Link>
@@ -54,7 +58,15 @@ const PlaceholderImage = ({ className }) => (
 
 export default function Home() {
   const marqueeRef = useRef(null);
+  const videoRef = useRef(null);
   const [showBanner, setShowBanner] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
 
   useEffect(() => {
     // Show the Match banner after a short delay
@@ -91,10 +103,10 @@ export default function Home() {
   ];
 
   const secondaryNews = [
-    { id: "changement-presidence", title: "LE ROUEN NORMANDIE RUGBY ANNONCE UN CHANGEMENT DE PRÉSIDENCE.", category: "CLUB", subtitle: "PHILIPPE MARTY PASSE LE RELAIS", img: delphineImg },
     { id: "prolongation-soig-mingant", title: "SOÏG MINGANT PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player1Img },
     { id: "prolongation-killian-laisne", title: "KILLIAN LAISNÉ PROLONGE AVEC LE RNR !", category: "PROLONGATION", subtitle: "RENOUVELLEMENT", img: player2Img },
     { id: "prolongation-marius-bunel", title: "MARIUS BUNEL PROLONGE JUSQU'EN 2028 !", category: "PROLONGATION", subtitle: "ENGAGEMENT", img: player3Img },
+    { id: "tous-derriere-les-lions", title: "TOUS DERRIÈRE LES LIONS !", category: "MATCH", subtitle: "Après deux victoires consécutives, nos Lions veulent enchaîner à domicile.", img: fansImg },
   ];
 
   return (
@@ -105,14 +117,15 @@ export default function Home() {
       <section id="section-hero" className="relative h-[100vh] w-full flex-shrink-0 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={stadiumHero} alt="Stadium" className="absolute inset-0 w-full h-full object-cover" />
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/resources/video_bg.mp4" type="video/mp4" />
+            <source src="/assets/video/video_bg.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
@@ -129,7 +142,7 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-0 z-[999] left-0 right-0 flex justify-center pb-4 pointer-events-none">
+        <div className="hidden md:flex absolute bottom-0 z-[999] left-0 right-0 justify-center pb-4 pointer-events-none">
           <span className="material-symbols-outlined text-white/60 text-4xl animate-bounce">keyboard_arrow_down</span>
         </div>
 
@@ -139,38 +152,63 @@ export default function Home() {
             <div className="container-premium">
 
               {/* Mobile */}
-              <div className="flex md:hidden items-center justify-between h-20 gap-4">
-                <div className="flex items-center gap-2 min-w-0 flex-1">
-                  <img src={logoRNR} alt="Rouen" className="w-7 h-7 object-contain flex-shrink-0" />
-                  <span className="font-black text-sm italic uppercase text-white tracking-tight">ROUEN</span>
-                  <span className="text-primary font-black text-sm italic mx-1">VS</span>
-                  <span className="font-black text-sm italic uppercase text-white tracking-tight">MASSY</span>
+              <div className="flex md:hidden flex-col py-3 gap-2.5">
+                {/* Ligne 1 : label + date */}
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-black uppercase bg-primary text-white px-1.5 py-0.5 tracking-widest shrink-0">PROCHAIN MATCH</span>
+                  <span className="text-[11px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
                 </div>
+                {/* Ligne 2 : décompte */}
+                <div className="flex gap-8 justify-center">
+                  {[{ val: '11', label: 'J' }, { val: '08', label: 'H' }, { val: '00', label: 'M' }].map((u, i) => (
+                    <div key={i} className="flex items-baseline gap-0.5">
+                      <span className="text-4xl font-black italic text-white leading-none">{u.val}</span>
+                      <span className="text-sm font-black text-white/40 tracking-wide">{u.label}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Ligne 3 : équipes */}
+                <div className="flex items-center justify-center gap-2">
+                  <img src={logoRNR} alt="Rouen" className="w-7 h-7 object-contain flex-shrink-0" />
+                  <span className="font-black text-2xl italic uppercase text-white tracking-tight">ROUEN</span>
+                  <span className="text-primary font-black text-2xl italic mx-1">VS</span>
+                  <span className="font-black text-2xl italic uppercase text-white tracking-tight">MASSY</span>
+                  <div className="w-7 h-7 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
+                    <img src="/assets/images/content/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
+                  </div>
+                </div>
+                {/* Ligne 4 : billetterie pleine largeur */}
                 <a
                   href="http://billetterie.rouen-normandie-rugby.fr/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
+                  className="w-full -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
                 >
-                  <span className="skew-x-12 flex items-center gap-1.5 font-black uppercase text-[11px] tracking-[0.2em] px-5 h-8">
-                    <span className="material-symbols-outlined text-[13px]">confirmation_number</span>
+                  <span className="skew-x-12 flex items-center justify-center gap-1.5 font-black uppercase text-sm tracking-[0.2em] px-4 h-12">
+                    <span className="material-symbols-outlined text-base">confirmation_number</span>
                     BILLETS
                   </span>
                 </a>
+                {/* Ligne 5 : scroll indicator */}
+                <div className="flex justify-center pb-1">
+                  <span className="material-symbols-outlined text-white/30 text-xl animate-bounce">keyboard_arrow_down</span>
+                </div>
               </div>
 
               {/* Desktop */}
               <div className="hidden md:flex items-stretch h-[clamp(130px,16vh,160px)]">
 
                 {/* Countdown */}
-                <div className="flex flex-col justify-center gap-1 pr-8 lg:pr-12 border-r border-white/10 shrink-0">
-                  <span className="text-[9px] font-black uppercase bg-primary text-white px-2 py-0.5 tracking-widest w-fit">PROCHAIN MATCH</span>
-                  <span className="text-[10px] font-black text-white/50 uppercase tracking-widest mt-1">20 MARS 2026 · 20:00</span>
-                  <div className="flex gap-5 mt-1">
+                <div className="flex flex-col justify-center gap-2 pr-8 lg:pr-12 shrink-0 relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-white/10 after:-skew-x-12 after:origin-top">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] font-black uppercase bg-primary text-white px-2 py-0.5 tracking-widest">PROCHAIN MATCH</span>
+                    <span className="text-[10px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
+                  </div>
+                  <div className="flex gap-6">
                     {[{ val: '11', label: 'JOURS' }, { val: '08', label: 'HRS' }, { val: '00', label: 'MIN' }].map((u, i) => (
                       <div key={i} className="flex flex-col items-center">
-                        <span className="text-2xl lg:text-3xl font-black italic text-white leading-none">{u.val}</span>
-                        <span className="text-[8px] font-black text-white/40 tracking-[0.15em] mt-0.5">{u.label}</span>
+                        <span className="text-5xl lg:text-6xl font-black italic text-white leading-none">{u.val}</span>
+                        <span className="text-[9px] font-black text-white/40 tracking-[0.15em] mt-1">{u.label}</span>
                       </div>
                     ))}
                   </div>
@@ -178,15 +216,15 @@ export default function Home() {
 
                 {/* Teams */}
                 <div className="flex-1 flex items-center justify-center gap-4 lg:gap-8 px-8 lg:px-12">
-                  <div className="flex items-center gap-2 lg:gap-3">
-                    <img src={logoRNR} alt="Rouen" className="w-10 h-10 lg:w-14 lg:h-14 object-contain drop-shadow-md" />
-                    <span className="font-black text-2xl lg:text-4xl italic uppercase text-white tracking-tight">ROUEN</span>
+                  <div className="flex items-center gap-2 lg:gap-4">
+                    <img src={logoRNR} alt="Rouen" className="w-12 h-12 lg:w-16 lg:h-16 object-contain drop-shadow-md" />
+                    <span className="font-black text-3xl lg:text-5xl italic uppercase text-white tracking-tight">ROUEN</span>
                   </div>
-                  <span className="font-black text-xl lg:text-2xl italic text-primary shrink-0">VS</span>
-                  <div className="flex items-center gap-2 lg:gap-3">
-                    <span className="font-black text-2xl lg:text-4xl italic uppercase text-white tracking-tight">MASSY</span>
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
-                      <img src="/resources/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
+                  <span className="font-black text-2xl lg:text-3xl italic text-primary shrink-0">VS</span>
+                  <div className="flex items-center gap-2 lg:gap-4">
+                    <span className="font-black text-3xl lg:text-5xl italic uppercase text-white tracking-tight">MASSY</span>
+                    <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
+                      <img src="/assets/images/content/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
                     </div>
                   </div>
                 </div>
@@ -228,7 +266,7 @@ export default function Home() {
               else gridClass = "md:col-span-1 md:row-span-1";
 
               return (
-                <div key={index} className={gridClass}>
+                <div key={index} className={`min-h-[480px] md:min-h-0 ${gridClass}`}>
                   <UnifiedCard {...item} />
                 </div>
               );
@@ -261,33 +299,30 @@ export default function Home() {
       <section id="section-stats" className="relative py-(--space-xl) w-full flex-shrink-0 bg-slate-900 text-white overflow-hidden">
         {/* Background image for the section */}
         <div className="absolute inset-0 z-0">
-          <img src={stadiumHero} alt="Stadium Statistics" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+          <img src={statsHero} alt="Stadium Statistics" className="absolute inset-0 w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
+        <div className="relative z-10"><SectionHeader title="LES RÉSULTATS" isDark badge="SAISON 25/26" /></div>
+
         <div className="container-premium relative z-10">
-          <SectionHeader title="LES RÉSULTATS" isDark />
-          
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
             <Link to="/equipe-pro/classement" className="flex flex-col items-center justify-center p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 hover:bg-black/50 cursor-pointer transition-all duration-500">
-              <h3 className="text-sm text-white/40 mb-4 group-hover:text-primary transition-colors">POSITION</h3>
-              <div className="relative pointer-events-none">
-                <div className="flex items-start">
-                  <span className="text-3xl font-black italic text-primary mt-3 mr-1">#</span>
-                  <span className="text-[clamp(9rem,18vw,20rem)] font-black leading-none italic tracking-tighter text-white select-none">7</span>
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-3 transform -skew-x-12 shadow-lg">
-                  <span className="inline-block skew-x-12 font-black italic">SAISON 25/26</span>
+              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4 pointer-events-none">Position</h3>
+              <div className="flex items-center justify-center pointer-events-none">
+                <div className="relative inline-flex items-baseline">
+                  <span className="absolute top-0 left-0 text-3xl font-black italic text-primary leading-none">#</span>
+                  <span className="text-[clamp(9rem,18vw,20rem)] font-black leading-none italic tracking-tighter text-white select-none pl-8">7</span>
+                  <span className="text-2xl font-black italic text-white/40 leading-none mb-6">/14</span>
                 </div>
               </div>
-              <p className="mt-12 text-xs font-bold uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Classé sur 14 équipes</p>
             </Link>
 
             {/* Colonne Centre: DERNIERS RÉSULTATS */}
             <div className="flex flex-col gap-4 bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
-              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/40 mb-4">Derniers Résultats</h3>
+              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4">Derniers Résultats</h3>
               <div className="flex flex-col flex-1 justify-between">
                 {[
                   { j: "J 22", date: "07/03/26", home: "BOURGOIN", away: "ROUEN", score: "11 - 33", win: true },
@@ -295,30 +330,31 @@ export default function Home() {
                   { j: "J 20", date: "21/02/26", home: "NICE", away: "ROUEN", score: "40 - 19", win: false },
                   { j: "J 19", date: "13/02/26", home: "ROUEN", away: "RENNES", score: "21 - 25", win: false },
                 ].map((res, i) => (
-                  <div key={i} className={`py-5 px-4 flex items-center justify-between group hover:bg-white/10 transition-all duration-300 border-l-[3px] ${res.win ? 'border-primary bg-primary/5' : 'border-white/10 bg-white/5'}`}>
-                    <div className="flex flex-col">
-                      <span className="text-xs font-black text-white leading-none mb-1">{res.j}</span>
+                  <div key={i} className={`py-3 px-4 flex flex-col md:flex-row md:items-center md:justify-between group hover:bg-white/10 transition-all duration-300 border-l-[3px] ${res.win ? 'border-primary bg-primary/5' : 'border-white/10 bg-white/5'}`}>
+                    <div className="flex items-center gap-3 mb-1.5 md:mb-0 md:flex-col md:items-start md:gap-0">
+                      <span className="text-xs font-black text-white leading-none">{res.j}</span>
                       <span className="text-(--text-xs) font-bold text-white/40">{res.date}</span>
                     </div>
-                    <div className="flex-1 flex justify-center items-center gap-3 text-sm font-black italic">
-                      <span className={`uppercase w-16 text-right truncate ${res.home === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.home}</span>
-                      <span className={`${res.win ? 'bg-primary text-white' : 'bg-white/10 text-white/40'} px-2 py-1 text-(--text-xs) min-w-[50px] text-center transform -skew-x-12`}>
+                    <div className="flex justify-center items-center gap-3 text-sm font-black italic w-full md:flex-1">
+                      <span className={`uppercase truncate flex-1 text-right ${res.home === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.home}</span>
+                      <span className={`${res.win ? 'bg-primary text-white' : 'bg-white/10 text-white/40'} px-2 py-1 text-(--text-xs) min-w-[50px] text-center transform -skew-x-12 shrink-0`}>
                         <span className="inline-block skew-x-12">{res.score}</span>
                       </span>
-                      <span className={`uppercase w-16 text-left truncate ${res.away === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.away}</span>
+                      <span className={`uppercase truncate flex-1 text-left ${res.away === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.away}</span>
                     </div>
                   </div>
                 ))}
               </div>
-              <Link to="/equipe-pro/calendrier" className="mt-4 text-(--text-xs) font-black uppercase self-center tracking-widest text-primary hover:text-white transition-colors cursor-pointer border-b border-primary italic">
+              <Link to="/equipe-pro/calendrier" className="mt-4 btn-link rnr-section-header-link text-white/60 hover:text-white self-center">
                 Voir tous les résultats
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
 
             {/* Colonne Droite: STATISTIQUES */}
             <div className="flex flex-col justify-between bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
               <div className="relative z-10">
-                <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/40 mb-4">Statistiques</h3>
+                <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4">Statistiques</h3>
 
                 <div className="flex flex-col gap-4">
                   {/* Victoires | Defaites */}
@@ -328,8 +364,8 @@ export default function Home() {
                       <p className="text-[clamp(3.5rem,5vw,4.5rem)] font-black italic leading-none">15</p>
                     </div>
                     <div className="flex flex-col items-center flex-1 text-center border-l border-white/10">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">close</span>Défaites</p>
-                      <p className="text-[clamp(1.5rem,2.5vw,2rem)] font-black italic leading-none text-white/20">7</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">close</span>Défaites</p>
+                      <p className="text-[clamp(3.5rem,5vw,4.5rem)] font-black italic leading-none text-white/40">7</p>
                     </div>
                   </div>
 
@@ -351,23 +387,23 @@ export default function Home() {
                   {/* Points Marqués | Concédés */}
                   <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-3">
                     <div>
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Points Marqués</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1">Points Marqués</p>
                       <p className="text-h3 font-black italic tracking-tighter">468</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Points Concédés</p>
-                      <p className="text-h3 font-black italic tracking-tighter text-white/40">382</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1">Points Concédés</p>
+                      <p className="text-h3 font-black italic tracking-tighter text-white/60">382</p>
                     </div>
                   </div>
 
                   {/* Différence | Points Class. */}
                   <div className="flex flex-col gap-2 pt-1">
                     <div className="flex justify-between items-end border-b border-white/5 pb-2">
-                       <span className="text-(--text-xs) font-bold uppercase text-white/40 italic">Différence</span>
+                       <span className="text-(--text-xs) font-bold uppercase text-white/60 italic">Différence</span>
                        <span className="text-h3 font-black italic text-primary">+86</span>
                     </div>
                     <div className="flex justify-between items-end">
-                       <span className="text-(--text-xs) font-bold uppercase text-white/40 italic">Points Class.</span>
+                       <span className="text-(--text-xs) font-bold uppercase text-white/60 italic">Points Class.</span>
                        <span className="text-h3 font-black italic text-white">56</span>
                     </div>
                   </div>
@@ -384,13 +420,13 @@ export default function Home() {
 
       {/* LA BOUTIQUE OFFICIELLE */}
       <section id="section-boutique" className="bg-slate-50 py-(--space-xl) w-full flex-shrink-0 relative overflow-hidden">
-<SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter le shop" />
+<SectionHeader title="BOUTIQUE OFFICIELLE" linkTo="http://boutique.rouennormandierugby.fr/" linkLabel="Visiter la boutique" />
 
         <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="lg:col-span-1 flex flex-col justify-center gap-6 min-w-0">
               <h2 className="text-slate-900" style={{fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)'}}>PORTONS HAUT<br />NOS COULEURS.</h2>
-              <p className="text-slate-500 font-medium leading-relaxed text-sm">Découvrez la nouvelle collection 25-26. Maillots officiels et accessoires pour soutenir les Lions.</p>
+              <p className="text-slate-500 font-medium leading-relaxed text-base">Découvrez la nouvelle collection 25-26. Maillots officiels et accessoires pour soutenir les Lions.</p>
             </div>
             <UnifiedCard image={jerseyImg} title="Maillot Domicile 25-26" subtitle="Maillot Domicile Replica Rouen Normandie Rugby 25-26." link="http://boutique.rouennormandierugby.fr/" />
             <UnifiedCard image={player3Img} title="Maillot Extérieur 25-26" subtitle="Maillot Extérieur Officiel Rouen Normandie Rugby 25-26." link="http://boutique.rouennormandierugby.fr/" />
@@ -422,7 +458,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <h3 className="text-h2 font-black uppercase leading-[1.1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] via-[#bf953f] to-[#fcf6ba] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-display italic">
+              <h3 className="text-h2 font-black uppercase leading-[1.1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] via-[#bf953f] to-[#fcf6ba] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-heading italic">
                 PLUS QU’UN MATCH,<br />UNE EXPERIENCE PARTENAIRE.
               </h3>
 
@@ -459,8 +495,8 @@ export default function Home() {
               { val: "260", label: "Partenaires officiels",          icon: "handshake" },
               { val: "120", label: "Bénévoles engagés",              icon: "favorite" },
             ].map((stat, i) => (
-              <div key={i} className="relative flex items-center group overflow-hidden rounded-lg px-6 py-4">
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 material-symbols-outlined leading-none text-white/5 group-hover:text-white/8 transition-colors duration-300 pointer-events-none select-none" style={{ fontSize: 'clamp(8rem,14vw,14rem)' }}>{stat.icon}</span>
+              <div key={i} className="relative flex items-center group rounded-lg px-6 py-4">
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 material-symbols-outlined leading-none text-white/5 group-hover:text-white/8 transition-colors duration-300 pointer-events-none select-none" style={{ fontSize: 'clamp(8rem,14vw,14rem)' }}>{stat.icon}</span>
                 <div className="relative z-10">
                   <p className="text-[clamp(3.5rem,8vw,5rem)] font-black italic leading-none text-white group-hover:text-primary transition-colors duration-300">{stat.val}</p>
                   <p className="text-(--text-xs) uppercase font-black tracking-[0.2em] text-slate-400 mt-1">{stat.label}</p>
@@ -512,10 +548,10 @@ export default function Home() {
         <div className="container-premium">
           <div className="flex justify-center gap-12 lg:gap-20 flex-wrap">
             {[
-              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", logo: "/resources/logo_instagram.svg" },
-              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  logo: "/resources/logo_facebook.svg" },
-              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   logo: "/resources/logo_youtube.svg" },
-              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", logo: "/resources/logo_linkedIn.svg" },
+              { name: "INSTAGRAM", url: "https://instagram.com/rouennormandierugby", logo: "/assets/svg/logo_instagram.svg" },
+              { name: "FACEBOOK",  url: "https://facebook.com/rouennormandierugby",  logo: "/assets/svg/logo_facebook.svg" },
+              { name: "YOUTUBE",   url: "https://youtube.com/rouennormandierugby",   logo: "/assets/svg/logo_youtube.svg" },
+              { name: "LINKEDIN",  url: "https://linkedin.com/company/rouennormandierugby", logo: "/assets/svg/logo_linkedIn.svg" },
             ].map((social, i) => (
               <a
                 key={i}

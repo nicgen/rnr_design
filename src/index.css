@@ -1,12 +1,12 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
 
 @theme {
   --color-primary: #e21e26; /* RNR Red */
   --color-accent: #ffd700; /* Gold */
   --color-background-light: #f8f9fa; /* Elite White */
   --color-background-dark: #1a1a1a;
-  --font-display: "Outfit", sans-serif;
+  --font-heading: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
   --radius-DEFAULT: 8px; /* Stitch Roundness */
   --radius-lg: 12px;
@@ -20,7 +20,7 @@
   --text-h4:   clamp(1.33rem, 1.5vw + 1rem, 1.75rem);   
   --text-h3:   clamp(1.77rem, 3vw + 1rem, 2.5rem);      
   --text-h2:   clamp(2.36rem, 6vw + 1rem, 4.25rem);      
-  --text-h1:   clamp(3.15rem, 10vw + 1rem, 6.5rem);     
+  --text-h1:   clamp(3.15rem, 10vw + 1rem, 6.5rem);
   
   /* Espacements Fluides (Padding, Margin, Gap) */
   --space-xs: clamp(0.5rem, 1vw, 0.75rem);
@@ -28,7 +28,7 @@
   --space-xl: clamp(3rem, 8vw, 6rem);
 
   /* Limites d'affichage */
-  --container-max: 1440px;
+  --container-max: 1920px;
   
   --nav-height: clamp(70px, 8vh, 100px);
   
@@ -102,11 +102,15 @@
 }
 
 @utility btn-link {
-  @apply text-(--text-xs) font-black uppercase tracking-widest text-slate-500 hover:text-primary transition-colors flex items-end gap-2 group border-b-2 border-transparent hover:border-primary pb-1 whitespace-nowrap;
+  @apply text-xs font-black uppercase tracking-widest text-slate-500 hover:text-primary transition-colors flex items-center gap-1.5;
 }
 
 @utility heading-bold {
-  @apply font-display font-black uppercase italic tracking-tighter;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: -0.05em;
 }
 
 @layer base {
@@ -115,10 +119,15 @@
     font-size: var(--text-base);
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply heading-bold;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: -0.05em;
     line-height: 1.1;
   }
   h1 { font-size: var(--text-h1); line-height: 0.9; letter-spacing: -0.04em; }
+  .page-hero h1 { font-size: clamp(3.15rem, 10vw + 1rem, 4.5rem); }
   h2 { font-size: var(--text-h2); line-height: 0.95; letter-spacing: -0.03em; }
   h3 { font-size: var(--text-h3); line-height: 1.0; }
   h4 { font-size: var(--text-h4); line-height: 1.1; }
@@ -168,3 +177,52 @@
 
 /* Boutons & Bouton Hero */
 .rnr-hero-cta {}
+
+/* ===== PAGES INTERNES ===== */
+
+@utility page-hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(280px, 40vh, 480px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@utility breadcrumb-nav {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@utility subnav-bar {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+@utility tag-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+}
+
+@utility filter-btn {
+  font-size: var(--text-xs);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  transition: background-color 150ms, color 150ms;
+  white-space: nowrap;
+  cursor: pointer;
+}

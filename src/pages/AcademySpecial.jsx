@@ -1,6 +1,5 @@
-import Breadcrumb from "../components/Breadcrumb";
-import SectionNav from "../components/SectionNav";
-import heroImg from "/resources/hero_bg.jpg";
+import PageHero from "../components/PageHero";
+import heroImg from "/assets/images/ui/www_formation.webp";
 
 const navLinks = [
   { label: "Centre de formation - Académie", path: "/formation", exact: true },
@@ -13,32 +12,14 @@ const navLinks = [
 export default function AcademySpecial() {
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO SECTION */}
-      <section className="relative h-[60vh] w-full flex-shrink-0 overflow-hidden bg-black text-white">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImg} 
-            alt="Rugby Santé & Adapté" 
-            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-        </div>
-        
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20">
-          <Breadcrumb />
-          <h1 className="text-6xl md:text-8xl font-black text-white uppercase mt-4 leading-none tracking-tighter font-barlow-condensed italic text-center">
-            RUGBY SANTÉ<br />& ADAPTÉ
-          </h1>
-          <p className="text-primary text-xl md:text-2xl font-bold max-w-3xl mt-4 italic uppercase tracking-widest">
-            Le rugby pour tous, sans exception
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Rugby Santé & Adapté"
+        subtitle="Le rugby pour tous, sans exception"
+        bgImage={heroImg}
+        subNavLinks={navLinks}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-30 pb-24">
-        <SectionNav links={navLinks} />
-
-        {/* INTRODUCTION */}
+      <div className="container-premium pb-24">
         <section className="py-24 text-center max-w-4xl mx-auto">
           <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary mb-2 italic">Inclusion & Solidarité</h3>
           <h2 className="text-5xl font-black uppercase tracking-tighter italic mb-8">Un club, toutes les énergies</h2>
@@ -48,12 +29,11 @@ export default function AcademySpecial() {
         </section>
 
         <div className="space-y-12">
-          {/* Rugby Fauteuil */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-slate-50 overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
             <div className="lg:col-span-4 relative h-[400px] lg:h-auto">
               <div className="w-full h-full bg-slate-200 animate-pulse"></div>
               <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute top-8 left-8 bg-black text-white px-4 py-2 text-(--text-xs) font-black uppercase tracking-widest -skew-x-12">
+              <div className="absolute top-8 left-8 tag-pill bg-black text-white">
                 Handisport
               </div>
             </div>
@@ -68,7 +48,6 @@ export default function AcademySpecial() {
             </div>
           </div>
 
-          {/* Sport Adapté */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-black text-white overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
             <div className="lg:col-span-8 p-12 lg:p-20 flex flex-col justify-center items-start order-2 lg:order-1">
               <h2 className="text-4xl font-black uppercase italic tracking-tighter mb-6 leading-none">Sport Adapté</h2>
@@ -82,18 +61,17 @@ export default function AcademySpecial() {
             <div className="lg:col-span-4 relative h-[400px] lg:h-auto order-1 lg:order-2">
               <div className="w-full h-full bg-slate-800 animate-pulse"></div>
               <div className="absolute inset-0 bg-primary/10"></div>
-              <div className="absolute top-8 right-8 bg-primary text-white px-4 py-2 text-(--text-xs) font-black uppercase tracking-widest skew-x-12">
+              <div className="absolute top-8 right-8 tag-pill bg-primary text-white">
                 Inclusion
               </div>
             </div>
           </div>
 
-          {/* Rugby à 5 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-slate-50 overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
             <div className="lg:col-span-4 relative h-[400px] lg:h-auto">
               <div className="w-full h-full bg-slate-200 animate-pulse"></div>
               <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute top-8 left-8 bg-black text-white px-4 py-2 text-(--text-xs) font-black uppercase tracking-widest -skew-x-12">
+              <div className="absolute top-8 left-8 tag-pill bg-black text-white">
                 Loisir & Santé
               </div>
             </div>
