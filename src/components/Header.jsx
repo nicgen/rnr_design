@@ -69,7 +69,7 @@ export default function Header() {
       title: "L'ÉQUIPE PRO",
       image: '/assets/images/ui/www_equipe_pro.webp',
       links: [
-        { label: 'Effectif Pro 23/24', to: '/equipe-pro' },
+        { label: 'Effectif Pro 25/26', to: '/equipe-pro' },
         { label: 'Staff Technique', to: '/equipe-pro' },
         { label: 'Calendrier & Résultats', to: '/equipe-pro/calendrier' },
         { label: 'Classement', to: '/equipe-pro/classement' }
