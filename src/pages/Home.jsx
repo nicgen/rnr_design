@@ -22,7 +22,7 @@ import vipBg from '/assets/images/ui/vip_bg.webp';
 const SectionHeader = ({ title, linkTo, linkLabel, isDark = false, badge }) => (
   <div className="container-premium mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-2 rnr-section-header">
     <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
-    {badge && <span className="tag-pill bg-primary text-white">{badge}</span>}
+    {badge && <span className="tag-pill bg-primary text-white -skew-x-12 self-start"><span className="skew-x-12 inline-block">{badge}</span></span>}
     {linkTo && (
       <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white' : ''}`}>
         {linkLabel}
@@ -139,7 +139,7 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-0 z-[999] left-0 right-0 flex justify-center pb-4 pointer-events-none">
+        <div className="hidden md:flex absolute bottom-0 z-[999] left-0 right-0 justify-center pb-4 pointer-events-none">
           <span className="material-symbols-outlined text-white/60 text-4xl animate-bounce">keyboard_arrow_down</span>
         </div>
 
@@ -152,24 +152,27 @@ export default function Home() {
               <div className="flex md:hidden flex-col py-3 gap-2.5">
                 {/* Ligne 1 : label + date */}
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] font-black uppercase bg-primary text-white px-1.5 py-0.5 tracking-widest shrink-0">PROCHAIN MATCH</span>
-                  <span className="text-[9px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
+                  <span className="text-[11px] font-black uppercase bg-primary text-white px-1.5 py-0.5 tracking-widest shrink-0">PROCHAIN MATCH</span>
+                  <span className="text-[11px] font-black text-white/50 uppercase tracking-widest">20 MARS 2026 · 20:00</span>
                 </div>
                 {/* Ligne 2 : décompte */}
-                <div className="flex gap-4 justify-center">
+                <div className="flex gap-8 justify-center">
                   {[{ val: '11', label: 'J' }, { val: '08', label: 'H' }, { val: '00', label: 'M' }].map((u, i) => (
                     <div key={i} className="flex items-baseline gap-0.5">
-                      <span className="text-xl font-black italic text-white leading-none">{u.val}</span>
-                      <span className="text-[8px] font-black text-white/40 tracking-wide">{u.label}</span>
+                      <span className="text-4xl font-black italic text-white leading-none">{u.val}</span>
+                      <span className="text-sm font-black text-white/40 tracking-wide">{u.label}</span>
                     </div>
                   ))}
                 </div>
                 {/* Ligne 3 : équipes */}
                 <div className="flex items-center justify-center gap-2">
-                  <img src={logoRNR} alt="Rouen" className="w-5 h-5 object-contain flex-shrink-0" />
-                  <span className="font-black text-sm italic uppercase text-white tracking-tight">ROUEN</span>
-                  <span className="text-primary font-black text-sm italic mx-1">VS</span>
-                  <span className="font-black text-sm italic uppercase text-white tracking-tight">MASSY</span>
+                  <img src={logoRNR} alt="Rouen" className="w-7 h-7 object-contain flex-shrink-0" />
+                  <span className="font-black text-2xl italic uppercase text-white tracking-tight">ROUEN</span>
+                  <span className="text-primary font-black text-2xl italic mx-1">VS</span>
+                  <span className="font-black text-2xl italic uppercase text-white tracking-tight">MASSY</span>
+                  <div className="w-7 h-7 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-0.5 shrink-0">
+                    <img src="/assets/images/content/logo_MASSY.webp" alt="Massy" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'} />
+                  </div>
                 </div>
                 {/* Ligne 4 : billetterie pleine largeur */}
                 <a
@@ -178,11 +181,15 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="w-full -skew-x-12 bg-primary text-white hover:bg-white hover:text-black transition-colors"
                 >
-                  <span className="skew-x-12 flex items-center justify-center gap-1.5 font-black uppercase text-[11px] tracking-[0.2em] px-4 h-8">
-                    <span className="material-symbols-outlined text-[13px]">confirmation_number</span>
+                  <span className="skew-x-12 flex items-center justify-center gap-1.5 font-black uppercase text-sm tracking-[0.2em] px-4 h-12">
+                    <span className="material-symbols-outlined text-base">confirmation_number</span>
                     BILLETS
                   </span>
                 </a>
+                {/* Ligne 5 : scroll indicator */}
+                <div className="flex justify-center pb-1">
+                  <span className="material-symbols-outlined text-white/30 text-xl animate-bounce">keyboard_arrow_down</span>
+                </div>
               </div>
 
               {/* Desktop */}
@@ -256,7 +263,7 @@ export default function Home() {
               else gridClass = "md:col-span-1 md:row-span-1";
 
               return (
-                <div key={index} className={gridClass}>
+                <div key={index} className={`min-h-[480px] md:min-h-0 ${gridClass}`}>
                   <UnifiedCard {...item} />
                 </div>
               );
@@ -293,27 +300,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
-        <SectionHeader title="LES RÉSULTATS" isDark badge="SAISON 25/26" />
+        <div className="relative z-10"><SectionHeader title="LES RÉSULTATS" isDark badge="SAISON 25/26" /></div>
 
         <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
             <Link to="/equipe-pro/classement" className="flex flex-col items-center justify-center p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 hover:bg-black/50 cursor-pointer transition-all duration-500">
+              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4 pointer-events-none">Position</h3>
               <div className="flex items-center justify-center pointer-events-none">
-                <div className="flex items-start">
-                  <span className="text-6xl font-black italic text-primary leading-none self-start mt-4 mr-1">#</span>
-                  <div className="flex flex-col items-center">
-                    <span className="text-[clamp(9rem,18vw,20rem)] font-black leading-none italic tracking-tighter text-white select-none">7</span>
-                    <span className="text-2xl font-black italic text-white/40 leading-none -mt-2">/14</span>
-                  </div>
+                <div className="relative inline-flex items-baseline">
+                  <span className="absolute top-0 left-0 text-3xl font-black italic text-primary leading-none">#</span>
+                  <span className="text-[clamp(9rem,18vw,20rem)] font-black leading-none italic tracking-tighter text-white select-none pl-8">7</span>
+                  <span className="text-2xl font-black italic text-white/40 leading-none mb-6">/14</span>
                 </div>
               </div>
             </Link>
 
             {/* Colonne Centre: DERNIERS RÉSULTATS */}
             <div className="flex flex-col gap-4 bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
-              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/40 mb-4">Derniers Résultats</h3>
+              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4">Derniers Résultats</h3>
               <div className="flex flex-col flex-1 justify-between">
                 {[
                   { j: "J 22", date: "07/03/26", home: "BOURGOIN", away: "ROUEN", score: "11 - 33", win: true },
@@ -345,7 +351,7 @@ export default function Home() {
             {/* Colonne Droite: STATISTIQUES */}
             <div className="flex flex-col justify-between bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
               <div className="relative z-10">
-                <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/40 mb-4">Statistiques</h3>
+                <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4">Statistiques</h3>
 
                 <div className="flex flex-col gap-4">
                   {/* Victoires | Defaites */}
@@ -355,8 +361,8 @@ export default function Home() {
                       <p className="text-[clamp(3.5rem,5vw,4.5rem)] font-black italic leading-none">15</p>
                     </div>
                     <div className="flex flex-col items-center flex-1 text-center border-l border-white/10">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">close</span>Défaites</p>
-                      <p className="text-[clamp(1.5rem,2.5vw,2rem)] font-black italic leading-none text-white/20">7</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">close</span>Défaites</p>
+                      <p className="text-[clamp(3.5rem,5vw,4.5rem)] font-black italic leading-none text-white/40">7</p>
                     </div>
                   </div>
 
@@ -378,23 +384,23 @@ export default function Home() {
                   {/* Points Marqués | Concédés */}
                   <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-3">
                     <div>
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Points Marqués</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1">Points Marqués</p>
                       <p className="text-h3 font-black italic tracking-tighter">468</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/20 mb-1">Points Concédés</p>
-                      <p className="text-h3 font-black italic tracking-tighter text-white/40">382</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1">Points Concédés</p>
+                      <p className="text-h3 font-black italic tracking-tighter text-white/60">382</p>
                     </div>
                   </div>
 
                   {/* Différence | Points Class. */}
                   <div className="flex flex-col gap-2 pt-1">
                     <div className="flex justify-between items-end border-b border-white/5 pb-2">
-                       <span className="text-(--text-xs) font-bold uppercase text-white/40 italic">Différence</span>
+                       <span className="text-(--text-xs) font-bold uppercase text-white/60 italic">Différence</span>
                        <span className="text-h3 font-black italic text-primary">+86</span>
                     </div>
                     <div className="flex justify-between items-end">
-                       <span className="text-(--text-xs) font-bold uppercase text-white/40 italic">Points Class.</span>
+                       <span className="text-(--text-xs) font-bold uppercase text-white/60 italic">Points Class.</span>
                        <span className="text-h3 font-black italic text-white">56</span>
                     </div>
                   </div>

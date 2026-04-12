@@ -22,7 +22,7 @@ const Breadcrumb = ({ items, isDark = false }) => {
       <Link to="/" className={`transition-colors ${hover}`}>Accueil</Link>
       {breadcrumbItems.map((item, index) => (
         <div key={index} className="flex items-center gap-2">
-          <span className={`${sep} font-normal`}>›</span>
+          <span className={`${sep} font-normal`}>/</span>
           {item.active ? (
             <span className={`${active} truncate max-w-[200px]`}>{item.label}</span>
           ) : (
