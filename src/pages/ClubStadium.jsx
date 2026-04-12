@@ -100,9 +100,9 @@ export default function ClubStadium() {
               </div>
             </div>
 
-            <div className="relative group overflow-hidden shadow-2xl order-1 lg:order-2 h-[450px]">
+            <div className="relative group overflow-hidden shadow-2xl order-1 lg:order-2 aspect-video">
               <img
-                src={heroImg}
+                src="https://www.gl-events-projectdesigner.com/sites/default/files/inline-images/4-projet-de-couverture-de-tribunes-Rouen.jpg"
                 alt="Stade Jean Mermoz"
                 className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
               />
