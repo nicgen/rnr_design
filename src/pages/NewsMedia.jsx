@@ -81,6 +81,14 @@ const articles = [
 
 const categories = ["TOUTES", "CLUB", "PRO", "MATCH", "ÉVÉNEMENT", "BUSINESS", "BOUTIQUE"];
 
+const breves = [
+  { id: 1, category: "PRO", title: "Antoine DUPRE convoqué en équipe de France A", date: "11 Avr. 2026" },
+  { id: 2, category: "CLUB", title: "L'assemblée générale annuelle se tiendra le 15 mai", date: "09 Avr. 2026" },
+  { id: 3, category: "MATCH", title: "Victoire 28-14 face à Aurillac à l'extérieur", date: "06 Avr. 2026" },
+  { id: 4, category: "PRO", title: "Reprise de l'entraînement après la trêve internationale", date: "03 Avr. 2026" },
+  { id: 5, category: "CLUB", title: "RNR distingué par la FFR pour son engagement RSE", date: "01 Avr. 2026" },
+];
+
 export default function NewsMedia() {
   const [filter, setFilter] = useState("TOUTES");
 
@@ -99,20 +107,56 @@ export default function NewsMedia() {
       <div className="container-premium py-16">
         <FilterBar filters={categories} active={filter} onChange={setFilter} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredArticles.map(article => (
-            <ArticleCard key={article.id} article={article} />
-          ))}
+        {/* EN BREF — mobile only: most recent brève above articles */}
+        <div className="md:hidden mb-8 border border-slate-200 bg-white">
+          <div className="flex items-center gap-3 bg-black px-5 py-3">
+            <span className="font-heading font-black uppercase italic text-white tracking-widest text-sm">EN BREF</span>
+          </div>
+          <div className="flex items-center gap-4 px-5 py-3">
+            <span className="tag-pill bg-slate-100 text-slate-500 shrink-0">{breves[0].category}</span>
+            <span className="flex-1 text-sm font-semibold text-slate-800 leading-snug">{breves[0].title}</span>
+            <span className="text-[11px] font-bold uppercase text-slate-400 shrink-0">{breves[0].date}</span>
+          </div>
         </div>
 
-        {/* PAGINATION */}
-        <div className="flex justify-center items-center gap-2">
-          <button className="w-12 h-12 flex border border-slate-200 items-center justify-center font-bold hover:bg-white hover:shadow-md transition-all material-symbols-outlined rounded-none bg-slate-100 text-slate-400">chevron_left</button>
-          <button className="w-12 h-12 flex bg-primary text-white items-center justify-center font-black italic shadow-lg">1</button>
-          <button className="w-12 h-12 flex border border-slate-200 bg-white items-center justify-center font-black italic hover:shadow-md transition-all">2</button>
-          <button className="w-12 h-12 flex border border-slate-200 bg-white items-center justify-center font-black italic hover:shadow-md transition-all">3</button>
-          <span className="px-4 font-black text-slate-300">...</span>
-          <button className="w-12 h-12 flex border border-slate-200 bg-white items-center justify-center font-black italic hover:shadow-md transition-all material-symbols-outlined rounded-none">chevron_right</button>
+        {/* Main layout: articles + brèves sidebar */}
+        <div className="flex gap-10 items-start">
+          {/* Articles grid */}
+          <div className="flex-1 min-w-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+              {filteredArticles.map(article => (
+                <ArticleCard key={article.id} article={article} />
+              ))}
+            </div>
+
+            {/* PAGINATION */}
+            <div className="flex justify-center items-center gap-2">
+              <button className="w-12 h-12 flex border border-slate-200 items-center justify-center font-bold hover:bg-white hover:shadow-md transition-all material-symbols-outlined rounded-none bg-slate-100 text-slate-400">chevron_left</button>
+              <button className="w-12 h-12 flex bg-primary text-white items-center justify-center font-black italic shadow-lg">1</button>
+              <button className="w-12 h-12 flex border border-slate-200 bg-white items-center justify-center font-black italic hover:shadow-md transition-all">2</button>
+              <button className="w-12 h-12 flex border border-slate-200 bg-white items-center justify-center font-black italic hover:shadow-md transition-all">3</button>
+              <span className="px-4 font-black text-slate-300">...</span>
+              <button className="w-12 h-12 flex border border-slate-200 bg-white items-center justify-center font-black italic hover:shadow-md transition-all material-symbols-outlined rounded-none">chevron_right</button>
+            </div>
+          </div>
+
+          {/* EN BREF sidebar — desktop only */}
+          <aside className="hidden md:flex flex-col w-72 shrink-0 border border-slate-200 bg-white sticky top-8">
+            <div className="bg-black px-5 py-4">
+              <span className="font-heading font-black uppercase italic text-white tracking-widest text-sm">EN BREF</span>
+            </div>
+            <ul className="divide-y divide-slate-100">
+              {breves.map(breve => (
+                <li key={breve.id} className="flex flex-col gap-1.5 px-5 py-4 hover:bg-slate-50 transition-colors cursor-pointer">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="tag-pill bg-slate-100 text-slate-500">{breve.category}</span>
+                    <span className="text-[11px] font-bold uppercase text-slate-400">{breve.date}</span>
+                  </div>
+                  <span className="text-sm font-semibold text-slate-800 leading-snug">{breve.title}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
         </div>
       </div>
     </div>
