@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import heroStadium from "/assets/images/ui/www_leclub.webp";
 import imgHeroBg from "/assets/images/ui/hero_bg.webp";
-import imgDiochon from "/assets/images/ui/stade_diochon.webp";
+import imgDiochon from "/assets/images/ui/visuel_stade.webp";
 
 const navLinks = [
   { label: "Histoire & Palmarès", path: "/le-club", exact: true },

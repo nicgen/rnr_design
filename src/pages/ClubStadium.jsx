@@ -1,5 +1,5 @@
 import PageHero from "../components/PageHero";
-import diochonImg from "/assets/images/ui/stade_diochon.webp";
+import diochonImg from "/assets/images/ui/visuel_stade.webp";
 import heroImg from "/assets/images/ui/www_leclub.webp";
 
 const navLinks = [

@@ -70,7 +70,6 @@ export default function Header() {
       image: '/assets/images/ui/www_equipe_pro.webp',
       links: [
         { label: 'Effectif Pro 25/26', to: '/equipe-pro' },
-        { label: 'Staff Technique', to: '/equipe-pro' },
         { label: 'Calendrier & Résultats', to: '/equipe-pro/calendrier' },
         { label: 'Classement', to: '/equipe-pro/classement' }
       ]
@@ -152,8 +151,10 @@ export default function Header() {
               </div>
             </button>
 
-            <div className="hidden xl:flex items-center h-5 border-l border-white/20 pl-8">
+            <div className="hidden xl:flex items-center gap-6 h-5 border-l border-white/20 pl-8">
               <QuickLink to="/actualites-medias">Actualités</QuickLink>
+              <div className="border-l border-white/20 h-5" />
+              <QuickLink to="/equipe-pro">L'équipe pro</QuickLink>
             </div>
           </div>
 

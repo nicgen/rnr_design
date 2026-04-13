@@ -53,8 +53,7 @@ export default function ClubStaff() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <ProfileCard name="ÉRIC VISSE" role="PRÉSIDENT" />
-            <ProfileCard name="DELPHINE BUNEL" role="PRÉSIDENTE RNR ASSOCIATION" photo={presidentImg} />
+            <ProfileCard name="DELPHINE BUNEL" role="Présidente du Rouen Normandie Rugby" photo={presidentImg} />
           </div>
 
           <div className="mt-32 mb-12">

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AnimatedCounter from '../components/AnimatedCounter';
 import MagneticWrapper from '../components/MagneticWrapper';
 import logoRNR from '/assets/images/content/logo_RNR_alpha.png';
-import stadiumHero from '/assets/images/ui/hero_bg.webp';
+import stadiumHero from '/assets/images/ui/visuel_stade.webp';
 import statsHero from '/assets/images/ui/www_leclub.webp';
 import presidentImg from '/assets/images/content/Matinee-conviviale-avec-le-RNR.webp';
 import jerseyImg from '/assets/images/ui/Maillot-Domicile-25-26.webp';
@@ -136,7 +136,7 @@ export default function Home() {
               TOUS NORMANDS,<br />TOUS RNR!
             </h1>
             <p className="text-white text-[clamp(1.6rem,2vw,1.8rem)] font-medium max-w-2xl mx-auto italic opacity-90 drop-shadow-md mt-6 leading-relaxed">
-              Persévérance, force brute et passion : le Rouen Normandie Rugby avance, porté par tout un peuple.
+              Persévérance, et force brute, le RNR avance !
             </p>
           </div>
         </div>
@@ -309,20 +309,23 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6">
             
             {/* Colonne Gauche: POSITION AU CLASSEMENT */}
-            <Link to="/equipe-pro/classement" className="flex flex-col items-center justify-center p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 hover:bg-black/50 cursor-pointer transition-all duration-500">
-              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4 pointer-events-none">Position</h3>
-              <div className="flex items-center justify-center pointer-events-none">
+            <Link to="/equipe-pro/classement" className="flex flex-col p-8 bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group hover:border-primary/50 hover:bg-black/50 cursor-pointer transition-all duration-500">
+              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white mb-4 text-center">Position</h3>
+              <div className="flex flex-1 items-center justify-center">
                 <div className="relative inline-flex items-baseline">
-                  <span className="absolute top-0 left-0 text-3xl font-black italic text-primary leading-none">#</span>
+                  <span className="absolute top-[1rem] left-0 text-8xl font-black italic text-primary leading-none">#</span>
                   <span className="text-[clamp(9rem,18vw,20rem)] font-black leading-none italic tracking-tighter text-white select-none pl-8">7</span>
-                  <span className="text-2xl font-black italic text-white/40 leading-none mb-6">/14</span>
+                  <span className="text-2xl font-black italic text-white/60 leading-none mb-6">/14</span>
                 </div>
               </div>
+              <p className="text-(--text-sm) font-black uppercase tracking-widest text-white/60 group-hover:text-white/80 transition-all duration-300 text-center opacity-0 group-hover:opacity-100 mt-4">
+                tous les résultats →
+              </p>
             </Link>
 
             {/* Colonne Centre: DERNIERS RÉSULTATS */}
             <div className="flex flex-col gap-4 bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
-              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4">Derniers Résultats</h3>
+              <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white mb-4 text-center">Derniers Résultats</h3>
               <div className="flex flex-col flex-1 justify-between">
                 {[
                   { j: "J 22", date: "07/03/26", home: "BOURGOIN", away: "ROUEN", score: "11 - 33", win: true },
@@ -333,7 +336,7 @@ export default function Home() {
                   <div key={i} className={`py-3 px-4 flex flex-col md:flex-row md:items-center md:justify-between group hover:bg-white/10 transition-all duration-300 border-l-[3px] ${res.win ? 'border-primary bg-primary/5' : 'border-white/10 bg-white/5'}`}>
                     <div className="flex items-center gap-3 mb-1.5 md:mb-0 md:flex-col md:items-start md:gap-0">
                       <span className="text-xs font-black text-white leading-none">{res.j}</span>
-                      <span className="text-(--text-xs) font-bold text-white/40">{res.date}</span>
+                      <span className="text-(--text-xs) font-bold text-white/60">{res.date}</span>
                     </div>
                     <div className="flex justify-center items-center gap-3 text-sm font-black italic w-full md:flex-1">
                       <span className={`uppercase truncate flex-1 text-right ${res.home === 'ROUEN' ? 'text-primary' : 'text-white'}`}>{res.home}</span>
@@ -354,7 +357,7 @@ export default function Home() {
             {/* Colonne Droite: STATISTIQUES */}
             <div className="flex flex-col justify-between bg-black/30 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
               <div className="relative z-10">
-                <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white/60 mb-4">Statistiques</h3>
+                <h3 className="text-(--text-sm) font-black uppercase tracking-[0.2em] text-white mb-4 text-center">Statistiques</h3>
 
                 <div className="flex flex-col gap-4">
                   {/* Victoires | Defaites */}
@@ -364,8 +367,8 @@ export default function Home() {
                       <p className="text-[clamp(3.5rem,5vw,4.5rem)] font-black italic leading-none">15</p>
                     </div>
                     <div className="flex flex-col items-center flex-1 text-center border-l border-white/10">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">close</span>Défaites</p>
-                      <p className="text-[clamp(3.5rem,5vw,4.5rem)] font-black italic leading-none text-white/40">7</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/60 mb-1 flex items-center gap-1.5"><span className="material-symbols-outlined text-base">close</span>Défaites</p>
+                      <p className="text-[clamp(3.5rem,5vw,4.5rem)] font-black italic leading-none text-white/60">7</p>
                     </div>
                   </div>
 
@@ -378,7 +381,7 @@ export default function Home() {
                       { l: 'N', w: false, n: true }, 
                       { l: 'V', w: true }
                     ].map((f, i) => (
-                      <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-(--text-xs) font-black transition-all duration-300 ${f.w ? 'bg-primary text-white' : f.n ? 'bg-white/20 text-white' : 'bg-white/5 text-white/30 border border-white/5'}`}>
+                      <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-(--text-xs) font-black transition-all duration-300 ${f.w ? 'bg-primary text-white' : f.n ? 'bg-white/20 text-white' : 'bg-white/5 text-white/60 border border-white/5'}`}>
                         {f.l}
                       </div>
                     ))}
@@ -387,11 +390,11 @@ export default function Home() {
                   {/* Points Marqués | Concédés */}
                   <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-3">
                     <div>
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1">Points Marqués</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/60 mb-1">Points Marqués</p>
                       <p className="text-h3 font-black italic tracking-tighter">468</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/40 mb-1">Points Concédés</p>
+                      <p className="text-(--text-xs) font-black uppercase tracking-widest text-white/60 mb-1">Points Concédés</p>
                       <p className="text-h3 font-black italic tracking-tighter text-white/60">382</p>
                     </div>
                   </div>
@@ -439,8 +442,8 @@ export default function Home() {
 
       <section id="section-sponsor" className="bg-white py-(--space-xl) w-full flex-shrink-0">
         <SectionHeader title="LE CLUB AFFAIRES" />
-        
-        <div className="container-premium">
+
+        <div className="container-premium" style={{ maxWidth: '80%' }}>
           <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl">
             {/* VIP Background Visual */}
             <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
@@ -463,7 +466,7 @@ export default function Home() {
               </h3>
 
               <p className="text-lg leading-relaxed text-white/70 font-medium italic max-w-2xl">
-                Le Club Affaires du Rouen Normandie Rugby est un réseau dynamique regroupant plus de 260 entreprises partenaires. Véritable plateforme de networking, il permet aux acteurs économiques de la région de se rencontrer et d'échanger dans un cadre convivial et prestigieux lors de chaque rencontre à domicile. Rejoignez une communauté passionnée pour développer votre visibilité et vos opportunités d'affaires tout en soutenant l'excellence du rugby normand.
+                Le Club Affaires du Rouen Normandie Rugby est un réseau dynamique regroupant plus de 260 entreprises partenaires.
               </p>
 
               <button className="relative overflow-hidden bg-gradient-to-r from-[#bf953f] to-[#fcf6ba] text-black font-black uppercase px-12 py-5 hover:scale-105 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.3)] group/btn">
@@ -490,7 +493,6 @@ export default function Home() {
         <div className="container-premium relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {[
-              { val: "2",   label: "Titres de Champions de France", icon: "emoji_events" },
               { val: "400", label: "Licenciés au club",             icon: "groups" },
               { val: "260", label: "Partenaires officiels",          icon: "handshake" },
               { val: "120", label: "Bénévoles engagés",              icon: "favorite" },
