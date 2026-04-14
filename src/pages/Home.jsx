@@ -454,8 +454,8 @@ export default function Home() {
       <section id="section-sponsor" className="bg-white py-(--space-xl) w-full flex-shrink-0">
         <SectionHeader title="LE CLUB AFFAIRES" />
 
-        <div className="container-premium" style={{ maxWidth: '80%' }}>
-          <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl">
+        <div className="container-premium">
+          <div className="relative min-h-[500px] flex flex-col lg:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black group rounded-2xl w-[90%] lg:w-[65%] mx-auto -rotate-1">
             {/* VIP Background Visual */}
             <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
               <img src={vipBg} alt="VIP Club Affaires" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
@@ -463,7 +463,7 @@ export default function Home() {
             </div>
 
             {/* Content Overlay */}
-            <div className="relative z-10 w-full lg:w-3/5 p-12 lg:p-20 flex flex-col justify-center items-start gap-8">
+            <div className="relative z-10 w-full p-12 lg:p-20 flex flex-col justify-center items-start gap-8">
               <div className="flex items-center gap-6 mb-4">
                 <img src={logoRNR} alt="RNR Logo" className="w-20 h-20 object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.3)] animate-pulse-slow" />
                 <div className="h-16 w-[1px] bg-white/20"></div>
