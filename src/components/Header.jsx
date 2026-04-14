@@ -99,6 +99,7 @@ export default function Header() {
       image: '/assets/images/ui/www_entreprise.webp',
       links: [
         { label: 'Le Business Club', to: '/partenaires' },
+        { label: 'Actualités B2B', to: '/partenaires/actualites' },
         { label: 'Hospitalités & Loges', to: '/partenaires/hospitalites' },
         { label: 'Visibilité & Sponsoring', to: '/partenaires/visibilite' },
         { label: 'Actualités Partenaires', to: '/partenaires/actualites' },

@@ -15,19 +15,20 @@ import player3Img from '/assets/images/content/Marius_BUNEL.webp';
 import fansImg from '/assets/images/content/Tous-derriere-les-Lions.webp';
 import delphineImg from '/assets/images/content/Delphine_Bunel.webp';
 import vipBg from '/assets/images/ui/vip_bg.webp';
+import partenairesBg from '/assets/images/ui/partenaires_bg.webp';
 
 
 
 // --- COMPOSANTS INTERNES D'UNIFICATION ---
 
-const SectionHeader = ({ title, linkTo, linkLabel, isDark = false, badge }) => (
+const SectionHeader = ({ title, linkTo, linkLabel, isDark = false, badge, linkClass = '' }) => (
   <div className="container-premium mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-2 rnr-section-header">
     <div className="flex items-center gap-5 flex-wrap">
       <h2 className={`section-title-block rnr-section-header-title ${isDark ? 'text-white border-white' : 'text-slate-900 border-primary'}`}>{title}</h2>
       {badge && <span className="-skew-x-12 self-center bg-primary px-4 py-1.5"><span className="skew-x-12 inline-block text-white font-black uppercase tracking-widest" style={{ fontSize: 'var(--text-h4)' }}>{badge}</span></span>}
     </div>
     {linkTo && (
-      <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white' : ''}`}>
+      <Link to={linkTo} className={`btn-link rnr-section-header-link ${isDark ? 'text-white/60 hover:text-white' : ''} ${linkClass}`}>
         {linkLabel}
         <span className="material-symbols-outlined text-sm">arrow_forward</span>
       </Link>
@@ -521,8 +522,10 @@ export default function Home() {
       </section>
 
       {/* PARTENAIRES */}
-      <section id="section-partenaires-logos" className="bg-white py-(--space-xl) w-full flex-shrink-0 overflow-hidden">
-        <SectionHeader title="PARTENAIRES" linkTo="/partenaires" linkLabel="Voir tous les partenaires" />
+      <section id="section-partenaires-logos" className="relative bg-white py-(--space-xl) w-full flex-shrink-0 overflow-hidden">
+        <img src={partenairesBg} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-top opacity-80" />
+        <div className="relative z-10">
+        <SectionHeader title="PARTENAIRES" linkTo="/partenaires" linkLabel="Voir tous les partenaires" linkClass="text-black hover:text-primary" />
 
         {/* Rangée 1 — défile vers la gauche */}
         <div className="relative mb-6 overflow-hidden">
@@ -552,6 +555,7 @@ export default function Home() {
               ))
             )}
           </div>
+        </div>
         </div>
       </section>
 

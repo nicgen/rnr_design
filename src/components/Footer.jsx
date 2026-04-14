@@ -26,13 +26,13 @@ export default function Footer() {
               <li><Link to="/equipe-pro" className="hover:text-primary transition-colors">Effectif</Link></li>
               <li><Link to="/equipe-pro/calendrier" className="hover:text-primary transition-colors">Calendrier</Link></li>
               <li><Link to="/equipe-pro/classement" className="hover:text-primary transition-colors">Classement</Link></li>
-              <li><Link to="/equipe-pro/feminines" className="hover:text-primary transition-colors">Féminines</Link></li>
+              <li><a href="https://www.les-valkyries-rouen.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors inline-flex items-center gap-1">Les Valkyries<span className="material-symbols-outlined text-[8px]">arrow_outward</span></a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-70">Formation</h4>
             <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
-              <li><a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Détection</a></li>
+              <li><a href="https://www.rouennormandierugbyformation.fr/detections/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors inline-flex items-center gap-1">Détection<span className="material-symbols-outlined text-[8px]">arrow_outward</span></a></li>
               <li><Link to="/formation" className="hover:text-primary transition-colors">Académie</Link></li>
               <li><Link to="/formation/jeunes" className="hover:text-primary transition-colors">Pôle Jeunes</Link></li>
               <li><Link to="/formation/ecole-rugby" className="hover:text-primary transition-colors">École de Rugby</Link></li>
@@ -42,6 +42,7 @@ export default function Footer() {
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-70">Partenaires</h4>
             <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
               <li><Link to="/partenaires" className="hover:text-primary transition-colors">Business Club</Link></li>
+              <li><Link to="/partenaires/actualites" className="hover:text-primary transition-colors">Actualités B2B</Link></li>
               <li><Link to="/partenaires/hospitalites" className="hover:text-primary transition-colors">Hospitalités</Link></li>
               <li><Link to="/partenaires/visibilite" className="hover:text-primary transition-colors">Visibilité</Link></li>
               <li><Link to="/partenaires/contact" className="hover:text-primary transition-colors">Devenir Partenaire</Link></li>
@@ -50,8 +51,8 @@ export default function Footer() {
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-70">Pratique</h4>
             <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
-              <li><a href="http://billetterie.rouen-normandie-rugby.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Billetterie</a></li>
-              <li><a href="http://boutique.rouennormandierugby.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Boutique</a></li>
+              <li><a href="http://billetterie.rouen-normandie-rugby.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors inline-flex items-center gap-1">Billetterie<span className="material-symbols-outlined text-[8px]">arrow_outward</span></a></li>
+              <li><a href="http://boutique.rouennormandierugby.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors inline-flex items-center gap-1">Boutique<span className="material-symbols-outlined text-[8px]">arrow_outward</span></a></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               <li><span className="cursor-pointer hover:text-primary transition-colors">Mentions Légales</span></li>
             </ul>
