@@ -120,9 +120,9 @@ export default function NewsMedia() {
         </div>
 
         {/* Main layout: articles + brèves sidebar */}
-        <div className="flex gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           {/* Articles grid */}
-          <div className="flex-1 min-w-0">
+          <div className="md:col-span-3 min-w-0">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
               {filteredArticles.map(article => (
                 <ArticleCard key={article.id} article={article} />
@@ -141,7 +141,7 @@ export default function NewsMedia() {
           </div>
 
           {/* EN BREF sidebar — desktop only */}
-          <aside className="hidden md:flex flex-col w-72 shrink-0 border border-slate-200 bg-white sticky top-8">
+          <aside className="hidden md:flex flex-col col-span-1 border border-slate-200 bg-white sticky top-8">
             <div className="bg-black px-5 py-4">
               <span className="font-heading font-black uppercase italic text-white tracking-widest text-sm">EN BREF</span>
             </div>
