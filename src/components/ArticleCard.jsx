@@ -13,9 +13,11 @@ export default function ArticleCard({ article, basePath = '/actualites-medias' }
           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-        <div className="absolute top-4 left-4">
-          <span className="tag-pill bg-primary text-white">{article.category}</span>
-        </div>
+        {article.category && (
+          <div className="absolute top-4 left-4">
+            <span className="tag-pill bg-primary text-white">{article.category}</span>
+          </div>
+        )}
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">{article.date}</p>

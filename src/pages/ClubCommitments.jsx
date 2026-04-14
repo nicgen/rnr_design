@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import ArticleCard from "../components/ArticleCard";
 import heroImg from "/assets/images/ui/www_leclub.webp";
 
 const navLinks = [
@@ -8,24 +9,38 @@ const navLinks = [
   { label: "Nos Engagements", path: "/le-club/engagements", exact: true },
 ];
 
+const rseArticles = [
+  {
+    id: "visites-hopital",
+    title: "Visites à l'hôpital Charles-Nicolle",
+    date: "12 Mars 2026",
+    img: "/assets/images/content/Tous-derriere-les-Lions.webp",
+    excerpt: "Chaque mois, nos joueurs se rendent au CHU de Rouen pour apporter du réconfort et partager un moment privilégié avec les enfants hospitalisés."
+  },
+  {
+    id: "stade-zero-dechet",
+    title: "Stade Zéro Déchet : notre démarche environnementale",
+    date: "05 Mars 2026",
+    img: "/assets/images/content/Matinee-conviviale-avec-le-RNR.webp",
+    excerpt: "Gobelets réutilisables, tri systématique et suppression du plastique à usage unique les soirs de match à Robert-Diochon."
+  },
+  {
+    id: "rugby-sante-adapte",
+    title: "Rugby Santé & Adapté, le sport pour tous",
+    date: "20 Février 2026",
+    img: "/assets/images/ui/www_leclub.webp",
+    excerpt: "Le club développe activement ses sections spécialisées pour permettre la pratique du rugby à tous, quels que soient l'âge ou les capacités physiques."
+  },
+  {
+    id: "ecole-rugby",
+    title: "École & Rugby : éduquer par le sport",
+    date: "10 Février 2026",
+    img: "/assets/images/ui/hero_bg.webp",
+    excerpt: "En partenariat avec les établissements scolaires normands, le RNR intervient pour sensibiliser les jeunes aux valeurs du rugby et du vivre-ensemble."
+  }
+];
+
 export default function ClubCommitments() {
-  const actions = [
-    {
-      icon: "volunteer_activism",
-      title: "Visites à l'hôpital",
-      desc: "Les joueurs du RNR se rendent régulièrement au CHU de Rouen pour apporter du réconfort et partager un moment privilégié avec les enfants hospitalisés."
-    },
-    {
-      icon: "recycling",
-      title: "Stade Zéro Déchet",
-      desc: "Mise en place de gobelets réutilisables, tri systématique et diminution drastique du plastique à usage unique les soirs de match à Robert-Diochon."
-    },
-    {
-      icon: "sports_handicap",
-      title: "Rugby Santé & Adapté",
-      desc: "Le club développe activement ses sections spécialisées pour permettre la pratique du rugby à tous, quels que soient l'âge ou les capacités physiques."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -79,15 +94,9 @@ export default function ClubCommitments() {
           <div className="border-t border-slate-200 pt-24">
             <h4 className="text-4xl font-black uppercase tracking-tighter italic mb-16 text-center">Focus sur nos actions</h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {actions.map((action, i) => (
-                <div key={i} className="bg-white p-10 shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group">
-                  <div className="w-16 h-16 bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-black transition-colors duration-300">
-                    <span className="material-symbols-outlined text-4xl text-primary">{action.icon}</span>
-                  </div>
-                  <h5 className="font-black uppercase text-2xl mb-4 italic tracking-tight">{action.title}</h5>
-                  <p className="text-slate-500 font-medium italic leading-relaxed">{action.desc}</p>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+              {rseArticles.map(article => (
+                <ArticleCard key={article.id} article={article} basePath="/le-club/engagements" />
               ))}
             </div>
           </div>

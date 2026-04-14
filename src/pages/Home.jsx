@@ -60,6 +60,7 @@ export default function Home() {
   const marqueeRef = useRef(null);
   const videoRef = useRef(null);
   const [showBanner, setShowBanner] = useState(false);
+  const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     if (videoRef.current) {
@@ -125,7 +126,17 @@ export default function Home() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/assets/video/video_bg.mp4" type="video/mp4" />
+            {isMobile ? (
+              <>
+                <source src="/assets/video/video_bg_mobile.webm" type="video/webm" />
+                <source src="/assets/video/video_bg_mobile.mp4" type="video/mp4" />
+              </>
+            ) : (
+              <>
+                <source src="/assets/video/video_bg.webm" type="video/webm" />
+                <source src="/assets/video/video_bg.mp4" type="video/mp4" />
+              </>
+            )}
           </video>
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
