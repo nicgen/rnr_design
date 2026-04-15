@@ -41,10 +41,11 @@ export default function Footer() {
           <div>
             <h4 className="text-(--text-xs) font-black uppercase mb-4 opacity-70">Partenaires</h4>
             <ul className="flex flex-col gap-1.5 text-[11px] font-bold uppercase text-slate-500 pl-4">
-              <li><Link to="/partenaires" className="hover:text-primary transition-colors">Business Club</Link></li>
               <li><Link to="/partenaires/actualites" className="hover:text-primary transition-colors">Actualités B2B</Link></li>
+              <li><Link to="/partenaires" className="hover:text-primary transition-colors">Business Club</Link></li>
               <li><Link to="/partenaires/hospitalites" className="hover:text-primary transition-colors">Hospitalités</Link></li>
               <li><Link to="/partenaires/visibilite" className="hover:text-primary transition-colors">Visibilité</Link></li>
+              <li><Link to="/partenaires/entreprises" className="hover:text-primary transition-colors">Nos Partenaires</Link></li>
               <li><Link to="/partenaires/contact" className="hover:text-primary transition-colors">Devenir Partenaire</Link></li>
             </ul>
           </div>

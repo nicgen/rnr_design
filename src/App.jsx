@@ -22,6 +22,7 @@ import Partners from "./pages/Partners";
 import PartnersNews from "./pages/PartnersNews";
 import PartnersHospitality from "./pages/PartnersHospitality";
 import PartnersVisibility from "./pages/PartnersVisibility";
+import PartnersCompanies from "./pages/PartnersCompanies";
 import PartnersContact from "./pages/PartnersContact";
 import Contact from "./pages/Contact";
 
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="partenaires/actualites" element={<PartnersNews />} />
           <Route path="partenaires/hospitalites" element={<PartnersHospitality />} />
           <Route path="partenaires/visibilite" element={<PartnersVisibility />} />
+          <Route path="partenaires/entreprises" element={<PartnersCompanies />} />
           <Route path="partenaires/contact" element={<PartnersContact />} />
           <Route path="contact" element={<Contact />} />
         </Route>
