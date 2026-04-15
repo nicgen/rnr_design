@@ -3,10 +3,11 @@ import heroImg from "/assets/images/ui/www_entreprise.webp";
 import appImg from "/assets/images/ui/mise-en-avant-partenaires.webp";
 
 const navLinks = [
-  { label: "Le Business Club", path: "/partenaires", exact: true },
   { label: "Actualités B2B", path: "/partenaires/actualites", exact: true },
+  { label: "Le Business Club", path: "/partenaires", exact: true },
   { label: "Hospitalités & Loges", path: "/partenaires/hospitalites", exact: true },
   { label: "Visibilité & Sponsoring", path: "/partenaires/visibilite", exact: true },
+  { label: "Nos Partenaires", path: "/partenaires/entreprises", exact: true },
   { label: "Devenir Partenaire", path: "/partenaires/contact", exact: true },
 ];
 

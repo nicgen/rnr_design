@@ -98,11 +98,11 @@ export default function Header() {
       title: 'PARTENAIRES',
       image: '/assets/images/ui/www_entreprise.webp',
       links: [
-        { label: 'Le Business Club', to: '/partenaires' },
         { label: 'Actualités B2B', to: '/partenaires/actualites' },
+        { label: 'Le Business Club', to: '/partenaires' },
         { label: 'Hospitalités & Loges', to: '/partenaires/hospitalites' },
         { label: 'Visibilité & Sponsoring', to: '/partenaires/visibilite' },
-        { label: 'Actualités Partenaires', to: '/partenaires/actualites' },
+        { label: 'Nos Partenaires', to: '/partenaires/entreprises' },
         { label: 'Devenir Partenaire', to: '/partenaires/contact' }
       ]
     },
